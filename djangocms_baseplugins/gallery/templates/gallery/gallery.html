@@ -1,0 +1,12 @@
+{% load cms_tags ckeditor_link_tags %}
+
+<div class="plugin plugin_gallery gallery_columns_{{ object.child_plugin_instances|length }} {{ object.layout }} {{ object.background }} {{ object.color }}">
+    <div class="gallery_inner">
+        {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
+        <div class="children">
+            {% for plugin in object.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

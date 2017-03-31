@@ -1,0 +1,7 @@
+tox
+coverage
+django-coverage
+flake8
+factory_boy
+mock
+selenium

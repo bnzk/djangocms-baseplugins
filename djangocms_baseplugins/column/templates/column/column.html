@@ -1,0 +1,9 @@
+{% load cms_tags %}
+
+<section class="plugin plugin_column {{ object.layout }} {{ object.background }} {{ object.color }}">
+    <div class="children">
+        {% for plugin in object.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+    </div>
+</section>

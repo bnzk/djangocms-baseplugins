@@ -1,0 +1,7 @@
+{% load ckeditor_link_tags %}
+
+<div class="plugin plugin_text {{ object.layout }} {{ object.background }} {{ object.color }}">
+    <div class="text_text">
+        {{ object.body|ckeditor_link_add_links|safe }}
+    </div>
+</div>

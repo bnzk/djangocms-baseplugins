@@ -1,0 +1,9 @@
+{% load cms_tags thumbnail%}
+
+
+<div class="plugin plugin_image">
+    {% if object.image %}
+        {% thumbnail object.image 1000x1000 crop=0 upscale=0 as resized %}
+        <img src="{{ resized.url }}" alt="{{ object.caption }}" title="{{ object.caption }}">
+    {% endif %}
+</div>

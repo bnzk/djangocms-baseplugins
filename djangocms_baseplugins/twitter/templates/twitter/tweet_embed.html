@@ -1,0 +1,8 @@
+{% load cms_tags thumbnail%}
+
+
+{% if embed.html %}
+    <div class="plugin plugin_tweet_embed">
+        {{ embed.html|safe }}
+    </div>
+{% endif %}

@@ -1,0 +1,10 @@
+{% load cms_tags ckeditor_link_tags %}
+
+<section class="plugin plugin_personsection {{ object.layout }} {{ object.background }} {{ object.color }}">
+    <h2>{{ object.title }}</h2>
+    <div class="children">
+        {% for plugin in object.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+    </div>
+</section>

@@ -1,0 +1,10 @@
+{% load cms_tags thumbnail%}
+
+
+{% if object.htmlblock %}
+    <div class="plugin plugin_htmlblock">
+        <div class="htmlblock_wrap">
+            {{ object.htmlblock|safe }}
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,16 @@
+{% load cms_tags thumbnail%}
+
+
+<div class="plugin plugin_my">
+    <h1>{{ instance.title }}</h1>
+    {{ instance.body|safe }}
+    {% if instance.image %}
+        {% thumbnail instance.image 100x100 crop=0 upscale=1 as resized %}
+        <img src="{{ resized.url }}" alt="{{ instance.title }}">
+    {% endif %}
+    <div class="children">
+        {% for child_plugin in instance.child_plugin_instances %}
+            {% render_plugin child_plugin %}
+        {% endfor %}
+    </div>
+</div>
