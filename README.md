@@ -1,4 +1,4 @@
-# djangocms-pluginbase
+# djangocms-baseplugins
 A common base for consistent djangocms plugin development. includes default plugins.
 
 ## Framework
