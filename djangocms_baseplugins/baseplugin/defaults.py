@@ -28,7 +28,7 @@ BASEPLUGIN_ADVANCED_FIELDS = getattr(settings, 'BASEPLUGIN_ADVANCED_FIELDS', adv
 WIDTH_CHOICES = getattr(
     settings, 'BASEPLUGIN_WIDTH_CHOICES',
     (
-        ('', _('automatic')),
+        ('', _('Automatic')),
         ('w-100', _('100%')),
         ('w-66', _('66%')),
         ('w-50', _('50%')),

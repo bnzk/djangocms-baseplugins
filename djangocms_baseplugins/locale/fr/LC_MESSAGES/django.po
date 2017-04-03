@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-03 10:00+0200\n"
+"POT-Creation-Date: 2017-04-03 15:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: baseplugin/defaults.py:25
-msgid "automatic"
+#: baseplugin/defaults.py:31
+msgid "Automatic"
 msgstr ""
 
-#: baseplugin/defaults.py:26
+#: baseplugin/defaults.py:32
 msgid "100%"
 msgstr ""
 
-#: baseplugin/defaults.py:27
+#: baseplugin/defaults.py:33
 msgid "66%"
 msgstr ""
 
-#: baseplugin/defaults.py:28
+#: baseplugin/defaults.py:34
 msgid "50%"
 msgstr ""
 
-#: baseplugin/defaults.py:29
+#: baseplugin/defaults.py:35
 msgid "33%"
 msgstr ""
 
@@ -43,17 +43,15 @@ msgid "hidden"
 msgstr ""
 
 #: baseplugin/utils.py:10
-msgid "design"
+msgid "Design & Layout"
 msgstr ""
 
-#: baseplugin/utils.py:15 htmlblock/conf.py:19 image/conf.py:19
-#: twitter/conf.py:19
-msgid "content"
+#: baseplugin/utils.py:15 image/cms_plugins.py:13 person/cms_plugins.py:26
+msgid "Content"
 msgstr ""
 
-#: baseplugin/utils.py:20 column/conf.py:13 htmlblock/conf.py:23
-#: image/conf.py:23 twitter/conf.py:23
-msgid "advanced settings"
+#: baseplugin/utils.py:20
+msgid "Advanced Settings"
 msgstr ""
 
 #: column/cms_plugins.py:12 column/models.py:20
@@ -64,21 +62,29 @@ msgstr ""
 msgid "width"
 msgstr ""
 
-#: gallery/cms_plugins.py:13 person/cms_plugins.py:15 section/cms_plugins.py:13
-#: slider/cms_plugins.py:13 teaser_section/cms_plugins.py:13
-msgid "containers"
+#: gallery/cms_plugins.py:13 person/cms_plugins.py:14 section/cms_plugins.py:13
+#: slider/cms_plugins.py:13
+msgid "Containers"
 msgstr ""
 
-#: gallery/cms_plugins.py:14 gallery/models.py:23
+#: gallery/cms_plugins.py:14
+msgid "Gallery"
+msgstr ""
+
+#: gallery/models.py:17
+msgid "Height"
+msgstr ""
+
+#: gallery/models.py:23
 msgid "gallery"
 msgstr ""
 
-#: gallery/models.py:17 section/models.py:17 slider/models.py:17
-msgid "height"
+#: htmlblock/cms_plugins.py:13
+msgid "Advanced"
 msgstr ""
 
 #: htmlblock/cms_plugins.py:14
-msgid "htmlblock"
+msgid "HTML Block"
 msgstr ""
 
 #: htmlblock/models.py:15
@@ -89,12 +95,16 @@ msgstr ""
 msgid "Use with caution."
 msgstr ""
 
-#: image/cms_plugins.py:13 image/models.py:16 person/models.py:31
+#: image/cms_plugins.py:14 person/models.py:31
+msgid "Image"
+msgstr ""
+
+#: image/models.py:16
 msgid "image"
 msgstr ""
 
-#: person/cms_plugins.py:16 person/models.py:22
-msgid "person section"
+#: person/cms_plugins.py:15 person/models.py:22
+msgid "People Section"
 msgstr ""
 
 #: person/cms_plugins.py:27
@@ -102,48 +112,80 @@ msgid "person"
 msgstr ""
 
 #: person/models.py:33
-msgid "first name"
+msgid "Salutation"
 msgstr ""
 
 #: person/models.py:34
-msgid "last name"
+msgid "First Name"
 msgstr ""
 
-#: person/models.py:35 text/cms_plugins.py:24 text/models.py:15
-#: textimage/models.py:18
-msgid "text"
+#: person/models.py:35
+msgid "Last Name"
 msgstr ""
 
 #: person/models.py:36
-msgid "email"
+msgid "Text"
 msgstr ""
 
 #: person/models.py:37
-msgid "website"
+msgid "Email"
 msgstr ""
 
 #: person/models.py:38
-msgid "phone"
+msgid "Website"
 msgstr ""
 
-#: section/cms_plugins.py:14 section/models.py:23
+#: person/models.py:39
+msgid "Phone"
+msgstr ""
+
+#: section/cms_plugins.py:14
+msgid "Section"
+msgstr ""
+
+#: section/models.py:17 slider/models.py:17
+msgid "height"
+msgstr ""
+
+#: section/models.py:23
 msgid "section"
 msgstr ""
 
-#: slider/cms_plugins.py:14 slider/models.py:23
+#: slider/cms_plugins.py:14
+msgid "Slider"
+msgstr ""
+
+#: slider/models.py:23
 msgid "slider"
+msgstr ""
+
+#: teaser_section/cms_plugins.py:13
+msgid "containers"
 msgstr ""
 
 #: teaser_section/cms_plugins.py:14 teaser_section/models.py:22
 msgid "teaser section"
 msgstr ""
 
-#: textimage/cms_plugins.py:24
+#: text/cms_plugins.py:23 textimage/cms_plugins.py:23 twitter/cms_plugins.py:14
+#: twitter/conf.py:19
+msgid "content"
+msgstr ""
+
+#: text/cms_plugins.py:25 text/models.py:15 textimage/models.py:18
+msgid "text"
+msgstr ""
+
+#: textimage/cms_plugins.py:25
 msgid "textimage"
 msgstr ""
 
-#: twitter/cms_plugins.py:14
+#: twitter/cms_plugins.py:15
 msgid "twitter"
+msgstr ""
+
+#: twitter/conf.py:23
+msgid "advanced settings"
 msgstr ""
 
 #: twitter/models.py:15
