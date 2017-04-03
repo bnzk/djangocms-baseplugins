@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 IMAGEPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'IMAGEPLUGIN_CONTENT_FIELDS', (
@@ -15,14 +15,11 @@ IMAGEPLUGIN_CONTENT_FIELDS = getattr(
 )
 
 IMAGEPLUGIN_FIELDSETS = getattr(
-    settings, 'IMAGEPLUGIN_FIELDSETS', (
-        (_('content'), {
-            'classes': ['section', 'content-section'],
-            'fields': IMAGEPLUGIN_CONTENT_FIELDS,
-        }),
-        (_('advanced settings'), {
-            'classes': ('section', 'settings-advanced'),
-            'fields': defaults.BASEPLUGIN_ADVANCED_FIELDS,
-        }),
-    )
+    settings,
+    'IMAGEPLUGIN_FIELDSETS',
+    build_baseplugin_fieldset(**{
+        'design': [],  # doesnt need this.
+        'content': IMAGEPLUGIN_CONTENT_FIELDS,
+        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+    })
 )

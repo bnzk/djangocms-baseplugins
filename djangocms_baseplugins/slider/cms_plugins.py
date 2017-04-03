@@ -10,8 +10,8 @@ from . import conf
 
 class SliderPlugin(BasePluginMixin, CMSPluginBase):
     model = Slider
-    module = _("containers")
-    name = _(u'slider')
+    module = _("Containers")
+    name = _(u'Slider')
     render_template = "slider/slider.html"
     fieldsets = conf.SLIDERPLUGIN_FIELDSETS
     allow_children = True

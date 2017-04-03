@@ -19,7 +19,7 @@ class PersonSectionBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("person section"))
+        return str(_("People Section"))
 
 
 class PersonSection(PersonSectionBase):

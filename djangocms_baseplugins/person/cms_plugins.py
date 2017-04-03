@@ -11,8 +11,8 @@ from . import conf
 
 class PersonSectionPlugin(BasePluginMixin, CMSPluginBase):
     model = PersonSection
-    module = _("containers")
-    name = _(u'person section')
+    module = _("Containers")
+    name = _(u'People Section')
     render_template = "person/person_section.html"
     allow_children = True
     child_classes = ('PersonPlugin', )
@@ -23,7 +23,7 @@ plugin_pool.register_plugin(PersonSectionPlugin)
 
 class PersonPlugin(BasePluginMixin, CMSPluginBase):
     model = Person
-    module = _("content")
+    module = _("Content")
     name = _(u'person')
     render_template = "person/person.html"
     require_parent = True

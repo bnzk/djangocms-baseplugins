@@ -10,8 +10,8 @@ from . import conf
 
 class HtmlBlockPlugin(BasePluginMixin, CMSPluginBase):
     model = HtmlBlock
-    module = _("advanced")
-    name = _(u'htmlblock')
+    module = _("Advanced")
+    name = _(u'HTML Block')
     render_template = "htmlblock/htmlblock.html"
     fieldsets = conf.HTMLBLOCKPLUGIN_FIELDSETS
 

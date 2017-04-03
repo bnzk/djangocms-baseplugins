@@ -10,8 +10,8 @@ from . import conf
 
 class SectionPlugin(BasePluginMixin, CMSPluginBase):
     model = Section
-    module = _("containers")
-    name = _(u'section')
+    module = _("Containers")
+    name = _(u'Section')
     render_template = "section/section.html"
     fieldsets = conf.SECTIONPLUGIN_FIELDSETS
     allow_children = True

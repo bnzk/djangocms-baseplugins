@@ -10,8 +10,8 @@ from . import conf
 
 class GalleryPlugin(BasePluginMixin, CMSPluginBase):
     model = Gallery
-    module = _("containers")
-    name = _(u'gallery')
+    module = _("Containers")
+    name = _(u'Gallery')
     render_template = "gallery/gallery.html"
     fieldsets = conf.GALLERYPLUGIN_FIELDSETS
     allow_children = True

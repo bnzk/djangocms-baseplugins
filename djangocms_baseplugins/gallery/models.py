@@ -14,7 +14,7 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 @python_2_unicode_compatible
 class GalleryBase(AbstractBasePlugin):
-    height = models.CharField(_('height'), max_length=32, default='', blank=True)
+    height = models.CharField(_('Height'), max_length=32, default='', blank=True)
 
     class Meta:
         abstract = True
