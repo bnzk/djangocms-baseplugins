@@ -10,6 +10,7 @@ from . import conf
 
 class ImagePlugin(BasePluginMixin, CMSPluginBase):
     model = Image
+    module = _("content")
     name = _(u'image')
     render_template = "image/image.html"
     fieldsets = conf.IMAGEPLUGIN_FIELDSETS

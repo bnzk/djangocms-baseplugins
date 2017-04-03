@@ -20,6 +20,7 @@ class TextImagePluginForm(forms.ModelForm):
 
 class TextImagePlugin(BasePluginMixin, CMSPluginBase):
     form = TextImagePluginForm
+    module = _("content")
     model = TextImage
     name = _(u'textimage')
     render_template = "textimage/textimage.html"

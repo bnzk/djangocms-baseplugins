@@ -23,6 +23,7 @@ plugin_pool.register_plugin(PersonSectionPlugin)
 
 class PersonPlugin(BasePluginMixin, CMSPluginBase):
     model = Person
+    module = _("content")
     name = _(u'person')
     render_template = "person/person.html"
     require_parent = True
