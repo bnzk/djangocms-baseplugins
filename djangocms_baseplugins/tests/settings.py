@@ -33,8 +33,12 @@ DATABASES = {
     }
 }
 
-LANGUAGES = (('en', 'EN', ), )
-LANGUAGE_CODE = 'en'
+LANGUAGES = (
+    ('en', 'EN', ),
+    ('de', 'DE', ),
+    ('fr', 'FR', ),
+)
+LANGUAGE_CODE = 'de'
 
 ROOT_URLCONF = 'djangocms_baseplugins.tests.urls'
 
@@ -91,6 +95,9 @@ EXTERNAL_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+
+    'ckeditor',
+    'mailprotector',
 
     'filer',
     'easy_thumbnails',
