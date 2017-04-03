@@ -4,14 +4,13 @@ from cms.plugin_pool import plugin_pool
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from .models import Person
-from djangocms_baseplugins.section.models import Section
+from .models import Person, PersonSection
 
 from . import conf
 
 
 class PersonSectionPlugin(BasePluginMixin, CMSPluginBase):
-    model = Section
+    model = PersonSection
     module = _("containers")
     name = _(u'person section')
     render_template = "person/person_section.html"

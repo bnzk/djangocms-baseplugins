@@ -60,6 +60,8 @@ Section container.
 
 ### Column
 
-## Slider
+### Slider
 
-## Text
+## Content Plugins
+
+### Text
