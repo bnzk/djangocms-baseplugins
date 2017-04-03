@@ -65,3 +65,26 @@ Section container.
 ## Content Plugins
 
 ### Text
+
+Simple Textplugin, using ckeditor. Obviously, adds django-ckeditor as dependency.
+
+Use `CKEDITOR_SETTINGS` for configuring your ckeditor. For example, a rather simple one:
+
+    CKEDITOR_SETTINGS = {
+        'toolbar': 'MINE',
+        'toolbar_MINE': [
+            ['Undo', 'Redo'],
+            ['Link', 'Unlink', ],
+            ['Bold', 'RemoveFormat', ],
+            ['Format'],
+            ['Cut', 'Copy', 'PasteText', ],
+            ['cleanup', ],
+            ['ShowBlocks', 'Source'],
+        ],
+        'format_tags': 'h1;h2;h3;p',
+        'skin': 'moono',
+    }
+
+
+### Image
+
