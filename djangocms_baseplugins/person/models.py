@@ -30,12 +30,13 @@ class PersonSection(PersonSectionBase):
 class PersonBase(AbstractBasePlugin):
     image = FilerImageField(verbose_name=_("image"), blank=True, null=True, default=None,
                             on_delete=models.SET_NULL, related_name="%(app_label)s_%(class)s_image")
+    salutation = models.CharField(_("Salutation"), max_length=255, default='')
     first_name = models.CharField(_("first name"), max_length=255, default='')
     last_name = models.CharField(_("last name"), max_length=255, default='')
     body = RichTextField(_("text"), blank=True, default='')
     email = models.EmailField(_("email"), blank=True, default='')
     website = models.URLField(_("website"), blank=True, default='')
-    phone = models.CharField(_("phone"), max_length='32', blank=True, default='')
+    phone = models.CharField(_("phone"), max_length=64, blank=True, default='')
 
     class Meta:
         abstract = True

@@ -32,7 +32,7 @@ PERSONSECTIONPLUGIN_FIELDSETS = getattr(
 
 PERSONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONPLUGIN_CONTENT_FIELDS', (
-        'image', ('title', 'first_name', 'last_name', ), 'body', 'email', 'phone', 'website',
+        'image', 'title', ('salutation', 'first_name', 'last_name', ), 'body', 'email', 'phone', 'website',
     )
 )
 

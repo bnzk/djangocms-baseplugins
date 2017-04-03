@@ -20,9 +20,12 @@ APP_ROOT = os.path.abspath(
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
+        'NAME': 'sqlite.db',
     }
 }
+
+LANGUAGES = (('en', 'EN', ), )
+LANGUAGE_CODE = 'en'
 
 ROOT_URLCONF = 'djangocms_baseplugins.tests.urls'
 
@@ -78,11 +81,33 @@ EXTERNAL_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+
+    'filer',
+    'easy_thumbnails',
+
+    'cms',
+    'menus',
+    'classytags',
+    'treebeard',
+    'sekizai',
+    'djangocms_admin_style',
+
+
 )
 
 INTERNAL_APPS = (
     'djangocms_baseplugins',
     'djangocms_baseplugins.tests.test_app',
+    'djangocms_baseplugins.text',
+    'djangocms_baseplugins.image',
+    'djangocms_baseplugins.gallery',
+    'djangocms_baseplugins.section',
+    'djangocms_baseplugins.htmlblock',
+    'djangocms_baseplugins.person',
+    'djangocms_baseplugins.slider',
+    'djangocms_baseplugins.teaser_section',
+    'djangocms_baseplugins.textimage',
+    'djangocms_baseplugins.twitter',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,6 +117,12 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+
+    # django cms specific
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 INSTALLED_APPS = EXTERNAL_APPS + INTERNAL_APPS

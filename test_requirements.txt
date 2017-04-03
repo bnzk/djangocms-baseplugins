@@ -6,4 +6,8 @@ factory_boy
 mock
 selenium
 
+easy-thumbnails
 django-cms==3.4.2
+django-filer
+django-ckeditor
+requests
