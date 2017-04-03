@@ -9,15 +9,11 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 SLIDERPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'SLIDERPLUGIN_CONTENT_FIELDS', (
-        'title',
-    )
+    settings, 'SLIDERPLUGIN_CONTENT_FIELDS', []
 )
 
 SLIDERPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'SLIDERPLUGIN_DESIGN_FIELDS', (
-        'layout',
-    )
+    settings, 'SLIDERPLUGIN_DESIGN_FIELDS', []
 )
 
 SLIDERPLUGIN_FIELDSETS = getattr(

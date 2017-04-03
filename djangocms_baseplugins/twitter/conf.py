@@ -1,11 +1,10 @@
 # coding: utf-8
-
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
 TWEETEMBEDPLUGIN_CONTENT_FIELDS = getattr(
@@ -14,15 +13,16 @@ TWEETEMBEDPLUGIN_CONTENT_FIELDS = getattr(
     )
 )
 
+TWEETEMBEDPLUGIN_DESIGN_FIELDS = getattr(
+    settings, 'TWEETEMBEDPLUGIN_DESIGN_FIELDS', []
+)
+
 TWEETEMBEDPLUGIN_FIELDSETS = getattr(
-    settings, 'TWEETEMBEDPLUGIN_FIELDSETS', (
-        (_('content'), {
-            'classes': ['section', 'content-section'],
-            'fields': TWEETEMBEDPLUGIN_CONTENT_FIELDS,
-        }),
-        (_('advanced settings'), {
-            'classes': ('section', 'settings-advanced'),
-            'fields': defaults.BASEPLUGIN_ADVANCED_FIELDS,
-        }),
-    )
+    settings,
+    'TWEETEMBEDPLUGIN_FIELDSETS',
+    build_baseplugin_fieldset(**{
+        'design': TWEETEMBEDPLUGIN_DESIGN_FIELDS,
+        'content': TWEETEMBEDPLUGIN_CONTENT_FIELDS,
+        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+    })
 )

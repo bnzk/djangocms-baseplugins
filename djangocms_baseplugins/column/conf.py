@@ -1,20 +1,24 @@
 # coding: utf-8
-
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
+COLUMNPLUGIN_CONTENT_FIELDS = getattr(
+    settings, 'COLUMNPLUGIN_CONTENT_FIELDS', [])
+
+COLUMNPLUGIN_DESIGN_FIELDS = getattr(
+    settings, 'COLUMNPLUGIN_DESIGN_FIELDS', [])
+
 COLUMNPLUGIN_FIELDSETS = getattr(
     settings,
     'COLUMNPLUGIN_FIELDSETS ',
     build_baseplugin_fieldset(**{
-        'design': defaults.BASEPLUGIN_DESIGN_FIELDS,
-        'content': [],  # defined: no title for columns!
+        'content': COLUMNPLUGIN_CONTENT_FIELDS,
+        'design': COLUMNPLUGIN_DESIGN_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 )

@@ -9,20 +9,12 @@ from django.utils.translation import ugettext_lazy as _
 DJANGOCMS_BASEPLUGINS_MODE = getattr(settings, 'DJANGOCMS_BASEPLUGINS_MODE', 'default')
 
 if DJANGOCMS_BASEPLUGINS_MODE == 'minimal':
-    content_fields = []
-    design_fields = []
     advanced_fields = []
 elif DJANGOCMS_BASEPLUGINS_MODE == 'full':
-    content_fields = ['title', ]
-    design_fields = ['layout', 'background', 'color', ]
     advanced_fields = ['published', 'in_menu', 'anchor', ]
 else:
-    content_fields = ['title', ]
-    design_fields = ['layout', ]
     advanced_fields = ['published', ]
 
-BASEPLUGIN_CONTENT_FIELDS = getattr(settings, 'BASEPLUGIN_DESIGN_FIELDS', content_fields)
-BASEPLUGIN_DESIGN_FIELDS = getattr(settings, 'BASEPLUGIN_DESIGN_FIELDS', design_fields)
 BASEPLUGIN_ADVANCED_FIELDS = getattr(settings, 'BASEPLUGIN_ADVANCED_FIELDS', advanced_fields)
 
 WIDTH_CHOICES = getattr(

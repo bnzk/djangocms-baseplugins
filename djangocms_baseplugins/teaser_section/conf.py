@@ -9,15 +9,11 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 TEASERSECTIONPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'TEASERSECTIONPLUGIN_CONTENT_FIELDS', (
-        'title',
-    )
+    settings, 'TEASERSECTIONPLUGIN_CONTENT_FIELDS', []
 )
 
 TEASERSECTIONPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'TEASERSECTIONPLUGIN_DESIGN_FIELDS', (
-        'layout',
-    )
+    settings, 'TEASERSECTIONPLUGIN_DESIGN_FIELDS', []
 )
 
 TEASERSECTIONPLUGIN_FIELDSETS = getattr(

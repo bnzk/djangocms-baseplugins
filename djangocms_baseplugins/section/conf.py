@@ -1,21 +1,18 @@
 # coding: utf-8
-
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+
 SECTIONPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'SECTIONPLUGIN_CONTENT_FIELDS', (
-        'title',
-    )
+    settings, 'SECTIONPLUGIN_CONTENT_FIELDS', []
 )
 
 SECTIONPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'SECTIONPLUGIN_DESIGN_FIELDS', defaults.BASEPLUGIN_DESIGN_FIELDS
+    settings, 'SECTIONPLUGIN_DESIGN_FIELDS', []
 )
 
 SECTIONPLUGIN_FIELDSETS = getattr(
