@@ -4,6 +4,15 @@ import tempfile
 import logging
 
 
+DJANGOCMS_BASEPLUGINS_MODE = 'full'
+
+CMS_TEMPLATES = (
+    ('base.html', 'Default'),
+)
+
+
+##################333333
+
 DEBUG = True
 
 logging.getLogger("factory").setLevel(logging.WARN)
@@ -54,6 +63,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
+                'cms.context_processors.cms_settings',
+                'sekizai.context_processors.sekizai',
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -72,7 +83,6 @@ COVERAGE_MODULE_EXCLUDES = [
 ]
 
 EXTERNAL_APPS = (
-    'django.contrib.admin',
     # 'django.contrib.admindocs',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -92,6 +102,7 @@ EXTERNAL_APPS = (
     'sekizai',
     'djangocms_admin_style',
 
+    'django.contrib.admin',
 
 )
 
@@ -102,6 +113,7 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.image',
     'djangocms_baseplugins.gallery',
     'djangocms_baseplugins.section',
+    'djangocms_baseplugins.column',
     'djangocms_baseplugins.htmlblock',
     'djangocms_baseplugins.person',
     'djangocms_baseplugins.slider',
@@ -114,6 +126,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
     # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',

@@ -9,5 +9,9 @@ selenium
 easy-thumbnails
 django-cms==3.4.2
 django-filer
+# text
 django-ckeditor
+# twitter
 requests
+# person (only if default template)
+django-mailprotector
