@@ -1,3 +1,2 @@
-# coding: utf-8
-from __future__ import unicode_literals
-from django.utils.encoding import python_2_unicode_compatible
+__version__ = '0.0.1'
+__author__ = 'benzkji'

@@ -1,10 +1,4 @@
 # TODO #
 
-- better support for inlines, js is very hacky atm
-- only works for stacked inlines
-- better support for multi widget form fields (_0!)
+- test suite, testing basic plugin functionality (using djangocms-helpers??)
 
-
-# DONE #
-
-- no more need to specify a form, and on the form, specify attrs in the fields widget (formfield_for_dbfield FTW)

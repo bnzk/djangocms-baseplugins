@@ -1,12 +1,9 @@
 
-==== 0.0.2 (2016-08-10) ===
-
-- delayed initialization of widget (let other js based widget initialize in a displayed state)
-- refactored tests
-- added code example in readme
+==== 0.0.2 (ongoing) ===
 
 
-==== 0.0.1 (2016-07-15) ===
 
-- initial 0.0.1
+==== 0.0.1 (2017-04-03) ===
+
+- initial 0.0.1, no pypi
 

@@ -5,3 +5,5 @@ flake8
 factory_boy
 mock
 selenium
+
+django-cms==3.4.2
