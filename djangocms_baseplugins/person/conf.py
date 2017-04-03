@@ -11,7 +11,7 @@ from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 PERSONSECTIONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONSECTIONPLUGIN_CONTENT_FIELDS', (
-        'title',
+        defaults.BASEPLUGIN_CONTENT_FIELDS,
     )
 )
 
