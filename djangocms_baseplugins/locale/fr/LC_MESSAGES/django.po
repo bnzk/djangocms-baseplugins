@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-04 10:24+0200\n"
+"POT-Creation-Date: 2017-04-04 15:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,8 @@ msgstr ""
 msgid "Design & Layout"
 msgstr ""
 
-#: baseplugin/utils.py:15 image/cms_plugins.py:13 person/cms_plugins.py:26
+#. Translators: forget c, this is for alphabetical ordering in cms
+#: baseplugin/utils.py:15 image/cms_plugins.py:14 person/cms_plugins.py:26
 #: text/cms_plugins.py:24 textimage/cms_plugins.py:24 twitter/cms_plugins.py:14
 msgid "Content"
 msgstr ""
@@ -77,22 +78,18 @@ msgid "Height"
 msgstr ""
 
 #: htmlblock/cms_plugins.py:13
-msgid "Advanced"
+msgid "z Advanced"
 msgstr ""
 
-#: htmlblock/cms_plugins.py:14
+#: htmlblock/cms_plugins.py:14 htmlblock/models.py:15
 msgid "HTML Block"
-msgstr ""
-
-#: htmlblock/models.py:15
-msgid "Html Block"
 msgstr ""
 
 #: htmlblock/models.py:15
 msgid "Use with caution."
 msgstr ""
 
-#: image/cms_plugins.py:14 image/models.py:16 person/models.py:31
+#: image/cms_plugins.py:15 image/models.py:16 person/models.py:31
 msgid "Image"
 msgstr ""
 
@@ -141,12 +138,8 @@ msgstr ""
 msgid "Slider"
 msgstr ""
 
-#: teaser_section/cms_plugins.py:14
+#: teaser_section/cms_plugins.py:14 teaser_section/models.py:22
 msgid "Teaser Section"
-msgstr ""
-
-#: teaser_section/models.py:22
-msgid "teaser section"
 msgstr ""
 
 #: textimage/cms_plugins.py:25

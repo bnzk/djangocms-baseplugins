@@ -10,7 +10,7 @@ from . import conf
 
 class GalleryPlugin(BasePluginMixin, CMSPluginBase):
     model = Gallery
-    module = _("B) Containers")
+    module = _("Containers")
     name = _(u'Gallery')
     render_template = "djangocms_baseplugins/gallery.html"
     fieldsets = conf.GALLERYPLUGIN_FIELDSETS

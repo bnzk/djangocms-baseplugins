@@ -115,6 +115,7 @@ EXTERNAL_APPS = (
 
 INTERNAL_APPS = (
     'djangocms_baseplugins.tests.test_app',
+    'djangocms_baseplugins',
     'djangocms_baseplugins.baseplugin',
     'djangocms_baseplugins.text',
     'djangocms_baseplugins.image',

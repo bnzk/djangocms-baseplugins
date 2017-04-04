@@ -11,7 +11,7 @@ from . import conf
 
 class TweetEmbedPlugin(BasePluginMixin, CMSPluginBase):
     model = TweetEmbed
-    module = _("A) Content")
+    module = _("Content")
     name = _(u'Twitter')
     render_template = "djangocms_baseplugins/tweet_embed.html"
     fieldsets = conf.TWEETEMBEDPLUGIN_FIELDSETS

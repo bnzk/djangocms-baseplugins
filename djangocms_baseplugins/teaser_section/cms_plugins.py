@@ -10,7 +10,7 @@ from . import conf
 
 class TeaserSectionPlugin(BasePluginMixin, CMSPluginBase):
     model = TeaserSection
-    module = _("B) Containers")
+    module = _("Containers")
     name = _('Teaser Section')
     render_template = "djangocms_baseplugins/teaser_section.html"
     fieldsets = conf.TEASERSECTIONPLUGIN_FIELDSETS

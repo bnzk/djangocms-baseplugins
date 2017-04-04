@@ -10,7 +10,7 @@ from . import conf
 
 class SliderPlugin(BasePluginMixin, CMSPluginBase):
     model = Slider
-    module = _("B) Containers")
+    module = _("Containers")
     name = _(u'Slider')
     render_template = "djangocms_baseplugins/slider.html"
     fieldsets = conf.SLIDERPLUGIN_FIELDSETS

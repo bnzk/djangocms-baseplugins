@@ -10,7 +10,8 @@ from . import conf
 
 class ImagePlugin(BasePluginMixin, CMSPluginBase):
     model = Image
-    module = _("A) Content")
+    # Translators: forget c, this is for alphabetical ordering in cms
+    module = _("Content")
     name = _(u'Image')
     render_template = "djangocms_baseplugins/image.html"
     fieldsets = conf.IMAGEPLUGIN_FIELDSETS

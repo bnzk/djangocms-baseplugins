@@ -21,7 +21,7 @@ class TextImagePluginForm(forms.ModelForm):
 class TextImagePlugin(BasePluginMixin, CMSPluginBase):
     model = TextImage
     form = TextImagePluginForm
-    module = _("A) Content")
+    module = _("Content")
     name = _(u'Text & Image')
     render_template = "djangocms_baseplugins/textimage.html"
     fieldsets = conf.TEXTIMAGEPLUGIN_FIELDSETS

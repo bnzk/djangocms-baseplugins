@@ -12,7 +12,7 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 @python_2_unicode_compatible
 class HtmlBlockBase(AbstractBasePlugin):
-    htmlblock = models.TextField(verbose_name=_("Html Block"), help_text=_("Use with caution."))
+    htmlblock = models.TextField(verbose_name=_("HTML Block"), help_text=_("Use with caution."))
 
     class Meta:
         abstract = True

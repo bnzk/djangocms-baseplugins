@@ -19,7 +19,7 @@ class TeaserSectionBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("teaser section"))
+        return str(_("Teaser Section"))
 
 
 class TeaserSection(TeaserSectionBase):
