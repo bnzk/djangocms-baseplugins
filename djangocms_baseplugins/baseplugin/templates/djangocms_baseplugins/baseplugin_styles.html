@@ -1,0 +1,28 @@
+{% load i18n l10n %}
+
+<style>
+
+    .plugin.cms-plugin-{{ object.pk|unlocalize }} {
+        display: none;
+    }
+
+    /* directly inspired by: https://github.com/arteria/djangocms-inline-comment/blob/master/djangocms_inline_comment/templates/djangocms_inline_comment/inline_comment_style.html */
+
+    /* background transparent, light border */
+    div.cms .cms-structure .cms-draggable-{{ object.pk|unlocalize }} > .cms-dragitem {
+        background-color: transparent;
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+    }
+    /* hightlight border on hover */
+    div.cms .cms-structure .cms-draggable-{{ object.pk|unlocalize }} > .cms-dragitem:hover {
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,0.3);
+    }
+
+    .cms-draggable-{{ object.pk|unlocalize }} > .cms-dragitem > .cms-dragitem-text a {
+        text-decoration: underline;
+    }
+    /* Styles for other plugins' draggables nested inside */
+    div.cms .cms-structure .cms-draggable-{{ object.pk|unlocalize }} .cms-dragitem-text {
+        opacity: 0.5;
+    }
+</style>

@@ -7,8 +7,9 @@ from django.utils.translation import ugettext_lazy as _
 class BasePluginMixin():
 
     def render(self, context, instance, placeholder):
-        if not instance.published:
-            self.render_template = 'baseplugin/unpublished.html'
+        request = context.get('request', None)
+        if not instance.published and not request.toolbar.edit_mode:
+            self.render_template = 'djangocms_baseplugins/unpublished.html'
         context['plugin'] = self
         context['object'] = instance
         context['placeholder'] = placeholder

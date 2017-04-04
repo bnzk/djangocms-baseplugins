@@ -21,7 +21,7 @@ class TextPluginForm(forms.ModelForm):
 class TextPlugin(BasePluginMixin, CMSPluginBase):
     model = Text
     form = TextPluginForm
-    module = _("Content")
+    module = _("A) Content")
     name = _(u'Text')
     render_template = "djangocms_baseplugins/text.html"
     fieldsets = conf.TEXTPLUGIN_FIELDSETS

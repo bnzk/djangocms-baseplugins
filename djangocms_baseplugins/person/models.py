@@ -42,7 +42,7 @@ class PersonBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return u'%s %s' % (self.first_name, self.last_name)
+        return u"%s %s %s" % (self.first_name, self.last_name, self.get_hidden_flag())
 
 
 class Person(PersonBase):

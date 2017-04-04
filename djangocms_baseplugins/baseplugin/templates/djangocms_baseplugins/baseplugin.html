@@ -1,0 +1,9 @@
+{% load sekizai_tags %}
+
+{% block plugin_content %}{% endblock %}
+
+{% if request.toolbar.edit_mode and not object.published %}
+    {% addtoblock "css" %}
+    {% include 'djangocms_baseplugins/baseplugin_styles.html' %}
+    {% endaddtoblock %}
+{% endif %}

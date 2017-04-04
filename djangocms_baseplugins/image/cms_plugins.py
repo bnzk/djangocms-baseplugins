@@ -10,7 +10,7 @@ from . import conf
 
 class ImagePlugin(BasePluginMixin, CMSPluginBase):
     model = Image
-    module = _("Content")
+    module = _("A) Content")
     name = _(u'Image')
     render_template = "djangocms_baseplugins/image.html"
     fieldsets = conf.IMAGEPLUGIN_FIELDSETS

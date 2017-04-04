@@ -43,7 +43,7 @@ LANGUAGE_CODE = 'de'
 ROOT_URLCONF = 'djangocms_baseplugins.tests.urls'
 
 # media root is overridden when needed in tests
-MEDIA_ROOT = tempfile.mkdtemp(suffix='folderless_media_root')
+MEDIA_ROOT = os.path.join(APP_ROOT, '../test_app_media')
 MEDIA_URL = "/media/"
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(APP_ROOT, '../test_app_static')
@@ -114,8 +114,8 @@ EXTERNAL_APPS = (
 )
 
 INTERNAL_APPS = (
-    'djangocms_baseplugins',
     'djangocms_baseplugins.tests.test_app',
+    'djangocms_baseplugins.baseplugin',
     'djangocms_baseplugins.text',
     'djangocms_baseplugins.image',
     'djangocms_baseplugins.gallery',

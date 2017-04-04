@@ -5,6 +5,9 @@ __pycache__/
 .idea
 *.db
 
+test_app_static
+test_app_media
+
 # C extensions
 *.so
 

@@ -1,7 +1,10 @@
-{% load ckeditor_link_tags %}
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+{% load %}
 
+{% block plugin_content %}
 <div class="plugin plugin_text {{ object.layout }} {{ object.background }} {{ object.color }}">
     <div class="text_text">
-        {{ object.body|ckeditor_link_add_links|safe }}
+        {{ object.body|safe }}
     </div>
 </div>
+{% endblock %}

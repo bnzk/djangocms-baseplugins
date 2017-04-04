@@ -10,7 +10,7 @@ from . import conf
 
 class SectionPlugin(BasePluginMixin, CMSPluginBase):
     model = Section
-    module = _("Containers")
+    module = _("B) Containers")
     name = _(u'Section')
     render_template = "djangocms_baseplugins/section.html"
     fieldsets = conf.SECTIONPLUGIN_FIELDSETS

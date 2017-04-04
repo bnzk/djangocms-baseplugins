@@ -1,11 +1,14 @@
-{% load ckeditor_link_tags thumbnail %}
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+{% load thumbnail %}
 
+{% block plugin_content %}
 <div class="plugin plugin_textimage {{ object.layout }} {{ object.background }} {{ object.color }}">
     <div class="textimage_image">
         {% thumbnail object.image 1000x1000 crop=0 upscale=0 as resized %}
         <img src="{{ resized.url }}" alt="{{ object.caption }}" title="{{ object.caption }}">
     </div>
     <div class="textimage_text">
-        {{ object.body|ckeditor_link_add_links|safe }}
+        {{ object.body|safe }}
     </div>
 </div>
+{% endblock %}

@@ -1,5 +1,7 @@
+{% extends "djangocms_baseplugins/baseplugin.html" %}
 {% load cms_tags %}
 
+{% block plugin_content %}
 <section class="plugin plugin_column {{ object.layout }} {{ object.background }} {{ object.color }}">
     <div class="children">
         {% for plugin in object.child_plugin_instances %}
@@ -7,3 +9,4 @@
         {% endfor %}
     </div>
 </section>
+{% endblock %}
