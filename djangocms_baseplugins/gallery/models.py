@@ -20,7 +20,7 @@ class GalleryBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("gallery"))
+        return str(_("Gallery"))
 
 
 class Gallery(GalleryBase):

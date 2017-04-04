@@ -13,7 +13,7 @@ class PersonSectionPlugin(BasePluginMixin, CMSPluginBase):
     model = PersonSection
     module = _("Containers")
     name = _(u'People Section')
-    render_template = "person/person_section.html"
+    render_template = "djangocms_baseplugins/person_section.html"
     allow_children = True
     child_classes = ('PersonPlugin', )
     fieldsets = conf.PERSONSECTIONPLUGIN_FIELDSETS
@@ -24,8 +24,8 @@ plugin_pool.register_plugin(PersonSectionPlugin)
 class PersonPlugin(BasePluginMixin, CMSPluginBase):
     model = Person
     module = _("Content")
-    name = _(u'person')
-    render_template = "person/person.html"
+    name = _(u'Person / Contact')
+    render_template = "djangocms_baseplugins/person.html"
     require_parent = True
     fieldsets = conf.PERSONPLUGIN_FIELDSETS
 

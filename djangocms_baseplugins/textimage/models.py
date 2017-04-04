@@ -15,7 +15,7 @@ from djangocms_baseplugins.text.models import TextBase
 
 @python_2_unicode_compatible
 class TextImageBase(ImageBase):
-    body = RichTextField(_('text'), blank=True)
+    body = RichTextField(_('Text'), blank=True)
 
     class Meta:
         abstract = True

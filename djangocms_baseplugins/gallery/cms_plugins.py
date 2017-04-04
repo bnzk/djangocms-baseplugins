@@ -12,7 +12,7 @@ class GalleryPlugin(BasePluginMixin, CMSPluginBase):
     model = Gallery
     module = _("Containers")
     name = _(u'Gallery')
-    render_template = "gallery/gallery.html"
+    render_template = "djangocms_baseplugins/gallery.html"
     fieldsets = conf.GALLERYPLUGIN_FIELDSETS
     allow_children = True
     child_classes = conf.GALLERYPLUGIN_CHILD_CLASSES

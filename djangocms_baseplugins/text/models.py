@@ -12,7 +12,7 @@ from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content
 
 @python_2_unicode_compatible
 class TextBase(AbstractBasePlugin):
-    body = RichTextField(_('text'), blank=True)
+    body = RichTextField(_('Text'), blank=True)
 
     class Meta:
         abstract = True

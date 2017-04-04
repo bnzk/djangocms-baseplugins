@@ -12,7 +12,7 @@ class HtmlBlockPlugin(BasePluginMixin, CMSPluginBase):
     model = HtmlBlock
     module = _("Advanced")
     name = _(u'HTML Block')
-    render_template = "htmlblock/htmlblock.html"
+    render_template = "djangocms_baseplugins/htmlblock.html"
     fieldsets = conf.HTMLBLOCKPLUGIN_FIELDSETS
 
 plugin_pool.register_plugin(HtmlBlockPlugin)

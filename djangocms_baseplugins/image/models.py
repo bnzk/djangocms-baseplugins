@@ -13,7 +13,7 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 @python_2_unicode_compatible
 class ImageBase(AbstractBasePlugin):
-    image = FilerImageField(verbose_name=_("image"), null=True, on_delete=models.SET_NULL,
+    image = FilerImageField(verbose_name=_("Image"), null=True, on_delete=models.SET_NULL,
                             related_name="%(app_label)s_%(class)s_image")
     caption = models.CharField(max_length=255, blank=True, default='')
     alt_text = models.CharField(max_length=255, blank=True, default='')

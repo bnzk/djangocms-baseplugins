@@ -17,7 +17,7 @@ class ColumnBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("column"))
+        return str(_("Column"))
 
 
 class Column(ColumnBase):

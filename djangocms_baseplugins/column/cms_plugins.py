@@ -9,8 +9,8 @@ from . import conf
 
 class ColumnPlugin(BasePluginMixin, CMSPluginBase):
     model = Column
-    name = _(u'column')
-    render_template = "column/column.html"
+    name = _(u'Column')
+    render_template = "djangocms_baseplugins/column.html"
     fieldsets = conf.COLUMNPLUGIN_FIELDSETS
     require_parent = True
     allow_children = True

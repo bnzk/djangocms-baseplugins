@@ -12,7 +12,7 @@ class SliderPlugin(BasePluginMixin, CMSPluginBase):
     model = Slider
     module = _("Containers")
     name = _(u'Slider')
-    render_template = "slider/slider.html"
+    render_template = "djangocms_baseplugins/slider.html"
     fieldsets = conf.SLIDERPLUGIN_FIELDSETS
     allow_children = True
     child_classes = conf.SLIDERPLUGIN_CHILD_CLASSES

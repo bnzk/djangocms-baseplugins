@@ -12,7 +12,7 @@ class SectionPlugin(BasePluginMixin, CMSPluginBase):
     model = Section
     module = _("Containers")
     name = _(u'Section')
-    render_template = "section/section.html"
+    render_template = "djangocms_baseplugins/section.html"
     fieldsets = conf.SECTIONPLUGIN_FIELDSETS
     allow_children = True
     child_classes = conf.SECTIONPLUGIN_CHILD_CLASSES

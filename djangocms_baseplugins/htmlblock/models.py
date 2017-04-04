@@ -18,7 +18,7 @@ class HtmlBlockBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return u'Html block'
+        return u'HTML block'
 
 
 class HtmlBlock(HtmlBlockBase):
