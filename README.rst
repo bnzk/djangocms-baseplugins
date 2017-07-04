@@ -25,10 +25,12 @@ Plugins included
 
 All plugins have a abstract base class that can be used as starting point.
 
-#### Containers
+Containers
+##########
+
 - **[Section](#section)**, allows columns or other content within
 - **Column**, used with a section
-- **Slider**, a slider, defaults to owl-carousel2, but use what you want
+- **Slider**, a slider, defaults to owl-carousel2 (not yet there is any js..), but use what you want
 
 #### Content
 - **Richtext**, using django-ckeditor
