@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-04 15:49+0200\n"
+"POT-Creation-Date: 2017-07-04 13:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ben Stähli <bnzk@bnzk.ch>, 2017\n"
 "Language-Team: German (https://www.transifex.com/bnzk/teams/73468/de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: baseplugin/defaults.py:23
@@ -38,22 +38,49 @@ msgstr ""
 msgid "33%"
 msgstr ""
 
-#: baseplugin/models.py:33
+#: baseplugin/models.py:15
+msgid "Title"
+msgstr ""
+
+#: baseplugin/models.py:20
+msgid "Published?"
+msgstr ""
+
+#: baseplugin/models.py:24
+msgid "In Menu?"
+msgstr ""
+
+#: baseplugin/models.py:31
+msgid "Layout"
+msgstr ""
+
+#: baseplugin/models.py:37
+msgid "Background"
+msgstr ""
+
+#: baseplugin/models.py:43
+msgid "Color"
+msgstr ""
+
+#: baseplugin/models.py:49
+msgid "Anchor"
+msgstr ""
+
+#: baseplugin/models.py:61
 msgid "hidden"
 msgstr "versteckt"
 
-#: baseplugin/utils.py:10
+#: baseplugin/utils.py:11
 msgid "Design & Layout"
 msgstr "Design & Layout"
 
 #. Translators: forget c, this is for alphabetical ordering in cms
-#: baseplugin/utils.py:15 image/cms_plugins.py:14 person/cms_plugins.py:26
-#: text/cms_plugins.py:24 textimage/cms_plugins.py:24
-#: twitter/cms_plugins.py:14
+#: baseplugin/utils.py:16 image/cms_plugins.py:25 person/cms_plugins.py:26
+#: text/cms_plugins.py:24 textimage/cms_plugins.py:24 twitter/cms_plugins.py:14
 msgid "Content"
 msgstr "Inhalt"
 
-#: baseplugin/utils.py:20
+#: baseplugin/utils.py:21
 msgid "Advanced Settings"
 msgstr "Erweiterte Einstellungen"
 
@@ -65,9 +92,8 @@ msgstr "Spalte"
 msgid "width"
 msgstr "Breite"
 
-#: gallery/cms_plugins.py:13 person/cms_plugins.py:14
-#: section/cms_plugins.py:13 slider/cms_plugins.py:13
-#: teaser_section/cms_plugins.py:13
+#: gallery/cms_plugins.py:13 person/cms_plugins.py:14 section/cms_plugins.py:13
+#: slider/cms_plugins.py:13 teaser_section/cms_plugins.py:13
 msgid "Containers"
 msgstr "Container"
 
@@ -91,9 +117,23 @@ msgstr "HTML Block"
 msgid "Use with caution."
 msgstr "Bitte Vorsicht."
 
-#: image/cms_plugins.py:15 image/models.py:16 person/models.py:31
+#: image/cms_plugins.py:26 image/models.py:16 person/models.py:31
 msgid "Image"
 msgstr "Bild"
+
+#: image/conf.py:35
+msgid "Full Size"
+msgstr ""
+
+#: image/conf.py:36
+#, fuzzy
+#| msgid "Content"
+msgid "Content Sized"
+msgstr "Inhalt"
+
+#: image/conf.py:45 image/conf.py:54
+msgid "Default"
+msgstr ""
 
 #: person/cms_plugins.py:15 person/models.py:22
 msgid "People Section"

@@ -1,4 +1,5 @@
 # coding: utf-8
+from django import forms
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
 from django.utils.translation import ugettext_lazy as _
@@ -22,6 +23,21 @@ def build_baseplugin_fieldset(**kwargs):
             'fields': kwargs.get('advanced'),
         }))
     return fieldset
+
+
+def build_baseplugin_widgets(conf, prefix):
+    widgets = {
+        'layout': forms.Select(
+            choices=getattr(conf, '{}_LAYOUT_CHOICES'.format(prefix), []),
+        ),
+        'background': forms.Select(
+            choices=getattr(conf, '{}_BACKGROUND_CHOICES'.format(prefix), []),
+        ),
+        'color': forms.Select(
+            choices=getattr(conf, '{}_COLOR_CHOICES'.format(prefix), []),
+        ),
+    }
+    return widgets
 
 
 def truncate_richtext_content(richtext):

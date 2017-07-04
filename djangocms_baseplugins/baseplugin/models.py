@@ -1,25 +1,53 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-
 from django.db import models
 from cms.models.pluginmodel import CMSPlugin
 
 
 class AbstractBasePlugin(CMSPlugin):
     # text
-    title = models.CharField(max_length=256, blank=True, default='')
+    title = models.CharField(
+        max_length=256,
+        blank=True,
+        default='',
+        verbose_name=_("Title"),
+    )
     # visibility
-    published = models.BooleanField(default=True)
-    in_menu = models.BooleanField(default=False)
+    published = models.BooleanField(
+        default=True,
+        verbose_name=_("Published?"),
+    )
+    in_menu = models.BooleanField(
+        default=False,
+        verbose_name=_("In Menu?"),
+    )
     # base optics
-    layout = models.CharField(max_length=64, default='')
-    background = models.CharField(max_length=64, default='')
-    color = models.CharField(max_length=64, default='')
+    layout = models.CharField(
+        max_length=64,
+        default='',
+        blank=True,
+        verbose_name=_("Layout"),
+    )
+    background = models.CharField(
+        max_length=64,
+        blank=True,
+        default='',
+        verbose_name=_("Background"),
+    )
+    color = models.CharField(
+        max_length=64,
+        blank=True,
+        default='',
+        verbose_name=_("Color"),
+    )
     # navigation
-    anchor = models.SlugField(blank=True, default='')
+    anchor = models.SlugField(
+        default='',
+        blank=True,
+        verbose_name=_("Anchor"),
+    )
 
     class Meta:
         abstract = True
