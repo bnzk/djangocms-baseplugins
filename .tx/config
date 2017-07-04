@@ -1,8 +1,0 @@
-[main]
-host = https://www.transifex.com
-
-[djangocms-baseplugins.main]
-file_filter = djangocms_baseplugins/locale/<lang>/LC_MESSAGES/django.po
-source_file = djangocms_baseplugins/locale/en-orig/LC_MESSAGES/django.po
-source_lang = en-orig
-type = PO

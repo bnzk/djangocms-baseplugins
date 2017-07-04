@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-04 13:11+0200\n"
+"POT-Creation-Date: 2017-07-04 13:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ben Stähli <bnzk@bnzk.ch>, 2017\n"
 "Language-Team: German (https://www.transifex.com/bnzk/teams/73468/de/)\n"
@@ -44,27 +44,27 @@ msgstr ""
 
 #: baseplugin/models.py:20
 msgid "Published?"
-msgstr ""
+msgstr "Publiziert?"
 
 #: baseplugin/models.py:24
 msgid "In Menu?"
-msgstr ""
+msgstr "Im Menu?"
 
 #: baseplugin/models.py:31
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: baseplugin/models.py:37
 msgid "Background"
-msgstr ""
+msgstr "Hintergrund"
 
 #: baseplugin/models.py:43
 msgid "Color"
-msgstr ""
+msgstr "Farbe"
 
 #: baseplugin/models.py:49
 msgid "Anchor"
-msgstr ""
+msgstr "Anker"
 
 #: baseplugin/models.py:61
 msgid "hidden"
