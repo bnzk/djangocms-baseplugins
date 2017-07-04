@@ -1,14 +1,28 @@
-# djangocms-baseplugins
+djangocms-baseplugins
+=====================
+
+.. image:: https://travis-ci.org/bnzk/djangocms-baseplugins.svg
+    :target: https://travis-ci.org/bnzk/djangocms-baseplugins/
+.. image:: https://img.shields.io/pypi/v/djangocms-baseplugins.svg
+    :target: https://pypi.python.org/pypi/djangocms-baseplugins/
+.. image:: https://img.shields.io/pypi/l/djangocms-baseplugins.svg
+    :target: https://pypi.python.org/pypi/djangocms-baseplugins/
+
 A common base for consistent djangocms plugin development. includes default plugins.
 
-## Framework
+
+Framework
+---------
+
 Can be used as plugin framework, developping your own plugins. Features an astract base class, that provides the following:
 - **published** field (and some logic in the render method), for easily hiding/showing content
 - **css_class** field, used as "layout" field in most cases
 - **anchor_name** field, when you need to access content directly via #hashbang
 - **some** more
 
-## Plugins included
+Plugins included
+----------------
+
 All plugins have a abstract base class that can be used as starting point.
 
 #### Containers
