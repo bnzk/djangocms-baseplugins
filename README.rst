@@ -87,17 +87,23 @@ Settings
     SECTIONPLUGIN_CHILD_CLASSES (default: ColumnPlugin)
 
 
-### Column
+Column
+######
 
-### Slider
+Slider
+######
 
-## Content Plugins
+Content Plugins
+---------------
 
-### Text
+Text
+####
 
 Simple Textplugin, using ckeditor. Obviously, adds django-ckeditor as dependency.
 
 Use `CKEDITOR_SETTINGS` for configuring your ckeditor. For example, a rather simple one:
+
+.. code-block:: python
 
     CKEDITOR_SETTINGS = {
         'toolbar': 'MINE',
@@ -114,6 +120,7 @@ Use `CKEDITOR_SETTINGS` for configuring your ckeditor. For example, a rather sim
         'skin': 'moono',
     }
 
+Image
+#####
 
-### Image
-
+Image plugin. Reference one image, with a django-filer FilerImageField, add caption and alt text.
