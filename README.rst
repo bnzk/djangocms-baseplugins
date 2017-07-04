@@ -51,6 +51,8 @@ General
 
 All plugins share the same settings model:
 
+.. code-block:: python
+
     WHATEVERPLUGIN_CONTENT_FIELDS (default: title)
     WHATEVERPLUGIN_DESIGN_FIELDS (default: layout)
     WHATEVERPLUGIN_FIELDSETS (default: builds a fieldset with CONTENT_FIELDS, DESIGN_FIELDS and BASEPLUGIN_ADVANCED_FIELDS)
@@ -58,23 +60,27 @@ All plugins share the same settings model:
 
 For container plugins:
 
+.. code-block:: python
+
     WHATEVERPLUGIN_CHILD_CLASSES (default: depends on container)
 
 You can easily find out about the settings available: Browse below, or have a look at the djangocms_baseplugins/whateverplugin/conf.py
 
 
-## Containers
+Containers
+----------
 
 Container plugins are made to be containers for other plugins. Be it just for defining sections, be it for defining
 sections with X columns, be it for defining a slider.
 
 
-### Section
+Section
+#######
 
 Section container.
 
-#### Settings
-
+Settings
+++++++++
     SECTIONPLUGIN_CHILD_CLASSES (default: ColumnPlugin)
 
 
