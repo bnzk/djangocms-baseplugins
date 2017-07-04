@@ -23,7 +23,7 @@ class AbstractBasePlugin(CMSPlugin):
         default=False,
         verbose_name=_("In Menu?"),
     )
-    # base optics
+    # base opticss
     layout = models.CharField(
         max_length=64,
         default='',
@@ -52,8 +52,8 @@ class AbstractBasePlugin(CMSPlugin):
     class Meta:
         abstract = True
 
-#    def __str__(self):
-#        return u'%s %s' % (self.__class__, self.get_hidden_flag())
+    # def __str__(self):
+    #     return u'%s %s' % (self.__class__, self.get_hidden_flag())
 
     def get_hidden_flag(self):
         hidden_flag = ''

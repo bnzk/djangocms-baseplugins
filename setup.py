@@ -1,9 +1,15 @@
 # coding: utf-8
-from setuptools import setup, find_packages
 import os
+from setuptools import setup, find_packages
+
 
 # not so bad: http://joebergantine.com/blog/2015/jul/17/releasing-package-pypi/
 version = __import__('djangocms_baseplugins').__version__
+
+
+def read(fname):
+    # read the contents of a text file
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
 setup(
@@ -13,12 +19,11 @@ setup(
     license='BSD',
     platforms=['OS Independent'],
     description="djangocms_baseplugins",
-    long_description='a common base for consistent django-cms plugin development. includes default plugins.',
+    long_description=read('PYPI.rst'),
     author=u'Ben Stähli',
     author_email='bnzk@bnzk.ch',
     packages=find_packages(),
     install_requires=(
-        # 'Django>=1.3,<1.5',  # no need to limit while in development
         'django>=1.8',
         'django-cms>=3.3',
     ),

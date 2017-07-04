@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-
+from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
@@ -30,3 +30,28 @@ SECTIONPLUGIN_CHILD_CLASSES = getattr(
         'ColumnPlugin',
     )
 )
+
+SECTIONPLUGIN_LAYOUT_CHOICES = getattr(
+    settings,
+    'SECTIONPLUGIN_LAYOUT_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+
+SECTIONPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings,
+    'SECTIONPLUGIN_BACKGROUND_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+
+SECTIONPLUGIN_COLOR_CHOICES = getattr(
+    settings,
+    'SECTIONPLUGIN_COLOR_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+

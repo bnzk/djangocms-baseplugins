@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 .idea
 *.db
+node_modules/
 
 test_app_static
 test_app_media

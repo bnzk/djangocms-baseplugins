@@ -32,3 +32,27 @@ SLIDERPLUGIN_CHILD_CLASSES = getattr(
         'TextImagePlugin',
     )
 )
+
+SLIDERPLUGIN_LAYOUT_CHOICES = getattr(
+    settings,
+    'SLIDERPLUGIN_LAYOUT_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+
+SLIDERPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings,
+    'SLIDERPLUGIN_BACKGROUND_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+
+SLIDERPLUGIN_COLOR_CHOICES = getattr(
+    settings,
+    'SLIDERPLUGIN_COLOR_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)

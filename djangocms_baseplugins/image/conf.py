@@ -3,10 +3,9 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset, \
-    build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+
 
 IMAGEPLUGIN_DESIGN_FIELDS = getattr(
     settings, 'IMAGEPLUGIN_DESIGN_FIELDS', [])
@@ -27,7 +26,6 @@ IMAGEPLUGIN_FIELDSETS = getattr(
     })
 )
 
-
 IMAGEPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
     'IMAGEPLUGIN_LAYOUT_CHOICES',
@@ -37,7 +35,6 @@ IMAGEPLUGIN_LAYOUT_CHOICES = getattr(
     )
 )
 
-
 IMAGEPLUGIN_BACKGROUND_CHOICES = getattr(
     settings,
     'IMAGEPLUGIN_BACKGROUND_CHOICES',
@@ -46,7 +43,6 @@ IMAGEPLUGIN_BACKGROUND_CHOICES = getattr(
     )
 )
 
-
 IMAGEPLUGIN_COLOR_CHOICES = getattr(
     settings,
     'IMAGEPLUGIN_COLOR_CHOICES',
@@ -54,4 +50,3 @@ IMAGEPLUGIN_COLOR_CHOICES = getattr(
         ('default', _("Default"), ),
     )
 )
-

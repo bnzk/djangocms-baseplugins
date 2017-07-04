@@ -18,6 +18,7 @@ class PersonSectionPlugin(BasePluginMixin, CMSPluginBase):
     child_classes = ('PersonPlugin', )
     fieldsets = conf.PERSONSECTIONPLUGIN_FIELDSETS
 
+
 plugin_pool.register_plugin(PersonSectionPlugin)
 
 
@@ -28,5 +29,6 @@ class PersonPlugin(BasePluginMixin, CMSPluginBase):
     render_template = "djangocms_baseplugins/person.html"
     require_parent = True
     fieldsets = conf.PERSONPLUGIN_FIELDSETS
+
 
 plugin_pool.register_plugin(PersonPlugin)

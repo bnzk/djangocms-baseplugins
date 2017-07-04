@@ -26,4 +26,5 @@ class TextPlugin(BasePluginMixin, CMSPluginBase):
     render_template = "djangocms_baseplugins/text.html"
     fieldsets = conf.TEXTPLUGIN_FIELDSETS
 
+
 plugin_pool.register_plugin(TextPlugin)

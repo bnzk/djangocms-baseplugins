@@ -1,7 +1,6 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
-from cms.models import CMSPlugin
 from django.utils.translation import ugettext_lazy as _
 from ckeditor.fields import RichTextField
 from django.utils.encoding import python_2_unicode_compatible

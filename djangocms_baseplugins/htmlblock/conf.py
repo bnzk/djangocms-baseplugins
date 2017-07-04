@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-
+from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
@@ -25,4 +25,29 @@ HTMLBLOCKPLUGIN_FIELDSETS = getattr(
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 
+)
+
+HTMLBLOCKPLUGIN_LAYOUT_CHOICES = getattr(
+    settings,
+    'HTMLBLOCKPLUGIN_LAYOUT_CHOICES',
+    (
+        ('full', _("Full Size"), ),
+        ('content', _("Content Sized"), ),
+    )
+)
+
+HTMLBLOCKPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings,
+    'HTMLBLOCKPLUGIN_BACKGROUND_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+
+HTMLBLOCKPLUGIN_COLOR_CHOICES = getattr(
+    settings,
+    'HTMLBLOCKPLUGIN_COLOR_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
 )

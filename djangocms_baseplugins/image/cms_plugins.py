@@ -27,4 +27,5 @@ class ImagePlugin(BasePluginMixin, CMSPluginBase):
     render_template = "djangocms_baseplugins/image.html"
     fieldsets = conf.IMAGEPLUGIN_FIELDSETS
 
+
 plugin_pool.register_plugin(ImagePlugin)
