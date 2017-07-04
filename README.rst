@@ -32,18 +32,22 @@ Containers
 - **Column**, used with a section
 - **Slider**, a slider, defaults to owl-carousel2 (not yet there is any js..), but use what you want
 
-#### Content
+Content
+#######
+
 - **Richtext**, using django-ckeditor
 - **Image**, using django-filer, simple one image displaying plugin
+- **TextImage**, using django-filer, combine text & image, if you have to
 - **Video**, supports youtube and vimeo embeds
-- **Text** and Image, for the case where you absolutely need them together
 - **Gallery**, allowing multiple image plugins within
 
 
-# Plugin Docs
+Plugin Docs
+-----------
 
 
-## General
+General
+=======
 
 All plugins share the same settings model:
 
