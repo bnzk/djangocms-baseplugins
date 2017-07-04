@@ -81,6 +81,9 @@ Section container.
 
 Settings
 ++++++++
+
+.. code-block:: python
+
     SECTIONPLUGIN_CHILD_CLASSES (default: ColumnPlugin)
 
 
