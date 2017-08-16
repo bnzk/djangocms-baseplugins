@@ -6,7 +6,10 @@
 <div class="plugin plugin_image">
     {% if object.image %}
         {% thumbnail object.image 1000x1000 crop=0 upscale=0 as resized %}
-        <img src="{{ resized.url }}" alt="{{ object.caption }}" title="{{ object.caption }}">
+        <figure>
+          <img src="/macaque.jpg" alt="Macaque in the trees">
+          {% if object.caption %}<figcaption>{{ object.caption }}</figcaption>{% endif %}
+        </figure>
     {% endif %}
 </div>
 {% endblock %}
