@@ -6,7 +6,8 @@ class BasePluginMixin():
     def get_render_template(self, context, instance, placeholder):
         request = context.get('request', None)
         if not instance.published and not request.toolbar.edit_mode:
-            self.render_template = 'djangocms_baseplugins/unpublished.html'
+            return 'djangocms_baseplugins/unpublished.html'
+        return self.render_template
 
     def render(self, context, instance, placeholder):
         context['plugin'] = self
