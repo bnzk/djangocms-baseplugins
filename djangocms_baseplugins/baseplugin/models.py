@@ -1,6 +1,7 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+import datetime
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from cms.models.pluginmodel import CMSPlugin
@@ -18,6 +19,18 @@ class AbstractBasePlugin(CMSPlugin):
     published = models.BooleanField(
         default=True,
         verbose_name=_("Published?"),
+    )
+    published_from_date = models.DateTimeField(
+        null=True,
+        default=None,
+        blank=True,
+        verbose_name=_("Published from"),
+    )
+    published_until_date = models.DateTimeField(
+        null=True,
+        default=None,
+        blank=True,
+        verbose_name=_("Published until"),
     )
     in_menu = models.BooleanField(
         default=False,
@@ -55,8 +68,31 @@ class AbstractBasePlugin(CMSPlugin):
     # def __str__(self):
     #     return u'%s %s' % (self.__class__, self.get_hidden_flag())
 
+    def is_visible(self):
+        if self.published:
+            if self.published_from_date is None or\
+                    self.published_from_date <= datetime.datetime.now():
+                if self.published_until_date is None or \
+                        self.published_until_date >= datetime.datetime.now():
+                    return True
+        return False
+
+    def add_hidden_flag(self, text):
+        return '{} {}'.format(text, self.get_hidden_flag())
+
     def get_hidden_flag(self):
+        time_flag = ''
+        if self.published_from_date:
+            time_flag = '{}'.format(self.published_from_date)
+            if not self.published_until_date:
+                time_flag += ' - '
+        if self.published_until_date:
+            time_flag = '{} - {}'.format(time_flag, self.published_until_date)
         hidden_flag = ''
         if not self.published:
-            hidden_flag = '(%s)' % _('hidden')
-        return hidden_flag
+            hidden_flag = _('hidden')
+        if hidden_flag and time_flag:
+            return '({} / {})'.format(hidden_flag, time_flag)
+        if hidden_flag or time_flag:
+            return '({}{})'.format(hidden_flag, time_flag)
+        return ''

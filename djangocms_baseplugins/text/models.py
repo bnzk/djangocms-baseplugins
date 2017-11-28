@@ -17,7 +17,8 @@ class TextBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return truncate_richtext_content(self.body)
+        text = truncate_richtext_content(self.body)
+        return self.add_hidden_flag(text)
 
 
 class Text(TextBase):

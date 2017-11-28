@@ -20,7 +20,8 @@ class TweetEmbedBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return u'%s' % (self.tweet_url)
+        text = u'%s' % (self.tweet_url)
+        return self.add_hidden_flag(text)
 
 
 class TweetEmbed(TweetEmbedBase):

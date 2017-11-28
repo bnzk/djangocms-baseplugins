@@ -17,7 +17,8 @@ class ColumnBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("Column"))
+        text = str(_("Column"))
+        return self.add_hidden_flag(text)
 
 
 class Column(ColumnBase):

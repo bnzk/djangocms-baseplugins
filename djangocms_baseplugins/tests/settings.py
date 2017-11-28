@@ -18,6 +18,7 @@ DEBUG = True
 logging.getLogger("factory").setLevel(logging.WARN)
 
 SITE_ID = 1
+TIME_ZONE = 'Europe/Zurich'
 
 # from selenium.webdriver.firefox import webdriver
 from selenium.webdriver.phantomjs import webdriver

@@ -32,11 +32,14 @@ class ImageBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
+        text = None
         if self.caption:
-            return u'%s (%s)' % (self.caption, self.image)
+            text = '%s, %s' % (self.caption, self.image)
         if self.alt_text:
-            return u'%s (%s)' % (self.caption, self.image)
-        return u'%s' % (self.image)
+            text = '%s, %s' % (self.alt_text, self.image)
+        if not text:
+            text = '%s' % (self.image)
+        return self.add_hidden_flag(text)
 
 
 class Image(ImageBase):

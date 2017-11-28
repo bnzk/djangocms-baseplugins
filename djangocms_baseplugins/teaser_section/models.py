@@ -19,7 +19,8 @@ class TeaserSectionBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("Teaser Section"))
+        text = str(_("Teaser Section"))
+        return self.add_hidden_flag(text)
 
 
 class TeaserSection(TeaserSectionBase):

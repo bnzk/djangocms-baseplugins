@@ -15,7 +15,8 @@ class SliderBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("Slider"))
+        text = str(_("Slider"))
+        return self.add_hidden_flag(text)
 
 
 class Slider(SliderBase):

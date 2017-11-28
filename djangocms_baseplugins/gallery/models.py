@@ -20,7 +20,8 @@ class GalleryBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return "%s %s" % (str(_("Gallery")), self.get_hidden_flag())
+        text = str(_("Gallery"))
+        return self.add_hidden_flag(text)
 
 
 class Gallery(GalleryBase):

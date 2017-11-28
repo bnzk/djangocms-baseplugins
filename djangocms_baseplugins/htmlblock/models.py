@@ -6,6 +6,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
+from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content
 
 
 @python_2_unicode_compatible
@@ -16,7 +17,8 @@ class HtmlBlockBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return u'HTML block'
+        text = truncate_richtext_content(self.htmlblock)
+        return self.add_hidden_flag(text)
 
 
 class HtmlBlock(HtmlBlockBase):

@@ -2,8 +2,10 @@
 
 <style>
 
+    /* really want to hide completely, in non structure mode? NOPE yet */
     .plugin.cms-plugin-{{ object.pk|unlocalize }} {
-        display: none;
+        /* display: none; */
+        opacity: 0.25;
     }
 
     /* directly inspired by: https://github.com/arteria/djangocms-inline-comment/blob/master/djangocms_inline_comment/templates/djangocms_inline_comment/inline_comment_style.html */

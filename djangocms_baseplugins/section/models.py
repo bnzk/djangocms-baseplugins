@@ -20,7 +20,8 @@ class SectionBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        return str(_("Section"))
+        text = str(_("Section"))
+        return self.add_hidden_flag(text)
 
 
 class Section(SectionBase):

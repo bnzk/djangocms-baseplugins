@@ -2,7 +2,7 @@
 
 {% block plugin_content %}{% endblock %}
 
-{% if request.toolbar.edit_mode and not object.published %}
+{% if request.toolbar.edit_mode and not object.is_visible %}
     {% addtoblock "css" %}
     {% include 'djangocms_baseplugins/baseplugin_styles.html' %}
     {% endaddtoblock %}

@@ -11,7 +11,11 @@ DJANGOCMS_BASEPLUGINS_MODE = getattr(settings, 'DJANGOCMS_BASEPLUGINS_MODE', 'de
 if DJANGOCMS_BASEPLUGINS_MODE == 'minimal':
     advanced_fields = []
 elif DJANGOCMS_BASEPLUGINS_MODE == 'full':
-    advanced_fields = [['published', 'in_menu', ], 'anchor', ]
+    advanced_fields = [
+        ['published', 'in_menu', ],
+        ['published_from_date', 'published_until_date', ],
+        'anchor',
+    ]
 else:
     advanced_fields = ['published', ]
 
