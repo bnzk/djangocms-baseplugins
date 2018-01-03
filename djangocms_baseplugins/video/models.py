@@ -41,7 +41,7 @@ class VideoBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        text = truncate_richtext_content(self.body)
+        text = self.video_url
         return self.add_hidden_flag(text)
 
     def _set_base_infos(self):
@@ -58,9 +58,9 @@ class VideoBase(AbstractBasePlugin):
 
     def _repl(self, result):
         subgroups = result.groupdict()
-        if subgroups.has_key('youtube_id'):
+        if subgroups.get('youtube_id', None):
             result = 'youtube__ID_sep__%s' % subgroups['youtube_id']
-        elif subgroups.has_key('vimeo_id'):
+        elif subgroups.get('vimeo_id', None):
             result = 'youtube__ID_sep__%s' % subgroups['vimeo_id']
         return result
 

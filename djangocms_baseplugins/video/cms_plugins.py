@@ -23,7 +23,7 @@ class VideoPlugin(BasePluginMixin, CMSPluginBase):
     form = VideoPluginForm
     module = _("Content")
     name = _(u'Video')
-    render_template = "djangocms_baseplugins/text.html"
+    render_template = "djangocms_baseplugins/video.html"
     fieldsets = conf.VIDEOPLUGIN_FIELDSETS
 
 

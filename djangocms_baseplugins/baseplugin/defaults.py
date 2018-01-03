@@ -6,6 +6,22 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 
+DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL',
+    _('z Advanced'),
+)
+DJANGOCMS_BASEPLUGINS_CONTENT_LABEL = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_CONTENT_LABEL',
+    _('Content'),
+)
+DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL',
+    _('Containers'),
+)
+
 DJANGOCMS_BASEPLUGINS_MODE = getattr(settings, 'DJANGOCMS_BASEPLUGINS_MODE', 'default')
 
 if DJANGOCMS_BASEPLUGINS_MODE == 'minimal':
