@@ -1,0 +1,10 @@
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+
+
+{% block plugin_content %}
+<div class="plugin plugin_video {{ object.layout }} {{ object.background }} {{ object.color }}">
+    <div class="video_wrapper">
+        <iframe src="{{ object.embed_url }}" {% if object.allowfullscreen %}allowfullscreen{% endif %} frameborder="0"></iframe>
+    </div>
+</div>
+{% endblock %}
