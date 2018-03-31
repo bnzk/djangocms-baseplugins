@@ -61,7 +61,7 @@ class VideoBase(AbstractBasePlugin):
         if subgroups.get('youtube_id', None):
             result = 'youtube__ID_sep__%s' % subgroups['youtube_id']
         elif subgroups.get('vimeo_id', None):
-            result = 'youtube__ID_sep__%s' % subgroups['vimeo_id']
+            result = 'vimeo__ID_sep__%s' % subgroups['vimeo_id']
         return result
 
     @property
@@ -83,7 +83,7 @@ class VideoBase(AbstractBasePlugin):
         if self.video_type == 'youtube':
             return 'https://youtube.com/embed/%s' % self.video_id
         if self.video_type == 'vimeo':
-            return 'https://vimeo.com/embed/%s' % self.video_id
+            return 'https://player.vimeo.com/video/%s' % self.video_id
 
 
 class Video(VideoBase):
