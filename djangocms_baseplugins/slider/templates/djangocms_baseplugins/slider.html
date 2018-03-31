@@ -3,11 +3,11 @@
 
 
 {% block plugin_content %}
-<slider class="plugin plugin_slider slider_columns_{{ object.child_plugin_instances|length }} {{ object.layout }} {{ object.background }} {{ object.color }}">
+<div class="plugin plugin_slider slider_columns_{{ object.child_plugin_instances|length }} {{ object.layout }} {{ object.background }} {{ object.color }}">
     <div class="children">
         {% for plugin in object.child_plugin_instances %}
             {% render_plugin plugin %}
         {% endfor %}
     </div>
-</slider>
+</div>
 {% endblock %}
