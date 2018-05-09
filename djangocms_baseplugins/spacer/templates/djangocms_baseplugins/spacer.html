@@ -1,12 +1,10 @@
 {% extends "djangocms_baseplugins/baseplugin.html" %}
-{% load cms_tags %}
+
 
 {% block plugin_content %}
-<section class="plugin plugin_column {{ object.layout }} {{ object.background }} {{ object.color }}">
-    <div class="children">
-        {% for plugin in object.child_plugin_instances %}
-            {% render_plugin plugin %}
-        {% endfor %}
+<div class="plugin {{ object.get_css_classes }}">
+    <div class="text_text">
+        {{ object.body|safe }}
     </div>
-</section>
+</div>
 {% endblock %}

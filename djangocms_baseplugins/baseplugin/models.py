@@ -96,3 +96,23 @@ class AbstractBasePlugin(CMSPlugin):
         if hidden_flag or time_flag:
             return '({}{})'.format(hidden_flag, time_flag)
         return ''
+
+    def get_plugin_css_block_class(self):
+        return 'plugin-{}'.format(self.__class__.__name__.lower())
+
+    def get_css_classes(self):
+        plugin_block_class = self.get_plugin_css_block_class()
+        classes = ' plugin_{} '.format(self.pk)
+        classes += ' {} '.format(plugin_block_class)
+        if self.anchor:
+            classes += ' plugin_{} '.format(self.anchor)
+        classes += self._css_modifier_for_field('layout')
+        classes += self._css_modifier_for_field('color')
+        classes += self._css_modifier_for_field('background')
+        return classes
+
+    def _css_modifier_for_field(self, field):
+        plugin_block_class = self.get_plugin_css_block_class()
+        if getattr(self, field, None):
+            return ' {}_{} '.format(plugin_block_class, getattr(self, field))
+        return ''

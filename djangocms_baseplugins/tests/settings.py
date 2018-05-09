@@ -20,10 +20,6 @@ logging.getLogger("factory").setLevel(logging.WARN)
 SITE_ID = 1
 TIME_ZONE = 'Europe/Zurich'
 
-# from selenium.webdriver.firefox import webdriver
-from selenium.webdriver.phantomjs import webdriver
-SELENIUM_WEBDRIVER = webdriver
-
 APP_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(__file__), ".."))
 
@@ -129,6 +125,8 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.teaser_section',
     'djangocms_baseplugins.textimage',
     'djangocms_baseplugins.twitter',
+    'djangocms_baseplugins.video',
+    'djangocms_baseplugins.spacer',
 )
 
 MIDDLEWARE_CLASSES = (
