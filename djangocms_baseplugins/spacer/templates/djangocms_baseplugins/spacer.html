@@ -2,9 +2,6 @@
 
 
 {% block plugin_content %}
-<div class="plugin {{ object.get_css_classes }}">
-    <div class="text_text">
-        {{ object.body|safe }}
-    </div>
-</div>
+<hr class="plugin {{ object.get_css_classes }} {% if not object.layout %}plugin-spacer_do-nothing{% endif %}">
+</hr>
 {% endblock %}
