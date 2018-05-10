@@ -11,39 +11,10 @@ from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content
 from djangocms_baseplugins.video import conf
 
 
-@python_2_unicode_compatible
-class VideoBase(AbstractBasePlugin):
-    video_url = models.URLField(
-        null=True,
-        blank=True,
-        verbose_name=_('Video Adresse'),
-        help_text=_('youtube & vimeo'),
-    )
-    autoplay = models.BooleanField(
-        default=False,
-        verbose_name=_('Autoplay'),
-    )
-    controls = models.BooleanField(
-        default=True,
-        verbose_name=_('show controls'),
-        help_text=_('youtube only'),
-    )
-    infos = models.BooleanField(
-        default=True,
-        verbose_name=_('show infos'),
-    )
-    fullscreen = models.BooleanField(
-        default=True,
-        verbose_name=_('allow fullscreen'),
-    )
-
-    class Meta:
-        abstract = True
-
-    def __str__(self):
-        text = self.video_url
-        return self.add_hidden_flag(text)
-
+class VideoModelMixin(object):
+    """
+    needs "video_url" property, not yet dynamic!
+    """
     def _set_base_infos(self):
         self._valid_url = False
         if self.video_url:
@@ -84,6 +55,40 @@ class VideoBase(AbstractBasePlugin):
             return 'https://youtube.com/embed/%s' % self.video_id
         if self.video_type == 'vimeo':
             return 'https://player.vimeo.com/video/%s' % self.video_id
+
+
+@python_2_unicode_compatible
+class VideoBase(VideoModelMixin, AbstractBasePlugin):
+    video_url = models.URLField(
+        null=True,
+        blank=True,
+        verbose_name=_('Video Adresse'),
+        help_text=_('youtube & vimeo'),
+    )
+    autoplay = models.BooleanField(
+        default=False,
+        verbose_name=_('Autoplay'),
+    )
+    controls = models.BooleanField(
+        default=True,
+        verbose_name=_('show controls'),
+        help_text=_('youtube only'),
+    )
+    infos = models.BooleanField(
+        default=True,
+        verbose_name=_('show infos'),
+    )
+    fullscreen = models.BooleanField(
+        default=True,
+        verbose_name=_('allow fullscreen'),
+    )
+
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        text = self.video_url
+        return self.add_hidden_flag(text)
 
 
 class Video(VideoBase):
