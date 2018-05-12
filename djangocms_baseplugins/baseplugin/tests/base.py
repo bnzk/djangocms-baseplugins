@@ -1,6 +1,5 @@
 from cms.api import add_plugin
 from cms.models import Placeholder
-from django.test import TestCase
 
 
 class BasePluginTestCase(object):
@@ -9,7 +8,6 @@ class BasePluginTestCase(object):
     plugin_settings_prefix = ''  # TEXTPLUGIN
 
     def test_plugin_context(self):
-        print("testing {}".format(self.plugin_class))
         placeholder = Placeholder.objects.create(slot='test')
         model_instance = add_plugin(
             placeholder,
