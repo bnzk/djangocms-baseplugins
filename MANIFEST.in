@@ -1,5 +1,6 @@
 include LICENSES
-include README.rst
+include README.md
+include PYPI.rst
 global-exclude *.orig *.pyc *.log *.swp
 
 recursive-include djangocms_baseplugins/templates *

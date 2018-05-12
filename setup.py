@@ -15,7 +15,7 @@ def read(fname):
 setup(
     name="djangocms-baseplugins",
     version=version,
-    url='http://github.com/benzkji/djangocms-baseplugins',
+    url='http://github.com/bnzk/djangocms-baseplugins',
     license='BSD',
     platforms=['OS Independent'],
     description="djangocms_baseplugins",
@@ -38,8 +38,4 @@ setup(
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP',
     ],
-    test_suite='runtests.main',
-    tests_require=(
-        'argparse',  # needed on python 2.6
-    ),
 )
