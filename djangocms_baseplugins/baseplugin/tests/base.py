@@ -1,5 +1,8 @@
 from cms.api import add_plugin
 from cms.models import Placeholder
+from cms.plugin_rendering import ContentRenderer
+from django.test import RequestFactory
+from django.utils.encoding import force_text
 
 
 class BasePluginTestCase(object):
@@ -23,7 +26,28 @@ class BasePluginTestCase(object):
         test if BEM style classes are applied to this plugins output
         :return:
         """
-        return
+        placeholder = Placeholder.objects.create(slot='test')
+        model_instance = add_plugin(
+            placeholder,
+            self.plugin_class,
+            'en',
+            **{
+                'layout': 'layout-value',
+                'color': 'color-value',
+                'background': 'background-value',
+            }
+        )
+        renderer = ContentRenderer(request=RequestFactory())
+        html = renderer.render_plugin(model_instance, {})
+        plugin_name = model_instance.__class__.__name__.lower()
+        print(html)
+        self.assertInHTML('plugin-{}'.format(plugin_name), force_text(html))
+        self.assertInHTML('plugin-{}_{}'.format(plugin_name, 'layout-value'), force_text(html))
+        self.assertInHTML('plugin-{}_{}'.format(plugin_name, 'color-value'), force_text(html))
+        self.assertInHTML('plugin-{}_{}'.format(plugin_name, 'background-value'), force_text(html))
+
+
+
 
     def test_form_choices_and_other_settings_respected(self):
         """
