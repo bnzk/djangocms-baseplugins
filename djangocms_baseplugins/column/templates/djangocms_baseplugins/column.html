@@ -2,7 +2,7 @@
 {% load cms_tags %}
 
 {% block plugin_content %}
-<section class="plugin plugin_column {{ object.layout }} {{ object.background }} {{ object.color }}">
+<section class="plugin {{ object.get_css_classes }} plugin_column {{ object.layout }} {{ object.background }} {{ object.color }}">
     <div class="children">
         {% for plugin in object.child_plugin_instances %}
             {% render_plugin plugin %}

@@ -2,7 +2,7 @@
 {% load cms_tags thumbnail mailprotector_tags %}
 
 {% block plugin_content %}
-<div class="plugin plugin_person">
+<div class="plugin {{ object.get_css_classes }}  plugin_person">
     {% if object.image %}
         {% thumbnail object.image 450x570 crop=1 upscale=1 as resized %}
         <img src="{{ resized.url }}" alt="{{ instance.title }}">
