@@ -5,6 +5,7 @@
 ==== 0.0.2 (ongoing) ===
 
 - BEM style css classes for all plugins
+- basic tests for all plugins
 
 
 ==== 0.0.1 (2017-04-03) ===

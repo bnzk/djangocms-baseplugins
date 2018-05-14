@@ -1,7 +1,8 @@
-from cms.api import add_plugin
+from cms.api import add_plugin, create_page
 from cms.models import Placeholder
 from cms.plugin_rendering import ContentRenderer
-from django.test import RequestFactory
+from django.contrib.auth.models import User
+from django.test import RequestFactory, Client
 from django.utils.encoding import force_text
 
 
@@ -9,6 +10,22 @@ class BasePluginTestCase(object):
 
     plugin_class = None  # TextPlugin
     plugin_settings_prefix = ''  # TEXTPLUGIN
+
+    def setUp(self):
+        self.username = "test_admin"
+        self.password = "testPW"
+        user, created = User.objects.get_or_create(username=self.username)
+        user.set_password(self.password)
+        user.is_staff = True
+        user.is_superuser = True
+        user.is_active = True
+        user.save()
+        self.user = user
+        client = Client()
+        client.login(username=self.username, password=self.password)
+
+    def tearDown(self):
+        pass
 
     def get_plugin_default_data(self):
         return {}
@@ -19,7 +36,15 @@ class BasePluginTestCase(object):
         like /admin/cms/page/add-plugin/?placeholder_id=43&plugin_type=SectionPlugin&cms_path=%2Fen%2F&plugin_language=en
         :return:
         """
-        return
+        client = Client()
+        client.login(username=self.username, password=self.password)
+        page = create_page('test', 'base.html', 'en', slug='test', )
+        placeholder = Placeholder.objects.create(page=page, slot='test')
+        url = '/admin/cms/page/add-plugin/?' \
+            + 'placeholder_id={}&plugin_type={}&cms_path=%2Fen%2F&plugin_language=en'\
+            .format(placeholder.id, self.plugin_class.__name__)
+        response = client.get(url)
+        self.assertEqual(response.status_code, 200)
 
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')
