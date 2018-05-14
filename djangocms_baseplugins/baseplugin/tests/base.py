@@ -10,6 +10,9 @@ class BasePluginTestCase(object):
     plugin_class = None  # TextPlugin
     plugin_settings_prefix = ''  # TEXTPLUGIN
 
+    def get_plugin_default_data(self):
+        return {}
+
     def test_basic_admin_form(self):
         """
         just calling add plugin admin view
@@ -35,15 +38,17 @@ class BasePluginTestCase(object):
         :return:
         """
         placeholder = Placeholder.objects.create(slot='test')
+        data = {
+            'layout': 'layout-value',
+            'color': 'color-value',
+            'background': 'background-value',
+        }
+        data.update(self.get_plugin_default_data())
         model_instance = add_plugin(
             placeholder,
             self.plugin_class,
             'en',
-            **{
-                'layout': 'layout-value',
-                'color': 'color-value',
-                'background': 'background-value',
-            }
+            **data
         )
         renderer = ContentRenderer(request=RequestFactory())
         html = renderer.render_plugin(model_instance, {})

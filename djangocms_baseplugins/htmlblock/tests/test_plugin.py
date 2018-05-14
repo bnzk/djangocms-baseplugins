@@ -10,3 +10,8 @@ class HtmlBlockPluginTests(BasePluginTestCase, TestCase):
 
     plugin_class = HtmlBlockPlugin
     plugin_settings_prefix = 'HTMLBLOCKPLUGIN'
+
+    def get_plugin_default_data(self):
+        return {
+            'htmlblock': '<div></div>'
+        }

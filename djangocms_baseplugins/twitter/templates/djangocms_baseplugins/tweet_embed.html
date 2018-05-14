@@ -4,7 +4,7 @@
 
 {% block plugin_content %}
 {% if embed.html %}
-    <div class="plugin plugin_tweet_embed">
+    <div class="plugin {{ object.get_css_classes }} plugin_tweet_embed">
         {{ embed.html|safe }}
     </div>
 {% endif %}
