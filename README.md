@@ -56,7 +56,6 @@ Can be used as plugin framework, developping your own plugins. Features an astra
 
 All plugins share the same settings concept:
 
-.. code-block:: python
 
     WHATEVERPLUGIN_CONTENT_FIELDS (default: title)
     WHATEVERPLUGIN_DESIGN_FIELDS (default: layout)
