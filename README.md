@@ -39,10 +39,15 @@ Can be used as plugin framework, developping your own plugins. Features an astra
 #### General
 
 **DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL** text (in locale) used to label advanced plugins (module attribute of CMSPlugin). defaults to _("z Advanced").
+
 **DJANGOCMS_BASEPLUGINS_CONTENT_LABEL** same for normal content. defaults to _("Content")
+
 **DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL** same for container plugins. defaults to _("Containers")
+
 **DJANGOCMS_BASEPLUGINS_MODE** some pre-configuration for fields and fieldsets. defaults to 'default'. possible options are 'full', 'minimal' and 'default'. depending on this setting, more or less advanced fields are shown.
+
 **BASEPLUGIN_ADVANCED_FIELDS** own configuration of fields to be shown in the advanced fieldset. if not set, based on `DJANGOCMS_BASEPLUGINS_MODE`.
+
 **WIDTH_CHOICES** width choices, used where widhts are needed. defaults to
 
     ('', _('Automatic')),
