@@ -6,6 +6,10 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+IMAGEPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'IMAGEPLUGIN_TRANSLATED_FIELDS',
+    ['caption', 'alt_text', ]
+)
 
 IMAGEPLUGIN_DESIGN_FIELDS = getattr(
     settings, 'IMAGEPLUGIN_DESIGN_FIELDS', [])
