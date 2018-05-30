@@ -6,6 +6,12 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 
+
+DJANGOCMS_BASEPLUGINS_TRANSLATE = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_TRANSLATE', False
+)
+
 DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS',

@@ -1,3 +1,27 @@
+# base
+django==1.11.11
+django-cms==3.4.5
+
+# using translation
+django-modeltranslation
+djangocms-misc
+
+# using image fields (image, textimage, person)
+django-filer
+django-polymorphic==1.2
+easy-thumbnails
+
+# richtext fields (text, textimage)
+django-ckeditor
+
+# twitter
+requests
+
+# person (only if using default template)
+django-mailprotector
+
+
+# testing tools
 tox
 coverage
 django-coverage
@@ -6,14 +30,3 @@ factory_boy
 mock
 selenium
 
-easy-thumbnails
-django==1.11.11
-django-cms==3.4.5
-django-filer
-django-polymorphic==1.2
-# text
-django-ckeditor
-# twitter
-requests
-# person (only if default template)
-django-mailprotector

@@ -6,6 +6,11 @@ from django.conf import settings
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+TEXTPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'TEXTPLUGIN_TRANSLATED_FIELDS', [
+        'body',
+    ]
+)
 
 TEXTPLUGIN_LAYOUT_CHOICES = getattr(
     settings, 'TEXTPLUGIN_LAYOUT_CHOICES', (

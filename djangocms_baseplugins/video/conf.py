@@ -8,6 +8,12 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
+VIDEOPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'VIDEOPLUGIN_TRANSLATED_FIELDS', [
+        'video_url',
+    ]
+)
+
 # thx to rouxcode!
 VIDEOPLUGIN_REGEXES = (
     re.compile("^https?\:\/\/(www\.)?youtu\.be\/(?P<youtube_id>[^\/]*)\??.*$"),

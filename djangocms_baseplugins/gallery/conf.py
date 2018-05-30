@@ -8,6 +8,9 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+GALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'GALLERYPLUGIN_TRANSLATED_FIELDS', [])
+
 GALLERYPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'GALLERYPLUGIN_CONTENT_FIELDS', [])
 

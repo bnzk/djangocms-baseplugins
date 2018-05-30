@@ -8,6 +8,10 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
+PERSONSECTIONPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'PERSONSECTIONPLUGIN_TRANSLATED_FIELDS', []
+)
+
 PERSONSECTIONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONSECTIONPLUGIN_CONTENT_FIELDS', []
 )
@@ -51,6 +55,11 @@ PERSONSECTIONPLUGIN_COLOR_CHOICES = getattr(
     )
 )
 
+
+PERSONPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'PERSONPLUGIN_TRANSLATED_FIELDS',
+    ['salutation', 'body', ]
+)
 
 PERSONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONPLUGIN_CONTENT_FIELDS', (

@@ -7,6 +7,10 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
+SECTIONPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'SECTIONPLUGIN_TRANSLATED_FIELDS', []
+)
+
 SECTIONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'SECTIONPLUGIN_CONTENT_FIELDS', []
 )

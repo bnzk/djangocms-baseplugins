@@ -1,7 +1,20 @@
 from __future__ import unicode_literals
 
+from modeltranslation.admin import TranslationAdmin
 
-class BasePluginMixin():
+from . import defaults
+
+
+if defaults.DJANGOCMS_BASEPLUGINS_TRANSLATE:
+    from djangocms_misc.basic.admin import LanguageTabsMixin
+    class BasePluginMixinBase(LanguageTabsMixin, TranslationAdmin):
+        pass
+else:
+    class BasePluginMixinBase(object):
+        pass
+
+
+class BasePluginMixin(BasePluginMixinBase):
 
     def get_render_template(self, context, instance, placeholder):
         request = context.get('request', None)

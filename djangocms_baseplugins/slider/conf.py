@@ -8,6 +8,11 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+
+SLIDERPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'SLIDERPLUGIN_TRANSLATED_FIELDS', []
+)
+
 SLIDERPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'SLIDERPLUGIN_CONTENT_FIELDS', []
 )

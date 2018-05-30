@@ -1,5 +1,7 @@
 # coding: utf-8
+from django.conf import settings
 from django import forms
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
 from django.utils.translation import ugettext_lazy as _
@@ -42,3 +44,12 @@ def build_baseplugin_widgets(conf, prefix):
 
 def truncate_richtext_content(richtext):
     return Truncator(strip_tags(richtext).replace('&shy;', '')).words(3, truncate="...")
+
+
+def check_in_migration_modules(app_name):
+    modules = getattr(settings, 'MIGRATION_MODULES', [])
+    if not app_name in modules:
+        raise ImproperlyConfigured(
+            'You need "{}" in settings.MIGRATION_MODULES, or you cannot translat plugins!'
+            .format(app_name)
+        )

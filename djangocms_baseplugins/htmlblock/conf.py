@@ -7,6 +7,11 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
+
+
+HTMLBLOCKPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'HTMLBLOCKPLUGIN_TRANSLATED_FIELDS', ['htmlblock', ])
+
 HTMLBLOCKPLUGIN_DESIGN_FIELDS = getattr(
     settings, 'HTMLBLOCKPLUGIN_DESIGN_FIELDS', [])
 

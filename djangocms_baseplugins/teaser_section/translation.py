@@ -1,20 +1,20 @@
 from django.conf import settings
-
 from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from djangocms_baseplugins.column.models import Column
+from .models import TeaserSection
 from . import conf
 
 
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.COLUMNPLUGIN_TRANSLATED_FIELDS
+
+translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.TEASERSECTIONPLUGIN_TRANSLATED_FIELDS
 
 
-class ColumnPluginTranslationOptions(TranslationOptions):
+class TeaserSectionTranslationOptions(TranslationOptions):
     fields = translation_fields
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('column')
-    translator.register(Column, ColumnPluginTranslationOptions)
+    check_in_migration_modules('teaser_section')
+    translator.register(TeaserSection, TeaserSectionTranslationOptions)

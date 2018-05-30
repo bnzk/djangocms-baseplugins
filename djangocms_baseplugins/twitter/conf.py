@@ -7,6 +7,12 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
+TWEETEMBEDPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'TWEETEMBEDPLUGIN_TRANSLATED_FIELDS', [
+        'tweet_url',
+    ]
+)
+
 TWEETEMBEDPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'TWEETEMBEDPLUGIN_CONTENT_FIELDS', (
         'tweet_url',
