@@ -37,7 +37,7 @@ LANGUAGES = (
 )
 LANGUAGE_CODE = 'de'
 
-ROOT_URLCONF = 'djangocms_baseplugins.tests.urls'
+ROOT_URLCONF = 'test_app.urls'
 
 # media root is overridden when needed in tests
 MEDIA_ROOT = os.path.join(APP_ROOT, '../test_app_media')
@@ -111,7 +111,7 @@ EXTERNAL_APPS = (
 )
 
 INTERNAL_APPS = (
-    'djangocms_baseplugins.tests.test_app',
+    'test_app',
     'djangocms_baseplugins',
     'djangocms_baseplugins.baseplugin',
     'djangocms_baseplugins.text',
