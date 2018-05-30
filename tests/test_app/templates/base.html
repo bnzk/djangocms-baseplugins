@@ -1,0 +1,24 @@
+<!doctype html>
+<html class="" lang="{{ LANGUAGE_CODE }}">
+{% load cms_tags menu_tags sekizai_tags %}
+
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body class="{% if debug %}debug {% endif %}{% block body_class %}{% endblock %}">
+        {% render_block "css" %}
+        {% render_block "js" %}
+        {% cms_toolbar %}
+
+        <nav class="footer_sitemap">
+            <ul>
+                {% show_menu 0 1 1 1 %}
+            </ul>
+        </nav>
+
+        <div class="main_content">
+            {% placeholder content %}
+        </div>
+
+    </body>
+</html>
