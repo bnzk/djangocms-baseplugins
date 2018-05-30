@@ -10,7 +10,7 @@ from .models import Slider
 from . import conf
 
 
-class ImagePluginForm(forms.ModelForm):
+class SliderPluginForm(forms.ModelForm):
     class Meta:
         model = Slider
         exclude = []
@@ -19,6 +19,7 @@ class ImagePluginForm(forms.ModelForm):
 
 class SliderPlugin(BasePluginMixin, CMSPluginBase):
     model = Slider
+    form = SliderPluginForm
     module = _("Containers")
     name = _(u'Slider')
     render_template = "djangocms_baseplugins/slider.html"

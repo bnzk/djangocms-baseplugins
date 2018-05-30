@@ -5,6 +5,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
 from .models import TextImage
 from . import conf
 
@@ -13,9 +14,7 @@ class TextImagePluginForm(forms.ModelForm):
     class Meta:
         model = TextImage
         exclude = []
-        widgets = {
-            'layout': forms.Select(choices=conf.TEXTIMAGEPLUGIN_LAYOUT_CHOICES)
-        }
+        widgets = build_baseplugin_widgets(conf, 'TEXTIMAGE')
 
 
 class TextImagePlugin(BasePluginMixin, CMSPluginBase):
