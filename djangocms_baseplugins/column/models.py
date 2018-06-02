@@ -20,6 +20,11 @@ class ColumnBase(AbstractBasePlugin):
         text = str(_("Column"))
         return self.add_hidden_flag(text)
 
+    def get_css_classes(self):
+        classes = super(ColumnBase, self).get_css_classes()
+        classes += self._css_modifier_for_field('width')
+        return classes
+
 
 class Column(ColumnBase):
     pass
