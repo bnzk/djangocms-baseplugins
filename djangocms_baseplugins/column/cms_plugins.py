@@ -11,6 +11,8 @@ from . import conf
 
 
 class ColumnPluginForm(forms.ModelForm):
+    width = forms.ChoiceField(choices=conf.COLUMNPLUGIN_WIDTH_CHOICES )
+
     class Meta:
         model = Column
         exclude = []
