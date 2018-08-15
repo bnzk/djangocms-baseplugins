@@ -10,7 +10,7 @@ from django.utils.html import strip_tags
 from django.utils.text import Truncator
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
-from djangocms_baseplugins.image.models import ImageBase
+from djangocms_baseplugins.image.base import ImageBase
 
 
 @python_2_unicode_compatible

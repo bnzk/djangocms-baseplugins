@@ -8,27 +8,27 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
-GALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
-    settings, 'GALLERYPLUGIN_TRANSLATED_FIELDS', [])
+INLINEGALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'INLINEGALLERYPLUGIN_TRANSLATED_FIELDS', [])
 
-GALLERYPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'GALLERYPLUGIN_CONTENT_FIELDS', [])
+INLINEGALLERYPLUGIN_CONTENT_FIELDS = getattr(
+    settings, 'INLINEGALLERYPLUGIN_CONTENT_FIELDS', [])
 
-GALLERYPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'GALLERYPLUGIN_DESIGN_FIELDS', [])
+INLINEGALLERYPLUGIN_DESIGN_FIELDS = getattr(
+    settings, 'INLINEGALLERYPLUGIN_DESIGN_FIELDS', [])
 
-GALLERYPLUGIN_FIELDSETS = getattr(
+INLINEGALLERYPLUGIN_FIELDSETS = getattr(
     settings,
-    'GALLERYPLUGIN_FIELDSETS',
+    'INLINEGALLERYPLUGIN_FIELDSETS',
     build_baseplugin_fieldset(**{
-        'content': GALLERYPLUGIN_CONTENT_FIELDS,
-        'design': GALLERYPLUGIN_DESIGN_FIELDS,
+        'content': INLINEGALLERYPLUGIN_CONTENT_FIELDS,
+        'design': INLINEGALLERYPLUGIN_DESIGN_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 )
 
-GALLERYPLUGIN_CHILD_CLASSES = getattr(
-    settings, 'GALLERYPLUGIN_CHILD_CLASSES', (
+INLINEGALLERYPLUGIN_CHILD_CLASSES = getattr(
+    settings, 'INLINEGALLERYPLUGIN_CHILD_CLASSES', (
         'ImagePlugin',
         'TextImagePlugin',
     )
