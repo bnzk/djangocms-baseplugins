@@ -16,5 +16,5 @@ class InlineGalleryTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('gallery_inline')
+    check_in_migration_modules('inline_gallery')
     translator.register(InlineGallery, InlineGalleryTranslationOptions)
