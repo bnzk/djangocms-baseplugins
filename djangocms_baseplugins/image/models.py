@@ -10,7 +10,7 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 
 @python_2_unicode_compatible
-class ImageBase(AbstractBasePlugin):
+class ImageBase(models.Model):
     image = FilerImageField(
         null=True,
         on_delete=models.SET_NULL,
@@ -42,5 +42,11 @@ class ImageBase(AbstractBasePlugin):
         return self.add_hidden_flag(text)
 
 
-class Image(ImageBase):
+class ImagePluginBase(AbstractBasePlugin, ImageBase):
+
+    class Meta:
+        abstract = True
+
+
+class Image(ImagePluginBase):
     pass

@@ -6,11 +6,11 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content
-from djangocms_baseplugins.image.models import ImageBase
+from djangocms_baseplugins.image.models import ImagePluginBase
 
 
 @python_2_unicode_compatible
-class TextImageBase(ImageBase):
+class TextImageBase(ImagePluginBase):
     body = RichTextField(_('Text'), blank=True)
 
     class Meta:
