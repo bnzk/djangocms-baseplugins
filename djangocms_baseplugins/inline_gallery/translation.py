@@ -4,7 +4,7 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from djangocms_baseplugins.gallery_inline.models import InlineGallery
+from djangocms_baseplugins.inline_gallery.models import InlineGallery
 from . import conf
 
 

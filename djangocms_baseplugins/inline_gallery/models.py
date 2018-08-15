@@ -31,5 +31,5 @@ class InlineGallery(InlineGalleryBase):
 
 class InlineGalleryImage(ImageBase):
     gallery = models.ForeignKey(
-        'gallery_inline.InlineGallery',
+        'inline_gallery.InlineGallery',
     )

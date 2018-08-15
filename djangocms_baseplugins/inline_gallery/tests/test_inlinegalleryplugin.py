@@ -3,10 +3,10 @@ from __future__ import unicode_literals
 from django.test import TestCase
 
 from djangocms_baseplugins.baseplugin.tests.base import BasePluginTestCase
-from djangocms_baseplugins.gallery.cms_plugins import GalleryPlugin
+from djangocms_baseplugins.inline_gallery.cms_plugins import InlineGalleryPlugin
 
 
 class InlineGalleryPluginTests(BasePluginTestCase, TestCase):
 
-    plugin_class = GalleryPlugin
-    plugin_settings_prefix = 'GALLERYPLUGIN'
+    plugin_class = InlineGalleryPlugin
+    plugin_settings_prefix = 'INLINEGALLERYPLUGIN'

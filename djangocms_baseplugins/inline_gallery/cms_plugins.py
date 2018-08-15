@@ -28,7 +28,7 @@ class InlineGalleryPlugin(BasePluginMixin, CMSPluginBase):
     form = InlineGalleryPluginForm
     module = _("Containers")
     name = _(u'Gallery')
-    render_template = "djangocms_baseplugins/gallery.html"
+    render_template = "djangocms_baseplugins/inline_gallery.html"
     fieldsets = conf.INLINEGALLERYPLUGIN_FIELDSETS
     inlines = [InlineGalleryImageInline, ]
     allow_children = True
