@@ -15,7 +15,12 @@ from djangocms_baseplugins.image.base import ImageBase
 
 @python_2_unicode_compatible
 class InlineGalleryBase(AbstractBasePlugin):
-    height = models.CharField(_('Height'), max_length=32, default='', blank=True)
+    height = models.CharField(
+        _('Height'),
+        max_length=32,
+        default='',
+        blank=True,
+    )
 
     class Meta:
         abstract = True
@@ -29,7 +34,18 @@ class InlineGallery(InlineGalleryBase):
     pass
 
 
-class InlineGalleryImage(ImageBase):
+class InlineGalleryImageBase(ImageBase):
     gallery = models.ForeignKey(
         'inline_gallery.InlineGallery',
     )
+    order = models.PositiveIntegerField(
+        default=0,
+    )
+
+    class Meta:
+        ordering = ('order', )
+        abstract = True
+
+
+class InlineGalleryImage(InlineGalleryImageBase):
+    pass

@@ -5,7 +5,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
 from .models import Slider
 from . import conf
 
@@ -13,7 +13,8 @@ from . import conf
 class SliderPluginForm(forms.ModelForm):
     class Meta:
         model = Slider
-        exclude = []
+        fields = get_fields_from_fieldsets(conf.SLIDERPLUGIN_FIELDSETS)
+        # exclude = []
         widgets = build_baseplugin_widgets(conf, 'SLIDERPLUGIN')
 
 

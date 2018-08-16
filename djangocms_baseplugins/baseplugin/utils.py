@@ -8,23 +8,34 @@ from django.utils.translation import ugettext_lazy as _
 
 
 def build_baseplugin_fieldset(**kwargs):
-    fieldset = []
+    fieldsets = []
     if len(kwargs.get('design', [])):
-        fieldset.append((_('Design & Layout'), {
+        fieldsets.append((_('Design & Layout'), {
             'classes': ['fieldset', 'fieldset-design'],
             'fields': kwargs.get('design'),
         }))
     if len(kwargs.get('content', [])):
-        fieldset.append((_('Content'), {
+        fieldsets.append((_('Content'), {
             'classes': ['fieldset', 'fieldset-content'],
             'fields': kwargs.get('content'),
         }))
     if len(kwargs.get('advanced', [])):
-        fieldset.append((_('Advanced Settings'), {
+        fieldsets.append((_('Advanced Settings'), {
             'classes': ('fieldset', 'fieldset-advanced'),
             'fields': kwargs.get('advanced'),
         }))
-    return fieldset
+    return fieldsets
+
+
+
+
+def get_fields_from_fieldsets(fieldsets):
+    fields = []
+    for fieldset in fieldsets:
+        for field in fieldset[1].get('fields', []):
+            fields.append('field')
+    print fields
+    return fields
 
 
 def build_baseplugin_widgets(conf, prefix):

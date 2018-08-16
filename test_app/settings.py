@@ -4,6 +4,7 @@ import tempfile
 import logging
 
 
+DJANGOCMS_BASEPLUGINS_MODE = 'default'
 DJANGOCMS_BASEPLUGINS_MODE = 'minimal'
 
 CMS_TEMPLATES = (

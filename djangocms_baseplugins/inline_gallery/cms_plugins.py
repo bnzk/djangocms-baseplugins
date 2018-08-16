@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
 from .models import InlineGallery, InlineGalleryImage
 from . import conf
 
@@ -17,9 +17,11 @@ class InlineGalleryImageInline(admin.TabularInline):
 
 
 class InlineGalleryPluginForm(forms.ModelForm):
+
     class Meta:
         model = InlineGallery
-        exclude = []
+        fields = get_fields_from_fieldsets(conf.INLINEGALLERYPLUGIN_FIELDSETS)
+        # exclude = []
         widgets = build_baseplugin_widgets(conf, 'INLINEGALLERY')
 
 

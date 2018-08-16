@@ -39,10 +39,14 @@ class ImageBase(models.Model):
             text = '%s, %s' % (self.alt_text, self.image)
         if not text:
             text = '%s' % (self.image)
-        return self.add_hidden_flag(text)
+        return text
 
 
 class ImagePluginBase(AbstractBasePlugin, ImageBase):
+
+    def __str__(self):
+        text = super(ImagePluginBase, self).__str__()
+        return self.add_hidden_flag(text)
 
     class Meta:
         abstract = True
