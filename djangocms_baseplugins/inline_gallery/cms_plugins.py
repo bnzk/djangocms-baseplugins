@@ -4,6 +4,7 @@ from cms.plugin_pool import plugin_pool
 from django import forms
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
+from filer_addons.filer_gui.admin.inlines import UploadInlineMixin
 
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
@@ -11,8 +12,10 @@ from .models import InlineGallery, InlineGalleryImage
 from . import conf
 
 
-class InlineGalleryImageInline(admin.TabularInline):
+class InlineGalleryImageInline(admin.StackedInline):
+# class InlineGalleryImageInline(UploadInlineMixin, admin.StackedInline):
     model = InlineGalleryImage
+    file_field = 'image'
     extra = 0
 
 

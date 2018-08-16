@@ -28,4 +28,5 @@ class SectionPlugin(BasePluginMixin, CMSPluginBase):
     allow_children = True
     child_classes = conf.SECTIONPLUGIN_CHILD_CLASSES
 
+
 plugin_pool.register_plugin(SectionPlugin)

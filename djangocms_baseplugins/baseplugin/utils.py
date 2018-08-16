@@ -33,7 +33,7 @@ def get_fields_from_fieldsets(fieldsets):
     fields = []
     for fieldset in fieldsets:
         for field in fieldset[1].get('fields', []):
-            fields.append('field')
+            fields.append(field)
     print fields
     return fields
 

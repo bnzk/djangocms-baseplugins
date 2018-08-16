@@ -4,9 +4,16 @@ from __future__ import unicode_literals
 from django.utils.encoding import python_2_unicode_compatible
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from filer.fields.image import FilerImageField
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
+from djangocms_baseplugins.baseplugin import defaults
+
+
+if defaults.DJANGOCMS_BASEPLUGINS_USER_FILER_ADDONS:
+    from filer_addons.filer_gui.fields import FilerImageField
+else:
+    from filer.fields.image import FilerImageField
+
 
 
 @python_2_unicode_compatible
