@@ -1,15 +1,19 @@
 {% extends "djangocms_baseplugins/baseplugin.html" %}
 {% load cms_tags %}
 
+
 {% block plugin_content %}
 <div class="plugin {{ object.get_css_classes }} <!-- legacy --> plugin_gallery gallery_columns_{{ object.child_plugin_instances|length }} {{ object.layout }} {{ object.background }} {{ object.color }}">
     <div class="gallery_inner">
         {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
         <div class="children">
-            {% for plugin in object.child_plugin_instances %}
-                {% render_plugin plugin %}
+            {% for image_object in object.images %}
+                {% with object=image_object %}
+                    {% include "djangocms_baseplugins/partials/image_generic.html" %}
+                {% endwith %}
             {% endfor %}
         </div>
     </div>
 </div>
 {% endblock %}
+
