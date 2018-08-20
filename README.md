@@ -15,6 +15,7 @@ Can be used as plugin framework, developping your own plugins. Features an astra
 - **anchor_name** field, when you need to access content directly via #hashbang
 - **some** more
 
+
 ## Plugins included
 
 ### Containers
@@ -33,6 +34,17 @@ Can be used as plugin framework, developping your own plugins. Features an astra
 
 
 ## Setting up / using it
+
+### Dependencies
+
+- Obviously, `django-cms` itself
+- `django-filer`, if you use any of the plugins with a file field
+- `django-ckeditor` if you use any of the plugins needing a ckeditor field 
+- `django-mailprotector` if you use any of the plugins needing a ckeditor field, with default templates, 
+  or the person plugin
+- the great `requests`, when using the video plugin
+- the experimental `django-filer-addons.filer_gui`, with an alternative filer file field, or when using `inline_gallery`
+- other?!
 
 ### Settings
 
