@@ -5,9 +5,9 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-DJANGOCMS_BASEPLUGINS_USER_FILER_ADDONS = getattr(
+DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS = getattr(
     settings,
-    'DJANGOCMS_BASEPLUGINS_USER_FILER_ADDONS', False
+    'DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS', False
 )
 
 
