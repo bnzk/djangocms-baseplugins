@@ -7,7 +7,7 @@
     <div class="gallery_inner">
         {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
         <div class="children">
-            {% for image_object in object.images %}
+            {% for image_object in object.images.all %}
                 {% with object=image_object %}
                     {% block single_image_content %}
                         <div class="plugin {{ object.get_css_classes }} plugin_image plugin_image_{{ object.layout }}">
