@@ -29,6 +29,14 @@ class InlineGalleryBase(AbstractBasePlugin):
         text = str(_("Gallery"))
         return self.add_hidden_flag(text)
 
+    def copy_relations(self, old_instance):
+        super(InlineGalleryBase, self).copy_relations(old_instance)
+        # self.images.add(*old_instance.images.all())
+        for entry in old_instance.images.all():
+            entry.id = None
+            entry.save()
+            self.images.add(entry);
+
 
 class InlineGallery(InlineGalleryBase):
     pass
@@ -37,6 +45,7 @@ class InlineGallery(InlineGalleryBase):
 class InlineGalleryImageBase(ImageBase):
     gallery = models.ForeignKey(
         'inline_gallery.InlineGallery',
+        related_name='images',
     )
     order = models.PositiveIntegerField(
         default=0,
