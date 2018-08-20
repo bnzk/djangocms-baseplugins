@@ -19,7 +19,7 @@ requests
 
 # person (only if using default template)
 django-mailprotector
--e git+https://github.com/benzkji/django-filer-addons#egg=django-filer-addons
+-e git+https://github.com/benzkji/django-filer-addons@master#egg=django-filer-addons
 
 
 # testing tools

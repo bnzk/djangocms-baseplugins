@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS = getattr(
     settings,
-    'DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS', False
+    'DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS', True
 )
 
 

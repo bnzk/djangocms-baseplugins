@@ -34,7 +34,6 @@ def get_fields_from_fieldsets(fieldsets):
     for fieldset in fieldsets:
         for field in fieldset[1].get('fields', []):
             fields.append(field)
-    print fields
     return fields
 
 

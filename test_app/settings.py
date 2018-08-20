@@ -7,7 +7,7 @@ import logging
 DJANGOCMS_BASEPLUGINS_MODE = 'default'
 # DJANGOCMS_BASEPLUGINS_MODE = 'minimal'
 
-DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS = False
+DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS = True
 
 CMS_TEMPLATES = (
     ('base.html', 'Default'),
@@ -98,7 +98,7 @@ EXTERNAL_APPS = (
 
     'ckeditor',
     'mailprotector',
-    # 'filer_addons.filer_gui',
+    'filer_addons.filer_gui',
 
     'filer',
     'easy_thumbnails',
