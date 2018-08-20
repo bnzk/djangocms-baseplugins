@@ -1,5 +1,5 @@
 {% extends "djangocms_baseplugins/baseplugin.html" %}
-{% load cms_tags %}
+{% load cms_tags thumbnail %}
 
 
 {% block plugin_content %}
@@ -9,16 +9,17 @@
         <div class="children">
             {% for image_object in object.images %}
                 {% with object=image_object %}
-                    <div class="plugin {{ object.get_css_classes }} plugin_image plugin_image_{{ object.layout }}">
-                        {% if object.image %}
-                            {% thumbnail object.image 1000x1000 crop=0 upscale=0 as resized %}
-                            <figure>
-                              <img src="{{ resized.url }}" alt="{{ object.caption }}">
-                              {% if object.caption %}<figcaption>{{ object.caption }}</figcaption>{% endif %}
-                            </figure>
-                        {% endif %}
-                    </div>
-
+                    {% block single_image_content %}
+                        <div class="plugin {{ object.get_css_classes }} plugin_image plugin_image_{{ object.layout }}">
+                            {% if object.image %}
+                                {% thumbnail object.image 1000x1000 crop=0 upscale=0 as resized %}
+                                <figure>
+                                  <img src="{{ resized.url }}" alt="{{ object.caption }}">
+                                  {% if object.caption %}<figcaption>{{ object.caption }}</figcaption>{% endif %}
+                                </figure>
+                            {% endif %}
+                        </div>
+                    {% endblock %}
                 {% endwith %}
             {% endfor %}
         </div>
