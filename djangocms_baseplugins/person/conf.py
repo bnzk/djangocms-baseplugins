@@ -64,7 +64,7 @@ PERSONPLUGIN_TRANSLATED_FIELDS = getattr(
 PERSONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONPLUGIN_CONTENT_FIELDS', (
         'image',
-        'title',
+        ('title', 'function', ),
         ('salutation', 'first_name', 'last_name', ),
         'body',
         'email',
