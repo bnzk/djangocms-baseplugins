@@ -9,6 +9,7 @@
     {% endif %}
     <h3>{{ object.title }} {{ object.salutation }}{{ object.first_name }} {{ object.last_name }}
         {% if object.function %}<span>{{ object.function }}</span>{% endif %}
+        {% if object.department %}<span>{{ object.department }}</span>{% endif %}
     </h3>
     {{ object.body|safe }}
     <p class="connect">

@@ -58,13 +58,13 @@ PERSONSECTIONPLUGIN_COLOR_CHOICES = getattr(
 
 PERSONPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'PERSONPLUGIN_TRANSLATED_FIELDS',
-    ['salutation', 'function', 'body', ]
+    ['salutation', 'function', 'department', 'body', ]
 )
 
 PERSONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONPLUGIN_CONTENT_FIELDS', (
         'image',
-        ('title', 'function', ),
+        ('title', 'function', 'department', ),
         ('salutation', 'first_name', 'last_name', ),
         'body',
         'email',
