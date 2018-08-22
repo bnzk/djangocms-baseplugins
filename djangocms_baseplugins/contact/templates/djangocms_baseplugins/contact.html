@@ -1,10 +1,17 @@
 {% extends "djangocms_baseplugins/baseplugin.html" %}
-{% load cms_tags %}
+{% load cms_tags mailprotector_tags %}
 
 
 {% block plugin_content %}
-<contact class="{{ object.get_css_classes }} plugin-contact_children-{{ object.child_plugin_instances|length }}
-    plugin-contact_deprecated-from-here plugin plugin_contact contact_columns_{{ object.child_plugin_instances|length }} {{ object.layout }} {{ object.background }} {{ object.color }}">
+<contact class="{{ object.get_css_classes }} plugin-contact_children-{{ object.child_plugin_instances|length }}">
+    <h2>{{ object.title }}</h2>
+    <p>
+        {{ object.address|linebreaksbr }}<br>
+        {% if object.website %}<a href="{{ object.website }}">{{ object.website }}</a><br>{% endif %}
+        {% if object.email %}{% mailprotector object.email %}<br>{% endif %}
+        {% if object.fax %}{{ object.fax }}<br>{% endif %}
+        {% if object.phone %}{% mailprotector object.phone %}<br>{% endif %}
+    </p>
     <div class="children">
         {% for plugin in object.child_plugin_instances %}
             {% render_plugin plugin %}
