@@ -37,6 +37,7 @@ class PersonBase(AbstractBasePlugin):
     email = models.EmailField(_("Email"), blank=True, default='')
     website = models.URLField(_("Website"), blank=True, default='')
     phone = models.CharField(_("Phone"), max_length=64, blank=True, default='')
+    fax = models.CharField(_("Fax"), max_length=64, blank=True, default='')
 
     class Meta:
         abstract = True
