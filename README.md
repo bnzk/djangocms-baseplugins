@@ -46,6 +46,12 @@ Can be used as plugin framework, developping your own plugins. Features an astra
 - the experimental `django-filer-addons.filer_gui`, with an alternative filer file field, or when using `inline_gallery`
 - other?!
 
+### Migrations
+
+If you dont want to use `filer_addons.filer_gui` and it's filer fields, or if you want to have translated
+(modeltranslation) plugins, you'll need to specify the basegplugins in your `MIGRATION_MODULES`. An 
+`ImproperlyConfigured` exception is raised otherwise, for your own sanity.
+
 ### Settings
 
 #### General

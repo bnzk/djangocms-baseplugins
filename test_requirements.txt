@@ -10,6 +10,7 @@ djangocms-misc
 django-filer
 django-polymorphic==1.2
 easy-thumbnails
+-e git+https://github.com/benzkji/django-filer-addons@master#egg=django-filer-addons
 
 # richtext fields (text, textimage)
 django-ckeditor
@@ -17,10 +18,8 @@ django-ckeditor
 # twitter
 requests
 
-# person (only if using default template)
+# person (only if using default templates)
 django-mailprotector
--e git+https://github.com/benzkji/django-filer-addons@master#egg=django-filer-addons
-
 
 # testing tools
 tox
