@@ -3,15 +3,15 @@ from __future__ import unicode_literals
 from django.test import TestCase
 
 from djangocms_baseplugins.baseplugin.tests.base import BasePluginTestCase
-from djangocms_baseplugins.section.cms_plugins import SectionPlugin
+from djangocms_baseplugins.contact.cms_plugins import ContactPlugin
 
 
-class SectionPluginTests(BasePluginTestCase, TestCase):
+class ContactPluginTests(BasePluginTestCase, TestCase):
 
-    plugin_class = SectionPlugin
-    plugin_settings_prefix = 'SECTIONPLUGIN'
+    plugin_class = ContactPlugin
+    plugin_settings_prefix = 'CONTACTPLUGIN'
 
-    # def test_section_plugin_special_classes_applied(self):
+    # def test_contact_plugin_special_classes_applied(self):
     #     """
     #     test if BEM style classes are applied to this plugins output
     #     :return:

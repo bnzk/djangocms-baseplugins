@@ -7,53 +7,53 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
-SECTIONPLUGIN_TRANSLATED_FIELDS = getattr(
-    settings, 'SECTIONPLUGIN_TRANSLATED_FIELDS', []
+CONTACTPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'CONTACTPLUGIN_TRANSLATED_FIELDS', []
 )
 
-SECTIONPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'SECTIONPLUGIN_CONTENT_FIELDS', []
+CONTACTPLUGIN_CONTENT_FIELDS = getattr(
+    settings, 'CONTACTPLUGIN_CONTENT_FIELDS', ['address', ]
 )
 
-SECTIONPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'SECTIONPLUGIN_DESIGN_FIELDS', []
+CONTACTPLUGIN_DESIGN_FIELDS = getattr(
+    settings, 'CONTACTPLUGIN_DESIGN_FIELDS', []
 )
 
-SECTIONPLUGIN_FIELDSETS = getattr(
+CONTACTPLUGIN_FIELDSETS = getattr(
     settings,
-    'SECTIONPLUGIN_FIELDSETS',
+    'CONTACTPLUGIN_FIELDSETS',
     build_baseplugin_fieldset(**{
-        'design': SECTIONPLUGIN_DESIGN_FIELDS,
-        'content': SECTIONPLUGIN_CONTENT_FIELDS,
+        'design': CONTACTPLUGIN_DESIGN_FIELDS,
+        'content': CONTACTPLUGIN_CONTENT_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 )
 
-SECTIONPLUGIN_CHILD_CLASSES = getattr(
-    settings, 'SECTIONPLUGIN_CHILD_CLASSES', (
-        'ColumnPlugin',
+CONTACTPLUGIN_CHILD_CLASSES = getattr(
+    settings, 'CONTACTPLUGIN_CHILD_CLASSES', (
+        'PersonSection',
     )
 )
 
-SECTIONPLUGIN_LAYOUT_CHOICES = getattr(
+CONTACTPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
-    'SECTIONPLUGIN_LAYOUT_CHOICES',
+    'CONTACTPLUGIN_LAYOUT_CHOICES',
     (
         ('default', _("Default"), ),
     )
 )
 
-SECTIONPLUGIN_BACKGROUND_CHOICES = getattr(
+CONTACTPLUGIN_BACKGROUND_CHOICES = getattr(
     settings,
-    'SECTIONPLUGIN_BACKGROUND_CHOICES',
+    'CONTACTPLUGIN_BACKGROUND_CHOICES',
     (
         ('default', _("Default"), ),
     )
 )
 
-SECTIONPLUGIN_COLOR_CHOICES = getattr(
+CONTACTPLUGIN_COLOR_CHOICES = getattr(
     settings,
-    'SECTIONPLUGIN_COLOR_CHOICES',
+    'CONTACTPLUGIN_COLOR_CHOICES',
     (
         ('default', _("Default"), ),
     )

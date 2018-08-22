@@ -13,16 +13,16 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 
 @python_2_unicode_compatible
-class SectionBase(AbstractBasePlugin):
-    height = models.CharField(_('Height'), max_length=32, default='', blank=True)
+class ContactBase(AbstractBasePlugin):
+    address = models.CharField(_('Height'), max_length=512, default='', blank=True)
 
     class Meta:
         abstract = True
 
     def __str__(self):
-        text = str(_("Section"))
+        text = str(_("Contact / Subsidiary"))
         return self.add_hidden_flag(text)
 
 
-class Section(SectionBase):
+class Contact(ContactBase):
     pass
