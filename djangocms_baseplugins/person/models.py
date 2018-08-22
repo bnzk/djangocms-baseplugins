@@ -30,6 +30,7 @@ class PersonBase(AbstractBasePlugin):
                             on_delete=models.SET_NULL, related_name="%(app_label)s_%(class)s_image")
     salutation = models.CharField(_("Salutation"), blank=True, max_length=255, default='')
     function = models.CharField(_("Function"), blank=True, max_length=255, default='')
+    department = models.CharField(_("Department"), blank=True, max_length=255, default='')
     first_name = models.CharField(_("First Name"), blank=True, max_length=255, default='')
     last_name = models.CharField(_("Last Name"), max_length=255, default='')
     body = RichTextField(_("Text"), blank=True, default='')
