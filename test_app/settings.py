@@ -126,6 +126,7 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.column',
     'djangocms_baseplugins.htmlblock',
     'djangocms_baseplugins.person',
+    'djangocms_baseplugins.contact',
     'djangocms_baseplugins.slider',
     'djangocms_baseplugins.teaser_section',
     'djangocms_baseplugins.textimage',
