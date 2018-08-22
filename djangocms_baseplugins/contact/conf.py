@@ -12,7 +12,14 @@ CONTACTPLUGIN_TRANSLATED_FIELDS = getattr(
 )
 
 CONTACTPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'CONTACTPLUGIN_CONTENT_FIELDS', ['address', ]
+    settings, 'CONTACTPLUGIN_CONTENT_FIELDS', [
+        'website',
+        'email',
+        'phone',
+        'address',
+        'geocoding_address',
+        'body',
+    ]
 )
 
 CONTACTPLUGIN_DESIGN_FIELDS = getattr(

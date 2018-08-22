@@ -1,6 +1,7 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+from ckeditor.fields import RichTextField
 from cms.models import CMSPlugin
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
@@ -14,7 +15,14 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 @python_2_unicode_compatible
 class ContactBase(AbstractBasePlugin):
-    address = models.CharField(_('Height'), max_length=512, default='', blank=True)
+    website = models.URLField(_("Website"), blank=True, default='')
+    email = models.EmailField(_("Email"), blank=True, default='')
+    phone = models.CharField(_("Phone"), max_length=64, blank=True, default='')
+    fax = models.CharField(_("Fax"), max_length=64, blank=True, default='')
+    body = RichTextField(_("Text"), blank=True, default='')
+    address = models.CharField(_('Address'), max_length=512, default='', blank=True)
+    geocoding_address = models.CharField(_('Address for the map'), max_length=64, default='', blank=True)
+
 
     class Meta:
         abstract = True
