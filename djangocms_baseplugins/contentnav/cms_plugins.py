@@ -11,7 +11,6 @@ from . import conf
 
 
 class ContentNavPluginForm(forms.ModelForm):
-    width = forms.ChoiceField(choices=conf.CONTENTNAVPLUGIN_WIDTH_CHOICES )
 
     class Meta:
         model = ContentNav
@@ -25,8 +24,15 @@ class ContentNavPlugin(BasePluginMixin, CMSPluginBase):
     name = _(u'ContentNav')
     render_template = "djangocms_baseplugins/contentnav.html"
     fieldsets = conf.CONTENTNAVPLUGIN_FIELDSETS
-    require_parent = True
-    allow_children = True
-    child_classes = conf.CONTENTNAVPLUGIN_CHILD_CLASSES
+
+    def render(self, context, instance, placeholder):
+        # TODO: prepare if a different than the current page is selected, to show the menu of...
+        context = super(ContentNavPlugin, self).render(context, instance, placeholder)
+        page = getattr(context["request"], 'current_page', None)
+        context.update({
+            'contentnav_page': page
+        })
+        return context
+
 
 plugin_pool.register_plugin(ContentNavPlugin)

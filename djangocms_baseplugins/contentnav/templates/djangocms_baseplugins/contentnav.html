@@ -1,12 +1,10 @@
 {% extends "djangocms_baseplugins/baseplugin.html" %}
-{% load cms_tags %}
+{% load cms_tags menu_tags %}
 
 {% block plugin_content %}
-<section class="plugin {{ object.get_css_classes }} plugin_contentnav {{ object.layout }} {{ object.background }} {{ object.color }}">
-    <div class="children">
-        {% for plugin in object.child_plugin_instances %}
-            {% render_plugin plugin %}
-        {% endfor %}
-    </div>
+<section class="plugin {{ object.get_css_classes }}">
+    <ul class="contentnav">
+        {% show_sub_menu 1 None 1 %}
+    </ul>
 </section>
 {% endblock %}

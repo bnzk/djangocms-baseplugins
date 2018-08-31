@@ -133,6 +133,7 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.twitter',
     'djangocms_baseplugins.video',
     'djangocms_baseplugins.spacer',
+    'djangocms_baseplugins.contentnav',
 )
 
 MIDDLEWARE_CLASSES = (
