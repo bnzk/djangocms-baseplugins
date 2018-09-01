@@ -54,7 +54,7 @@ class BasePluginTestCase(object):
             'en',
         )
         plugin_instance = model_instance.get_plugin_class_instance()
-        context = plugin_instance.render({}, model_instance, None)
+        context = plugin_instance.render({}, model_instance, placeholder)
         self.assertIn('object', context)
 
     def test_plugin_bem_classes_applied(self):

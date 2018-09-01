@@ -1,4 +1,6 @@
 # coding: utf-8
+from __future__ import unicode_literals
+
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django import forms
@@ -21,18 +23,10 @@ class ContentNavPluginForm(forms.ModelForm):
 class ContentNavPlugin(BasePluginMixin, CMSPluginBase):
     model = ContentNav
     form = ContentNavPluginForm
-    name = _(u'ContentNav')
+    module = _("Containers")
+    name = _('ContentNav')
     render_template = "djangocms_baseplugins/contentnav.html"
     fieldsets = conf.CONTENTNAVPLUGIN_FIELDSETS
-
-    def render(self, context, instance, placeholder):
-        # TODO: prepare if a different than the current page is selected, to show the menu of...
-        context = super(ContentNavPlugin, self).render(context, instance, placeholder)
-        page = getattr(context["request"], 'current_page', None)
-        context.update({
-            'contentnav_page': page
-        })
-        return context
 
 
 plugin_pool.register_plugin(ContentNavPlugin)
