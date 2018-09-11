@@ -36,7 +36,6 @@ class InlineGalleryPlugin(BasePluginMixin, CMSPluginBase):
     render_template = "djangocms_baseplugins/inline_gallery.html"
     fieldsets = conf.INLINEGALLERYPLUGIN_FIELDSETS
     inlines = [InlineGalleryImageInline, ]
-    allow_children = True
-    child_classes = conf.INLINEGALLERYPLUGIN_CHILD_CLASSES
+
 
 plugin_pool.register_plugin(InlineGalleryPlugin)
