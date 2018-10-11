@@ -28,3 +28,27 @@ CONTENTNAVPLUGIN_FIELDSETS = getattr(
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 )
+
+CONTENTNAVPLUGIN_LAYOUT_CHOICES = getattr(
+    settings,
+    'CONTENTNAVPLUGIN_LAYOUT_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+
+CONTENTNAVPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings,
+    'CONTENTNAVPLUGIN_BACKGROUND_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)
+
+CONTENTNAVPLUGIN_COLOR_CHOICES = getattr(
+    settings,
+    'CONTENTNAVPLUGIN_COLOR_CHOICES',
+    (
+        ('default', _("Default"), ),
+    )
+)

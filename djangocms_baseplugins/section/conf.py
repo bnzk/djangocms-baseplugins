@@ -58,4 +58,3 @@ SECTIONPLUGIN_COLOR_CHOICES = getattr(
         ('default', _("Default"), ),
     )
 )
-
