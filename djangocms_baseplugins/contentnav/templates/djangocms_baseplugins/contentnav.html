@@ -5,7 +5,7 @@
 {% block plugin_content %}
     <section class="plugin {{ object.get_css_classes }}">
         <ul class="contentnav">
-            {% with depth=object.depth menu_template="djangocms_baseplugins/contentnav_menu.html" %}
+            {% with depth=object.menu_depth menu_template="djangocms_baseplugins/contentnav_menu.html" %}
                 {% if object.cms_page %}
                     {% if request.user.is_staff and not object.cms_page.reverse_id %}
                         {% trans 'Contentnav/target page is not correctly configured. (page > advanced settings... > fill out field "ID")!' %}
