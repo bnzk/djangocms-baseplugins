@@ -19,6 +19,7 @@ class ContentNavBase(AbstractBasePlugin):
     cms_page = PageField(
         null=True,
         default=None,
+        blank=True,
         help_text=_("Show submenu of this page")
     )
     sitemap = models.BooleanField(
@@ -30,7 +31,7 @@ class ContentNavBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        text = _("of this very page")
+        text = str(_("of this very page"))
         if self.cms_page:
             text = str(_("of %s")) % str(self.cms_page)
         elif self.sitemap:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-04 13:22+0200\n"
+"POT-Creation-Date: 2018-10-11 10:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ben Stähli <bnzk@bnzk.ch>, 2017\n"
 "Language-Team: German (https://www.transifex.com/bnzk/teams/73468/de/)\n"
@@ -18,73 +18,98 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: baseplugin/defaults.py:23
-msgid "Automatic"
-msgstr "Automatisch"
-
-#: baseplugin/defaults.py:24
-msgid "100%"
-msgstr ""
-
-#: baseplugin/defaults.py:25
-msgid "66%"
-msgstr ""
-
-#: baseplugin/defaults.py:26
-msgid "50%"
-msgstr ""
-
-#: baseplugin/defaults.py:27
-msgid "33%"
-msgstr ""
-
-#: baseplugin/models.py:15
-msgid "Title"
-msgstr ""
-
-#: baseplugin/models.py:20
-msgid "Published?"
-msgstr "Publiziert?"
-
-#: baseplugin/models.py:24
-msgid "In Menu?"
-msgstr "Im Menu?"
-
-#: baseplugin/models.py:31
-msgid "Layout"
-msgstr "Layout"
-
-#: baseplugin/models.py:37
-msgid "Background"
-msgstr "Hintergrund"
-
-#: baseplugin/models.py:43
-msgid "Color"
-msgstr "Farbe"
-
-#: baseplugin/models.py:49
-msgid "Anchor"
-msgstr "Anker"
-
-#: baseplugin/models.py:61
-msgid "hidden"
-msgstr "versteckt"
-
-#: baseplugin/utils.py:11
-msgid "Design & Layout"
-msgstr "Design & Layout"
+#: baseplugin/defaults.py:28 htmlblock/cms_plugins.py:23
+msgid "z Advanced"
+msgstr "Advanced"
 
 #. Translators: forget c, this is for alphabetical ordering in cms
-#: baseplugin/utils.py:16 image/cms_plugins.py:25 person/cms_plugins.py:26
-#: text/cms_plugins.py:24 textimage/cms_plugins.py:24 twitter/cms_plugins.py:14
+#: baseplugin/defaults.py:34 baseplugin/utils.py:18 contact/cms_plugins.py:24
+#: image/cms_plugins.py:26 person/cms_plugins.py:45 spacer/cms_plugins.py:24
+#: text/cms_plugins.py:23 textimage/cms_plugins.py:23 twitter/cms_plugins.py:24
+#: video/cms_plugins.py:23
 msgid "Content"
 msgstr "Inhalt"
 
-#: baseplugin/utils.py:21
+#: baseplugin/defaults.py:40 contentnav/cms_plugins.py:26
+#: gallery/cms_plugins.py:23 inline_gallery/cms_plugins.py:34
+#: person/cms_plugins.py:24 section/cms_plugins.py:24 slider/cms_plugins.py:24
+#: teaser_section/cms_plugins.py:24
+msgid "Containers"
+msgstr "Container"
+
+#: baseplugin/defaults.py:61
+msgid "Automatic"
+msgstr "Automatisch"
+
+#: baseplugin/defaults.py:62
+msgid "100%"
+msgstr ""
+
+#: baseplugin/defaults.py:63
+msgid "66%"
+msgstr ""
+
+#: baseplugin/defaults.py:64
+msgid "50%"
+msgstr ""
+
+#: baseplugin/defaults.py:65
+msgid "33%"
+msgstr ""
+
+#: baseplugin/defaults.py:66
+msgid "25%"
+msgstr ""
+
+#: baseplugin/models.py:16
+msgid "Title"
+msgstr "Titel"
+
+#: baseplugin/models.py:21
+msgid "Published?"
+msgstr "Publiziert?"
+
+#: baseplugin/models.py:27
+msgid "Published from"
+msgstr "Publiziert von"
+
+#: baseplugin/models.py:33
+msgid "Published until"
+msgstr "Publiziert bis"
+
+#: baseplugin/models.py:37
+msgid "In Menu?"
+msgstr "Im Menu?"
+
+#: baseplugin/models.py:44
+msgid "Layout"
+msgstr "Layout"
+
+#: baseplugin/models.py:50
+msgid "Background"
+msgstr "Hintergrund"
+
+#: baseplugin/models.py:56
+msgid "Color"
+msgstr "Farbe"
+
+#: baseplugin/models.py:62
+msgid "Anchor"
+msgstr "Anker"
+
+#: baseplugin/models.py:93
+msgid "hidden"
+msgstr "versteckt"
+
+#: baseplugin/utils.py:13
+msgid "Design & Layout"
+msgstr "Design & Layout"
+
+#: baseplugin/utils.py:23
 msgid "Advanced Settings"
 msgstr "Erweiterte Einstellungen"
 
-#: column/cms_plugins.py:12 column/models.py:20
+#: column/cms_plugins.py:25 column/models.py:20
 msgid "Column"
 msgstr "Spalte"
 
@@ -92,60 +117,146 @@ msgstr "Spalte"
 msgid "width"
 msgstr "Breite"
 
-#: gallery/cms_plugins.py:13 person/cms_plugins.py:14 section/cms_plugins.py:13
-#: slider/cms_plugins.py:13 teaser_section/cms_plugins.py:13
-msgid "Containers"
-msgstr "Container"
+#: contact/cms_plugins.py:25
+#, fuzzy
+#| msgid "Content"
+msgid "Contact"
+msgstr "Inhalt"
 
-#: gallery/cms_plugins.py:14 gallery/models.py:23
+#: contact/conf.py:49 contact/conf.py:57 contact/conf.py:65
+#: htmlblock/conf.py:48 htmlblock/conf.py:56 image/conf.py:46 image/conf.py:54
+#: person/conf.py:46 person/conf.py:54 person/conf.py:103 person/conf.py:111
+#: section/conf.py:42 section/conf.py:50 section/conf.py:58 slider/conf.py:45
+#: slider/conf.py:53 slider/conf.py:61 twitter/conf.py:40 twitter/conf.py:48
+#: twitter/conf.py:56
+msgid "Default"
+msgstr "Standard"
+
+#: contact/models.py:18 person/models.py:38
+msgid "Website"
+msgstr "Webseite"
+
+#: contact/models.py:19 person/models.py:37
+msgid "Email"
+msgstr "E-Mail"
+
+#: contact/models.py:20 person/models.py:39
+msgid "Phone"
+msgstr "Telefon"
+
+#: contact/models.py:21 person/models.py:40
+msgid "Fax"
+msgstr ""
+
+#: contact/models.py:22 person/models.py:36 text/cms_plugins.py:24
+#: text/models.py:14 textimage/models.py:14
+msgid "Text"
+msgstr "Text"
+
+#: contact/models.py:23
+msgid "Address"
+msgstr "Adresse"
+
+#: contact/models.py:24
+msgid "Address for the map"
+msgstr "Adresse für die Karte"
+
+#: contact/models.py:31
+msgid "Contact / Subsidiary"
+msgstr "Kontakt / Filiale"
+
+#: contentnav/cms_plugins.py:27
+msgid "ContentNav"
+msgstr "Inhaltsnavigation"
+
+#: contentnav/models.py:17
+msgid "Depth"
+msgstr "Tiefe"
+
+#: contentnav/models.py:23
+msgid "Show submenu of this page"
+msgstr "Submenu dieser Seite anzeigen"
+
+#: contentnav/models.py:27
+msgid "Show complete sitemap"
+msgstr "Komplette Sitemap anzeigen"
+
+#: contentnav/models.py:34
+msgid "of this very page"
+msgstr "der aktuellen Seite"
+
+#: contentnav/models.py:36
+#, python-format
+msgid "of %s"
+msgstr "von %s"
+
+#: contentnav/models.py:38
+msgid "Complete sitemap"
+msgstr "Sitemap"
+
+#: contentnav/templates/djangocms_baseplugins/contentnav.html:11
+msgid ""
+"Contentnav/target page is not correctly configured. (page > advanced "
+"settings... > fill out field \"ID\")!"
+msgstr ""
+"Inhaltsnavigation/Zielseite ist nicht korrekt konfiguriert. (Seite > "
+"Erweiterte Einstellungen ... > Feld \"ID\" ausfüllen)!"
+
+#: gallery/cms_plugins.py:24 gallery/models.py:23 inline_gallery/base.py:24
+#: inline_gallery/cms_plugins.py:35
 msgid "Gallery"
 msgstr "Galerie"
 
-#: gallery/models.py:17 section/models.py:17 slider/models.py:17
+#: gallery/models.py:17 inline_gallery/base.py:14 section/models.py:17
+#: slider/models.py:12
 msgid "Height"
 msgstr "Höhe"
 
-#: htmlblock/cms_plugins.py:13
-msgid "z Advanced"
-msgstr "Advanced"
-
-#: htmlblock/cms_plugins.py:14 htmlblock/models.py:15
+#: htmlblock/cms_plugins.py:24 htmlblock/models.py:14
 msgid "HTML Block"
 msgstr "HTML Block"
 
-#: htmlblock/models.py:15
-msgid "Use with caution."
-msgstr "Bitte Vorsicht."
-
-#: image/cms_plugins.py:26 image/models.py:16 person/models.py:31
-msgid "Image"
-msgstr "Bild"
-
-#: image/conf.py:35
+#: htmlblock/conf.py:39 image/conf.py:37 person/conf.py:37 person/conf.py:94
 msgid "Full Size"
 msgstr ""
 
-#: image/conf.py:36
-#, fuzzy
-#| msgid "Content"
+#: htmlblock/conf.py:40 image/conf.py:38 person/conf.py:38 person/conf.py:95
 msgid "Content Sized"
-msgstr "Inhalt"
+msgstr "Automatische Grösse"
 
-#: image/conf.py:45 image/conf.py:54
-msgid "Default"
-msgstr ""
+#: htmlblock/models.py:14
+msgid "Use with caution."
+msgstr "Bitte Vorsicht."
 
-#: person/cms_plugins.py:15 person/models.py:22
+#: image/base.py:25 image/cms_plugins.py:27 person/models.py:29
+msgid "Image"
+msgstr "Bild"
+
+#: person/cms_plugins.py:25
 msgid "People Section"
 msgstr "Team/Personen"
 
-#: person/cms_plugins.py:27
+#: person/cms_plugins.py:46
 msgid "Person / Contact"
 msgstr "Person / Kontakt"
 
-#: person/models.py:33
+#: person/models.py:20
+msgid "People Section / Department"
+msgstr "Team / Abteilung"
+
+#: person/models.py:31
 msgid "Salutation"
 msgstr "Anrede"
+
+#: person/models.py:32
+#, fuzzy
+#| msgid "Section"
+msgid "Function"
+msgstr "Funktion"
+
+#: person/models.py:33
+msgid "Department"
+msgstr "Abteilung"
 
 #: person/models.py:34
 msgid "First Name"
@@ -155,40 +266,55 @@ msgstr "Vorname"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: person/models.py:36 text/cms_plugins.py:25 text/models.py:15
-#: textimage/models.py:18
-msgid "Text"
-msgstr "Text"
-
-#: person/models.py:37
-msgid "Email"
-msgstr "E-Mail"
-
-#: person/models.py:38
-msgid "Website"
-msgstr "Webseite"
-
-#: person/models.py:39
-msgid "Phone"
-msgstr "Telefon"
-
-#: section/cms_plugins.py:14 section/models.py:23
+#: section/cms_plugins.py:25 section/models.py:23
 msgid "Section"
 msgstr "Abschnitt"
 
-#: slider/cms_plugins.py:14 slider/models.py:23
+#: slider/cms_plugins.py:25 slider/models.py:18
 msgid "Slider"
 msgstr "Slider"
 
-#: teaser_section/cms_plugins.py:14 teaser_section/models.py:22
+#: spacer/cms_plugins.py:25 spacer/models.py:19
+msgid "Spacer"
+msgstr ""
+
+#: spacer/conf.py:32
+msgid "-"
+msgstr ""
+
+#: spacer/conf.py:33
+msgid "Remove space"
+msgstr "Abstand entfernen"
+
+#: spacer/conf.py:34
+msgid "Remove half space"
+msgstr "Halber Abstnad entfernen"
+
+#: spacer/conf.py:35
+msgid "Add little more space"
+msgstr "Wenig Abstand hinzufügen"
+
+#: spacer/conf.py:36
+msgid "Add normal space"
+msgstr "1x Abstand hinzufügen"
+
+#: spacer/conf.py:37
+msgid "Add double of normal space"
+msgstr "2x Abstand hinzufügen"
+
+#: spacer/conf.py:38
+msgid "Add triple of normal space"
+msgstr "3x Abstand hinzufügen"
+
+#: teaser_section/cms_plugins.py:25 teaser_section/models.py:22
 msgid "Teaser Section"
 msgstr "Teaser Abschnitt"
 
-#: textimage/cms_plugins.py:25
+#: textimage/cms_plugins.py:24
 msgid "Text & Image"
 msgstr "Text & Bild"
 
-#: twitter/cms_plugins.py:15
+#: twitter/cms_plugins.py:25
 msgid "Twitter"
 msgstr "Twitter"
 
@@ -196,6 +322,38 @@ msgstr "Twitter"
 msgid "Tweet URL"
 msgstr "Tweet URL"
 
-#: twitter/models.py:15
+#: twitter/models.py:16
 msgid "Example: https://twitter.com/MdDoomFest/status/795834590481018880"
 msgstr "Beispiel: https://twitter.com/MdDoomFest/status/795834590481018880"
+
+#: video/cms_plugins.py:24
+msgid "Video"
+msgstr ""
+
+#: video/models.py:65
+msgid "Video Adresse"
+msgstr ""
+
+#: video/models.py:66
+msgid "youtube & vimeo"
+msgstr ""
+
+#: video/models.py:70
+msgid "Autoplay"
+msgstr ""
+
+#: video/models.py:74
+msgid "show controls"
+msgstr ""
+
+#: video/models.py:75
+msgid "youtube only"
+msgstr ""
+
+#: video/models.py:79
+msgid "show infos"
+msgstr ""
+
+#: video/models.py:83
+msgid "allow fullscreen"
+msgstr ""
