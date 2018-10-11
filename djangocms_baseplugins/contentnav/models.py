@@ -30,7 +30,11 @@ class ContentNavBase(AbstractBasePlugin):
         abstract = True
 
     def __str__(self):
-        text = str(_("Content Navigation"))
+        text = _("of this very page")
+        if self.cms_page:
+            text = str(_("of %s")) % str(self.cms_page)
+        elif self.sitemap:
+            text = str(_("Complete sitemap"))
         return self.add_hidden_flag(text)
 
 
