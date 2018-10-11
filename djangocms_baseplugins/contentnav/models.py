@@ -17,6 +17,7 @@ class ContentNavBase(AbstractBasePlugin):
         verbose_name=_("Depth")
     )
     cms_page = PageField(
+        null=True,
         default=None,
         help_text=_("Show submenu of this page")
     )
