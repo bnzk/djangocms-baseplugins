@@ -54,8 +54,13 @@ class Contact(ContactBase):
             from_db = Contact()
         if self.geocoding_address:
             if not self.lat or not from_db.geocoding_address == self.geocoding_address:
-                g = geocoder.komoot(self.geocoding_address)
-                if not g is None:
+                print(self.geocoding_address)
+                g = None
+                try:
+                    g = geocoder.arcgis(self.geocoding_address)
+                except:
+                    pass
+                if g and g.ok:
                     self.lat = g.latlng[0]
                     self.lng = g.latlng[1]
                     self.geo_error = False
