@@ -32,6 +32,8 @@ class ContactBase(AbstractBasePlugin):
 
     def __str__(self):
         text = str(_("Contact / Subsidiary"))
+        if self.geo_error:
+            text = "%s (%s)" % (text, _("Coordinates Error!"))
         return self.add_hidden_flag(text)
 
 
