@@ -102,7 +102,7 @@ class AbstractBasePlugin(CMSPlugin):
 
     def get_css_classes(self):
         plugin_block_class = self.get_plugin_css_block_class()
-        classes = ' plugin_{} '.format(self.pk)
+        classes = 'plugin plugin_{} '.format(self.pk)
         classes += ' {} '.format(plugin_block_class)
         if self.anchor:
             classes += ' plugin_{} '.format(self.anchor)
