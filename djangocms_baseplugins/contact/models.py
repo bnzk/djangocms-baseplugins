@@ -1,6 +1,8 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+import time
+
 from ckeditor.fields import RichTextField
 from cms.models import CMSPlugin
 from django.utils.translation import ugettext_lazy as _
@@ -56,7 +58,8 @@ class Contact(ContactBase):
             if not self.lat or not from_db.geocoding_address == self.geocoding_address:
                 g = None
                 try:
-                    g = geocoder.arcgis(self.geocoding_address)
+                    g = geocoder.komoot(self.geocoding_address)
+                    time.sleep(2)
                 except:
                     pass
                 if g and g.ok:
