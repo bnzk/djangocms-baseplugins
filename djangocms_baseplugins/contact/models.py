@@ -54,7 +54,6 @@ class Contact(ContactBase):
             from_db = Contact()
         if self.geocoding_address:
             if not self.lat or not from_db.geocoding_address == self.geocoding_address:
-                print(self.geocoding_address)
                 g = None
                 try:
                     g = geocoder.arcgis(self.geocoding_address)
