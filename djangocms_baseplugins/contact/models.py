@@ -20,7 +20,7 @@ class ContactBase(AbstractBasePlugin):
     phone = models.CharField(_("Phone"), max_length=64, blank=True, default='')
     fax = models.CharField(_("Fax"), max_length=64, blank=True, default='')
     body = RichTextField(_("Text"), blank=True, default='')
-    address = models.CharField(_('Address'), max_length=512, default='', blank=True)
+    address = models.TextField(_('Address'), default='', blank=True)
     geocoding_address = models.CharField(_('Address for the map'), max_length=64, default='', blank=True)
 
     lat = models.FloatField(blank=True, default=0, null=True)
