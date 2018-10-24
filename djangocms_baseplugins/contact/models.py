@@ -53,9 +53,12 @@ class Contact(ContactBase):
         if self.geocoding_address:
             if not self.lat or not from_db.geocoding_address == self.geocoding_address:
                 g = geocoder.komoot(self.geocoding_address)
-                self.lat = g.latlng[0]
-                self.lng = g.latlng[1]
-                self.geo_error = False
+                if g:
+                    self.lat = g.latlng[0]
+                    self.lng = g.latlng[1]
+                    self.geo_error = False
+                else:
+                    self.geo_error = True
             if not self.lat:
                 # print "no latlng found: %s" % self
                 self.geo_error = True
