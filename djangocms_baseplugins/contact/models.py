@@ -23,6 +23,9 @@ class ContactBase(AbstractBasePlugin):
     address = models.CharField(_('Address'), max_length=512, default='', blank=True)
     geocoding_address = models.CharField(_('Address for the map'), max_length=64, default='', blank=True)
 
+    lat = models.FloatField(blank=True, default=0, null=True)
+    lng = models.FloatField(blank=True, default=0, null=True)
+    geo_error = models.BooleanField(_("Probleme mit der Adresse?"), default=False)
 
     class Meta:
         abstract = True
@@ -32,5 +35,33 @@ class ContactBase(AbstractBasePlugin):
         return self.add_hidden_flag(text)
 
 
+
 class Contact(ContactBase):
-    pass
+
+    def save(self, *args, **kwargs):
+        """
+        here for now. may end in a metaclass, if we haz time to do this
+        """
+        try:
+            import geocoder
+        except:
+            return super(Contact, self).save(*args, **kwargs)
+        try:
+            from_db = Contact.objects.get(id=self.id)
+        except self.DoesNotExist:
+            from_db = Contact()
+        if self.geocoding_address:
+            if not self.lat or not from_db.geocoding_address == self.geocoding_address:
+                g = geocoder.komoot(self.geocoding_address)
+                self.lat = g.latlng[0]
+                self.lng = g.latlng[1]
+                self.geo_error = False
+            if not self.lat:
+                # print "no latlng found: %s" % self
+                self.geo_error = True
+        else:
+            self.geo_error = False
+            self.lat = 0
+            self.lng = 0
+
+        return super(Contact, self).save(*args, **kwargs)

@@ -25,6 +25,7 @@ class ContactPlugin(BasePluginMixin, CMSPluginBase):
     name = _(u'Contact')
     render_template = "djangocms_baseplugins/contact.html"
     fieldsets = conf.CONTACTPLUGIN_FIELDSETS
+    readonly_fields = ('lat', 'lng', 'geo_error', )
     allow_children = True
     child_classes = conf.CONTACTPLUGIN_CHILD_CLASSES
 
