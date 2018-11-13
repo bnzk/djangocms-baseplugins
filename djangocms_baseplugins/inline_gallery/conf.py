@@ -26,3 +26,6 @@ INLINEGALLERYPLUGIN_FIELDSETS = getattr(
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 )
+
+INLINEGALLERYPLUGIN_IMAGE_CONTENT_FIELDS = getattr(
+    settings, 'INLINEGALLERYPLUGIN_IMAGE_CONTENT_FIELDS', ['image', ('order', 'caption', )])

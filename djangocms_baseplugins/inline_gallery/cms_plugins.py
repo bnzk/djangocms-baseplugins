@@ -16,6 +16,11 @@ from . import conf
 class InlineGalleryImageInline(UploadInlineMixin, admin.StackedInline):
     model = InlineGalleryImage
     file_field = 'image'
+    fieldsets = (
+        (None, {
+            'fields': conf.INLINEGALLERYPLUGIN_IMAGE_CONTENT_FIELDS,
+        }),
+    )
     extra = 0
 
 
