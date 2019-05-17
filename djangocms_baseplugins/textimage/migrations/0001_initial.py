@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TextImage',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, related_name='textimage_textimage', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, on_delete=models.CASCADE,related_name='textimage_textimage', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
                 ('title', models.CharField(default='', max_length=256, blank=True)),
                 ('published', models.BooleanField(default=True)),
                 ('in_menu', models.BooleanField(default=False)),

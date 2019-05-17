@@ -6,6 +6,16 @@ from django.conf import settings
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+
+
+# clean when saving? default is to clean on render AND save.
+TEXTPLUGIN_CLEAN_ON_SAVE = getattr(
+    settings,
+    'TEXTPLUGIN_CLEAN_ON_SAVE',
+    True,
+)
+
+
 TEXTPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'TEXTPLUGIN_TRANSLATED_FIELDS', [
         'body',
@@ -37,3 +47,4 @@ TEXTPLUGIN_FIELDSETS = getattr(
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 )
+

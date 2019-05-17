@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Person',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, related_name='person_person', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, on_delete=models.CASCADE,related_name='person_person', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
                 ('title', models.CharField(default='', max_length=256, blank=True)),
                 ('published', models.BooleanField(default=True)),
                 ('in_menu', models.BooleanField(default=False)),
@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='PersonSection',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, related_name='person_personsection', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, on_delete=models.CASCADE,related_name='person_personsection', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
                 ('title', models.CharField(default='', max_length=256, blank=True)),
                 ('published', models.BooleanField(default=True)),
                 ('in_menu', models.BooleanField(default=False)),

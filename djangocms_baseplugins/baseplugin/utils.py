@@ -6,6 +6,13 @@ from django.utils.html import strip_tags
 from django.utils.text import Truncator
 from django.utils.translation import ugettext_lazy as _
 
+from . import defaults
+
+try:
+    import bleach
+except ImportError:
+    bleach = None
+
 
 def build_baseplugin_fieldset(**kwargs):
     fieldsets = []
@@ -25,7 +32,6 @@ def build_baseplugin_fieldset(**kwargs):
             'fields': kwargs.get('advanced'),
         }))
     return fieldsets
-
 
 
 
@@ -52,10 +58,6 @@ def build_baseplugin_widgets(conf, prefix):
     return widgets
 
 
-def truncate_richtext_content(richtext):
-    return Truncator(strip_tags(richtext).replace('&shy;', '')).words(3, truncate="...")
-
-
 def check_in_migration_modules(app_name):
     modules = getattr(settings, 'MIGRATION_MODULES', [])
     if not app_name in modules:
@@ -63,3 +65,13 @@ def check_in_migration_modules(app_name):
             'You need "{}" in settings.MIGRATION_MODULES, or you cannot translat plugins!'
             .format(app_name)
         )
+
+
+def truncate_richtext_content(richtext):
+    return Truncator(strip_tags(richtext).replace('&shy;', '')).words(3, truncate="...")
+
+
+def sanitize_richtext(text):
+    if bleach and defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG:
+        text = bleach.clean(text, **defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG)
+    return text

@@ -37,6 +37,7 @@ class InlineGalleryImageBase(ImageBase):
     gallery = models.ForeignKey(
         'inline_gallery.InlineGallery',
         related_name='images',
+        on_delete=models.CASCADE,
     )
     order = models.PositiveIntegerField(
         default=0,

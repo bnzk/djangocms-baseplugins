@@ -9,6 +9,13 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
+TEXTIMAGEPLUGIN_CLEAN_ON_SAVE = getattr(
+    settings,
+    'TEXTIMAGEPLUGIN_CLEAN_ON_SAVE',
+    True,
+)
+
+
 TEXTIMAGEPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'TEXTIMAGEPLUGIN_TRANSLATED_FIELDS', [
         'caption', 'body',

@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+
 DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS', True
@@ -65,4 +66,57 @@ WIDTH_CHOICES = getattr(
         ('w-33', _('33%')),
         ('w-25', _('25%')),
     )
+)
+
+
+def allow_attrs_for_a(tag, name, value):
+    """
+    allow data-* attributes
+    """
+    if name.startswith('data-'):
+        return True
+    if name in ['href', 'target', 'title', 'rel', 'class', ]:
+        return True
+
+
+DEFAULT_TAGS = [
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'p',
+    'span',
+    'a',
+    'hr',
+    'strong',
+    'b',
+    'em',
+    'i',
+    'ul',
+    'ol',
+    'li',
+]
+
+
+TABLE_TAGS = [
+    'table',
+    'tr',
+    'th',
+    'td',
+]
+
+
+# set to None for no cleaning on save/render
+# this will be passed as kwargs to the bleach.clean() method
+DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG', {
+        'strip': True,
+        'tags': DEFAULT_TAGS,
+        'attributes': {
+            '*': ['class'],
+            'img': ['alt', 'src', ],
+            'a': allow_attrs_for_a,
+        }
+    }
 )
