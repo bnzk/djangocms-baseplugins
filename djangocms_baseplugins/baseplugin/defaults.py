@@ -17,11 +17,13 @@ DJANGOCMS_BASEPLUGINS_TRANSLATE = getattr(
     'DJANGOCMS_BASEPLUGINS_TRANSLATE', False
 )
 
+
 DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS',
     ['title', 'anchor',],
 )
+
 
 DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL = getattr(
     settings,
@@ -29,11 +31,13 @@ DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL = getattr(
     _('z Advanced'),
 )
 
+
 DJANGOCMS_BASEPLUGINS_CONTENT_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_CONTENT_LABEL',
     _('Content'),
 )
+
 
 DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL = getattr(
     settings,
@@ -41,7 +45,9 @@ DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL = getattr(
     _('Containers'),
 )
 
+
 DJANGOCMS_BASEPLUGINS_MODE = getattr(settings, 'DJANGOCMS_BASEPLUGINS_MODE', 'default')
+
 
 if DJANGOCMS_BASEPLUGINS_MODE == 'minimal':
     advanced_fields = []
@@ -54,7 +60,9 @@ elif DJANGOCMS_BASEPLUGINS_MODE == 'full':
 else:
     advanced_fields = ['published', ]
 
+
 BASEPLUGIN_ADVANCED_FIELDS = getattr(settings, 'BASEPLUGIN_ADVANCED_FIELDS', advanced_fields)
+
 
 WIDTH_CHOICES = getattr(
     settings, 'BASEPLUGIN_WIDTH_CHOICES',
@@ -114,8 +122,7 @@ DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG = getattr(
         'strip': True,
         'tags': DEFAULT_TAGS,
         'attributes': {
-            '*': ['class'],
-            'img': ['alt', 'src', ],
+            '*': ['class', ],
             'a': allow_attrs_for_a,
         }
     }

@@ -74,4 +74,6 @@ def truncate_richtext_content(richtext):
 def sanitize_richtext(text):
     if bleach and defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG:
         text = bleach.clean(text, **defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG)
+    if settings.DEBUG and not bleach:
+        print("bleach is not installed, but should be, for sanitizing richtext content!")
     return text
