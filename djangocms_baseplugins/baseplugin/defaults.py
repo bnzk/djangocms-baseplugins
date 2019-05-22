@@ -94,6 +94,7 @@ DEFAULT_TAGS = [
     'h4',
     'p',
     'span',
+    'br',
     'a',
     'hr',
     'strong',
