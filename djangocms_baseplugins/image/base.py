@@ -52,7 +52,7 @@ class ImageBase(models.Model):
 class ImagePluginBase(AbstractBasePlugin, ImageBase):
 
     def __str__(self):
-        text = super(ImagePluginBase, self).__str__()
+        text = ImageBase.__str__(self)
         return self.add_hidden_flag(text)
 
     class Meta:
