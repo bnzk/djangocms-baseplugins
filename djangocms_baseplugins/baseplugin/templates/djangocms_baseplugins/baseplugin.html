@@ -1,10 +1,12 @@
 {% load sekizai_tags %}
 
 
-{% if request.toolbar.edit_mode and not object.is_visible %}
-    {% addtoblock "css" %}
-    {% include 'djangocms_baseplugins/baseplugin_styles.html' %}
-    {% endaddtoblock %}
+{% if request.toolbar.edit_mode or request.toolbar.edit_mode_active %}
+    {% if not object.is_visible  %}
+        {% addtoblock "css" %}
+        {% include 'djangocms_baseplugins/baseplugin_styles.html' %}
+        {% endaddtoblock %}
+    {% endif %}
 {% endif %}
 
 

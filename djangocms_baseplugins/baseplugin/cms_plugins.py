@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from modeltranslation.admin import TranslationAdmin
 
+from djangocms_baseplugins.baseplugin.utils import is_edit_mode
 from . import defaults
 
 
@@ -18,7 +19,7 @@ class BasePluginMixin(BasePluginMixinBase):
 
     def get_render_template(self, context, instance, placeholder):
         request = context.get('request', None)
-        if not instance.is_visible() and not request.toolbar.edit_mode:
+        if not instance.is_visible() and not is_edit_mode(request.toolbar):
             return 'djangocms_baseplugins/unpublished.html'
         return self.render_template
 

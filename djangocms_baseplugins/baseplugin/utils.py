@@ -77,3 +77,13 @@ def sanitize_richtext(text):
     if settings.DEBUG and not bleach:
         print("bleach is not installed, but should be, for sanitizing richtext content!")
     return text
+
+
+def is_edit_mode(toolbar):
+    if (getattr(toolbar, 'edit_mode', None) or  # cms pre 3.6
+        getattr(toolbar, 'edit_mode_active', None) or  # cms 3.6+
+        getattr(toolbar, 'build_mode', None) or
+        getattr(toolbar, 'build_mode_active', None)
+    ):
+        return True
+    return False
