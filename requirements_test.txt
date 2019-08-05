@@ -1,8 +1,5 @@
 # base
 
-django==2.2
-django-cms==3.6.1
-
 # using translation
 django-modeltranslation
 djangocms-misc
