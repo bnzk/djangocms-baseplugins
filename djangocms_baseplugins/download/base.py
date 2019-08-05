@@ -10,24 +10,19 @@ from djangocms_baseplugins.baseplugin import defaults
 
 
 if defaults.DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS:
-    from filer_addons.filer_gui.fields import FilerImageField
+    from filer_addons.filer_gui.fields import FilerFileField
 else:
-    from filer.fields.image import FilerImageField
+    from filer.fields.file import FilerFileField
 
 
-class ImageBase(models.Model):
-    image = FilerImageField(
+class DownloadBase(models.Model):
+    file = FilerFileField(
         null=True,
         on_delete=models.SET_NULL,
-        related_name="%(app_label)s_%(class)s_image",
-        verbose_name=_("Image"),
+        related_name="%(app_label)s_%(class)s_download",
+        verbose_name=_("Download"),
     )
-    caption = models.CharField(
-        max_length=255,
-        default='',
-        blank=True,
-    )
-    alt_text = models.CharField(
+    link_text = models.CharField(
         max_length=255,
         default='',
         blank=True,
@@ -38,16 +33,14 @@ class ImageBase(models.Model):
 
     def to_string(self):
         text = None
-        if self.caption:
-            text = '%s, %s' % (self.caption, self.image)
-        if self.alt_text:
-            text = '%s, %s' % (self.alt_text, self.image)
+        if self.link_text:
+            text = '%s, %s' % (self.link_text, self.file)
         if not text:
-            text = '%s' % (self.image)
+            text = '%s' % (self.file)
         return text
 
 
-class ImagePluginBase(AbstractBasePlugin, ImageBase):
+class DownloadPluginBase(AbstractBasePlugin, DownloadBase):
 
     class Meta:
         abstract = True
