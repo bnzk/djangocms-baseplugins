@@ -120,6 +120,8 @@ class AbstractBasePlugin(CMSPlugin):
         classes += self._css_modifier_for_field('background')
         classes += self._css_modifier_for_field('background')
         classes += ' {}_position-{} '.format(plugin_block_class, self.position)
+        if self.anchor:
+            classes += ' {}_anchor-{} '.format(plugin_block_class, self.anchor)
         return classes
 
     def _css_modifier_for_field(self, field):

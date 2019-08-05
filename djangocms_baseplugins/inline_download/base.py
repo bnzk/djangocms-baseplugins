@@ -30,7 +30,7 @@ class InlineDownloadBase(AbstractBasePlugin):
         for entry in old_instance.downloads.all():
             entry.id = None
             entry.save()
-            self.images.add(entry);
+            self.downloads.add(entry);
 
 
 @python_2_unicode_compatible

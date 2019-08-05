@@ -64,6 +64,7 @@ class BasePluginTestCase(object):
         """
         placeholder = Placeholder.objects.create(slot='test')
         data = {
+            'anchor': 'anchor-value',
             'layout': 'layout-value',
             'color': 'color-value',
             'background': 'background-value',
@@ -83,6 +84,7 @@ class BasePluginTestCase(object):
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'layout-value'), force_text(html))
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'color-value'), force_text(html))
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'background-value'), force_text(html))
+        self.assertIn('plugin-{}_anchor-{}'.format(plugin_name, 'anchor-value'), force_text(html))
 
     def test_form_choices_and_other_settings_respected(self):
         """
