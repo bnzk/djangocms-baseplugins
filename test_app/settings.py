@@ -123,6 +123,7 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.gallery',
     'djangocms_baseplugins.inline_gallery',
     'djangocms_baseplugins.download',
+    'djangocms_baseplugins.inline_download',
     'djangocms_baseplugins.section',
     'djangocms_baseplugins.column',
     'djangocms_baseplugins.htmlblock',

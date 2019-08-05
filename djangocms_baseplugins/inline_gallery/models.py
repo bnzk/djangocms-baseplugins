@@ -1,6 +1,8 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+from django.utils.encoding import python_2_unicode_compatible
+
 from .base import InlineGalleryBase, InlineGalleryImageBase
 
 
@@ -8,5 +10,8 @@ class InlineGallery(InlineGalleryBase):
     pass
 
 
+@python_2_unicode_compatible
 class InlineGalleryImage(InlineGalleryImageBase):
-    pass
+
+    def __str__(self):
+        return self.to_string()

@@ -37,7 +37,7 @@ class DownloadSectionPlugin(BasePluginMixin, CMSPluginBase):
     form = DownloadSectionPluginForm
     module = _("Containers")
     name = _(u'Downloads')
-    render_template = "djangocms_baseplugins/gallery.html"
+    render_template = "djangocms_baseplugins/download_section.html"
     fieldsets = conf.DOWNLOADSECTIONPLUGIN_FIELDSETS
     allow_children = True
     child_classes = conf.DOWNLOADSECTIONPLUGIN_CHILD_CLASSES

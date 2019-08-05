@@ -39,6 +39,12 @@ class DownloadBase(models.Model):
             text = '%s' % (self.file)
         return text
 
+    def get_link_text(self):
+        if self.link_text:
+            return self.link_text
+        else:
+            return self.to_string()
+
 
 class DownloadPluginBase(AbstractBasePlugin, DownloadBase):
 
