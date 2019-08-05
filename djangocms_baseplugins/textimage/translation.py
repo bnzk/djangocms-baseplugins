@@ -16,5 +16,5 @@ class TextImageTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('slider')
+    check_in_migration_modules('textimage')
     translator.register(TextImage, TextImageTranslationOptions)
