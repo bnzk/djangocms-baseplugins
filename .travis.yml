@@ -12,7 +12,9 @@ env:
     # - REQ='django>=1.9,<1.10'
     # - REQ='django>=1.10,<1.11'
     - REQ='django>=1.11,<2.0'
-    # - REQ='django>=2.0,<2.1'
+    - REQ='django>=2.0,<2.1'
+    - REQ='django>=2.1,<2.2'
+    - REQ='django>=2.2,<2.3'
 matrix:
   allow-failures:
   exclude:
@@ -35,7 +37,7 @@ before_install:
 install:
   - pip install .
   - pip install $REQ
-  - pip install -r test_requirements.txt
+  - pip install -r requirements_test.txt
 
 # command to run tests
 script: python manage.py test
