@@ -4,7 +4,7 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from djangocms_baseplugins.inline_gallery.models import InlineDownload
+from djangocms_baseplugins.inline_download.models import InlineDownload
 from . import conf
 
 
@@ -16,5 +16,5 @@ class InlineDownloadTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('inline_gallery')
+    check_in_migration_modules('inline_download')
     translator.register(InlineDownload, InlineDownloadTranslationOptions)
