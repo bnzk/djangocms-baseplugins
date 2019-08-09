@@ -15,7 +15,7 @@ class InlineDownloadTranslationOptions(TranslationOptions):
     fields = translation_fields
 
 
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS
+translation_fields = conf.INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS
 
 
 class InlineDownloadEntryTranslationOptions(TranslationOptions):
