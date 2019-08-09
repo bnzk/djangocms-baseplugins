@@ -27,5 +27,10 @@ INLINEDOWNLOADPLUGIN_FIELDSETS = getattr(
     })
 )
 
+
 INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS = getattr(
     settings, 'INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS', ['file', ('order', 'link_text', )])
+
+# allow fallbacks!
+INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS = getattr(
+    settings, 'INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS', ['link_text', 'file'])

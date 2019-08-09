@@ -6,7 +6,6 @@ from django.db import models
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.download.base import DownloadBase
-from djangocms_baseplugins.image.base import ImageBase
 
 
 class InlineDownloadBase(AbstractBasePlugin):

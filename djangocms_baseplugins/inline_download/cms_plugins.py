@@ -25,7 +25,6 @@ class InlineDownloadEntryInline(UploadInlineMixin, admin.StackedInline):
 
 
 class InlineDownloadPluginForm(forms.ModelForm):
-
     class Meta:
         model = InlineDownload
         fields = get_fields_from_fieldsets(conf.INLINEDOWNLOADPLUGIN_FIELDSETS)
