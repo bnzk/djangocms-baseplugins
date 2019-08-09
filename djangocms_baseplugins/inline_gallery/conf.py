@@ -9,7 +9,7 @@ from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
 INLINEGALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
-    settings, 'INLINEGALLERYPLUGIN_TRANSLATED_FIELDS', [])
+    settings, 'INLINEGALLERYPLUGIN_TRANSLATED_FIELDS', ['description', ])
 
 INLINEGALLERYPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'INLINEGALLERYPLUGIN_CONTENT_FIELDS', [])
