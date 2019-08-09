@@ -34,7 +34,7 @@ class InlineDownloadBase(AbstractBasePlugin):
 
 @python_2_unicode_compatible
 class InlineDownloadEntryBase(DownloadBase):
-    inline_downloads = models.ForeignKey(
+    inline_download = models.ForeignKey(
         'inline_download.InlineDownload',
         related_name='downloads',
         on_delete=models.CASCADE,
