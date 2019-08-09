@@ -9,6 +9,10 @@ from djangocms_baseplugins.image.base import ImageBase
 
 
 class InlineGalleryBase(AbstractBasePlugin):
+    description = models.TextField(
+        blank=True,
+        default='',
+    )
     height = models.CharField(
         _('Height'),
         max_length=32,

@@ -14,6 +14,10 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 @python_2_unicode_compatible
 class GalleryBase(AbstractBasePlugin):
+    description = models.TextField(
+        blank=True,
+        default='',
+    )
     height = models.CharField(_('Height'), max_length=32, default='', blank=True)
 
     class Meta:
