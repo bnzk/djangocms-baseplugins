@@ -1,6 +1,9 @@
+from django.conf import settings
+
 from djangocms_baseplugins.baseplugin import defaults
 from modeltranslation.translator import TranslationOptions, translator
 
+from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from .models import LoginForm
 
 
@@ -12,5 +15,7 @@ class LoginFormTranslationOptions(TranslationOptions):
     fields = translation_fields
 
 
-translator.register(LoginForm, LoginFormTranslationOptions)
+if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
+    check_in_migration_modules('loginform')
+    translator.register(LoginForm, LoginFormTranslationOptions)
 
