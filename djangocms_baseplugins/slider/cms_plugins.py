@@ -4,6 +4,7 @@ from cms.plugin_pool import plugin_pool
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
 from .models import Slider
@@ -21,7 +22,7 @@ class SliderPluginForm(forms.ModelForm):
 class SliderPlugin(BasePluginMixin, CMSPluginBase):
     model = Slider
     form = SliderPluginForm
-    module = _("Containers")
+    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
     name = _(u'Slider')
     render_template = "djangocms_baseplugins/slider.html"
     fieldsets = conf.SLIDERPLUGIN_FIELDSETS

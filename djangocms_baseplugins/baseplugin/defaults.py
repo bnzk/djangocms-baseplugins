@@ -25,24 +25,31 @@ DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS = getattr(
 )
 
 
-DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL = getattr(
-    settings,
-    'DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL',
-    _('z Advanced'),
-)
-
-
 DJANGOCMS_BASEPLUGINS_CONTENT_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_CONTENT_LABEL',
-    _('Content'),
+    _('A - Content'),
 )
 
 
 DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL',
-    _('Containers'),
+    _('B - Containers'),
+)
+
+
+DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL',
+    _('C - Special'),
+)
+
+
+DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL',
+    _('Z - Advanced'),
 )
 
 

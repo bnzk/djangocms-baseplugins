@@ -6,6 +6,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from filer_addons.filer_gui.admin.upload_inline import UploadInlineMixin
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
 from .models import InlineGallery, InlineGalleryImage
@@ -36,7 +37,7 @@ class InlineGalleryPluginForm(forms.ModelForm):
 class InlineGalleryPlugin(BasePluginMixin, CMSPluginBase):
     model = InlineGallery
     form = InlineGalleryPluginForm
-    module = _("Containers")
+    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
     name = _(u'Gallery')
     render_template = "djangocms_baseplugins/inline_gallery.html"
     fieldsets = conf.INLINEGALLERYPLUGIN_FIELDSETS

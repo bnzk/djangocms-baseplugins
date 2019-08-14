@@ -4,6 +4,7 @@ from cms.plugin_pool import plugin_pool
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
 from .models import Column
@@ -23,6 +24,7 @@ class ColumnPlugin(BasePluginMixin, CMSPluginBase):
     model = Column
     form = ColumnPluginForm
     name = _(u'Column')
+    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
     render_template = "djangocms_baseplugins/column.html"
     fieldsets = conf.COLUMNPLUGIN_FIELDSETS
     require_parent = True

@@ -4,6 +4,7 @@ from cms.plugin_pool import plugin_pool
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from .models import Spacer
 from . import conf
@@ -21,7 +22,7 @@ class SpacerPluginForm(forms.ModelForm):
 class SpacerPlugin(BasePluginMixin, CMSPluginBase):
     model = Spacer
     form = SpacerPluginForm
-    module = _("Content")
+    module = defaults.DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL
     name = _(u'Spacer')
     render_template = "djangocms_baseplugins/spacer.html"
     fieldsets = conf.SPACERPLUGIN_FIELDSETS
