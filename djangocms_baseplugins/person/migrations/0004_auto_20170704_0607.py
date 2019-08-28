@@ -3,13 +3,12 @@
 from __future__ import unicode_literals
 
 import ckeditor.fields
-from django.db import migrations, models
 import django.db.models.deletion
 import filer.fields.image
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('person', '0003_auto_20170403_0432'),
     ]
@@ -38,12 +37,16 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='person',
             name='first_name',
-            field=models.CharField(blank=True, default='', max_length=255, verbose_name='First Name'),
+            field=models.CharField(blank=True, default='', max_length=255,
+                                   verbose_name='First Name'),
         ),
         migrations.AlterField(
             model_name='person',
             name='image',
-            field=filer.fields.image.FilerImageField(blank=True, default=None, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='person_person_image', to='filer.Image', verbose_name='Image'),
+            field=filer.fields.image.FilerImageField(blank=True, default=None, null=True,
+                                                     on_delete=django.db.models.deletion.SET_NULL,
+                                                     related_name='person_person_image',
+                                                     to='filer.Image', verbose_name='Image'),
         ),
         migrations.AlterField(
             model_name='person',
@@ -63,7 +66,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='person',
             name='salutation',
-            field=models.CharField(blank=True, default='', max_length=255, verbose_name='Salutation'),
+            field=models.CharField(blank=True, default='', max_length=255,
+                                   verbose_name='Salutation'),
         ),
         migrations.AlterField(
             model_name='person',

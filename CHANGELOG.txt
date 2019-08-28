@@ -1,8 +1,12 @@
 
-==== (ongoing) ===
+==== 0.0.3 (2019-08-28) ===
+
+- no pypi yet
+- new travis setup, using tox
+- flake8 and coverage, with tox
 
 
-==== 0.0.2 (ongoing) ===
+==== 0.0.2 (2019-05) ===
 
 - BEM style css classes for all plugins
 - basic tests for all plugins

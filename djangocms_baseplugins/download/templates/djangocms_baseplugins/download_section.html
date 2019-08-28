@@ -1,0 +1,13 @@
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+{% load cms_tags thumbnail %}
+
+
+{% block plugin_content %}
+    <div class="plugin {{ object.get_css_classes }}">
+        <div class="children plugin-downloadsection__children">
+            {% for plugin in object.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

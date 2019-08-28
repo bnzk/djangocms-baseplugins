@@ -4,9 +4,13 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+PERSONSECTIONPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'PERSONSECTIONPLUGIN_TRANSLATED_FIELDS', []
+)
 
 PERSONSECTIONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONSECTIONPLUGIN_CONTENT_FIELDS', []
@@ -30,8 +34,8 @@ PERSONSECTIONPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
     'PERSONSECTIONPLUGIN_LAYOUT_CHOICES',
     (
-        ('full', _("Full Size"), ),
-        ('content', _("Content Sized"), ),
+        ('full', _("Full Size"),),
+        ('content', _("Content Sized"),),
     )
 )
 
@@ -39,7 +43,7 @@ PERSONSECTIONPLUGIN_BACKGROUND_CHOICES = getattr(
     settings,
     'PERSONSECTIONPLUGIN_BACKGROUND_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
@@ -47,16 +51,20 @@ PERSONSECTIONPLUGIN_COLOR_CHOICES = getattr(
     settings,
     'PERSONSECTIONPLUGIN_COLOR_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
+PERSONPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'PERSONPLUGIN_TRANSLATED_FIELDS',
+    ['salutation', 'function', 'department', 'body', ]
+)
 
 PERSONPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'PERSONPLUGIN_CONTENT_FIELDS', (
         'image',
-        'title',
-        ('salutation', 'first_name', 'last_name', ),
+        ('title', 'function', 'department',),
+        ('salutation', 'first_name', 'last_name',),
         'body',
         'email',
         'phone',
@@ -82,8 +90,8 @@ PERSONPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
     'PERSONPLUGIN__LAYOUT_CHOICES',
     (
-        ('full', _("Full Size"), ),
-        ('content', _("Content Sized"), ),
+        ('full', _("Full Size"),),
+        ('content', _("Content Sized"),),
     )
 )
 
@@ -91,7 +99,7 @@ PERSONPLUGIN_BACKGROUND_CHOICES = getattr(
     settings,
     'PERSONPLUGIN_BACKGROUND_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
@@ -99,6 +107,6 @@ PERSONPLUGIN__COLOR_CHOICES = getattr(
     settings,
     'PERSONPLUGIN_COLOR_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )

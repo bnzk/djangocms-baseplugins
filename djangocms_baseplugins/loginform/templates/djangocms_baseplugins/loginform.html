@@ -1,0 +1,27 @@
+{% load cms_tags i18n %}
+
+
+<div class="plugin {{ object.get_css_classes }}">
+    {% if instance.title %}<h2>{{ instance.title }}</h2>{% endif %}
+    {% if login_form %}
+        <form name="login-form-{{ object.id }}" method="post" action="./?next={{ request.GET.next }}#login-form-{{ object.id }}">
+            {% csrf_token %}
+
+            {% if login_form.errors|length %}
+                <span class="form-error">{% trans 'Login failed!' %}</span>
+                <br>
+                <br>
+            {% endif %}
+            {% for field in login_form %}
+                <div class="formfield-wrap">
+                    <label for="id_{{ field.name }}">{{ field.label }}</label><br>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <br>
+            <button type="submit">{% trans 'Submit' %}</button>
+        </form>
+    {% else %}
+        {% trans 'Logged in!' %}
+    {% endif %}
+</div>

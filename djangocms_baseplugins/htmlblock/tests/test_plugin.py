@@ -7,7 +7,6 @@ from djangocms_baseplugins.htmlblock.cms_plugins import HtmlBlockPlugin
 
 
 class HtmlBlockPluginTests(BasePluginTestCase, TestCase):
-
     plugin_class = HtmlBlockPlugin
     plugin_settings_prefix = 'HTMLBLOCKPLUGIN'
 

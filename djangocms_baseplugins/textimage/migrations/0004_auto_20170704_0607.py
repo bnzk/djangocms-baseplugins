@@ -3,13 +3,12 @@
 from __future__ import unicode_literals
 
 import ckeditor.fields
-from django.db import migrations, models
 import django.db.models.deletion
 import filer.fields.image
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('textimage', '0003_auto_20161108_1752'),
     ]
@@ -33,7 +32,10 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='textimage',
             name='image',
-            field=filer.fields.image.FilerImageField(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='textimage_textimage_image', to='filer.Image', verbose_name='Image'),
+            field=filer.fields.image.FilerImageField(null=True,
+                                                     on_delete=django.db.models.deletion.SET_NULL,
+                                                     related_name='textimage_textimage_image',
+                                                     to='filer.Image', verbose_name='Image'),
         ),
         migrations.AlterField(
             model_name='textimage',

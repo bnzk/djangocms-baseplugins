@@ -1,0 +1,30 @@
+# base
+
+# using translation
+django-modeltranslation
+djangocms-misc
+
+# using image fields (image, textimage, person)
+django-filer
+django-polymorphic==2.1.2
+easy-thumbnails
+-e git+https://github.com/benzkji/django-filer-addons@master#egg=django-filer-addons
+
+# richtext fields (text, textimage)
+django-ckeditor
+
+# twitter
+requests
+
+# person (only if using default templates)
+django-mailprotector
+
+# testing tools
+tox
+coverage
+django-coverage
+flake8
+factory_boy
+mock
+selenium
+

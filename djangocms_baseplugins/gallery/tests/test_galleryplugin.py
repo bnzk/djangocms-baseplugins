@@ -7,6 +7,5 @@ from djangocms_baseplugins.gallery.cms_plugins import GalleryPlugin
 
 
 class GalleryPluginTests(BasePluginTestCase, TestCase):
-
     plugin_class = GalleryPlugin
     plugin_settings_prefix = 'GALLERYPLUGIN'

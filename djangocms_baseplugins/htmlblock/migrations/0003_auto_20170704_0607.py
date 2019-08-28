@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('htmlblock', '0002_auto_20161220_2124'),
     ]

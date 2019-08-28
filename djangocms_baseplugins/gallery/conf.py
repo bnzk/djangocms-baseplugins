@@ -3,10 +3,12 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+
+GALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
+    settings, 'GALLERYPLUGIN_TRANSLATED_FIELDS', ['description', ])
 
 GALLERYPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'GALLERYPLUGIN_CONTENT_FIELDS', [])

@@ -1,0 +1,29 @@
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+{% load cms_tags thumbnail %}
+
+
+{% block plugin_content %}
+<div class="plugin {{ object.get_css_classes }} <!-- legacy --> plugin_gallery gallery_columns_{{ object.child_plugin_instances|length }} {{ object.layout }} {{ object.background }} {{ object.color }}">
+    <div class="gallery_inner">
+        {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
+        <div class="children">
+            {% for image_object in object.images.all %}
+                {% with object=image_object %}
+                    {% block single_image_content %}
+                        <div class="plugin {{ object.get_css_classes }} plugin_image plugin_image_{{ object.layout }}">
+                            {% if object.image %}
+                                {% thumbnail object.image 1000x1000 crop=0 upscale=0 as resized %}
+                                <figure>
+                                  <img src="{{ resized.url }}" alt="{{ object.caption }}">
+                                  {% if object.caption %}<figcaption>{{ object.caption }}</figcaption>{% endif %}
+                                </figure>
+                            {% endif %}
+                        </div>
+                    {% endblock %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -7,7 +7,10 @@
         {% thumbnail object.image 450x570 crop=1 upscale=1 as resized %}
         <img src="{{ resized.url }}" alt="{{ instance.title }}">
     {% endif %}
-    <h3>{{ object.title }} {{ object.first_name }} {{ object.last_name }}</h3>
+    <h3>{{ object.title }} {{ object.salutation }}{{ object.first_name }} {{ object.last_name }}
+        {% if object.function %}<span>{{ object.function }}</span>{% endif %}
+        {% if object.department %}<span>{{ object.department }}</span>{% endif %}
+    </h3>
     {{ object.body|safe }}
     <p class="connect">
         {% if object.email %}{% mailprotector object.email %}<br>{% endif %}

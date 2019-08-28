@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('image', '0005_auto_20171128_0343'),
     ]
@@ -15,11 +14,13 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='image',
             name='published_from_date',
-            field=models.DateTimeField(blank=True, default=None, null=True, verbose_name='Published from'),
+            field=models.DateTimeField(blank=True, default=None, null=True,
+                                       verbose_name='Published from'),
         ),
         migrations.AlterField(
             model_name='image',
             name='published_until_date',
-            field=models.DateTimeField(blank=True, default=None, null=True, verbose_name='Published until'),
+            field=models.DateTimeField(blank=True, default=None, null=True,
+                                       verbose_name='Published until'),
         ),
     ]

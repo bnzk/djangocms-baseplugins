@@ -7,6 +7,5 @@ from djangocms_baseplugins.teaser_section.cms_plugins import TeaserSectionPlugin
 
 
 class TeaserSectionPluginTests(BasePluginTestCase, TestCase):
-
     plugin_class = TeaserSectionPlugin
     plugin_settings_prefix = 'TEASERSECTIONPLUGIN'

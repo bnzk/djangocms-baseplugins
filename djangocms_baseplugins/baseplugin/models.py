@@ -2,11 +2,14 @@
 from __future__ import unicode_literals
 
 import datetime
-from django.utils.translation import ugettext_lazy as _
-from django.db import models
+
 from cms.models.pluginmodel import CMSPlugin
+from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
 
 
+@python_2_unicode_compatible
 class AbstractBasePlugin(CMSPlugin):
     # text
     title = models.CharField(
@@ -68,9 +71,15 @@ class AbstractBasePlugin(CMSPlugin):
     # def __str__(self):
     #     return u'%s %s' % (self.__class__, self.get_hidden_flag())
 
+    def __str__(self):
+        if getattr(self, 'to_string'):
+            return self.add_hidden_flag(self.to_string())
+        else:
+            return super(self.AbstractBasePlugin).__str__()
+
     def is_visible(self):
         if self.published:
-            if self.published_from_date is None or\
+            if self.published_from_date is None or \
                     self.published_from_date <= datetime.datetime.now():
                 if self.published_until_date is None or \
                         self.published_until_date >= datetime.datetime.now():
@@ -102,7 +111,7 @@ class AbstractBasePlugin(CMSPlugin):
 
     def get_css_classes(self):
         plugin_block_class = self.get_plugin_css_block_class()
-        classes = ' plugin_{} '.format(self.pk)
+        classes = 'plugin plugin_{} '.format(self.pk)
         classes += ' {} '.format(plugin_block_class)
         if self.anchor:
             classes += ' plugin_{} '.format(self.anchor)
@@ -111,6 +120,8 @@ class AbstractBasePlugin(CMSPlugin):
         classes += self._css_modifier_for_field('background')
         classes += self._css_modifier_for_field('background')
         classes += ' {}_position-{} '.format(plugin_block_class, self.position)
+        if self.anchor:
+            classes += ' {}_anchor-{} '.format(plugin_block_class, self.anchor)
         return classes
 
     def _css_modifier_for_field(self, field):

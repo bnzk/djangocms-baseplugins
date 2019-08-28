@@ -1,0 +1,7 @@
+# base
+# -r requirements_text.txt
+
+# when creating new migrations, the oldes supported version shall be used!
+django==1.11.23
+django-cms==3.4.0
+

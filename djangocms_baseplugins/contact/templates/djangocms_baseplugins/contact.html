@@ -1,0 +1,24 @@
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+{% load cms_tags mailprotector_tags %}
+
+
+{% block plugin_content %}
+<contact class="{{ object.get_css_classes }} plugin-contact_children-{{ object.child_plugin_instances|length }}">
+    <div class="plugin-contact__text">
+        <h2>{{ object.title }}</h2>
+        <p>
+            {{ object.address|linebreaksbr }}<br>
+            {% if object.website %}<a href="{{ object.website }}">{{ object.website }}</a><br>{% endif %}
+            {% if object.email %}{% mailprotector object.email %}<br>{% endif %}
+            {% if object.fax %}{{ object.fax }}<br>{% endif %}
+            {% if object.phone %}{% mailprotector object.phone %}<br>{% endif %}
+        </p>
+    </div>
+    <div class="plugin-contact__map" data-lat="{{ object.lat }}" data-lng="{{ object.lng }}"></div>
+    <div class="children">
+        {% for plugin in object.child_plugin_instances %}
+            {% render_plugin plugin %}
+        {% endfor %}
+    </div>
+</contact>
+{% endblock %}

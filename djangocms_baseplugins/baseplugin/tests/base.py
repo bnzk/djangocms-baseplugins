@@ -7,7 +7,6 @@ from django.utils.encoding import force_text
 
 
 class BasePluginTestCase(object):
-
     plugin_class = None  # TextPlugin
     plugin_settings_prefix = ''  # TEXTPLUGIN
 
@@ -33,7 +32,8 @@ class BasePluginTestCase(object):
     def test_basic_admin_form(self):
         """
         just calling add plugin admin view
-        like /admin/cms/page/add-plugin/?placeholder_id=43&plugin_type=SectionPlugin&cms_path=%2Fen%2F&plugin_language=en
+        like /admin/cms/page/add-plugin/?placeholder_id=43&plugin
+        _type=SectionPlugin&cms_path=%2Fen%2F&plugin_language=en
         :return:
         """
         client = Client()
@@ -41,8 +41,9 @@ class BasePluginTestCase(object):
         page = create_page('test', 'base.html', 'en', slug='test', )
         placeholder = Placeholder.objects.create(page=page, slot='test')
         url = '/admin/cms/page/add-plugin/?' \
-            + 'placeholder_id={}&plugin_type={}&cms_path=%2Fen%2F&plugin_language=en'\
-            .format(placeholder.id, self.plugin_class.__name__)
+            + 'placeholder_id={}&plugin_type={}' \
+            + '&cms_path=%2Fen%2F&plugin_language=en'
+        url = url.format(placeholder.id, self.plugin_class.__name__)
         response = client.get(url)
         self.assertEqual(response.status_code, 200)
 
@@ -54,7 +55,7 @@ class BasePluginTestCase(object):
             'en',
         )
         plugin_instance = model_instance.get_plugin_class_instance()
-        context = plugin_instance.render({}, model_instance, None)
+        context = plugin_instance.render({}, model_instance, placeholder)
         self.assertIn('object', context)
 
     def test_plugin_bem_classes_applied(self):
@@ -64,6 +65,7 @@ class BasePluginTestCase(object):
         """
         placeholder = Placeholder.objects.create(slot='test')
         data = {
+            'anchor': 'anchor-value',
             'layout': 'layout-value',
             'color': 'color-value',
             'background': 'background-value',
@@ -83,6 +85,7 @@ class BasePluginTestCase(object):
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'layout-value'), force_text(html))
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'color-value'), force_text(html))
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'background-value'), force_text(html))
+        self.assertIn('plugin-{}_anchor-{}'.format(plugin_name, 'anchor-value'), force_text(html))
 
     def test_form_choices_and_other_settings_respected(self):
         """

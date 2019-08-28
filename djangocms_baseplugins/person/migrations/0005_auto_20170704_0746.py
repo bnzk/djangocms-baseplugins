@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('person', '0004_auto_20170704_0607'),
     ]
@@ -20,7 +19,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='person',
             name='background',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Background'),
+            field=models.CharField(blank=True, default='', max_length=64,
+                                   verbose_name='Background'),
         ),
         migrations.AlterField(
             model_name='person',
@@ -55,7 +55,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='personsection',
             name='background',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Background'),
+            field=models.CharField(blank=True, default='', max_length=64,
+                                   verbose_name='Background'),
         ),
         migrations.AlterField(
             model_name='personsection',

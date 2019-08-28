@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('teaser_section', '0002_auto_20170704_0607'),
     ]
@@ -20,7 +19,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='teasersection',
             name='background',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Background'),
+            field=models.CharField(blank=True, default='', max_length=64,
+                                   verbose_name='Background'),
         ),
         migrations.AlterField(
             model_name='teasersection',
