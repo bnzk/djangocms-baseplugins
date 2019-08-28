@@ -16,10 +16,10 @@ VIDEOPLUGIN_TRANSLATED_FIELDS = getattr(
 
 # thx to rouxcode!
 VIDEOPLUGIN_REGEXES = (
-    re.compile("^https?\:\/\/(www\.)?youtu\.be\/(?P<youtube_id>[^\/]*)\??.*$"),
-    re.compile("^https?\:\/\/(www\.)?youtube\.(com|nl|ru).*v=(?P<youtube_id>.*)\&?.*$"),
-    re.compile(r"^https?\:\/\/(www\.)?youtube\.(com|nl|ru)\/embed\/(?P<youtube_id>[^\/]*)\??.*$"),
-    re.compile(r"^https?\:\/\/(www\.)?vimeo\.com\/(?P<vimeo_id>[^\/]*)\??.*$"),
+    re.compile(r'^https?\:\/\/(www\.)?youtu\.be\/(?P<youtube_id>[^\/]*)\??.*$'),
+    re.compile(r'^https?\:\/\/(www\.)?youtube\.(com|nl|ru).*v=(?P<youtube_id>.*)\&?.*$'),
+    re.compile(r'^https?\:\/\/(www\.)?youtube\.(com|nl|ru)\/embed\/(?P<youtube_id>[^\/]*)\??.*$'),
+    re.compile(r'^https?\:\/\/(www\.)?vimeo\.com\/(?P<vimeo_id>[^\/]*)\??.*$'),
 )
 
 VIDEOPLUGIN_LAYOUT_CHOICES = getattr(
