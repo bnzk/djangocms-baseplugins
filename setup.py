@@ -15,7 +15,7 @@ def read(fname):
 setup(
     name="djangocms-baseplugins",
     version=version,
-    url='http://github.com/bnzk/djangocms-baseplugins',
+    url='https://github.com/bnzk/djangocms-baseplugins',
     license='BSD',
     platforms=['OS Independent'],
     description="djangocms_baseplugins",
