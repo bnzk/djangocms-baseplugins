@@ -7,8 +7,8 @@ from .models import TweetEmbed
 from . import conf
 
 
-
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.TWEETEMBEDPLUGIN_TRANSLATED_FIELDS
+translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + \
+                     conf.TWEETEMBEDPLUGIN_TRANSLATED_FIELDS
 
 
 class TweetEmbedTranslationOptions(TranslationOptions):
