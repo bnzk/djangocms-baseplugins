@@ -4,6 +4,7 @@ from cms.plugin_pool import plugin_pool
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
+
 from djangocms_baseplugins.baseplugin import defaults as plugin_defaults, defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset

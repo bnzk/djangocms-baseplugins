@@ -7,6 +7,5 @@ from djangocms_baseplugins.inline_gallery.cms_plugins import InlineGalleryPlugin
 
 
 class InlineGalleryPluginTests(BasePluginTestCase, TestCase):
-
     plugin_class = InlineGalleryPlugin
     plugin_settings_prefix = 'INLINEGALLERYPLUGIN'

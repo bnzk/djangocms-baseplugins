@@ -3,9 +3,8 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from .models import TweetEmbed
 from . import conf
-
+from .models import TweetEmbed
 
 translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + \
                      conf.TWEETEMBEDPLUGIN_TRANSLATED_FIELDS

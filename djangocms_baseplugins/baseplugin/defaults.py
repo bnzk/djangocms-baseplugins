@@ -5,25 +5,21 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-
 DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS', True
 )
-
 
 DJANGOCMS_BASEPLUGINS_TRANSLATE = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_TRANSLATE', False
 )
 
-
 DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS',
-    ['title', 'anchor',],
+    ['title', 'anchor', ],
 )
-
 
 DJANGOCMS_BASEPLUGINS_CONTENT_LABEL = getattr(
     settings,
@@ -31,13 +27,11 @@ DJANGOCMS_BASEPLUGINS_CONTENT_LABEL = getattr(
     _('A - Content'),
 )
 
-
 DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL',
     _('B - Containers'),
 )
-
 
 DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL = getattr(
     settings,
@@ -45,16 +39,13 @@ DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL = getattr(
     _('C - Special'),
 )
 
-
 DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL',
     _('Z - Advanced'),
 )
 
-
 DJANGOCMS_BASEPLUGINS_MODE = getattr(settings, 'DJANGOCMS_BASEPLUGINS_MODE', 'default')
-
 
 if DJANGOCMS_BASEPLUGINS_MODE == 'minimal':
     advanced_fields = []
@@ -67,9 +58,7 @@ elif DJANGOCMS_BASEPLUGINS_MODE == 'full':
 else:
     advanced_fields = ['published', ]
 
-
 BASEPLUGIN_ADVANCED_FIELDS = getattr(settings, 'BASEPLUGIN_ADVANCED_FIELDS', advanced_fields)
-
 
 WIDTH_CHOICES = getattr(
     settings, 'BASEPLUGIN_WIDTH_CHOICES',
@@ -113,14 +102,12 @@ DEFAULT_TAGS = [
     'li',
 ]
 
-
 TABLE_TAGS = [
     'table',
     'tr',
     'th',
     'td',
 ]
-
 
 DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG_DEFAULT = {
     'strip': True,
@@ -131,14 +118,12 @@ DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG_DEFAULT = {
     }
 }
 
-
 # set to None for no cleaning on save/render
 # this will be passed as kwargs to the bleach.clean() method
 DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG', None
 )
-
 
 # set to None for no cleaning on save/render
 # this will be passed as kwargs to the lxml.html.clean.Cleaner constructor

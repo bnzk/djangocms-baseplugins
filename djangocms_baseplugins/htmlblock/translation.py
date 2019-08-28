@@ -3,12 +3,11 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from .models import HtmlBlock
 from . import conf
+from .models import HtmlBlock
 
-
-
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.HTMLBLOCKPLUGIN_TRANSLATED_FIELDS
+translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS \
+                     + conf.HTMLBLOCKPLUGIN_TRANSLATED_FIELDS
 
 
 class HtmlBlockTranslationOptions(TranslationOptions):

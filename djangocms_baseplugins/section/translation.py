@@ -3,12 +3,12 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from .models import Section
 from . import conf
+from .models import Section
 
 
-
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.SECTIONPLUGIN_TRANSLATED_FIELDS
+translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS \
+                     + conf.SECTIONPLUGIN_TRANSLATED_FIELDS
 
 
 class SectionTranslationOptions(TranslationOptions):

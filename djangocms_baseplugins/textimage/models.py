@@ -7,7 +7,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content, sanitize_richtext
 from djangocms_baseplugins.image.models import ImagePluginBase
-
 from . import conf
 
 

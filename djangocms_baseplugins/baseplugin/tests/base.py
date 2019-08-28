@@ -7,7 +7,6 @@ from django.utils.encoding import force_text
 
 
 class BasePluginTestCase(object):
-
     plugin_class = None  # TextPlugin
     plugin_settings_prefix = ''  # TEXTPLUGIN
 
@@ -33,7 +32,8 @@ class BasePluginTestCase(object):
     def test_basic_admin_form(self):
         """
         just calling add plugin admin view
-        like /admin/cms/page/add-plugin/?placeholder_id=43&plugin_type=SectionPlugin&cms_path=%2Fen%2F&plugin_language=en
+        like /admin/cms/page/add-plugin/?placeholder_id=43&plugin
+        _type=SectionPlugin&cms_path=%2Fen%2F&plugin_language=en
         :return:
         """
         client = Client()
@@ -41,7 +41,8 @@ class BasePluginTestCase(object):
         page = create_page('test', 'base.html', 'en', slug='test', )
         placeholder = Placeholder.objects.create(page=page, slot='test')
         url = '/admin/cms/page/add-plugin/?' \
-            + 'placeholder_id={}&plugin_type={}&cms_path=%2Fen%2F&plugin_language=en'\
+            + 'placeholder_id={}&plugin_type={}'\
+            + '&cms_path=%2Fen%2F&plugin_language=en' \
             .format(placeholder.id, self.plugin_class.__name__)
         response = client.get(url)
         self.assertEqual(response.status_code, 200)

@@ -4,13 +4,10 @@ from __future__ import unicode_literals
 import time
 
 from ckeditor.fields import RichTextField
-from cms.models import CMSPlugin
-from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import python_2_unicode_compatible
-
 from django.db import models
-from django.utils.html import strip_tags
-from django.utils.text import Truncator
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
+from requests import ConnectionError
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
@@ -23,8 +20,12 @@ class ContactBase(AbstractBasePlugin):
     fax = models.CharField(_("Fax"), max_length=64, blank=True, default='')
     body = RichTextField(_("Text"), blank=True, default='')
     address = models.TextField(_('Address'), default='', blank=True)
-    geocoding_address = models.CharField(_('Address for the map'), max_length=64, default='', blank=True)
-
+    geocoding_address = models.CharField(
+        _('Address for the map'),
+        max_length=64,
+        default='',
+        blank=True,
+    )
     lat = models.FloatField(blank=True, default=0, null=True)
     lng = models.FloatField(blank=True, default=0, null=True)
     geo_error = models.BooleanField(_("Probleme mit der Adresse?"), default=False)
@@ -39,7 +40,6 @@ class ContactBase(AbstractBasePlugin):
         return self.add_hidden_flag(text)
 
 
-
 class Contact(ContactBase):
 
     def save(self, *args, **kwargs):
@@ -48,7 +48,7 @@ class Contact(ContactBase):
         """
         try:
             import geocoder
-        except:
+        except ImportError:
             return super(Contact, self).save(*args, **kwargs)
         try:
             from_db = Contact.objects.get(id=self.id)
@@ -60,7 +60,7 @@ class Contact(ContactBase):
                 try:
                     g = geocoder.komoot(self.geocoding_address)
                     time.sleep(2)
-                except:
+                except ConnectionError:
                     pass
                 if g and g.ok:
                     self.lat = g.latlng[0]

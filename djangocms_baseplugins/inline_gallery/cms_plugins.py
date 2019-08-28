@@ -8,9 +8,12 @@ from filer_addons.filer_gui.admin.upload_inline import UploadInlineMixin
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
-from .models import InlineGallery, InlineGalleryImage
+from djangocms_baseplugins.baseplugin.utils import (
+    build_baseplugin_widgets,
+    get_fields_from_fieldsets,
+)
 from . import conf
+from .models import InlineGallery, InlineGalleryImage
 
 
 # class InlineGalleryImageInline(admin.StackedInline):
@@ -26,7 +29,6 @@ class InlineGalleryImageInline(UploadInlineMixin, admin.StackedInline):
 
 
 class InlineGalleryPluginForm(forms.ModelForm):
-
     class Meta:
         model = InlineGallery
         fields = get_fields_from_fieldsets(conf.INLINEGALLERYPLUGIN_FIELDSETS)
@@ -34,6 +36,7 @@ class InlineGalleryPluginForm(forms.ModelForm):
         widgets = build_baseplugin_widgets(conf, 'INLINEGALLERY')
 
 
+@plugin_pool.register_plugin
 class InlineGalleryPlugin(BasePluginMixin, CMSPluginBase):
     model = InlineGallery
     form = InlineGalleryPluginForm
@@ -42,6 +45,3 @@ class InlineGalleryPlugin(BasePluginMixin, CMSPluginBase):
     render_template = "djangocms_baseplugins/inline_gallery.html"
     fieldsets = conf.INLINEGALLERYPLUGIN_FIELDSETS
     inlines = [InlineGalleryImageInline, ]
-
-
-plugin_pool.register_plugin(InlineGalleryPlugin)

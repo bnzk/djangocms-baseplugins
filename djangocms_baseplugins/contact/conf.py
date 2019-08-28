@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
-
 
 CONTACTPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'CONTACTPLUGIN_TRANSLATED_FIELDS', []
@@ -46,7 +46,7 @@ CONTACTPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
     'CONTACTPLUGIN_LAYOUT_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
@@ -54,7 +54,7 @@ CONTACTPLUGIN_BACKGROUND_CHOICES = getattr(
     settings,
     'CONTACTPLUGIN_BACKGROUND_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
@@ -62,7 +62,6 @@ CONTACTPLUGIN_COLOR_CHOICES = getattr(
     settings,
     'CONTACTPLUGIN_COLOR_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
-

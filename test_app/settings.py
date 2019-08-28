@@ -1,6 +1,5 @@
 """Settings that need to be set in order to run the tests."""
 import os
-import tempfile
 import logging
 
 
@@ -14,7 +13,7 @@ CMS_TEMPLATES = (
 )
 
 
-##################333333
+# #################333333
 
 DEBUG = True
 
@@ -57,9 +56,9 @@ STATICFILES_DIRS = (
     os.path.join(APP_ROOT, 'static'),
 )
 
-#TEMPLATE_DIRS = (
-#    os.path.join(APP_ROOT, 'tests/test_app/templates'),
-#)
+# TEMPLATE_DIRS = (
+#     os.path.join(APP_ROOT, 'tests/test_app/templates'),
+# )
 
 TEMPLATES = [
     {

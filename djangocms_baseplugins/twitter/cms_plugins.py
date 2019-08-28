@@ -8,8 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
-from .models import TweetEmbed
 from . import conf
+from .models import TweetEmbed
 
 
 class TweetEmbedPluginForm(forms.ModelForm):

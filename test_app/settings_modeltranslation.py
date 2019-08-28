@@ -1,7 +1,7 @@
 from .settings import *  # noqa
 
 
-INSTALLED_APPS = ('modeltranslation', 'djangocms_misc.basic') + INSTALLED_APPS
+INSTALLED_APPS = ('modeltranslation', 'djangocms_misc.basic') + INSTALLED_APPS  # noqa
 
 DJANGOCMS_BASEPLUGINS_TRANSLATE = True
 

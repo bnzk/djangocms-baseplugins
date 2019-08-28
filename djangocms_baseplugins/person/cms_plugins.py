@@ -7,9 +7,8 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
-from .models import Person, PersonSection
-
 from . import conf
+from .models import Person, PersonSection
 
 
 class PersonSectionPluginForm(forms.ModelForm):
@@ -26,7 +25,7 @@ class PersonSectionPlugin(BasePluginMixin, CMSPluginBase):
     name = _(u'People Section')
     render_template = "djangocms_baseplugins/person_section.html"
     allow_children = True
-    child_classes = ('PersonPlugin', )
+    child_classes = ('PersonPlugin',)
     fieldsets = conf.PERSONSECTIONPLUGIN_FIELDSETS
 
 

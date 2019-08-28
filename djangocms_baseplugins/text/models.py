@@ -1,13 +1,12 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
-from django.utils.translation import ugettext_lazy as _
 from ckeditor.fields import RichTextField
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content, sanitize_richtext
-
 from . import conf
 
 
@@ -26,6 +25,7 @@ class TextBase(AbstractBasePlugin):
         if conf.TEXTPLUGIN_CLEAN_ON_SAVE:
             self.body = sanitize_richtext(self.body)
         super(TextBase, self).save(*args, **kwargs)
+
 
 class Text(TextBase):
     pass

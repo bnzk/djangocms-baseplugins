@@ -3,12 +3,11 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from djangocms_baseplugins.download.models import Download
+from djangocms_baseplugins.download.models import Download, DownloadSection
 from . import conf
 
-
-
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.DOWNLOADPLUGIN_TRANSLATED_FIELDS
+translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS \
+                     + conf.DOWNLOADPLUGIN_TRANSLATED_FIELDS
 
 
 class DownloadTranslationOptions(TranslationOptions):
@@ -19,8 +18,8 @@ if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
     check_in_migration_modules('download')
     translator.register(Download, DownloadTranslationOptions)
 
-
-section_translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + conf.DOWNLOADPLUGIN_TRANSLATED_FIELDS
+section_translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS \
+                             + conf.DOWNLOADPLUGIN_TRANSLATED_FIELDS
 
 
 class DownloadSectionTranslationOptions(TranslationOptions):

@@ -6,8 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from .models import Spacer
 from . import conf
+from .models import Spacer
 
 
 class SpacerPluginForm(forms.ModelForm):

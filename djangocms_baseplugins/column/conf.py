@@ -6,7 +6,6 @@ from django.conf import settings
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
-
 COLUMNPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'COLUMNPLUGIN_TRANSLATED_FIELDS', [])
 

@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('teaser_section', '0003_auto_20170704_0746'),
     ]

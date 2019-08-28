@@ -2,11 +2,11 @@
 from __future__ import unicode_literals
 
 import re
+
 from django.conf import settings
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
-
 
 VIDEOPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_TRANSLATED_FIELDS', [
@@ -22,7 +22,6 @@ VIDEOPLUGIN_REGEXES = (
     re.compile(r"^https?\:\/\/(www\.)?vimeo\.com\/(?P<vimeo_id>[^\/]*)\??.*$"),
 )
 
-
 VIDEOPLUGIN_LAYOUT_CHOICES = getattr(
     settings, 'VIDEOPLUGIN_LAYOUT_CHOICES', (
         [],
@@ -31,7 +30,7 @@ VIDEOPLUGIN_LAYOUT_CHOICES = getattr(
 
 VIDEOPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_CONTENT_FIELDS', (
-        'video_url', ('autoplay', 'controls', 'infos', 'fullscreen' ),
+        'video_url', ('autoplay', 'controls', 'infos', 'fullscreen'),
     )
 )
 

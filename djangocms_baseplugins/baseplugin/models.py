@@ -3,10 +3,10 @@ from __future__ import unicode_literals
 
 import datetime
 
+from cms.models.pluginmodel import CMSPlugin
+from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
-from django.db import models
-from cms.models.pluginmodel import CMSPlugin
 
 
 @python_2_unicode_compatible
@@ -75,11 +75,11 @@ class AbstractBasePlugin(CMSPlugin):
         if getattr(self, 'to_string'):
             return self.add_hidden_flag(self.to_string())
         else:
-            return super(self. AbstractBasePlugin).__str__()
+            return super(self.AbstractBasePlugin).__str__()
 
     def is_visible(self):
         if self.published:
-            if self.published_from_date is None or\
+            if self.published_from_date is None or \
                     self.published_from_date <= datetime.datetime.now():
                 if self.published_until_date is None or \
                         self.published_until_date >= datetime.datetime.now():

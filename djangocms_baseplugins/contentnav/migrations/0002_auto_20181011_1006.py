@@ -3,12 +3,11 @@
 from __future__ import unicode_literals
 
 import cms.models.fields
-from django.db import migrations, models
 import django.db.models.deletion
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('cms', '0016_auto_20160608_1535'),
         ('contentnav', '0001_initial'),
@@ -18,7 +17,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='contentnav',
             name='cms_page',
-            field=cms.models.fields.PageField(default=None, help_text='Show submenu of this page', null=True, on_delete=django.db.models.deletion.CASCADE, to='cms.Page'),
+            field=cms.models.fields.PageField(default=None, help_text='Show submenu of this page',
+                                              null=True,
+                                              on_delete=django.db.models.deletion.CASCADE,
+                                              to='cms.Page'),
         ),
         migrations.AddField(
             model_name='contentnav',

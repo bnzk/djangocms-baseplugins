@@ -7,12 +7,12 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
-from .models import Column
 from . import conf
+from .models import Column
 
 
 class ColumnPluginForm(forms.ModelForm):
-    width = forms.ChoiceField(choices=conf.COLUMNPLUGIN_WIDTH_CHOICES )
+    width = forms.ChoiceField(choices=conf.COLUMNPLUGIN_WIDTH_CHOICES)
 
     class Meta:
         model = Column
@@ -30,5 +30,6 @@ class ColumnPlugin(BasePluginMixin, CMSPluginBase):
     require_parent = True
     allow_children = True
     child_classes = conf.COLUMNPLUGIN_CHILD_CLASSES
+
 
 plugin_pool.register_plugin(ColumnPlugin)

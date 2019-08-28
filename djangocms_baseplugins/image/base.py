@@ -4,9 +4,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin import defaults
-
+from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 if defaults.DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS:
     from filer_addons.filer_gui.fields import FilerImageField
@@ -47,6 +46,5 @@ class ImageBase(models.Model):
 
 
 class ImagePluginBase(AbstractBasePlugin, ImageBase):
-
     class Meta:
         abstract = True

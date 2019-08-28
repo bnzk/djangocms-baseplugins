@@ -11,7 +11,6 @@ from djangocms_baseplugins.column.cms_plugins import ColumnPlugin
 
 
 class ColumnPluginTests(BasePluginTestCase, TestCase):
-
     plugin_class = ColumnPlugin
     plugin_settings_prefix = 'COLUMNPLUGIN'
 
@@ -33,5 +32,8 @@ class ColumnPluginTests(BasePluginTestCase, TestCase):
         )
         renderer = ContentRenderer(request=RequestFactory())
         html = renderer.render_plugin(model_instance, {})
-        plugin_name = model_instance.__class__.__name__.lower()
-        self.assertIn('plugin-column_{}'.format(model_instance.width), force_text(html))
+        # plugin_name = model_instance.__class__.__name__.lower()
+        self.assertIn(
+            'plugin-column_{}'.format(model_instance.width),
+            force_text(html)
+        )

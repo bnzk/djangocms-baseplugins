@@ -6,9 +6,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
-from .models import Contact
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, \
+    get_fields_from_fieldsets
 from . import conf
+from .models import Contact
 
 
 class ContactPluginForm(forms.ModelForm):
@@ -26,7 +27,7 @@ class ContactPlugin(BasePluginMixin, CMSPluginBase):
     name = _(u'Contact')
     render_template = "djangocms_baseplugins/contact.html"
     fieldsets = conf.CONTACTPLUGIN_FIELDSETS
-    readonly_fields = ('lat', 'lng', 'geo_error', )
+    readonly_fields = ('lat', 'lng', 'geo_error',)
     allow_children = True
     child_classes = conf.CONTACTPLUGIN_CHILD_CLASSES
 

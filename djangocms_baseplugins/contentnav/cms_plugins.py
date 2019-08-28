@@ -8,13 +8,13 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets
-from .models import ContentNav
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, \
+    get_fields_from_fieldsets
 from . import conf
+from .models import ContentNav
 
 
 class ContentNavPluginForm(forms.ModelForm):
-
     class Meta:
         model = ContentNav
         fields = get_fields_from_fieldsets(conf.CONTENTNAVPLUGIN_FIELDSETS)

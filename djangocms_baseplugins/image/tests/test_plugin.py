@@ -7,6 +7,5 @@ from djangocms_baseplugins.image.cms_plugins import ImagePlugin
 
 
 class ImagePluginTests(BasePluginTestCase, TestCase):
-
     plugin_class = ImagePlugin
     plugin_settings_prefix = 'IMAGEPLUGIN'

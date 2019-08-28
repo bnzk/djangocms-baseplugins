@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations, models
-import filer.fields.image
 import django.db.models.deletion
+import filer.fields.image
+from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('image', '0001_initial'),
     ]
@@ -16,6 +15,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='image',
             name='image',
-            field=filer.fields.image.FilerImageField(related_name='image_image_image', on_delete=django.db.models.deletion.SET_NULL, verbose_name='image', to='filer.Image', null=True),
+            field=filer.fields.image.FilerImageField(related_name='image_image_image',
+                                                     on_delete=django.db.models.deletion.SET_NULL,
+                                                     verbose_name='image', to='filer.Image',
+                                                     null=True),
         ),
     ]

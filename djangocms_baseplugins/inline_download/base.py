@@ -1,8 +1,6 @@
-from cms.models import CMSPlugin
-from django.utils.translation import ugettext_lazy as _
-from django.utils.encoding import python_2_unicode_compatible
-
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.download.base import DownloadBase
@@ -29,7 +27,7 @@ class InlineDownloadBase(AbstractBasePlugin):
         for entry in old_instance.downloads.all():
             entry.id = None
             entry.save()
-            self.downloads.add(entry);
+            self.downloads.add(entry)
 
 
 @python_2_unicode_compatible
@@ -47,5 +45,5 @@ class InlineDownloadEntryBase(DownloadBase):
         return self.to_string()
 
     class Meta:
-        ordering = ('order', )
+        ordering = ('order',)
         abstract = True

@@ -7,7 +7,6 @@ from djangocms_baseplugins.contact.cms_plugins import ContactPlugin
 
 
 class ContactPluginTests(BasePluginTestCase, TestCase):
-
     plugin_class = ContactPlugin
     plugin_settings_prefix = 'CONTACTPLUGIN'
 

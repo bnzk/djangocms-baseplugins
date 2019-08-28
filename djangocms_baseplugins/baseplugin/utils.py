@@ -1,6 +1,6 @@
 # coding: utf-8
-from django.conf import settings
 from django import forms
+from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.html import strip_tags
 from django.utils.text import Truncator
@@ -39,7 +39,6 @@ def build_baseplugin_fieldset(**kwargs):
     return fieldsets
 
 
-
 def get_fields_from_fieldsets(fieldsets):
     fields = []
     for fieldset in fieldsets:
@@ -65,7 +64,7 @@ def build_baseplugin_widgets(conf, prefix):
 
 def check_in_migration_modules(app_name):
     modules = getattr(settings, 'MIGRATION_MODULES', [])
-    if not app_name in modules:
+    if app_name not in modules:
         raise ImproperlyConfigured(
             'You need "{}" in settings.MIGRATION_MODULES, or you cannot translat plugins!'
             .format(app_name)
@@ -97,7 +96,8 @@ def sanitize_richtext(text):
 
 
 def is_edit_mode(toolbar):
-    if (getattr(toolbar, 'edit_mode', None) or  # cms pre 3.6
+    if (
+        getattr(toolbar, 'edit_mode', None) or  # cms pre 3.6
         getattr(toolbar, 'edit_mode_active', None) or  # cms 3.6+
         getattr(toolbar, 'build_mode', None) or
         getattr(toolbar, 'build_mode_active', None)

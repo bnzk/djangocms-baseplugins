@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations, models
 import ckeditor.fields
+from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('textimage', '0001_initial'),
     ]

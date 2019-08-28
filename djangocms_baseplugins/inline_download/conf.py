@@ -7,7 +7,6 @@ from django.conf import settings
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
-
 INLINEDOWNLOADPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'INLINEDOWNLOADPLUGIN_TRANSLATED_FIELDS', [])
 
@@ -27,9 +26,8 @@ INLINEDOWNLOADPLUGIN_FIELDSETS = getattr(
     })
 )
 
-
 INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS = getattr(
-    settings, 'INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS', ['file', ('order', 'link_text', )])
+    settings, 'INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS', ['file', ('order', 'link_text',)])
 
 # allow fallbacks!
 INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS = getattr(

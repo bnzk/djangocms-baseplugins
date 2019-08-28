@@ -2,7 +2,6 @@ from django import template
 
 from ..utils import sanitize_richtext
 
-
 register = template.Library()
 
 

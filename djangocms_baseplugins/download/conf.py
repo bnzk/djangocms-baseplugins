@@ -3,10 +3,9 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
+
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
-
-
 
 DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS',
@@ -35,8 +34,8 @@ DOWNLOADSECTIONPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
     'DOWNLOADSECTIONPLUGIN_LAYOUT_CHOICES',
     (
-        ('full', _("Full Size"), ),
-        ('content', _("Content Sized"), ),
+        ('full', _("Full Size"),),
+        ('content', _("Content Sized"),),
     )
 )
 
@@ -44,7 +43,7 @@ DOWNLOADSECTIONPLUGIN_BACKGROUND_CHOICES = getattr(
     settings,
     'DOWNLOADSECTIONPLUGIN_BACKGROUND_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
@@ -52,7 +51,7 @@ DOWNLOADSECTIONPLUGIN_COLOR_CHOICES = getattr(
     settings,
     'DOWNLOADSECTIONPLUGIN_COLOR_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
@@ -61,8 +60,6 @@ DOWNLOADSECTIONPLUGIN_CHILD_CLASSES = getattr(
         'DownloadPlugin',
     )
 )
-
-
 
 DOWNLOADPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'DOWNLOADPLUGIN_TRANSLATED_FIELDS',
@@ -92,8 +89,8 @@ DOWNLOADPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
     'DOWNLOADPLUGIN_LAYOUT_CHOICES',
     (
-        ('full', _("Full Size"), ),
-        ('content', _("Content Sized"), ),
+        ('full', _("Full Size"),),
+        ('content', _("Content Sized"),),
     )
 )
 
@@ -101,7 +98,7 @@ DOWNLOADPLUGIN_BACKGROUND_CHOICES = getattr(
     settings,
     'DOWNLOADPLUGIN_BACKGROUND_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
 
@@ -109,8 +106,6 @@ DOWNLOADPLUGIN_COLOR_CHOICES = getattr(
     settings,
     'DOWNLOADPLUGIN_COLOR_CHOICES',
     (
-        ('default', _("Default"), ),
+        ('default', _("Default"),),
     )
 )
-
-

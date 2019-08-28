@@ -1,4 +1,4 @@
-from .settings import *
+from .settings import *  # noqa
 
 
 DJANGOCMS_BASEPLUGINS_MODE = 'full'

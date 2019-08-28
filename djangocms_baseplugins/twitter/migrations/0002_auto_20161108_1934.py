@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('cms', '0016_auto_20160608_1535'),
         ('twitter', '0001_initial'),
@@ -15,7 +14,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TweetEmbed',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, on_delete=models.CASCADE,related_name='twitter_tweetembed', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, on_delete=models.CASCADE,
+                                                       related_name='twitter_tweetembed',
+                                                       auto_created=True, primary_key=True,
+                                                       serialize=False, to='cms.CMSPlugin')),
                 ('title', models.CharField(default='', max_length=256, blank=True)),
                 ('published', models.BooleanField(default=True)),
                 ('in_menu', models.BooleanField(default=False)),
@@ -23,7 +25,9 @@ class Migration(migrations.Migration):
                 ('background', models.CharField(default='', max_length=64)),
                 ('color', models.CharField(default='', max_length=64)),
                 ('anchor', models.SlugField(default='', blank=True)),
-                ('tweet_url', models.URLField(help_text='Example: https://twitter.com/MdDoomFest/status/795834590481018880', verbose_name='Tweet URL')),
+                ('tweet_url', models.URLField(
+                    help_text='Example: https://twitter.com/MdDoomFest/status/795834590481018880',
+                    verbose_name='Tweet URL')),
             ],
             options={
                 'abstract': False,
