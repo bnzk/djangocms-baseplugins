@@ -44,7 +44,6 @@ class BasePluginTestCase(object):
             + 'placeholder_id={}&plugin_type={}' \
             + '&cms_path=%2Fen%2F&plugin_language=en'
         url = url.format(placeholder.id, self.plugin_class.__name__)
-        print(url)
         response = client.get(url)
         self.assertEqual(response.status_code, 200)
 
