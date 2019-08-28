@@ -33,6 +33,12 @@ DATABASES = {
     }
 }
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'allowedContent': True,
+    }
+}
+
 LANGUAGES = (
     ('en', 'EN', ),
     ('de', 'DE', ),
@@ -111,7 +117,6 @@ EXTERNAL_APPS = (
     'djangocms_admin_style',
 
     'django.contrib.admin',
-
 )
 
 INTERNAL_APPS = (

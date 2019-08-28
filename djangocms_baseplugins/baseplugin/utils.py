@@ -13,6 +13,11 @@ try:
 except ImportError:
     bleach = None
 
+try:
+    from lxml.html import clean as lxml_clean
+except ImportError:
+    lxml_clean = None
+
 
 def build_baseplugin_fieldset(**kwargs):
     fieldsets = []
@@ -72,10 +77,17 @@ def truncate_richtext_content(richtext):
 
 
 def sanitize_richtext(text):
-    if bleach and defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG:
-        text = bleach.clean(text, **defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG)
-    if settings.DEBUG and not bleach:
-        print("bleach is not installed, but should be, for sanitizing richtext content!")
+    if defaults.DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG:
+        if lxml_clean:
+            lxml_cleaner = lxml_clean.Cleaner(**defaults.DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG)
+            text = lxml_cleaner.clean_html(text)
+        elif settings.DEBUG:
+            print("lxml is not installed, but should be, for sanitizing richtext content!")
+    if defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG:
+        if bleach:
+            text = bleach.clean(text, **defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG)
+        elif settings.DEBUG:
+            print("bleach is not installed, but should be, for sanitizing richtext content!")
     return text
 
 

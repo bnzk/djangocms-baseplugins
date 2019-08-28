@@ -122,16 +122,52 @@ TABLE_TAGS = [
 ]
 
 
+DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG_DEFAULT = {
+    'strip': True,
+    'tags': DEFAULT_TAGS,
+    'attributes': {
+        '*': ['class', ],
+        'a': allow_attrs_for_a,
+    }
+}
+
+
 # set to None for no cleaning on save/render
 # this will be passed as kwargs to the bleach.clean() method
 DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG = getattr(
     settings,
-    'DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG', {
-        'strip': True,
-        'tags': DEFAULT_TAGS,
-        'attributes': {
-            '*': ['class', ],
-            'a': allow_attrs_for_a,
-        }
+    'DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG', None
+)
+
+
+# set to None for no cleaning on save/render
+# this will be passed as kwargs to the lxml.html.clean.Cleaner constructor
+# explanations: https://lxml.de/api/lxml.html.clean.Cleaner-class.html
+DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG = getattr(
+    settings,
+    'DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG', {
+        'scripts': True,
+        'javascript': True,
+        'comments': True,
+        'style': True,
+        'inline_style': True,
+        'links': True,
+        'meta': True,
+        'page_structure': True,
+        'processing_instructions': True,
+        'embedded': True,
+        'frames': True,
+        'forms': True,
+        'annoying_tags': False,
+        # dont have these in basic richtext content!
+        'remove_tags': ['section', 'div', 'nav', 'footer', ],
+        'allow_tags': None,
+        'kill_tags': None,
+        'remove_unknown_tags': True,
+        'safe_attrs_only': False,
+        'safe_attrs': None,
+        'add_nofollow': False,
+        'host_whitelist': [],
+        # 'whitelist_tags':
     }
 )
