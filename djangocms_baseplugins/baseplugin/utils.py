@@ -14,7 +14,7 @@ except ImportError:
     bleach = None
 
 try:
-    from lxml.html import clean as lxml_clean
+    from lxml.html import clean as lxml_clean, fragment_fromstring, tostring
 except ImportError:
     lxml_clean = None
 
@@ -80,7 +80,12 @@ def sanitize_richtext(text):
     if defaults.DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG:
         if lxml_clean:
             lxml_cleaner = lxml_clean.Cleaner(**defaults.DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG)
-            text = lxml_cleaner.clean_html(text)
+            fragment = fragment_fromstring("<div>" + text + "</div>")
+            fragment = lxml_cleaner.clean_html(fragment)
+            text = tostring(fragment, encoding='unicode')
+            if text.startswith('<div>'):
+                # still dont like lxml!
+                text = text[len('<div>'):-len('</div>')]
         elif settings.DEBUG:
             print("lxml is not installed, but should be, for sanitizing richtext content!")
     if defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG:
