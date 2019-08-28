@@ -41,9 +41,10 @@ class BasePluginTestCase(object):
         page = create_page('test', 'base.html', 'en', slug='test', )
         placeholder = Placeholder.objects.create(page=page, slot='test')
         url = '/admin/cms/page/add-plugin/?' \
-            + 'placeholder_id={}&plugin_type={}'\
-            + '&cms_path=%2Fen%2F&plugin_language=en' \
-            .format(placeholder.id, self.plugin_class.__name__)
+            + 'placeholder_id={}&plugin_type={}' \
+            + '&cms_path=%2Fen%2F&plugin_language=en'
+        url = url.format(placeholder.id, self.plugin_class.__name__)
+        print(url)
         response = client.get(url)
         self.assertEqual(response.status_code, 200)
 
