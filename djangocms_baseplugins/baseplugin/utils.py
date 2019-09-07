@@ -50,13 +50,13 @@ def get_fields_from_fieldsets(fieldsets):
 def build_baseplugin_widgets(conf, prefix):
     widgets = {
         'layout': forms.Select(
-            choices=getattr(conf, '{}_LAYOUT_CHOICES'.format(prefix), []),
+            choices=getattr(conf, '{}PLUGIN_LAYOUT_CHOICES'.format(prefix), []),
         ),
         'background': forms.Select(
-            choices=getattr(conf, '{}_BACKGROUND_CHOICES'.format(prefix), []),
+            choices=getattr(conf, '{}PLUGIN_BACKGROUND_CHOICES'.format(prefix), []),
         ),
         'color': forms.Select(
-            choices=getattr(conf, '{}_COLOR_CHOICES'.format(prefix), []),
+            choices=getattr(conf, '{}PLUGIN_COLOR_CHOICES'.format(prefix), []),
         ),
     }
     return widgets
