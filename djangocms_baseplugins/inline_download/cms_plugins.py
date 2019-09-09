@@ -40,7 +40,7 @@ class InlineDownloadPluginForm(forms.ModelForm):
 class InlineDownloadPlugin(BasePluginMixin, CMSPluginBase):
     model = InlineDownload
     form = InlineDownloadPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
     name = _(u'Downloads')
     render_template = "djangocms_baseplugins/inline_download.html"
     fieldsets = conf.INLINEDOWNLOADPLUGIN_FIELDSETS
