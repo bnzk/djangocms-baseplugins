@@ -51,13 +51,13 @@ def build_baseplugin_widgets(conf, prefix):
     print(conf)
     widgets = {
         'layout': forms.Select(
-            choices=getattr(conf, '{}PLUGIN_LAYOUT_CHOICES'.format(prefix), []),
+            choices=getattr(conf, '{}_LAYOUT_CHOICES'.format(prefix), []),
         ),
         'background': forms.Select(
-            choices=getattr(conf, '{}PLUGIN_BACKGROUND_CHOICES'.format(prefix), []),
+            choices=getattr(conf, '{}_BACKGROUND_CHOICES'.format(prefix), []),
         ),
         'color': forms.Select(
-            choices=getattr(conf, '{}PLUGIN_COLOR_CHOICES'.format(prefix), []),
+            choices=getattr(conf, '{}_COLOR_CHOICES'.format(prefix), []),
         ),
     }
     return widgets

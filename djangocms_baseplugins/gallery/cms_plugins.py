@@ -15,7 +15,7 @@ class GalleryPluginForm(forms.ModelForm):
     class Meta:
         model = Gallery
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'GALLERY')
+        widgets = build_baseplugin_widgets(conf, 'GALLERYPLUGIN')
 
 
 class GalleryPlugin(BasePluginMixin, CMSPluginBase):

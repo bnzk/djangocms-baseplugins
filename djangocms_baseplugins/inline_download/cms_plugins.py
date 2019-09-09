@@ -33,7 +33,7 @@ class InlineDownloadPluginForm(forms.ModelForm):
         model = InlineDownload
         fields = get_fields_from_fieldsets(conf.INLINEDOWNLOADPLUGIN_FIELDSETS)
         # exclude = []
-        widgets = build_baseplugin_widgets(conf, 'INLINEDOWNLOAD')
+        widgets = build_baseplugin_widgets(conf, 'INLINEDOWNLOADPLUGIN')
 
 
 @plugin_pool.register_plugin

@@ -33,7 +33,7 @@ class InlineGalleryPluginForm(forms.ModelForm):
         model = InlineGallery
         fields = get_fields_from_fieldsets(conf.INLINEGALLERYPLUGIN_FIELDSETS)
         # exclude = []
-        widgets = build_baseplugin_widgets(conf, 'INLINEGALLERY')
+        widgets = build_baseplugin_widgets(conf, 'INLINEGALLERYPLUGIN')
 
 
 @plugin_pool.register_plugin

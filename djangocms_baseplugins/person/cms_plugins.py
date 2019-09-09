@@ -15,7 +15,7 @@ class PersonSectionPluginForm(forms.ModelForm):
     class Meta:
         model = PersonSection
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'PERSONSECTION')
+        widgets = build_baseplugin_widgets(conf, 'PERSONSECTIONPLUGIN')
 
 
 class PersonSectionPlugin(BasePluginMixin, CMSPluginBase):
@@ -36,7 +36,7 @@ class PersonPluginForm(forms.ModelForm):
     class Meta:
         model = Person
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'PERSON')
+        widgets = build_baseplugin_widgets(conf, 'PERSONPLUGIN')
 
 
 class PersonPlugin(BasePluginMixin, CMSPluginBase):

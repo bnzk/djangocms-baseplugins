@@ -19,7 +19,7 @@ class TeaserSectionPluginForm(forms.ModelForm):
         model = TeaserSection
         fields = get_fields_from_fieldsets(conf.TEASERSECTIONPLUGIN_FIELDSETS)
         # exclude = []
-        widgets = build_baseplugin_widgets(conf, 'TEASERSECTION')
+        widgets = build_baseplugin_widgets(conf, 'TEASERSECTIONPLUGIN')
 
 
 @plugin_pool.register_plugin

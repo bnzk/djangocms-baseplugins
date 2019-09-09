@@ -15,7 +15,7 @@ class TextImagePluginForm(forms.ModelForm):
     class Meta:
         model = TextImage
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'TEXTIMAGE')
+        widgets = build_baseplugin_widgets(conf, 'TEXTIMAGEPLUGIN')
 
 
 class TextImagePlugin(BasePluginMixin, CMSPluginBase):

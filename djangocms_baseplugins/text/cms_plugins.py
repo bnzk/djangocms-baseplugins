@@ -15,7 +15,7 @@ class TextPluginForm(forms.ModelForm):
     class Meta:
         model = Text
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'TEXT')
+        widgets = build_baseplugin_widgets(conf, 'TEXTPLUGIN')
 
 
 class TextPlugin(BasePluginMixin, CMSPluginBase):

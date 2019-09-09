@@ -18,7 +18,7 @@ class DownloadSectionPluginForm(forms.ModelForm):
     class Meta:
         model = DownloadSection
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'GALLERY')
+        widgets = build_baseplugin_widgets(conf, 'DOWNLOADSECTIONPLUGIN')
 
 
 @plugin_pool.register_plugin
