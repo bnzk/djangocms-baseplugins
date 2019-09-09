@@ -7,8 +7,6 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
 
-print('loaded!----------------------------------------------')
-
 # clean when saving? default is to clean on render AND save.
 TEXTPLUGIN_CLEAN_ON_SAVE = getattr(
     settings,

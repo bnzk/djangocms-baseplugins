@@ -13,13 +13,11 @@ CMS_TEMPLATES = (
 )
 
 # testing
-INLINEGALLERYPLUGIN_DESIGN_FIELDS = ('layout', )
-INLINEGALLERYPLUGIN_LAYOUT_CHOICES = (
-    ('whhatt', 'whaaaat'),
-    ('whh222att', 'whaa22222aat'),
-)
-
-
+# INLINEGALLERYPLUGIN_DESIGN_FIELDS = ('layout', )
+# INLINEGALLERYPLUGIN_LAYOUT_CHOICES = (
+#     ('whhatt', 'whaaaat'),
+#     ('whh222att', 'whaa22222aat'),
+# )
 
 # #################333333
 

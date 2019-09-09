@@ -48,7 +48,6 @@ def get_fields_from_fieldsets(fieldsets):
 
 
 def build_baseplugin_widgets(conf, prefix):
-    print(conf)
     widgets = {
         'layout': forms.Select(
             choices=getattr(conf, '{}_LAYOUT_CHOICES'.format(prefix), []),
