@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                  models.CharField(blank=True, default='', max_length=64, verbose_name='Color')),
                 ('anchor', models.SlugField(blank=True, default='', verbose_name='Anchor')),
                 ('height',
-                 models.CharField(blank=True, default=b'', max_length=32, verbose_name='Height')),
+                 models.CharField(blank=True, default='', max_length=32, verbose_name='Height')),
             ],
             options={
                 'abstract': False,
