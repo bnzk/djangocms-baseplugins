@@ -1,3 +1,5 @@
+import importlib
+
 from cms.api import add_plugin, create_page
 from cms.models import Placeholder
 from cms.plugin_rendering import ContentRenderer
@@ -46,6 +48,40 @@ class BasePluginTestCase(object):
         url = url.format(placeholder.id, self.plugin_class.__name__)
         response = client.get(url)
         self.assertEqual(response.status_code, 200)
+
+    # not yet. reloading conf is not enough!
+    # def test_basic_admin_form_choices_overrides(self):
+    #     """
+    #     just calling add plugin admin view, check if layout/background/color
+    #     custom choices work
+    #     :return:
+    #     """
+    #     client = Client()
+    #     client.login(username=self.username, password=self.password)
+    #     page = create_page('test', 'base.html', 'en', slug='test', )
+    #     placeholder = Placeholder.objects.create(page=page, slot='test')
+    #     settings_kwargs = {
+    #         '{}_LAYOUT_CHOICES'.format(self.plugin_settings_prefix): (('0000-layout', 'Nope'),),
+    #         '{}_COLOR_CHOICES'.format(self.plugin_settings_prefix): (('0000-color', 'Nope'),),
+    #         '{}_BACKGROUND_CHOICES'.format(self.plugin_settings_prefix): (('0000-background', 'Nope'),),
+    #         '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', ),
+    #         '{}_CONTENT_FIELDS'.format(self.plugin_settings_prefix): ('title', ),
+    #     }
+    #     print(settings_kwargs)
+    #     with self.settings(**settings_kwargs):
+    #         if getattr(self, 'plugin_conf', None):
+    #             conf = importlib.import_module(self.plugin_conf)
+    #             reload(conf)
+    #             url = '/admin/cms/page/add-plugin/?' \
+    #                 + 'placeholder_id={}&plugin_type={}' \
+    #                 + '&cms_path=%2Fen%2F&plugin_language=en'
+    #             url = url.format(placeholder.id, self.plugin_class.__name__)
+    #             response = client.get(url)
+    #             self.assertEqual(response.status_code, 200)
+    #             # print(response.content)
+    #             self.assertContains(response, '0000-layout')
+    #             self.assertContains(response, '0000-color')
+    #             self.assertContains(response, '0000-background')
 
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')

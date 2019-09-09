@@ -12,6 +12,14 @@ CMS_TEMPLATES = (
     ('base.html', 'Default'),
 )
 
+# testing
+INLINEGALLERYPLUGIN_DESIGN_FIELDS = ('layout', )
+INLINEGALLERYPLUGIN_LAYOUT_CHOICES = (
+    ('whhatt', 'whaaaat'),
+    ('whh222att', 'whaa22222aat'),
+)
+
+
 
 # #################333333
 
