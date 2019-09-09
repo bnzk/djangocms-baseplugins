@@ -7,6 +7,7 @@ from django.conf import settings
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
 
+
 GALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'GALLERYPLUGIN_TRANSLATED_FIELDS', ['description', ])
 
@@ -32,3 +33,28 @@ GALLERYPLUGIN_CHILD_CLASSES = getattr(
         'TextImagePlugin',
     )
 )
+
+GALLERYPLUGIN_LAYOUT_CHOICES = getattr(
+    settings,
+    'GALLERYPLUGIN_LAYOUT_CHOICES',
+    (
+        ('default', "Default",),
+    )
+)
+
+GALLERYPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings,
+    'GALLERYPLUGIN_BACKGROUND_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)
+
+GALLERYPLUGIN_COLOR_CHOICES = getattr(
+    settings,
+    'GALLERYPLUGIN_COLOR_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)
+

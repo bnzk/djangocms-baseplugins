@@ -30,3 +30,28 @@ INLINEGALLERYPLUGIN_IMAGE_CONTENT_FIELDS = getattr(
     'INLINEGALLERYPLUGIN_IMAGE_CONTENT_FIELDS',
     ['image', ('order', 'caption',)]
 )
+
+
+INLINEGALLERPLUGIN_LAYOUT_CHOICES = getattr(
+    settings,
+    'INLINEGALLERPLUGIN_LAYOUT_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)
+
+INLINEGALLERPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings,
+    'INLINEGALLERPLUGIN_BACKGROUND_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)
+
+INLINEGALLERPLUGIN_COLOR_CHOICES = getattr(
+    settings,
+    'INLINEGALLERPLUGIN_COLOR_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)

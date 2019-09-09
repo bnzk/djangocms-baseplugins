@@ -32,3 +32,27 @@ INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS = getattr(
 # allow fallbacks!
 INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS = getattr(
     settings, 'INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS', ['link_text', 'file'])
+
+INLINEDOWNLOADPLUGIN_LAYOUT_CHOICES = getattr(
+    settings,
+    'INLINEDOWNLOADPLUGIN_LAYOUT_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)
+
+INLINEDOWNLOADPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings,
+    'INLINEDOWNLOADPLUGIN_BACKGROUND_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)
+
+INLINEDOWNLOADPLUGIN_COLOR_CHOICES = getattr(
+    settings,
+    'INLINEDOWNLOADPLUGIN_COLOR_CHOICES',
+    (
+        ('default', ("Default"),),
+    )
+)
