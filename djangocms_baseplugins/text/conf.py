@@ -26,6 +26,18 @@ TEXTPLUGIN_LAYOUT_CHOICES = getattr(
     )
 )
 
+TEXTPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings, 'TEXTPLUGIN_BACKGROUND_CHOICES', (
+        [],
+    )
+)
+
+TEXTPLUGIN_COLOR_CHOICES = getattr(
+    settings, 'TEXTPLUGIN_COLOR_CHOICES', (
+        [],
+    )
+)
+
 TEXTPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'TEXTPLUGIN_CONTENT_FIELDS', (
         'body',
