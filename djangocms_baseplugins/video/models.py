@@ -7,6 +7,13 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.video import conf
+from djangocms_baseplugins.baseplugin import defaults
+
+if defaults.DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS:
+    from filer_addons.filer_gui.fields import FilerImageField
+else:
+    from filer.fields.image import FilerImageField
+
 
 
 class VideoModelMixin(object):
@@ -63,6 +70,12 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
         blank=True,
         verbose_name=_('Video Adresse'),
         help_text=_('youtube & vimeo'),
+    )
+    poster_image = FilerImageField(
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="%(app_label)s_%(class)s_image",
+        verbose_name=_("Image"),
     )
     autoplay = models.BooleanField(
         default=False,
