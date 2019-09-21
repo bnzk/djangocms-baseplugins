@@ -81,7 +81,7 @@ class VideoModelMixin(object):
                 mute = '&mute=1'
             else: mute = ''
             color = '&color=%s' % conf.VIDEOPLUGIN_YOUTUBE_COLOR
-            return 'https://www.youtube-nocookie.com/embed/%s?a=b&mute=1%s%s%s%s%s%s%s%s' % (
+            url = 'https://www.youtube-nocookie.com/embed/%s?a=b&mute=1%s%s%s%s%s%s%s%s' % (
                 self.video_id,
                 rel,
                 allowfullscreen,
@@ -92,8 +92,37 @@ class VideoModelMixin(object):
                 color,
                 mute,
             )
+            return url
         if self.video_type == 'vimeo':
-            return 'https://player.vimeo.com/video/%s' % self.video_id
+            # "https://player.vimeo.com/video/193349624?autoplay=1&loop=1&color=ff0b03&portrait=0"
+            if not getattr(self, 'controls', None):
+                controls = '&controls=0'
+            else: controls = ''
+            if getattr(self, 'autoplay', None):
+                autoplay = '&autoplay=1'
+            else: autoplay = ''
+            if not getattr(self, 'infos', None):
+                infos = '&title=0&byline=0'
+            else: infos = ''
+            if conf.VIDEOPLUGIN_YOUTUBE_MODESTBRANDING:
+                modestbranding = '&modestbranding=1'
+            else: modestbranding = ''
+            if getattr(self, 'mute', None):
+                mute = '&mute=1'
+            else: mute = ''
+            if conf.VIDEOPLUGIN_VIMEO_COLOR:
+                color = '&color=%s' % conf.VIDEOPLUGIN_VIMEO_COLOR
+            else: color = ''
+            url = 'https://player.vimeo.com/video/%s?a=b&mute=1%s%s%s%s%s%s' % (
+                self.video_id,
+                controls,
+                autoplay,
+                infos,
+                modestbranding,
+                color,
+                mute,
+            )
+            return url
 
 
 @python_2_unicode_compatible
@@ -132,6 +161,7 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
     show_related = models.BooleanField(
         default=False,
         verbose_name=_('show related'),
+        help_text=_('youtube only'),
     )
     mute = models.BooleanField(
         default=False,
