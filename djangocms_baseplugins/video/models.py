@@ -123,6 +123,7 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
     infos = models.BooleanField(
         default=True,
         verbose_name=_('show infos'),
+        help_text=_('not for youtube'),
     )
     fullscreen = models.BooleanField(
         default=True,

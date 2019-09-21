@@ -34,7 +34,7 @@ VIDEOPLUGIN_LAYOUT_CHOICES = getattr(
 
 VIDEOPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_CONTENT_FIELDS', (
-        'video_url', ('show_related', 'autoplay', 'controls', 'infos', 'fullscreen'),
+        'video_url', ('show_related', 'autoplay', 'mute', 'controls', 'infos', 'fullscreen'),
     )
 )
 
