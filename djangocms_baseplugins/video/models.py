@@ -75,6 +75,7 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
         null=True,
         on_delete=models.SET_NULL,
         related_name="%(app_label)s_%(class)s_image",
+        blank=True,
         verbose_name=_("Poster Image"),
     )
     autoplay = models.BooleanField(
