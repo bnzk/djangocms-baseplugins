@@ -22,6 +22,10 @@ VIDEOPLUGIN_REGEXES = (
     re.compile(r'^https?\:\/\/(www\.)?vimeo\.com\/(?P<vimeo_id>[^\/]*)\??.*$'),
 )
 
+VIDEOPLUGIN_YOUTUBE_MODESTBRANDING = True
+
+VIDEOPLUGIN_YOUTUBE_COLOR = 'white'
+
 VIDEOPLUGIN_LAYOUT_CHOICES = getattr(
     settings, 'VIDEOPLUGIN_LAYOUT_CHOICES', (
         [],
@@ -30,7 +34,7 @@ VIDEOPLUGIN_LAYOUT_CHOICES = getattr(
 
 VIDEOPLUGIN_CONTENT_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_CONTENT_FIELDS', (
-        'video_url', ('autoplay', 'controls', 'infos', 'fullscreen'),
+        'video_url', ('show_related', 'autoplay', 'controls', 'infos', 'fullscreen'),
     )
 )
 

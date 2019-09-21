@@ -58,7 +58,40 @@ class VideoModelMixin(object):
     @property
     def embed_url(self):
         if self.video_type == 'youtube':
-            return 'https://youtube.com/embed/%s' % self.video_id
+            # https://developers.google.com/youtube/player_parameters
+            if not getattr(self, 'show_related', None):
+                rel = '&rel=0'
+            else: rel = ''
+            if not getattr(self, 'allowfullscreen', None):
+                allowfullscreen = '&fs=0'
+            else: allowfullscreen = ''
+            if not getattr(self, 'controls', None):
+                controls = '&controls=0'
+            else: controls = ''
+            if getattr(self, 'autoplay', None):
+                autoplay = '&autoplay=1'
+            else: autoplay = ''
+            if not getattr(self, 'infos', None):
+                infos = '&showinfo=0'
+            else: infos = ''
+            if conf.VIDEOPLUGIN_YOUTUBE_MODESTBRANDING:
+                modestbranding = '&modestbranding=1'
+            else: modestbranding = ''
+            if getattr(self, 'mute', None):
+                mute = '&mute=1'
+            else: mute = ''
+            color = '&color=%s' % conf.VIDEOPLUGIN_YOUTUBE_COLOR
+            return 'https://www.youtube-nocookie.com/embed/%s?a=b&mute=1%s%s%s%s%s%s%s%s' % (
+                self.video_id,
+                rel,
+                allowfullscreen,
+                controls,
+                autoplay,
+                infos,
+                modestbranding,
+                color,
+                mute,
+            )
         if self.video_type == 'vimeo':
             return 'https://player.vimeo.com/video/%s' % self.video_id
 
@@ -94,6 +127,14 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
     fullscreen = models.BooleanField(
         default=True,
         verbose_name=_('allow fullscreen'),
+    )
+    show_related = models.BooleanField(
+        default=False,
+        verbose_name=_('show related'),
+    )
+    mute = models.BooleanField(
+        default=False,
+        verbose_name=_('mute'),
     )
 
     class Meta:
