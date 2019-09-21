@@ -4,13 +4,13 @@
 
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ STATIC_URL }}djangocms_baseplugins/video.css" />
     </head>
     <body class="{% if debug %}debug {% endif %}{% block body_class %}{% endblock %}">
         {% render_block "css" %}
         {% render_block "js" %}
         {% cms_toolbar %}
 
-        <link rel="text/css" src="{{ STATIC_URL }}djangocms_baseplugins/video.css">
 
         <nav class="footer_sitemap">
             <ul>
