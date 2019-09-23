@@ -15,7 +15,6 @@ else:
     from filer.fields.image import FilerImageField
 
 
-
 class VideoModelMixin(object):
     """
     needs "video_url" property, not yet dynamic!
@@ -59,27 +58,27 @@ class VideoModelMixin(object):
     def embed_url(self):
         if self.video_type == 'youtube':
             # https://developers.google.com/youtube/player_parameters
+            rel = ''
             if not getattr(self, 'show_related', None):
                 rel = '&rel=0'
-            else: rel = ''
+            allowfullscreen = ''
             if not getattr(self, 'allowfullscreen', None):
                 allowfullscreen = '&fs=0'
-            else: allowfullscreen = ''
+            controls = ''
             if not getattr(self, 'controls', None):
                 controls = '&controls=0'
-            else: controls = ''
+            autoplay = ''
             if getattr(self, 'autoplay', None):
                 autoplay = '&autoplay=1'
-            else: autoplay = ''
+            infos = ''
             if not getattr(self, 'infos', None):
                 infos = '&showinfo=0'
-            else: infos = ''
+            modestbranding = ''
             if conf.VIDEOPLUGIN_YOUTUBE_MODESTBRANDING:
                 modestbranding = '&modestbranding=1'
-            else: modestbranding = ''
+            mute = ''
             if getattr(self, 'mute', None):
                 mute = '&mute=1'
-            else: mute = ''
             color = '&color=%s' % conf.VIDEOPLUGIN_YOUTUBE_COLOR
             url = 'https://www.youtube-nocookie.com/embed/%s?a=b&mute=1%s%s%s%s%s%s%s%s' % (
                 self.video_id,
@@ -95,24 +94,24 @@ class VideoModelMixin(object):
             return url
         if self.video_type == 'vimeo':
             # "https://player.vimeo.com/video/193349624?autoplay=1&loop=1&color=ff0b03&portrait=0"
+            controls = ''
             if not getattr(self, 'controls', None):
                 controls = '&controls=0'
-            else: controls = ''
+            autoplay = ''
             if getattr(self, 'autoplay', None):
                 autoplay = '&autoplay=1'
-            else: autoplay = ''
+            infos = ''
             if not getattr(self, 'infos', None):
                 infos = '&title=0&byline=0'
-            else: infos = ''
+            modestbranding = ''
             if conf.VIDEOPLUGIN_YOUTUBE_MODESTBRANDING:
                 modestbranding = '&modestbranding=1'
-            else: modestbranding = ''
+            mute = ''
             if getattr(self, 'mute', None):
                 mute = '&mute=1'
-            else: mute = ''
+            color = ''
             if conf.VIDEOPLUGIN_VIMEO_COLOR:
                 color = '&color=%s' % conf.VIDEOPLUGIN_VIMEO_COLOR
-            else: color = ''
             url = 'https://player.vimeo.com/video/%s?a=b&mute=1%s%s%s%s%s%s' % (
                 self.video_id,
                 controls,

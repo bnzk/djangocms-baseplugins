@@ -1,4 +1,4 @@
-import importlib
+# import importlib
 
 from cms.api import add_plugin, create_page
 from cms.models import Placeholder
@@ -63,8 +63,8 @@ class BasePluginTestCase(object):
     #     settings_kwargs = {
     #         '{}_LAYOUT_CHOICES'.format(self.plugin_settings_prefix): (('0000-layout', 'Nope'),),
     #         '{}_COLOR_CHOICES'.format(self.plugin_settings_prefix): (('0000-color', 'Nope'),),
-    #         '{}_BACKGROUND_CHOICES'.format(self.plugin_settings_prefix): (('0000-background', 'Nope'),),
-    #         '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', ),
+    #         '{}_BACKGROUND_CHOICES'.format(self.plugin_settings_prefix): (('0000-background', 'Nope'),),  # noqa
+    #         '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', ),  # noqa
     #         '{}_CONTENT_FIELDS'.format(self.plugin_settings_prefix): ('title', ),
     #     }
     #     print(settings_kwargs)
