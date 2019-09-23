@@ -6,3 +6,4 @@ global-exclude *.orig *.pyc *.log *.swp
 recursive-include djangocms_baseplugins/templates *
 recursive-include djangocms_baseplugins/static *
 recursive-include djangocms_baseplugins/locale *
+recursive-include djangocms_baseplugins/ *
