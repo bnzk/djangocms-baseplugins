@@ -28,9 +28,9 @@ SPACERPLUGIN_FIELDSETS = getattr(
 
 SPACERPLUGIN_LAYOUT_CHOICES = getattr(
     settings, 'SPACERPLUGIN_LAYOUT_CHOICES', (
-        ('', _("-")),
         ('remove-one', _("Remove space")),
         ('remove-half', _("Remove half space")),
+        ('', ("-")),
         ('add-half', _("Add little more space")),
         ('add-one', _("Add space")),
         ('add-double', _("Add double space")),

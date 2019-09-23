@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-23 19:24+0200\n"
+"POT-Creation-Date: 2019-09-23 19:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ben Stähli <bnzk@bnzk.ch>, 2017\n"
 "Language-Team: German (https://www.transifex.com/bnzk/teams/73468/de/)\n"
@@ -327,14 +327,10 @@ msgid "Spacer"
 msgstr ""
 
 #: spacer/conf.py:31
-msgid "-"
-msgstr ""
-
-#: spacer/conf.py:32
 msgid "Remove space"
 msgstr "Weniger Abstand"
 
-#: spacer/conf.py:33
+#: spacer/conf.py:32
 msgid "Remove half space"
 msgstr "Etwas weniger Abstand"
 
@@ -343,20 +339,14 @@ msgid "Add little more space"
 msgstr "Wenig Abstand hinzufügen"
 
 #: spacer/conf.py:35
-#, fuzzy
-#| msgid "Add normal space"
 msgid "Add space"
 msgstr "1x Abstand hinzufügen"
 
 #: spacer/conf.py:36
-#, fuzzy
-#| msgid "Add double of normal space"
 msgid "Add double space"
 msgstr "2x Abstand hinzufügen"
 
 #: spacer/conf.py:37
-#, fuzzy
-#| msgid "Add triple of normal space"
 msgid "Add triple space"
 msgstr "3x Abstand hinzufügen"
 
