@@ -31,7 +31,7 @@ SPACERPLUGIN_LAYOUT_CHOICES = getattr(
         ('remove-one', _("Remove space")),
         ('remove-half', _("Remove half space")),
         ('', ("-")),
-        ('add-half', _("Add little more space")),
+        ('add-half', _("Add half space")),
         ('add-one', _("Add space")),
         ('add-double', _("Add double space")),
         ('add-triple', _("Add triple space")),

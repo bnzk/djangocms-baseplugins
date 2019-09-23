@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-23 19:30+0200\n"
+"POT-Creation-Date: 2019-09-23 19:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Ben Stähli <bnzk@bnzk.ch>, 2017\n"
 "Language-Team: German (https://www.transifex.com/bnzk/teams/73468/de/)\n"
@@ -328,15 +328,15 @@ msgstr ""
 
 #: spacer/conf.py:31
 msgid "Remove space"
-msgstr "Weniger Abstand"
+msgstr "1x weniger Abstand"
 
 #: spacer/conf.py:32
 msgid "Remove half space"
-msgstr "Etwas weniger Abstand"
+msgstr "1/2 weniger Abstand"
 
 #: spacer/conf.py:34
-msgid "Add little more space"
-msgstr "Wenig Abstand hinzufügen"
+msgid "Add half space"
+msgstr "1/2 Abstand hinzufügen"
 
 #: spacer/conf.py:35
 msgid "Add space"
@@ -417,3 +417,6 @@ msgstr ""
 #: video/models.py:168
 msgid "mute"
 msgstr ""
+
+#~ msgid "Add little more space"
+#~ msgstr "Wenig Abstand hinzufügen"
