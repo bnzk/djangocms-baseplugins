@@ -13,6 +13,9 @@ easy-thumbnails
 # richtext fields (text, textimage)
 django-ckeditor
 
+# inline_download, inline_gallery, for inline sorting)
+django-admin-sort
+
 # twitter
 requests
 

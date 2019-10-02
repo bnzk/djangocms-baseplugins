@@ -110,6 +110,7 @@ EXTERNAL_APPS = (
     'ckeditor',
     'mailprotector',
     'filer_addons.filer_gui',
+    'admin_sort',
 
     'filer',
     'easy_thumbnails',

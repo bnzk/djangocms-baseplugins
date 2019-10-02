@@ -5,6 +5,7 @@ from django import forms
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from filer_addons.filer_gui.admin.upload_inline import UploadInlineMixin
+from admin_sort.admin.inlines import DragAndDropSortableInlineMixin
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
@@ -17,7 +18,11 @@ from .models import InlineDownload, InlineDownloadEntry
 
 
 # class InlineDownloadImageInline(admin.StackedInline):
-class InlineDownloadEntryInline(UploadInlineMixin, admin.StackedInline):
+class InlineDownloadEntryInline(
+    UploadInlineMixin,
+    DragAndDropSortableInlineMixin,
+    admin.TabularInline,
+):
     model = InlineDownloadEntry
     file_field = 'file'
     fieldsets = (
@@ -26,6 +31,7 @@ class InlineDownloadEntryInline(UploadInlineMixin, admin.StackedInline):
         }),
     )
     extra = 0
+    position_field = 'order'
 
 
 class InlineDownloadPluginForm(forms.ModelForm):
