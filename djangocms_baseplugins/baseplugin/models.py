@@ -6,6 +6,7 @@ import datetime
 from cms.models.pluginmodel import CMSPlugin
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -129,3 +130,10 @@ class AbstractBasePlugin(CMSPlugin):
         if getattr(self, field, None):
             return ' {}_{} '.format(plugin_block_class, getattr(self, field))
         return ''
+
+    def get_anchor(self):
+        if self.anchor:
+            return "content-{}".format(self.anchor)
+        if self.title:
+            return "content-{}".format(slugify(self.title))
+        return "content-{}".format(self.id)
