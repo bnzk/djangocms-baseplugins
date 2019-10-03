@@ -12,6 +12,12 @@ from .models import TextImage
 
 
 class TextImagePluginForm(forms.ModelForm):
+
+    def __init__(self):
+        super().__init__()
+        if not conf.TEXTIMAGEPLUGIN_IMAGE_REQUIRED:
+            self.fields['image'].required = False
+
     class Meta:
         model = TextImage
         exclude = []

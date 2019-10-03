@@ -12,6 +12,7 @@ from . import conf
 
 @python_2_unicode_compatible
 class TextImageBase(ImagePluginBase):
+
     body = RichTextField(_('Text'), blank=True)
 
     class Meta:

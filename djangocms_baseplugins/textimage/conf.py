@@ -44,3 +44,8 @@ TEXTIMAGEPLUGIN_FIELDSETS = getattr(
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
     })
 )
+
+
+TEXTIMAGEPLUGIN_IMAGE_REQUIRED = getattr(
+    settings, 'TEXTIMAGEPLUGIN_IMAGE_REQUIRED', True
+)
