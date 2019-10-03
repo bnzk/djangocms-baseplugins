@@ -13,8 +13,8 @@ from .models import TextImage
 
 class TextImagePluginForm(forms.ModelForm):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super(TextImagePluginForm, self).__init__(*args, **kwargs)
         if not conf.TEXTIMAGEPLUGIN_IMAGE_REQUIRED:
             self.fields['image'].required = False
 
