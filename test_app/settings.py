@@ -147,6 +147,7 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.video',
     'djangocms_baseplugins.spacer',
     'djangocms_baseplugins.contentnav',
+    'djangocms_baseplugins.autocolumns',
     'djangocms_baseplugins.loginform',
 )
 

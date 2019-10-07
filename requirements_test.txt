@@ -8,6 +8,7 @@ djangocms-misc
 django-filer
 django-polymorphic==2.1.2
 easy-thumbnails
+django-admin-sort
 -e git+https://github.com/benzkji/django-filer-addons@master#egg=django-filer-addons
 
 # richtext fields (text, textimage)
