@@ -41,7 +41,6 @@ AUTOCOLUMNSPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
     'AUTOCOLUMNSPLUGIN_LAYOUT_CHOICES',
     (
-        ('1', _("1 Spalte"),),
         ('2', _("2 Spalten"),),
         ('3', _("3 Spalten"),),
         ('4', _("4 Spalten"),),

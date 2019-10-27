@@ -10,4 +10,33 @@
 {% endif %}
 
 
-{% block plugin_content %}{% endblock %}
+{% block plugin_content %}
+    {# TODO: not used many times, experiment with it! #}
+
+    {# default version: add correct styles, add title if available, add children if there are #}
+    {# plugin_add_class to add more specific styles  #}
+    {# plugin_inner_content only the main content, contains title by default  #}
+    {# plugin_title only change title rendering. sub block of inner_content #}
+    {# plugin_children automatic children rendering  #}
+
+    <section class="{{ object.get_css_classes }} {% block plugin_add_classes %}{% endblock %}">
+
+        {% block plugin_inner_content %}
+            {% block plugin_title %}
+                {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
+            {% endblock %}
+        {% endblock %}
+
+        {% block plugin_children %}
+            {% if object.child_plugin_instances|length %}
+                <div class="plugin-children children">
+                    {% for plugin in object.child_plugin_instances %}
+                        {% render_plugin plugin %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endblock %}
+
+    </section>
+
+{% endblock %}
