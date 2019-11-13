@@ -62,7 +62,7 @@ class VideoModelMixin(object):
             if not getattr(self, 'show_related', None):
                 rel = '&rel=0'
             allowfullscreen = ''
-            if not getattr(self, 'allowfullscreen', None):
+            if not getattr(self, 'fullscreen', None):
                 allowfullscreen = '&fs=0'
             controls = ''
             if not getattr(self, 'controls', None):
@@ -80,7 +80,7 @@ class VideoModelMixin(object):
             if getattr(self, 'mute', None):
                 mute = '&mute=1'
             color = '&color=%s' % conf.VIDEOPLUGIN_YOUTUBE_COLOR
-            url = 'https://www.youtube-nocookie.com/embed/%s?a=b&mute=1%s%s%s%s%s%s%s%s' % (
+            url = 'https://www.youtube-nocookie.com/embed/%s?a=b%s%s%s%s%s%s%s%s' % (
                 self.video_id,
                 rel,
                 allowfullscreen,
