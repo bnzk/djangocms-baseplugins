@@ -142,6 +142,7 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
     autoplay = models.BooleanField(
         default=False,
         verbose_name=_('Autoplay'),
+        help_text=_("Enforces muting the video!")
     )
     controls = models.BooleanField(
         default=True,
