@@ -137,3 +137,11 @@ class AbstractBasePlugin(CMSPlugin):
         if self.title:
             return "content-{}".format(slugify(self.title))
         return "content-{}".format(self.id)
+
+    def get_html_id(self):
+        if self.anchor:
+            return "{}".format(self.anchor)
+        if self.title:
+            return "{}".format(slugify(self.title))
+        return "content-{}".format(self.id)
+
