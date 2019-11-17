@@ -162,7 +162,7 @@ class AbstractBasePlugin(CMSPlugin):
     def html_wrapper_attributes(self):
         attrs = self.html_wrapper_attributes_dict
         attrs_out = ''
-        for attr_key, attr_value in attrs.iteritems():
+        for attr_key, attr_value in attrs.items():
             attrs_out += ' {}="{}"'.format(attr_key, attr_value)
         return attrs_out
 
