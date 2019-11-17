@@ -78,6 +78,7 @@ class AbstractBasePlugin(CMSPlugin):
         else:
             return super(self.AbstractBasePlugin).__str__()
 
+    # TODO: rename to is_published?
     def is_visible(self):
         if self.published:
             if self.published_from_date is None or \
@@ -159,6 +160,7 @@ class AbstractBasePlugin(CMSPlugin):
             return "{}-{}".format(slugify(self.title), self.id)
         return "content-{}".format(self.id)
 
+    @property
     def html_wrapper_attributes(self):
         attrs = self.html_wrapper_attributes_dict
         attrs_out = ''

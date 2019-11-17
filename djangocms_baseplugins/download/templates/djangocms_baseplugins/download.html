@@ -2,10 +2,8 @@
 {% load cms_tags thumbnail %}
 
 
-{% block plugin_content %}
-<div class="plugin {{ object.get_css_classes }}">
+{% block plugin_inner_content %}
     {% if object.file %}
             <a href="{{ object.file.url }}" target="_blank">{{ object.get_link_text }}</a>
     {% endif %}
-</div>
 {% endblock %}
