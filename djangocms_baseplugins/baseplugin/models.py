@@ -110,7 +110,12 @@ class AbstractBasePlugin(CMSPlugin):
     def get_plugin_css_block_class(self):
         return 'plugin-{}'.format(self.__class__.__name__.lower())
 
+    # deprecate in 1.0!
     def get_css_classes(self):
+        return self.css_classes
+
+    @property
+    def css_classes(self):
         plugin_block_class = self.get_plugin_css_block_class()
         classes = 'plugin plugin_{} '.format(self.pk)
         classes += ' {} '.format(plugin_block_class)
@@ -122,6 +127,12 @@ class AbstractBasePlugin(CMSPlugin):
         classes += ' {}_position-{} '.format(plugin_block_class, self.position)
         if self.anchor:
             classes += ' {}_anchor-{} '.format(plugin_block_class, self.anchor)
+
+        # deprecated for 1.0!
+        classes += ' plugin_{}'.format(self.__class__.__name__.lower())
+        classes += ' '.format(self.layout)
+        classes += ' '.format(self.background)
+        classes += ' '.format(self.color)
         return classes
 
     def _css_modifier_for_field(self, field):
@@ -140,7 +151,8 @@ class AbstractBasePlugin(CMSPlugin):
             return "content-{}".format(slugify(self.title))
         return "content-{}".format(self.id)
 
-    def get_html_id(self):
+    @property
+    def html_id(self):
         if self.anchor:
             return "{}".format(self.anchor)
         if self.title:
@@ -150,20 +162,20 @@ class AbstractBasePlugin(CMSPlugin):
     def html_wrapper_attributes(self):
         attrs = self.html_wrapper_attributes_dict
         attrs_out = ''
-        for attr_key, attr_value in attrs.items():
+        for attr_key, attr_value in attrs.iteritems():
             attrs_out += ' {}="{}"'.format(attr_key, attr_value)
         return attrs_out
 
     @property
     def html_wrapper_attributes_dict(self):
-        print('wrap me!')
         attrs = getattr(
             super(AbstractBasePlugin, self),
             'wrapper_attributes_dict',
             {}
         )
         my_attrs = {
-            'class': self.get_css_classes(),
-            'id': self.get_html_id(),
+            'class': self.css_classes,
+            'id': self.html_id,
         }
-        return attrs.update(my_attrs)
+        attrs.update(my_attrs)
+        return attrs

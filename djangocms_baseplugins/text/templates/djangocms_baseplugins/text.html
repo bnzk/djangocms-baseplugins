@@ -1,10 +1,10 @@
 {% extends "djangocms_baseplugins/baseplugin.html" %}
 
 
-{% block plugin_content %}
-<div class="plugin {{ object.get_css_classes }} plugin_text {{ object.layout }} {{ object.background }} {{ object.color }}">
-    <div class="text_text">
+{% block plugin_inner_content %}
+
+    <div class="plugin-text__text text_text">
         {{ object.body|safe }}
     </div>
-</div>
+
 {% endblock %}
