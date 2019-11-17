@@ -119,7 +119,6 @@ class AbstractBasePlugin(CMSPlugin):
         classes += self._css_modifier_for_field('layout')
         classes += self._css_modifier_for_field('color')
         classes += self._css_modifier_for_field('background')
-        classes += self._css_modifier_for_field('background')
         classes += ' {}_position-{} '.format(plugin_block_class, self.position)
         if self.anchor:
             classes += ' {}_anchor-{} '.format(plugin_block_class, self.anchor)
@@ -132,6 +131,9 @@ class AbstractBasePlugin(CMSPlugin):
         return ''
 
     def get_anchor(self):
+        """
+        DEPRECATED:
+        """
         if self.anchor:
             return "content-{}".format(self.anchor)
         if self.title:
@@ -142,6 +144,26 @@ class AbstractBasePlugin(CMSPlugin):
         if self.anchor:
             return "{}".format(self.anchor)
         if self.title:
-            return "{}".format(slugify(self.title))
+            return "{}-{}".format(slugify(self.title), self.id)
         return "content-{}".format(self.id)
 
+    def html_wrapper_attributes(self):
+        attrs = self.html_wrapper_attributes_dict
+        attrs_out = ''
+        for attr_key, attr_value in attrs.items():
+            attrs_out += ' {}="{}"'.format(attr_key, attr_value)
+        return attrs_out
+
+    @property
+    def html_wrapper_attributes_dict(self):
+        print('wrap me!')
+        attrs = getattr(
+            super(AbstractBasePlugin, self),
+            'wrapper_attributes_dict',
+            {}
+        )
+        my_attrs = {
+            'class': self.get_css_classes(),
+            'id': self.get_html_id(),
+        }
+        return attrs.update(my_attrs)
