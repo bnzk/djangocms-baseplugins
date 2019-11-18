@@ -6,6 +6,7 @@ import datetime
 from cms.models.pluginmodel import CMSPlugin
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
@@ -166,7 +167,7 @@ class AbstractBasePlugin(CMSPlugin):
         attrs_out = ''
         for attr_key, attr_value in attrs.items():
             attrs_out += ' {}="{}"'.format(attr_key, attr_value)
-        return attrs_out
+        return mark_safe(attrs_out)
 
     @property
     def html_wrapper_attributes_dict(self):
