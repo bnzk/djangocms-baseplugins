@@ -14,9 +14,9 @@ except ImportError:
     bleach = None
 
 try:
-  basestring
+    basestring
 except NameError:
-  basestring = str
+    basestring = str
 
 try:
     from lxml.html import clean as lxml_clean, fragment_fromstring, tostring
