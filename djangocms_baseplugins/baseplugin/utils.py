@@ -43,7 +43,11 @@ def get_fields_from_fieldsets(fieldsets):
     fields = []
     for fieldset in fieldsets:
         for field in fieldset[1].get('fields', []):
-            fields.append(field)
+            if type(field) == str:
+                fields.append(field)
+            else:
+                for sub_field in field:
+                    fields.append(sub_field)
     return fields
 
 
