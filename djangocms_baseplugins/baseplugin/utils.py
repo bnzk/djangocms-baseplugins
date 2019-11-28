@@ -14,6 +14,11 @@ except ImportError:
     bleach = None
 
 try:
+  basestring
+except NameError:
+  basestring = str
+
+try:
     from lxml.html import clean as lxml_clean, fragment_fromstring, tostring
 except ImportError:
     lxml_clean = None
@@ -43,7 +48,7 @@ def get_fields_from_fieldsets(fieldsets):
     fields = []
     for fieldset in fieldsets:
         for field in fieldset[1].get('fields', []):
-            if type(field) == str:
+            if isinstance(field, basestring):
                 fields.append(field)
             else:
                 for sub_field in field:
