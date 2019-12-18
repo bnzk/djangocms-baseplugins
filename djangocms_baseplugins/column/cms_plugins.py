@@ -11,13 +11,20 @@ from . import conf
 from .models import Column
 
 
+widgets = build_baseplugin_widgets(conf, 'COLUMNPLUGIN')
+widgets = {
+    'width': forms.Select(
+        choices=getattr(conf, 'COLUMNPLUGIN_WIDTH_CHOICES', []),
+    ),
+}
+
 class ColumnPluginForm(forms.ModelForm):
-    width = forms.ChoiceField(choices=conf.COLUMNPLUGIN_WIDTH_CHOICES)
+    # width = forms.ChoiceField(choices=conf.COLUMNPLUGIN_WIDTH_CHOICES)
 
     class Meta:
         model = Column
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'COLUMN')
+        widgets = widgets
 
 
 class ColumnPlugin(BasePluginMixin, CMSPluginBase):
