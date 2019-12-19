@@ -18,6 +18,7 @@ widgets = {
     ),
 }
 
+
 class ColumnPluginForm(forms.ModelForm):
     # width = forms.ChoiceField(choices=conf.COLUMNPLUGIN_WIDTH_CHOICES)
 
