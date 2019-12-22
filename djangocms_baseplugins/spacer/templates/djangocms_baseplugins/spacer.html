@@ -2,6 +2,6 @@
 
 
 {% block plugin_content %}
-<hr class="plugin {{ object.get_css_classes }} {% if not object.layout %}plugin-spacer_do-nothing{% endif %}">
+<hr id="{{ object.get_html_id }}" class="plugin {{ object.get_css_classes }} {% if not object.layout %}plugin-spacer_do-nothing{% endif %}">
 </hr>
 {% endblock %}

@@ -44,3 +44,15 @@ SPACERPLUGIN_LAYOUT_CHOICES = getattr(
         # ('add-triple-normal-space', _("Add triple of normal space")),
     )
 )
+
+SPACERPLUGIN_BACKGROUND_CHOICES = getattr(
+    settings, 'SPACERPLUGIN_BACKGROUND_CHOICES', (
+        ('', ("-")),
+    )
+)
+
+SPACERPLUGIN_COLOR_CHOICES = getattr(
+    settings, 'SPACERPLUGIN_COLOR_CHOICES', (
+        ('', ("-")),
+    )
+)
