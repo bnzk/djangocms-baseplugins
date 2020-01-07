@@ -8,7 +8,7 @@ from filer_addons.filer_gui.admin.upload_inline import UploadInlineMixin
 from admin_sort.admin.inlines import DragAndDropSortableInlineMixin
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
+from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin, BasePluginInlineMixin
 from djangocms_baseplugins.baseplugin.utils import (
     build_baseplugin_widgets,
     get_fields_from_fieldsets,
@@ -21,6 +21,7 @@ from .models import InlineDownload, InlineDownloadEntry
 class InlineDownloadEntryInline(
     UploadInlineMixin,
     DragAndDropSortableInlineMixin,
+    BasePluginInlineMixin,
     admin.TabularInline,
 ):
     model = InlineDownloadEntry

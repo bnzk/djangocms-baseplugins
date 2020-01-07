@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-from modeltranslation.admin import TranslationAdmin
+from modeltranslation.admin import TranslationAdmin, TranslationInlineModelAdmin
 
 from djangocms_baseplugins.baseplugin.utils import is_edit_mode
 from . import defaults
@@ -10,8 +10,16 @@ if defaults.TRANSLATE:
 
     class BasePluginMixinBase(LanguageTabsMixin, TranslationAdmin):
         pass
+
+    class BaseInlineMixinBase(TranslationInlineModelAdmin):
+        pass
+
 else:
+
     class BasePluginMixinBase(object):
+        pass
+
+    class BaseInlineMixinBase(object):
         pass
 
 
@@ -28,3 +36,7 @@ class BasePluginMixin(BasePluginMixinBase):
         context['object'] = instance
         context['placeholder'] = placeholder
         return context
+
+
+class BasePluginInlineMixin(BaseInlineMixinBase):
+    pass
