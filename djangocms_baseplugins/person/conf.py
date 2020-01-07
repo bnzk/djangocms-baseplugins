@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 PERSONSECTIONPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'PERSONSECTIONPLUGIN_TRANSLATED_FIELDS', []
@@ -23,7 +23,7 @@ PERSONSECTIONPLUGIN_DESIGN_FIELDS = getattr(
 PERSONSECTIONPLUGIN_FIELDSETS = getattr(
     settings,
     'PERSONSECTIONPLUGIN_FIELDSETS',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'design': PERSONSECTIONPLUGIN_DESIGN_FIELDS,
         'content': PERSONSECTIONPLUGIN_CONTENT_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
@@ -79,7 +79,7 @@ PERSONPLUGIN_DESIGN_FIELDS = getattr(
 PERSONPLUGIN_FIELDSETS = getattr(
     settings,
     'PERSONPLUGIN_FIELDSETS',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'design': PERSONPLUGIN_DESIGN_FIELDS,
         'content': PERSONPLUGIN_CONTENT_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,

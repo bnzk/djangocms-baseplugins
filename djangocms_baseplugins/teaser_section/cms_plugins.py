@@ -26,7 +26,7 @@ class TeaserSectionPluginForm(forms.ModelForm):
 class TeaserSectionPlugin(BasePluginMixin, CMSPluginBase):
     model = TeaserSection
     form = TeaserSectionPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     name = _('Teaser Section')
     render_template = "djangocms_baseplugins/teaser_section.html"
     fieldsets = conf.TEASERSECTIONPLUGIN_FIELDSETS

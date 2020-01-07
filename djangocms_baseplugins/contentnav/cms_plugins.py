@@ -25,7 +25,7 @@ class ContentNavPluginForm(forms.ModelForm):
 class ContentNavPlugin(BasePluginMixin, CMSPluginBase):
     model = ContentNav
     form = ContentNavPluginForm
-    module = module = defaults.DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL
+    module = module = defaults.ADVANCED_LABEL
     name = _('ContentNav')
     render_template = "djangocms_baseplugins/contentnav.html"
     fieldsets = conf.CONTENTNAVPLUGIN_FIELDSETS

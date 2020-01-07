@@ -32,7 +32,7 @@ class ColumnPlugin(BasePluginMixin, CMSPluginBase):
     model = Column
     form = ColumnPluginForm
     name = _(u'Column')
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     render_template = "djangocms_baseplugins/column.html"
     fieldsets = conf.COLUMNPLUGIN_FIELDSETS
     require_parent = True

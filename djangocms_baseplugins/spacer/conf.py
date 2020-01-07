@@ -5,7 +5,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 SPACERPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'SPACERPLUGIN_TRANSLATED_FIELDS', [])
@@ -19,7 +19,7 @@ SPACERPLUGIN_DESIGN_FIELDS = getattr(
 SPACERPLUGIN_FIELDSETS = getattr(
     settings,
     'SPACERPLUGIN_FIELDSETS ',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'content': SPACERPLUGIN_CONTENT_FIELDS,
         'design': SPACERPLUGIN_DESIGN_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,

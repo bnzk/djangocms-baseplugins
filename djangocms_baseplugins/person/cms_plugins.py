@@ -21,7 +21,7 @@ class PersonSectionPluginForm(forms.ModelForm):
 class PersonSectionPlugin(BasePluginMixin, CMSPluginBase):
     model = PersonSection
     form = PersonSectionPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     name = _(u'People Section')
     render_template = "djangocms_baseplugins/person_section.html"
     allow_children = True
@@ -42,7 +42,7 @@ class PersonPluginForm(forms.ModelForm):
 class PersonPlugin(BasePluginMixin, CMSPluginBase):
     model = Person
     form = PersonPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
+    module = defaults.CONTENT_LABEL
     name = _(u'Person / Contact')
     render_template = "djangocms_baseplugins/person.html"
     require_parent = True

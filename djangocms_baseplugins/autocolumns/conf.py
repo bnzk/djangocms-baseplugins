@@ -5,7 +5,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 
 AUTOCOLUMNSPLUGIN_TRANSLATED_FIELDS = getattr(
@@ -23,7 +23,7 @@ AUTOCOLUMNSPLUGIN_DESIGN_FIELDS = getattr(
 AUTOCOLUMNSPLUGIN_FIELDSETS = getattr(
     settings,
     'AUTOCOLUMNSPLUGIN_FIELDSETS',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'design': AUTOCOLUMNSPLUGIN_DESIGN_FIELDS,
         'content': AUTOCOLUMNSPLUGIN_CONTENT_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,

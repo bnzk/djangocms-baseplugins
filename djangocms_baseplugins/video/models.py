@@ -9,7 +9,7 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.video import conf
 from djangocms_baseplugins.baseplugin import defaults
 
-if defaults.DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS:
+if defaults.USE_FILER_ADDONS:
     from filer_addons.filer_gui.fields import FilerImageField
 else:
     from filer.fields.image import FilerImageField

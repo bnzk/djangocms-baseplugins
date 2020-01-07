@@ -149,6 +149,7 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.contentnav',
     'djangocms_baseplugins.autocolumns',
     'djangocms_baseplugins.loginform',
+    'djangocms_baseplugins.iframe',
 )
 
 MIDDLEWARE = (

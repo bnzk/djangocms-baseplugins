@@ -22,7 +22,7 @@ class TweetEmbedPluginForm(forms.ModelForm):
 class TweetEmbedPlugin(BasePluginMixin, CMSPluginBase):
     model = TweetEmbed
     form = TweetEmbedPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL
+    module = defaults.ADVANCED_LABEL
     name = _(u'Twitter')
     render_template = "djangocms_baseplugins/tweet_embed.html"
     fieldsets = conf.TWEETEMBEDPLUGIN_FIELDSETS

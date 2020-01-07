@@ -25,7 +25,7 @@ class SpacerPluginForm(forms.ModelForm):
 class SpacerPlugin(BasePluginMixin, CMSPluginBase):
     model = Spacer
     form = SpacerPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL
+    module = defaults.SPECIAL_LABEL
     name = _(u'Spacer')
     render_template = "djangocms_baseplugins/spacer.html"
     fieldsets = conf.SPACERPLUGIN_FIELDSETS

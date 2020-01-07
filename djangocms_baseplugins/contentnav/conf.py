@@ -5,7 +5,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 
 CONTENTNAVPLUGIN_TRANSLATED_FIELDS = getattr(
@@ -23,7 +23,7 @@ CONTENTNAVPLUGIN_DESIGN_FIELDS = getattr(
 CONTENTNAVPLUGIN_FIELDSETS = getattr(
     settings,
     'CONTENTNAVPLUGIN_FIELDSETS ',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'content': CONTENTNAVPLUGIN_CONTENT_FIELDS,
         'design': CONTENTNAVPLUGIN_DESIGN_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,

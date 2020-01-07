@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 TEXTIMAGEPLUGIN_CLEAN_ON_SAVE = getattr(
     settings,
@@ -38,7 +38,7 @@ TEXTIMAGEPLUGIN_DESIGN_FIELDS = getattr(
 TEXTIMAGEPLUGIN_FIELDSETS = getattr(
     settings,
     'TEXTIMAGEPLUGIN_FIELDSETS',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'design': TEXTIMAGEPLUGIN_DESIGN_FIELDS,
         'content': TEXTIMAGEPLUGIN_CONTENT_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,

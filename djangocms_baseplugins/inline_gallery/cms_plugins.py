@@ -46,7 +46,7 @@ class InlineGalleryPluginForm(forms.ModelForm):
 class InlineGalleryPlugin(BasePluginMixin, CMSPluginBase):
     model = InlineGallery
     form = InlineGalleryPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
+    module = defaults.CONTENT_LABEL
     name = _(u'Gallery')
     render_template = "djangocms_baseplugins/inline_gallery.html"
     fieldsets = conf.INLINEGALLERYPLUGIN_FIELDSETS

@@ -21,7 +21,7 @@ class VideoPluginForm(forms.ModelForm):
 class VideoPlugin(BasePluginMixin, CMSPluginBase):
     model = Video
     form = VideoPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
+    module = defaults.CONTENT_LABEL
     name = _(u'Video')
     render_template = "djangocms_baseplugins/video.html"
     fieldsets = conf.VIDEOPLUGIN_FIELDSETS

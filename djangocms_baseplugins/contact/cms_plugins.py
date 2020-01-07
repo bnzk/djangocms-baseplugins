@@ -23,7 +23,7 @@ class ContactPluginForm(forms.ModelForm):
 class ContactPlugin(BasePluginMixin, CMSPluginBase):
     model = Contact
     form = ContactPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
+    module = defaults.CONTENT_LABEL
     name = _(u'Contact')
     render_template = "djangocms_baseplugins/contact.html"
     fieldsets = conf.CONTACTPLUGIN_FIELDSETS

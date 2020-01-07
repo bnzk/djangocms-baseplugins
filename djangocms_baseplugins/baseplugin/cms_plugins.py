@@ -5,7 +5,7 @@ from modeltranslation.admin import TranslationAdmin
 from djangocms_baseplugins.baseplugin.utils import is_edit_mode
 from . import defaults
 
-if defaults.DJANGOCMS_BASEPLUGINS_TRANSLATE:
+if defaults.TRANSLATE:
     from djangocms_misc.basic.admin import LanguageTabsMixin
 
     class BasePluginMixinBase(LanguageTabsMixin, TranslationAdmin):

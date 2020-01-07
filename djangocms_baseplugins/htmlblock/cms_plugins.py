@@ -21,7 +21,7 @@ class HtmlBlockPluginForm(forms.ModelForm):
 class HtmlBlockPlugin(BasePluginMixin, CMSPluginBase):
     model = HtmlBlock
     form = HtmlBlockPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL
+    module = defaults.ADVANCED_LABEL
     name = _(u'HTML Block')
     render_template = "djangocms_baseplugins/htmlblock.html"
     fieldsets = conf.HTMLBLOCKPLUGIN_FIELDSETS

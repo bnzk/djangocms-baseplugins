@@ -5,51 +5,51 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS = getattr(
+USE_FILER_ADDONS = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_USE_FILER_ADDONS', True
 )
 
-DJANGOCMS_BASEPLUGINS_TRANSLATE = getattr(
+TRANSLATE = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_TRANSLATE', False
 )
 
-DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS = getattr(
+TRANSLATED_FIELDS = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS',
     ['title', 'anchor', ],
 )
 
-DJANGOCMS_BASEPLUGINS_CONTENT_LABEL = getattr(
+CONTENT_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_CONTENT_LABEL',
     _('A - Content'),
 )
 
-DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL = getattr(
+CONTAINER_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL',
     _('B - Containers'),
 )
 
-DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL = getattr(
+SPECIAL_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_SPECIAL_LABEL',
     _('C - Special'),
 )
 
-DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL = getattr(
+ADVANCED_LABEL = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL',
     _('Z - Advanced'),
 )
 
-DJANGOCMS_BASEPLUGINS_MODE = getattr(settings, 'DJANGOCMS_BASEPLUGINS_MODE', 'default')
+MODE = getattr(settings, 'DJANGOCMS_BASEPLUGINS_MODE', 'default')
 
-if DJANGOCMS_BASEPLUGINS_MODE == 'minimal':
+if MODE == 'minimal':
     advanced_fields = []
-elif DJANGOCMS_BASEPLUGINS_MODE == 'full':
+elif MODE == 'full':
     advanced_fields = [
         ['published', 'in_menu', ],
         ['published_from_date', 'published_until_date', ],
@@ -109,7 +109,7 @@ TABLE_TAGS = [
     'td',
 ]
 
-DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG_DEFAULT = {
+BLEACH_CONFIG_DEFAULT = {
     'strip': True,
     'tags': DEFAULT_TAGS,
     'attributes': {
@@ -120,7 +120,7 @@ DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG_DEFAULT = {
 
 # set to None for no cleaning on save/render
 # this will be passed as kwargs to the bleach.clean() method
-DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG = getattr(
+BLEACH_CONFIG = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG', None
 )
@@ -128,7 +128,7 @@ DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG = getattr(
 # set to None for no cleaning on save/render
 # this will be passed as kwargs to the lxml.html.clean.Cleaner constructor
 # explanations: https://lxml.de/api/lxml.html.clean.Cleaner-class.html
-DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG = getattr(
+LXML_CLEANER_CONFIG = getattr(
     settings,
     'DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG', {
         'scripts': True,

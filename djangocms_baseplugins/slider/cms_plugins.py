@@ -23,7 +23,7 @@ class SliderPluginForm(forms.ModelForm):
 class SliderPlugin(BasePluginMixin, CMSPluginBase):
     model = Slider
     form = SliderPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     name = _(u'Slider')
     render_template = "djangocms_baseplugins/slider.html"
     fieldsets = conf.SLIDERPLUGIN_FIELDSETS

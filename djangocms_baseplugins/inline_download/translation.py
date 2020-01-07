@@ -6,7 +6,7 @@ from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from djangocms_baseplugins.inline_download.models import InlineDownload, InlineDownloadEntry
 from . import conf
 
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + \
+translation_fields = defaults.TRANSLATED_FIELDS + \
                      conf.INLINEDOWNLOADPLUGIN_TRANSLATED_FIELDS
 
 

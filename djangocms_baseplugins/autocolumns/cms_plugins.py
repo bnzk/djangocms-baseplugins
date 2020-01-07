@@ -25,7 +25,7 @@ class AutoColumnsPlugin(BasePluginMixin, CMSPluginBase):
     model = AutoColumns
     name = _(u'Auto Multiple Columns')
     form = AutoColumnsPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     render_template = "djangocms_baseplugins/autocolumns.html"
     fieldsets = conf.AUTOCOLUMNSPLUGIN_FIELDSETS
     allow_children = True

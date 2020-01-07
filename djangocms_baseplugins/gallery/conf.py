@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 
 GALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
@@ -19,7 +19,7 @@ GALLERYPLUGIN_DESIGN_FIELDS = getattr(
 GALLERYPLUGIN_FIELDSETS = getattr(
     settings,
     'GALLERYPLUGIN_FIELDSETS',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'content': GALLERYPLUGIN_CONTENT_FIELDS,
         'design': GALLERYPLUGIN_DESIGN_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,

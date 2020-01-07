@@ -6,7 +6,7 @@ from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from . import conf
 from .models import Text
 
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS \
+translation_fields = defaults.TRANSLATED_FIELDS \
                      + conf.TEXTPLUGIN_TRANSLATED_FIELDS
 
 

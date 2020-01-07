@@ -24,7 +24,7 @@ class ImagePlugin(BasePluginMixin, CMSPluginBase):
     model = Image
     form = ImagePluginForm
     # Translators: forget c, this is for alphabetical ordering in cms
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
+    module = defaults.CONTENT_LABEL
     name = _(u'Image')
     render_template = "djangocms_baseplugins/image.html"
     fieldsets = conf.IMAGEPLUGIN_FIELDSETS

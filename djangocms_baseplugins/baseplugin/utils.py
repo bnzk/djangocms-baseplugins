@@ -24,7 +24,7 @@ except ImportError:
     lxml_clean = None
 
 
-def build_baseplugin_fieldset(**kwargs):
+def get_baseplugin_fieldset(**kwargs):
     fieldsets = []
     if len(kwargs.get('design', [])):
         fieldsets.append((_('Design & Layout'), {
@@ -56,6 +56,7 @@ def get_fields_from_fieldsets(fieldsets):
     return fields
 
 
+# DEPRECATED
 def build_baseplugin_widgets(conf, prefix):
     widgets = {
         'layout': forms.Select(
@@ -66,6 +67,21 @@ def build_baseplugin_widgets(conf, prefix):
         ),
         'color': forms.Select(
             choices=getattr(conf, '{}_COLOR_CHOICES'.format(prefix), []),
+        ),
+    }
+    return widgets
+
+
+def get_baseplugin_widgets(conf):
+    widgets = {
+        'layout': forms.Select(
+            choices=getattr(conf, 'LAYOUT_CHOICES', []),
+        ),
+        'background': forms.Select(
+            choices=getattr(conf, 'BACKGROUND_CHOICES', []),
+        ),
+        'color': forms.Select(
+            choices=getattr(conf, 'COLOR_CHOICES', []),
         ),
     }
     return widgets
@@ -85,9 +101,9 @@ def truncate_richtext_content(richtext):
 
 
 def sanitize_richtext(text):
-    if defaults.DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG:
+    if defaults.LXML_CLEANER_CONFIG:
         if lxml_clean:
-            lxml_cleaner = lxml_clean.Cleaner(**defaults.DJANGOCMS_BASEPLUGINS_LXML_CLEANER_CONFIG)
+            lxml_cleaner = lxml_clean.Cleaner(**defaults.LXML_CLEANER_CONFIG)
             fragment = fragment_fromstring("<div>" + text + "</div>")
             fragment = lxml_cleaner.clean_html(fragment)
             text = tostring(fragment, encoding='unicode')
@@ -96,9 +112,9 @@ def sanitize_richtext(text):
                 text = text[len('<div>'):-len('</div>')]
         elif settings.DEBUG:
             print("lxml is not installed, but should be, for sanitizing richtext content!")
-    if defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG:
+    if defaults.BLEACH_CONFIG:
         if bleach:
-            text = bleach.clean(text, **defaults.DJANGOCMS_BASEPLUGINS_BLEACH_CONFIG)
+            text = bleach.clean(text, **defaults.BLEACH_CONFIG)
         elif settings.DEBUG:
             print("bleach is not installed, but should be, for sanitizing richtext content!")
     return text

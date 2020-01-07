@@ -7,7 +7,7 @@ from . import conf
 from .models import Section
 
 
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS \
+translation_fields = defaults.TRANSLATED_FIELDS \
                      + conf.SECTIONPLUGIN_TRANSLATED_FIELDS
 
 

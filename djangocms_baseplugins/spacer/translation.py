@@ -6,7 +6,7 @@ from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from . import conf
 from .models import Spacer
 
-translation_fields = defaults.DJANGOCMS_BASEPLUGINS_TRANSLATED_FIELDS + \
+translation_fields = defaults.TRANSLATED_FIELDS + \
                      conf.SPACERPLUGIN_TRANSLATED_FIELDS
 
 

@@ -7,24 +7,23 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 from . import conf
-from .models import Plugintemplate
+from .models import PluginTemplate
 
 
-class PlugintemplatePluginForm(forms.ModelForm):
+class PluginTemplatePluginForm(forms.ModelForm):
     class Meta:
-        model = Plugintemplate
+        model = PluginTemplate
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'PLUGINTEMPLATEPLUGIN')
+        widgets = get_baseplugin_widgets(conf)
 
 
 @plugin_pool.register_plugin
-class PlugintemplatePlugin(BasePluginMixin, CMSPluginBase):
-    model = Plugintemplate
-    form = PlugintemplatePluginForm
-    # Translators: forget c, this is for alphabetical ordering in cms
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
-    name = _(u'Plugintemplate')
+class PluginTemplatePlugin(BasePluginMixin, CMSPluginBase):
+    model = PluginTemplate
+    form = PluginTemplatePluginForm
+    module = defaults.CONTENT_LABEL
+    name = _(u'PluginTemplate')
     render_template = "djangocms_baseplugins/plugintemplate.html"
-    fieldsets = conf.PLUGINTEMPLATEPLUGIN_FIELDSETS
+    fieldsets = conf.FIELDSETS

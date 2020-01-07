@@ -25,7 +25,7 @@ class DownloadSectionPluginForm(forms.ModelForm):
 class DownloadSectionPlugin(BasePluginMixin, CMSPluginBase):
     model = DownloadSection
     form = DownloadSectionPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     name = _(u'Downloads')
     render_template = "djangocms_baseplugins/download_section.html"
     fieldsets = conf.DOWNLOADSECTIONPLUGIN_FIELDSETS
@@ -45,7 +45,7 @@ class DownloadPlugin(BasePluginMixin, CMSPluginBase):
     model = Download
     form = DownloadPluginForm
     # Translators: forget c, this is for alphabetical ordering in cms
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTENT_LABEL
+    module = defaults.CONTENT_LABEL
     name = _(u'Download')
     render_template = "djangocms_baseplugins/download.html"
     fieldsets = conf.DOWNLOADPLUGIN_FIELDSETS

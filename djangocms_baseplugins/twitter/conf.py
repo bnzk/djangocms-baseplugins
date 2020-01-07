@@ -5,7 +5,7 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 TWEETEMBEDPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'TWEETEMBEDPLUGIN_TRANSLATED_FIELDS', [
@@ -26,7 +26,7 @@ TWEETEMBEDPLUGIN_DESIGN_FIELDS = getattr(
 TWEETEMBEDPLUGIN_FIELDSETS = getattr(
     settings,
     'TWEETEMBEDPLUGIN_FIELDSETS',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'design': TWEETEMBEDPLUGIN_DESIGN_FIELDS,
         'content': TWEETEMBEDPLUGIN_CONTENT_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,

@@ -23,7 +23,7 @@ class SectionPluginForm(forms.ModelForm):
 class SectionPlugin(BasePluginMixin, CMSPluginBase):
     model = Section
     form = SectionPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     name = _(u'Section')
     render_template = "djangocms_baseplugins/section.html"
     fieldsets = conf.SECTIONPLUGIN_FIELDSETS

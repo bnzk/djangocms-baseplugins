@@ -7,16 +7,16 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults as plugin_defaults, defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 from .models import LoginForm
 
 
 class LoginFormPlugin(BasePluginMixin, CMSPluginBase):
     model = LoginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_ADVANCED_LABEL
+    module = defaults.ADVANCED_LABEL
     name = _(u'Login Formular')
     render_template = "djangocms_baseplugins/loginform.html"
-    fieldsets = build_baseplugin_fieldset(**{
+    fieldsets = get_baseplugin_fieldset(**{
         'design': [],
         'content': [],
         'advanced': plugin_defaults.BASEPLUGIN_ADVANCED_FIELDS,

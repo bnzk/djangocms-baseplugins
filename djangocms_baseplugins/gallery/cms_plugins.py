@@ -21,7 +21,7 @@ class GalleryPluginForm(forms.ModelForm):
 class GalleryPlugin(BasePluginMixin, CMSPluginBase):
     model = Gallery
     form = GalleryPluginForm
-    module = defaults.DJANGOCMS_BASEPLUGINS_CONTAINER_LABEL
+    module = defaults.CONTAINER_LABEL
     name = _(u'Gallery')
     render_template = "djangocms_baseplugins/gallery.html"
     fieldsets = conf.GALLERYPLUGIN_FIELDSETS

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 COLUMNPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'COLUMNPLUGIN_TRANSLATED_FIELDS', [])
@@ -18,7 +18,7 @@ COLUMNPLUGIN_DESIGN_FIELDS = getattr(
 COLUMNPLUGIN_FIELDSETS = getattr(
     settings,
     'COLUMNPLUGIN_FIELDSETS ',
-    build_baseplugin_fieldset(**{
+    get_baseplugin_fieldset(**{
         'content': COLUMNPLUGIN_CONTENT_FIELDS,
         'design': COLUMNPLUGIN_DESIGN_FIELDS,
         'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
