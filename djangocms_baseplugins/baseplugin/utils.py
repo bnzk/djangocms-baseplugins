@@ -24,6 +24,11 @@ except ImportError:
     lxml_clean = None
 
 
+# DEPRECATED
+def build_baseplugin_fieldset(**kwargs):
+    return get_baseplugin_fieldset(**kwargs)
+
+
 def get_baseplugin_fieldset(**kwargs):
     fieldsets = []
     if len(kwargs.get('design', [])):
