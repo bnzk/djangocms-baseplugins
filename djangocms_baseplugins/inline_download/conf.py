@@ -22,7 +22,7 @@ INLINEDOWNLOADPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'content': INLINEDOWNLOADPLUGIN_CONTENT_FIELDS,
         'design': INLINEDOWNLOADPLUGIN_DESIGN_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

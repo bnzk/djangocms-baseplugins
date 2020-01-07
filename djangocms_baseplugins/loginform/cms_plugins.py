@@ -19,7 +19,7 @@ class LoginFormPlugin(BasePluginMixin, CMSPluginBase):
     fieldsets = get_baseplugin_fieldset(**{
         'design': [],
         'content': [],
-        'advanced': plugin_defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': plugin_defaults.ADVANCED_FIELDS,
     })
     cache = False
 

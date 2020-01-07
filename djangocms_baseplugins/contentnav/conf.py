@@ -26,7 +26,7 @@ CONTENTNAVPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'content': CONTENTNAVPLUGIN_CONTENT_FIELDS,
         'design': CONTENTNAVPLUGIN_DESIGN_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

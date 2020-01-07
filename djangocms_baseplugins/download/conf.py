@@ -26,7 +26,7 @@ DOWNLOADSECTIONPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': DOWNLOADSECTIONPLUGIN_DESIGN_FIELDS,
         'content': DOWNLOADSECTIONPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 
@@ -81,7 +81,7 @@ DOWNLOADPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': DOWNLOADPLUGIN_DESIGN_FIELDS,
         'content': DOWNLOADPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

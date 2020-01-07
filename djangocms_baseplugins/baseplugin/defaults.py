@@ -58,7 +58,7 @@ elif MODE == 'full':
 else:
     advanced_fields = ['published', ]
 
-BASEPLUGIN_ADVANCED_FIELDS = getattr(settings, 'BASEPLUGIN_ADVANCED_FIELDS', advanced_fields)
+ADVANCED_FIELDS = getattr(settings, 'DJANGOCMS_BASEPLUGINS_ADVANCED_FIELDS', advanced_fields)
 
 WIDTH_CHOICES = getattr(
     settings, 'BASEPLUGIN_WIDTH_CHOICES',

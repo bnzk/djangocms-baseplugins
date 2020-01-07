@@ -26,7 +26,7 @@ AUTOCOLUMNSPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': AUTOCOLUMNSPLUGIN_DESIGN_FIELDS,
         'content': AUTOCOLUMNSPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

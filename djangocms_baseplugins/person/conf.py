@@ -26,7 +26,7 @@ PERSONSECTIONPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': PERSONSECTIONPLUGIN_DESIGN_FIELDS,
         'content': PERSONSECTIONPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 
@@ -82,7 +82,7 @@ PERSONPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': PERSONPLUGIN_DESIGN_FIELDS,
         'content': PERSONPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

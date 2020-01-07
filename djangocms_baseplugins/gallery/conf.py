@@ -22,7 +22,7 @@ GALLERYPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'content': GALLERYPLUGIN_CONTENT_FIELDS,
         'design': GALLERYPLUGIN_DESIGN_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

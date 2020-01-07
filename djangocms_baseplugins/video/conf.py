@@ -49,6 +49,6 @@ VIDEOPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': VIDEOPLUGIN_DESIGN_FIELDS,
         'content': VIDEOPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )

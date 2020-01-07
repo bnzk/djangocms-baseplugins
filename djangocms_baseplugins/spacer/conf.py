@@ -22,7 +22,7 @@ SPACERPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'content': SPACERPLUGIN_CONTENT_FIELDS,
         'design': SPACERPLUGIN_DESIGN_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

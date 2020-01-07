@@ -25,6 +25,6 @@ LOGINFORMPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': LOGINFORMPLUGIN_DESIGN_FIELDS,
         'content': LOGINFORMPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )

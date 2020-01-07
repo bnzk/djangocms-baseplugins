@@ -25,7 +25,7 @@ SECTIONPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': SECTIONPLUGIN_DESIGN_FIELDS,
         'content': SECTIONPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 

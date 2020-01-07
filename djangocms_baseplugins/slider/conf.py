@@ -26,7 +26,7 @@ SLIDERPLUGIN_FIELDSETS = getattr(
     get_baseplugin_fieldset(**{
         'design': SLIDERPLUGIN_DESIGN_FIELDS,
         'content': SLIDERPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.BASEPLUGIN_ADVANCED_FIELDS,
+        'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 
