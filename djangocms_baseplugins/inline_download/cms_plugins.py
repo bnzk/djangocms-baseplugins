@@ -22,7 +22,7 @@ class InlineDownloadEntryInline(
     UploadInlineMixin,
     DragAndDropSortableInlineMixin,
     BasePluginInlineMixin,
-    admin.TabularInline,
+    admin.StackedInline,
 ):
     model = InlineDownloadEntry
     file_field = 'file'
