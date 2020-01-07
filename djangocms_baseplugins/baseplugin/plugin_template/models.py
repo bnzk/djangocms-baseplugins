@@ -33,12 +33,8 @@ class PluginTemplateBase(models.Model):
 
     def to_string(self):
         text = ''
-        if self.caption:
-            text = '%s, %s' % (self.caption, self.plugintemplate)
-        if self.alt_text:
-            text = '%s, %s' % (self.alt_text, self.plugintemplate)
-        if not text:
-            text = '%s' % (self.plugintemplate)
+        if self.title:
+            text = self.title
         return text
 
 

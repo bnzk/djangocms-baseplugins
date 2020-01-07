@@ -2,7 +2,7 @@ import logging
 import os
 import shutil
 
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 
 
 class Command(BaseCommand):
@@ -16,8 +16,13 @@ class Command(BaseCommand):
         "")
 
     def add_arguments(self, parser):
-        parser.add_argument('path', help='The path to copy the files to. Will take part after last / as package name')
-        parser.add_argument('plugin_name', help='Name of the new plugin. CameCase. like Teaser or ContentNav')
+        parser.add_argument('path', help="""
+The path to copy the files to.
+Will take part after last / as package name
+""")
+        parser.add_argument('plugin_name', help="""
+Name of the new plugin. CameCase. like Teaser or ContentNav
+""")
 
     def handle(self, *args, **options):
         # Use a stdout logger
@@ -28,7 +33,6 @@ class Command(BaseCommand):
 
         # copy
         path = options['path']
-        package_name = path.rsplit('/', 1)[0]
         plugin_name = options['plugin_name']
         current_path = os.path.dirname(__file__)
         source_folder = os.path.join(current_path, '..', '..', 'plugin_template')
@@ -37,7 +41,7 @@ class Command(BaseCommand):
         else:
             target_folder = path
         if os.path.exists(target_folder):
-            logger.log(logging.INFO, 'Aborting, target folder already existing: %s' %target_folder)
+            logger.log(logging.INFO, 'Aborting, target folder already existing: %s' % target_folder)
             return
         shutil.copytree(source_folder, target_folder)
 
@@ -67,7 +71,6 @@ class Command(BaseCommand):
         logger.log(logging.INFO, '- run ./manage.py makemigrations')
         logger.log(logging.INFO, '- run ./manage.py test (basic concepts like class names ')
         logger.log(logging.INFO, '  applied, admin form working, adapt to your needs)')
-
 
 
 def recursive_replace_template(target_folder, target, replacement):

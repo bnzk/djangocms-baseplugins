@@ -9,7 +9,7 @@ from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 TRANSLATED_FIELDS = getattr(
     settings, 'IFRAMEPLUGIN_TRANSLATED_FIELDS',
-    ['caption', ]
+    []
 )
 
 DESIGN_FIELDS = getattr(
@@ -19,8 +19,7 @@ DESIGN_FIELDS = getattr(
 
 CONTENT_FIELDS = getattr(
     settings, 'IFRAMEPLUGIN_CONTENT_FIELDS', (
-        'image',
-        'caption',
+        'iframe_url',
     )
 )
 
