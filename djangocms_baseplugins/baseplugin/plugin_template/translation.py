@@ -3,11 +3,13 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
-from djangocms_baseplugins.plugintemplate.models import PluginTemplate
+
+from .models import PluginTemplate
 from . import conf
 
+
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.PLUGINTEMPLATEPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class PluginTemplateTranslationOptions(TranslationOptions):
