@@ -15,5 +15,5 @@ class AutoColumnsPluginTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('column')
+    check_in_migration_modules('autocolumns')
     translator.register(AutoColumns, AutoColumnsPluginTranslationOptions)
