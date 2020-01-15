@@ -8,7 +8,7 @@ from .models import TextImage
 
 
 class TextImageTranslationOptions(TranslationOptions):
-    fields = defaults.TRANSLATED_FIELDS + conf.TEXTIMAGEPLUGIN_TRANSLATED_FIELDS
+    fields = defaults.TRANSLATED_FIELDS + conf.TRANSLATED_FIELDS
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
