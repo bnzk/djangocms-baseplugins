@@ -8,52 +8,58 @@ from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 
 # clean when saving? default is to clean on render AND save.
-TEXTPLUGIN_CLEAN_ON_SAVE = getattr(
+CLEAN_ON_SAVE = getattr(
     settings,
     'TEXTPLUGIN_CLEAN_ON_SAVE',
     True,
 )
 
-TEXTPLUGIN_TRANSLATED_FIELDS = getattr(
+TRANSLATED_FIELDS = getattr(
     settings, 'TEXTPLUGIN_TRANSLATED_FIELDS', [
         'body',
     ]
 )
 
-TEXTPLUGIN_LAYOUT_CHOICES = getattr(
+LAYOUT_CHOICES = getattr(
     settings, 'TEXTPLUGIN_LAYOUT_CHOICES', (
         [],
     )
 )
 
-TEXTPLUGIN_BACKGROUND_CHOICES = getattr(
+BACKGROUND_CHOICES = getattr(
     settings, 'TEXTPLUGIN_BACKGROUND_CHOICES', (
         [],
     )
 )
 
-TEXTPLUGIN_COLOR_CHOICES = getattr(
+COLOR_CHOICES = getattr(
     settings, 'TEXTPLUGIN_COLOR_CHOICES', (
         [],
     )
 )
 
-TEXTPLUGIN_CONTENT_FIELDS = getattr(
+CONTENT_FIELDS = getattr(
     settings, 'TEXTPLUGIN_CONTENT_FIELDS', (
         'body',
     )
 )
 
-TEXTPLUGIN_DESIGN_FIELDS = getattr(
+DESIGN_FIELDS = getattr(
     settings, 'TEXTPLUGIN_DESIGN_FIELDS', []
 )
 
-TEXTPLUGIN_FIELDSETS = getattr(
+FIELDSETS = getattr(
     settings,
     'TEXTPLUGIN_FIELDSETS',
     get_baseplugin_fieldset(**{
-        'design': TEXTPLUGIN_DESIGN_FIELDS,
-        'content': TEXTPLUGIN_CONTENT_FIELDS,
+        'design': DESIGN_FIELDS,
+        'content': CONTENT_FIELDS,
         'advanced': defaults.ADVANCED_FIELDS,
     })
+)
+
+REQUIRE_PARENT = getattr(
+    settings,
+    'TEXTPLUGIN_REQUIRE_PARENT',
+    False,
 )

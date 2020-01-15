@@ -18,13 +18,12 @@ class TextPluginForm(forms.ModelForm):
         widgets = build_baseplugin_widgets(conf, 'TEXTPLUGIN')
 
 
+@plugin_pool.register_plugin
 class TextPlugin(BasePluginMixin, CMSPluginBase):
     model = Text
     form = TextPluginForm
     module = defaults.CONTENT_LABEL
     name = _(u'Text')
     render_template = "djangocms_baseplugins/text.html"
-    fieldsets = conf.TEXTPLUGIN_FIELDSETS
-
-
-plugin_pool.register_plugin(TextPlugin)
+    fieldsets = conf.FIELDSETS
+    require_parent = conf.REQUIRE_PARENT

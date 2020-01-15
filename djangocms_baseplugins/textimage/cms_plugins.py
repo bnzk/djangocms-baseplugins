@@ -15,7 +15,7 @@ class TextImagePluginForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(TextImagePluginForm, self).__init__(*args, **kwargs)
-        if not conf.TEXTIMAGEPLUGIN_IMAGE_REQUIRED:
+        if not conf.IMAGE_REQUIRED:
             self.fields['image'].required = False
 
     class Meta:
@@ -24,13 +24,11 @@ class TextImagePluginForm(forms.ModelForm):
         widgets = build_baseplugin_widgets(conf, 'TEXTIMAGEPLUGIN')
 
 
+@plugin_pool.register_plugin()
 class TextImagePlugin(BasePluginMixin, CMSPluginBase):
     model = TextImage
     form = TextImagePluginForm
     module = defaults.CONTENT_LABEL
     name = _(u'Text & Image')
     render_template = "djangocms_baseplugins/textimage.html"
-    fieldsets = conf.TEXTIMAGEPLUGIN_FIELDSETS
-
-
-plugin_pool.register_plugin(TextImagePlugin)
+    fieldsets = conf.FIELDSETS
