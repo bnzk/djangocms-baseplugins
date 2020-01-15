@@ -5,7 +5,8 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import (
-    get_fields_from_fieldsets, build_baseplugin_widgets
+    get_fields_from_fieldsets,
+    get_baseplugin_widgets,
 )
 from djangocms_baseplugins.baseplugin import defaults
 
@@ -17,7 +18,7 @@ class AutoColumnsPluginForm(forms.ModelForm):
     class Meta:
         model = AutoColumns
         fields = get_fields_from_fieldsets(conf.FIELDSETS)
-        widgets = build_baseplugin_widgets(conf, 'AUTOCOLUMNSPLUGIN')
+        widgets = get_baseplugin_widgets(conf)
 
 
 @plugin_pool.register_plugin

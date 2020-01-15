@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 from . import conf
 from .models import Text
 
@@ -15,7 +15,7 @@ class TextPluginForm(forms.ModelForm):
     class Meta:
         model = Text
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'TEXTPLUGIN')
+        widgets = get_baseplugin_widgets(conf)
 
 
 @plugin_pool.register_plugin
