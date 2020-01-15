@@ -6,12 +6,9 @@ from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from . import conf
 from .models import TextImage
 
-translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.TEXTIMAGEPLUGIN_TRANSLATED_FIELDS
-
 
 class TextImageTranslationOptions(TranslationOptions):
-    fields = translation_fields
+    fields = defaults.TRANSLATED_FIELDS + conf.TEXTIMAGEPLUGIN_TRANSLATED_FIELDS
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
