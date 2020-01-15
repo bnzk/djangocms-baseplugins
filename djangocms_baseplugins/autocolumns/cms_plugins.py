@@ -16,7 +16,7 @@ from . import conf
 class AutoColumnsPluginForm(forms.ModelForm):
     class Meta:
         model = AutoColumns
-        fields = get_fields_from_fieldsets(conf.AUTOCOLUMNSPLUGIN_FIELDSETS)
+        fields = get_fields_from_fieldsets(conf.FIELDSETS)
         widgets = build_baseplugin_widgets(conf, 'AUTOCOLUMNSPLUGIN')
 
 
@@ -27,6 +27,6 @@ class AutoColumnsPlugin(BasePluginMixin, CMSPluginBase):
     form = AutoColumnsPluginForm
     module = defaults.CONTAINER_LABEL
     render_template = "djangocms_baseplugins/autocolumns.html"
-    fieldsets = conf.AUTOCOLUMNSPLUGIN_FIELDSETS
+    fieldsets = conf.FIELDSETS
     allow_children = True
-    child_classes = conf.AUTOCOLUMNSPLUGIN_CHILD_CLASSES
+    child_classes = conf.CHILD_CLASSES
