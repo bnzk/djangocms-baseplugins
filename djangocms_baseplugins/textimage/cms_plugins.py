@@ -24,7 +24,7 @@ class TextImagePluginForm(forms.ModelForm):
         widgets = build_baseplugin_widgets(conf, 'TEXTIMAGEPLUGIN')
 
 
-@plugin_pool.register_plugin()
+@plugin_pool.register_plugin
 class TextImagePlugin(BasePluginMixin, CMSPluginBase):
     model = TextImage
     form = TextImagePluginForm
