@@ -6,12 +6,9 @@ from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from .models import AutoColumns
 from . import conf
 
-translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.COLUMNPLUGIN_TRANSLATED_FIELDS
-
 
 class AutoColumnsPluginTranslationOptions(TranslationOptions):
-    fields = translation_fields
+    fields = defaults.TRANSLATED_FIELDS + conf.TRANSLATED_FIELDS
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
