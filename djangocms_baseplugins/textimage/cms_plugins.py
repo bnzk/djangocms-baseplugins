@@ -32,3 +32,4 @@ class TextImagePlugin(BasePluginMixin, CMSPluginBase):
     name = _(u'Text & Image')
     render_template = "djangocms_baseplugins/textimage.html"
     fieldsets = conf.FIELDSETS
+    require_parent = conf.REQUIRE_PARENT
