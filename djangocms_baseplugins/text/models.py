@@ -22,7 +22,7 @@ class TextBase(AbstractBasePlugin):
         return self.add_hidden_flag(text)
 
     def save(self, *args, **kwargs):
-        if conf.TEXTPLUGIN_CLEAN_ON_SAVE:
+        if conf.CLEAN_ON_SAVE:
             self.body = sanitize_richtext(self.body)
         super(TextBase, self).save(*args, **kwargs)
 
