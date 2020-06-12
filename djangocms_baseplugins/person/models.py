@@ -15,7 +15,7 @@ class PersonSectionBase(AbstractBasePlugin):
     class Meta:
         abstract = True
 
-    def __str__(self):
+    def to_string(self):
         return str(_("People Section / Department"))
 
 
@@ -41,9 +41,9 @@ class PersonBase(AbstractBasePlugin):
     class Meta:
         abstract = True
 
-    def __str__(self):
+    def to_string(self):
         text = u"%s %s" % (self.first_name, self.last_name)
-        return self.add_hidden_flag(text)
+        return text
 
 
 class Person(PersonBase):

@@ -15,9 +15,10 @@ class SectionBase(AbstractBasePlugin):
     class Meta:
         abstract = True
 
-    def __str__(self):
-        text = str(_("Section"))
-        return self.add_hidden_flag(text)
+    def to_string(self):
+        if self.title:
+            return self.title
+        return str(_("Section"))
 
 
 class Section(SectionBase):

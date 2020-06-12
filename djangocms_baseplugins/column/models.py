@@ -15,9 +15,11 @@ class ColumnBase(AbstractBasePlugin):
     class Meta:
         abstract = True
 
-    def __str__(self):
+    def to_string(self):
+        if self.title:
+            return self.title
         text = str(_("Column"))
-        return self.add_hidden_flag(text)
+        return text
 
     def get_css_classes(self):
         classes = super(ColumnBase, self).get_css_classes()
