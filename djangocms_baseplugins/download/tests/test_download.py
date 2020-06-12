@@ -7,10 +7,12 @@ from djangocms_baseplugins.download.cms_plugins import DownloadPlugin, DownloadS
 
 
 class DownloadSectionPluginTests(BasePluginTestCase, TestCase):
+    plugin_path = 'djangocms_baseplugins.download'
     plugin_class = DownloadSectionPlugin
-    plugin_settings_prefix = 'DOWNLOADSECTIONPLUGIN'
+    additional_plugins = [DownloadPlugin, ]
 
 
 class DownloadPluginTests(BasePluginTestCase, TestCase):
+    plugin_path = 'djangocms_baseplugins.download'
     plugin_class = DownloadPlugin
-    plugin_settings_prefix = 'DOWNLOADPLUGIN'
+    additional_plugins = [DownloadSectionPlugin, ]

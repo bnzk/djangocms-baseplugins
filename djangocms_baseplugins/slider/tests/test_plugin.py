@@ -9,3 +9,4 @@ from djangocms_baseplugins.slider.cms_plugins import SliderPlugin
 class SliderPluginTests(BasePluginTestCase, TestCase):
     plugin_class = SliderPlugin
     plugin_settings_prefix = 'SLIDERPLUGIN'
+    plugin_path = 'djangocms_baseplugins.slider'

@@ -8,47 +8,65 @@ from django.conf import settings
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
-VIDEOPLUGIN_TRANSLATED_FIELDS = getattr(
+TRANSLATED_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_TRANSLATED_FIELDS', [
         'video_url',
     ]
 )
 
 # thx to rouxcode!
-VIDEOPLUGIN_REGEXES = (
+REGEXES = (
     re.compile(r'^https?\:\/\/(www\.)?youtu\.be\/(?P<youtube_id>[^\/]*)\??.*$'),
     re.compile(r'^https?\:\/\/(www\.)?youtube\.(com|nl|ru).*v=(?P<youtube_id>.*)\&?.*$'),
     re.compile(r'^https?\:\/\/(www\.)?youtube\.(com|nl|ru)\/embed\/(?P<youtube_id>[^\/]*)\??.*$'),
     re.compile(r'^https?\:\/\/(www\.)?vimeo\.com\/(?P<vimeo_id>[^\/]*)\??.*$'),
 )
 
-VIDEOPLUGIN_YOUTUBE_MODESTBRANDING = True
+YOUTUBE_MODESTBRANDING = True
 
-VIDEOPLUGIN_YOUTUBE_COLOR = 'red'  # or white
-VIDEOPLUGIN_VIMEO_COLOR = False  # default blue
+YOUTUBE_COLOR = 'red'  # or white
+VIMEO_COLOR = False  # default blue
 
-VIDEOPLUGIN_LAYOUT_CHOICES = getattr(
+LAYOUT_CHOICES = getattr(
     settings, 'VIDEOPLUGIN_LAYOUT_CHOICES', (
         [],
     )
 )
 
-VIDEOPLUGIN_CONTENT_FIELDS = getattr(
+CONTENT_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_CONTENT_FIELDS', (
         'video_url', ('show_related', 'autoplay', 'mute', 'controls', 'infos', 'fullscreen'),
     )
 )
 
-VIDEOPLUGIN_DESIGN_FIELDS = getattr(
+DESIGN_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_DESIGN_FIELDS', []
 )
 
-VIDEOPLUGIN_FIELDSETS = getattr(
+FIELDSETS = getattr(
     settings,
     'VIDEOPLUGIN_FIELDSETS',
     get_baseplugin_fieldset(**{
-        'design': VIDEOPLUGIN_DESIGN_FIELDS,
-        'content': VIDEOPLUGIN_CONTENT_FIELDS,
+        'design': DESIGN_FIELDS,
+        'content': CONTENT_FIELDS,
         'advanced': defaults.ADVANCED_FIELDS,
     })
+)
+
+LAYOUT_CHOICES = getattr(
+    settings, 'VIDEOPLUGIN_LAYOUT_CHOICES', (
+        [],
+    )
+)
+
+BACKGROUND_CHOICES = getattr(
+    settings, 'VIDEOPLUGIN_BACKGROUND_CHOICES', (
+        [],
+    )
+)
+
+COLOR_CHOICES = getattr(
+    settings, 'VIDEOPLUGIN_COLOR_CHOICES', (
+        [],
+    )
 )

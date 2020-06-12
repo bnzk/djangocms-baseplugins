@@ -12,7 +12,7 @@ from djangocms_baseplugins.column.cms_plugins import ColumnPlugin
 
 class ColumnPluginTests(BasePluginTestCase, TestCase):
     plugin_class = ColumnPlugin
-    plugin_settings_prefix = 'COLUMNPLUGIN'
+    plugin_path = 'djangocms_baseplugins.column'
 
     def test_plugin_special_classes_applied(self):
         """

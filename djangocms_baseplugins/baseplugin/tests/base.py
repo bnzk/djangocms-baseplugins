@@ -1,5 +1,8 @@
 # import importlib
+import importlib
 
+from cms.exceptions import PluginAlreadyRegistered
+from cms.plugin_pool import plugin_pool
 from cms.api import add_plugin, create_page
 from cms.models import Placeholder
 from cms.plugin_rendering import ContentRenderer
@@ -10,9 +13,18 @@ from django.utils.encoding import force_text
 
 class BasePluginTestCase(object):
     plugin_class = None  # TextPlugin
-    plugin_settings_prefix = ''  # TEXTPLUGIN
+    plugin_settings_prefix = ''  # optional, 'TEXTPLUGIN'
+    plugin_path = ''  # 'djangocms_baseplugins.text'
+    additional_plugins = []
+
+    def __init__(self, *args, **kwargs):
+        if not self.plugin_settings_prefix:
+            self.plugin_settings_prefix = self.plugin_class.__name__.upper()
+        return super().__init__(*args, **kwargs)
 
     def setUp(self):
+        self._reload_plugins_settings()
+        # prepare
         self.username = "test_admin"
         self.password = "testPW"
         user, created = User.objects.get_or_create(username=self.username)
@@ -27,6 +39,24 @@ class BasePluginTestCase(object):
 
     def tearDown(self):
         pass
+
+    def _reload_plugins_settings(self):
+        """
+        must reload plugins for every test, as changed settings can cause bad things.
+        :return:
+        """
+        # is it ready for the reload?
+        if not self.plugin_path:
+            print('not yet reloadable, add plugin_path to testcase for: {}'.format(self.plugin_class.__name__))
+        else:
+            conf = importlib.import_module('{}.conf'.format(self.plugin_path))
+            cms_plugins = importlib.import_module('{}.cms_plugins'.format(self.plugin_path))
+            importlib.reload(conf)
+            plugin_pool.unregister_plugin(self.plugin_class)
+            for additional in self.additional_plugins:
+                plugin_pool.unregister_plugin(additional)
+            importlib.reload(cms_plugins)
+            self.plugin_class = getattr(cms_plugins, self.plugin_class.__name__ )
 
     def get_plugin_default_data(self):
         return {}
@@ -49,39 +79,39 @@ class BasePluginTestCase(object):
         response = client.get(url)
         self.assertEqual(response.status_code, 200)
 
-    # not yet. reloading conf is not enough!
-    # def test_basic_admin_form_choices_overrides(self):
-    #     """
-    #     just calling add plugin admin view, check if layout/background/color
-    #     custom choices work
-    #     :return:
-    #     """
-    #     client = Client()
-    #     client.login(username=self.username, password=self.password)
-    #     page = create_page('test', 'base.html', 'en', slug='test', )
-    #     placeholder = Placeholder.objects.create(page=page, slot='test')
-    #     settings_kwargs = {
-    #         '{}_LAYOUT_CHOICES'.format(self.plugin_settings_prefix): (('0000-layout', 'Nope'),),
-    #         '{}_COLOR_CHOICES'.format(self.plugin_settings_prefix): (('0000-color', 'Nope'),),
-    #         '{}_BACKGROUND_CHOICES'.format(self.plugin_settings_prefix): (('0000-background', 'Nope'),),  # noqa
-    #         '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', ),  # noqa
-    #         '{}_CONTENT_FIELDS'.format(self.plugin_settings_prefix): ('title', ),
-    #     }
-    #     print(settings_kwargs)
-    #     with self.settings(**settings_kwargs):
-    #         if getattr(self, 'plugin_conf', None):
-    #             conf = importlib.import_module(self.plugin_conf)
-    #             reload(conf)
-    #             url = '/admin/cms/page/add-plugin/?' \
-    #                 + 'placeholder_id={}&plugin_type={}' \
-    #                 + '&cms_path=%2Fen%2F&plugin_language=en'
-    #             url = url.format(placeholder.id, self.plugin_class.__name__)
-    #             response = client.get(url)
-    #             self.assertEqual(response.status_code, 200)
-    #             # print(response.content)
-    #             self.assertContains(response, '0000-layout')
-    #             self.assertContains(response, '0000-color')
-    #             self.assertContains(response, '0000-background')
+    # not yet. reloading conf is not enough!?
+    def test_basic_admin_form_choices_overrides(self):
+        """
+        just calling add plugin admin view, check if layout/background/color
+        custom choices work
+        :return:
+        """
+        if not getattr(self, 'plugin_path', None):
+            return
+        client = Client()
+        client.login(username=self.username, password=self.password)
+        page = create_page('test', 'base.html', 'en', slug='test', )
+        placeholder = Placeholder.objects.create(page=page, slot='test')
+        settings_kwargs = {
+            '{}_LAYOUT_CHOICES'.format(self.plugin_settings_prefix): (('0000-layout', 'Nope'),),
+            '{}_COLOR_CHOICES'.format(self.plugin_settings_prefix): (('0000-color', 'Nope'),),
+            '{}_BACKGROUND_CHOICES'.format(self.plugin_settings_prefix): (('0000-background', 'Nope'),),  # noqa
+            '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', ),  # noqa
+            '{}_CONTENT_FIELDS'.format(self.plugin_settings_prefix): ('title', ),
+        }
+        with self.settings(**settings_kwargs):
+            self._reload_plugins_settings()
+            url = '/admin/cms/page/add-plugin/?' \
+                + 'placeholder_id={}&plugin_type={}' \
+                + '&cms_path=%2Fen%2F&plugin_language=en'
+            url = url.format(placeholder.id, self.plugin_class.__name__)
+            response = client.get(url)
+            self.assertEqual(response.status_code, 200)
+            # print(response.status_code)
+            self.assertContains(response, 'id_layout')
+            self.assertContains(response, '0000-layout')
+            self.assertContains(response, '0000-color')
+            self.assertContains(response, '0000-background')
 
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')

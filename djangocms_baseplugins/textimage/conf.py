@@ -26,6 +26,18 @@ LAYOUT_CHOICES = getattr(
     )
 )
 
+BACKGROUND_CHOICES = getattr(
+    settings, 'TEXTIMAGEPLUGIN_BACKGROUND_CHOICES', (
+        [],
+    )
+)
+
+COLOR_CHOICES = getattr(
+    settings, 'TEXTIMAGEPLUGIN_COLOR_CHOICES', (
+        [],
+    )
+)
+
 CONTENT_FIELDS = getattr(
     settings, 'TEXTIMAGEPLUGIN_CONTENT_FIELDS', (
         'image', 'caption', 'body',

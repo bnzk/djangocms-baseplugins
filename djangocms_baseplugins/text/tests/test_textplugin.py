@@ -14,7 +14,7 @@ from djangocms_baseplugins.text.cms_plugins import TextPlugin
 class TextPluginTests(BasePluginTestCase, TestCase):
     plugin_class = TextPlugin
     plugin_settings_prefix = 'TEXTPLUGIN'
-    plugin_conf = 'djangocms_baseplugins.text.conf'
+    plugin_path = 'djangocms_baseplugins.text'
 
     def test_plugin_html(self):
         placeholder = Placeholder.objects.create(slot='test')

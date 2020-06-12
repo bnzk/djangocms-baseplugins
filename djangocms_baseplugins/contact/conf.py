@@ -7,11 +7,11 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
-CONTACTPLUGIN_TRANSLATED_FIELDS = getattr(
+TRANSLATED_FIELDS = getattr(
     settings, 'CONTACTPLUGIN_TRANSLATED_FIELDS', []
 )
 
-CONTACTPLUGIN_CONTENT_FIELDS = getattr(
+CONTENT_FIELDS = getattr(
     settings, 'CONTACTPLUGIN_CONTENT_FIELDS', [
         'website',
         'email',
@@ -22,27 +22,27 @@ CONTACTPLUGIN_CONTENT_FIELDS = getattr(
     ]
 )
 
-CONTACTPLUGIN_DESIGN_FIELDS = getattr(
+DESIGN_FIELDS = getattr(
     settings, 'CONTACTPLUGIN_DESIGN_FIELDS', []
 )
 
-CONTACTPLUGIN_FIELDSETS = getattr(
+FIELDSETS = getattr(
     settings,
     'CONTACTPLUGIN_FIELDSETS',
     get_baseplugin_fieldset(**{
-        'design': CONTACTPLUGIN_DESIGN_FIELDS,
-        'content': CONTACTPLUGIN_CONTENT_FIELDS,
+        'design': DESIGN_FIELDS,
+        'content': CONTENT_FIELDS,
         'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 
-CONTACTPLUGIN_CHILD_CLASSES = getattr(
+CHILD_CLASSES = getattr(
     settings, 'CONTACTPLUGIN_CHILD_CLASSES', (
         'PersonSection',
     )
 )
 
-CONTACTPLUGIN_LAYOUT_CHOICES = getattr(
+LAYOUT_CHOICES = getattr(
     settings,
     'CONTACTPLUGIN_LAYOUT_CHOICES',
     (
@@ -50,7 +50,7 @@ CONTACTPLUGIN_LAYOUT_CHOICES = getattr(
     )
 )
 
-CONTACTPLUGIN_BACKGROUND_CHOICES = getattr(
+BACKGROUND_CHOICES = getattr(
     settings,
     'CONTACTPLUGIN_BACKGROUND_CHOICES',
     (
@@ -58,7 +58,7 @@ CONTACTPLUGIN_BACKGROUND_CHOICES = getattr(
     )
 )
 
-CONTACTPLUGIN_COLOR_CHOICES = getattr(
+COLOR_CHOICES = getattr(
     settings,
     'CONTACTPLUGIN_COLOR_CHOICES',
     (

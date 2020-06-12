@@ -9,6 +9,7 @@ from djangocms_baseplugins.section.cms_plugins import SectionPlugin
 class SectionPluginTests(BasePluginTestCase, TestCase):
     plugin_class = SectionPlugin
     plugin_settings_prefix = 'SECTIONPLUGIN'
+    plugin_path = 'djangocms_baseplugins.section'
 
     # def test_section_plugin_special_classes_applied(self):
     #     """

@@ -23,7 +23,7 @@ class VideoModelMixin(object):
     def _set_base_infos(self):
         self._valid_url = False
         if self.video_url:
-            for rule in conf.VIDEOPLUGIN_REGEXES:
+            for rule in conf.REGEXES:
                 result, matches = rule.subn(self._repl, self.video_url)
                 if matches:
                     vtype, vid = result.split("__ID_sep__", 1)
@@ -74,12 +74,12 @@ class VideoModelMixin(object):
             if not getattr(self, 'infos', None):
                 infos = '&showinfo=0'
             modestbranding = ''
-            if conf.VIDEOPLUGIN_YOUTUBE_MODESTBRANDING:
+            if conf.YOUTUBE_MODESTBRANDING:
                 modestbranding = '&modestbranding=1'
             mute = ''
             if getattr(self, 'mute', None) or autoplay:
                 mute = '&mute=1'
-            color = '&color=%s' % conf.VIDEOPLUGIN_YOUTUBE_COLOR
+                color = '&color=%s' % conf.YOUTUBE_COLOR
             url = 'https://www.youtube-nocookie.com/embed/%s?a=b%s%s%s%s%s%s%s%s' % (
                 self.video_id,
                 rel,
@@ -104,13 +104,13 @@ class VideoModelMixin(object):
             if not getattr(self, 'infos', None):
                 infos = '&title=0&byline=0'
             modestbranding = ''
-            if conf.VIDEOPLUGIN_YOUTUBE_MODESTBRANDING:
+            if conf.YOUTUBE_MODESTBRANDING:
                 modestbranding = '&modestbranding=1'
             mute = ''
             if getattr(self, 'mute', None):
                 mute = '&mute=1'
             color = ''
-            if conf.VIDEOPLUGIN_VIMEO_COLOR:
+            if conf.VIMEO_COLOR:
                 color = '&color=%s' % conf.VIDEOPLUGIN_VIMEO_COLOR
             url = 'https://player.vimeo.com/video/%s?a=b&mute=1%s%s%s%s%s%s' % (
                 self.video_id,

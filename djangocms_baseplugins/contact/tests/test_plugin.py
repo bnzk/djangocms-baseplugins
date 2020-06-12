@@ -7,8 +7,8 @@ from djangocms_baseplugins.contact.cms_plugins import ContactPlugin
 
 
 class ContactPluginTests(BasePluginTestCase, TestCase):
+    plugin_path = 'djangocms_baseplugins.contact'
     plugin_class = ContactPlugin
-    plugin_settings_prefix = 'CONTACTPLUGIN'
 
     # def test_contact_plugin_special_classes_applied(self):
     #     """

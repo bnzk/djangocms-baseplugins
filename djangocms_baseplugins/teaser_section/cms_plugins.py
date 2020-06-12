@@ -8,7 +8,7 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import (
     build_baseplugin_widgets,
-    get_fields_from_fieldsets,
+    get_fields_from_fieldsets, get_baseplugin_widgets,
 )
 from . import conf
 from .models import TeaserSection
@@ -17,9 +17,9 @@ from .models import TeaserSection
 class TeaserSectionPluginForm(forms.ModelForm):
     class Meta:
         model = TeaserSection
-        fields = get_fields_from_fieldsets(conf.TEASERSECTIONPLUGIN_FIELDSETS)
+        fields = get_fields_from_fieldsets(conf.FIELDSETS)
         # exclude = []
-        widgets = build_baseplugin_widgets(conf, 'TEASERSECTIONPLUGIN')
+        widgets = get_baseplugin_widgets(conf)
 
 
 @plugin_pool.register_plugin
@@ -29,6 +29,6 @@ class TeaserSectionPlugin(BasePluginMixin, CMSPluginBase):
     module = defaults.CONTAINER_LABEL
     name = _('Teaser Section')
     render_template = "djangocms_baseplugins/teaser_section.html"
-    fieldsets = conf.TEASERSECTIONPLUGIN_FIELDSETS
+    fieldsets = conf.FIELDSETS
     allow_children = True
-    child_classes = conf.TEASERSECTIONPLUGIN_CHILD_CLASSES
+    child_classes = conf.CHILD_CLASSES

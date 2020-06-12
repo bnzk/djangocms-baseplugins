@@ -6,17 +6,19 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets, get_fields_from_fieldsets, \
+    get_baseplugin_widgets
 from . import conf
 from .models import Column
 
 
-widgets = build_baseplugin_widgets(conf, 'COLUMNPLUGIN')
-widgets = {
+# some pre processing
+column_widgets = get_baseplugin_widgets(conf)
+column_widgets.update({
     'width': forms.Select(
-        choices=getattr(conf, 'COLUMNPLUGIN_WIDTH_CHOICES', []),
+        choices=getattr(conf, 'WIDTH_CHOICES', []),
     ),
-}
+})
 
 
 class ColumnPluginForm(forms.ModelForm):
@@ -25,19 +27,20 @@ class ColumnPluginForm(forms.ModelForm):
     class Meta:
         model = Column
         exclude = []
-        widgets = widgets
+        fields = get_fields_from_fieldsets(conf.FIELDSETS)
+        widgets = column_widgets
 
 
+@plugin_pool.register_plugin
 class ColumnPlugin(BasePluginMixin, CMSPluginBase):
     model = Column
     form = ColumnPluginForm
     name = _(u'Column')
     module = defaults.CONTAINER_LABEL
     render_template = "djangocms_baseplugins/column.html"
-    fieldsets = conf.COLUMNPLUGIN_FIELDSETS
+    fieldsets = conf.FIELDSETS
     require_parent = True
     allow_children = True
-    child_classes = conf.COLUMNPLUGIN_CHILD_CLASSES
+    child_classes = conf.CHILD_CLASSES
 
 
-plugin_pool.register_plugin(ColumnPlugin)

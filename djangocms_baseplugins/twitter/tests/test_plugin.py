@@ -9,6 +9,7 @@ from djangocms_baseplugins.twitter.cms_plugins import TweetEmbedPlugin
 class TweetEmbedPluginTests(BasePluginTestCase, TestCase):
     plugin_class = TweetEmbedPlugin
     plugin_settings_prefix = 'TWEETEMBEDPLUGIN'
+    plugin_path = 'djangocms_baseplugins.twitter'
 
     def get_plugin_default_data(self):
         return {
