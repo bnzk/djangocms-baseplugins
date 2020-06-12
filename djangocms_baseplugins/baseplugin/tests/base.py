@@ -1,7 +1,6 @@
 # import importlib
 import importlib
 
-from cms.exceptions import PluginAlreadyRegistered
 from cms.plugin_pool import plugin_pool
 from cms.api import add_plugin, create_page
 from cms.models import Placeholder
@@ -47,7 +46,10 @@ class BasePluginTestCase(object):
         """
         # is it ready for the reload?
         if not self.plugin_path:
-            print('not yet reloadable, add plugin_path to testcase for: {}'.format(self.plugin_class.__name__))
+            print(
+                'not yet reloadable, add plugin_path to testcase for: {}'
+                .format(self.plugin_class.__name__)
+            )
         else:
             conf = importlib.import_module('{}.conf'.format(self.plugin_path))
             cms_plugins = importlib.import_module('{}.cms_plugins'.format(self.plugin_path))
@@ -56,7 +58,7 @@ class BasePluginTestCase(object):
             for additional in self.additional_plugins:
                 plugin_pool.unregister_plugin(additional)
             importlib.reload(cms_plugins)
-            self.plugin_class = getattr(cms_plugins, self.plugin_class.__name__ )
+            self.plugin_class = getattr(cms_plugins, self.plugin_class.__name__)
 
     def get_plugin_default_data(self):
         return {}
