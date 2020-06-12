@@ -6,8 +6,9 @@ from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from djangocms_baseplugins.column.models import Column
 from . import conf
 
+
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.COLUMNPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class ColumnPluginTranslationOptions(TranslationOptions):
