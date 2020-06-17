@@ -7,31 +7,31 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
-IMAGEPLUGIN_TRANSLATED_FIELDS = getattr(
+TRANSLATED_FIELDS = getattr(
     settings, 'IMAGEPLUGIN_TRANSLATED_FIELDS',
     ['caption', 'alt_text', ]
 )
 
-IMAGEPLUGIN_DESIGN_FIELDS = getattr(
+DESIGN_FIELDS = getattr(
     settings, 'IMAGEPLUGIN_DESIGN_FIELDS', [])
 
-IMAGEPLUGIN_CONTENT_FIELDS = getattr(
+CONTENT_FIELDS = getattr(
     settings, 'IMAGEPLUGIN_CONTENT_FIELDS', (
         'image', 'caption',
     )
 )
 
-IMAGEPLUGIN_FIELDSETS = getattr(
+FIELDSETS = getattr(
     settings,
     'IMAGEPLUGIN_FIELDSETS',
     get_baseplugin_fieldset(**{
-        'design': IMAGEPLUGIN_DESIGN_FIELDS,
-        'content': IMAGEPLUGIN_CONTENT_FIELDS,
+        'design': DESIGN_FIELDS,
+        'content': CONTENT_FIELDS,
         'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 
-IMAGEPLUGIN_LAYOUT_CHOICES = getattr(
+LAYOUT_CHOICES = getattr(
     settings,
     'IMAGEPLUGIN_LAYOUT_CHOICES',
     (
@@ -40,7 +40,7 @@ IMAGEPLUGIN_LAYOUT_CHOICES = getattr(
     )
 )
 
-IMAGEPLUGIN_BACKGROUND_CHOICES = getattr(
+BACKGROUND_CHOICES = getattr(
     settings,
     'IMAGEPLUGIN_BACKGROUND_CHOICES',
     (
@@ -48,7 +48,7 @@ IMAGEPLUGIN_BACKGROUND_CHOICES = getattr(
     )
 )
 
-IMAGEPLUGIN_COLOR_CHOICES = getattr(
+COLOR_CHOICES = getattr(
     settings,
     'IMAGEPLUGIN_COLOR_CHOICES',
     (

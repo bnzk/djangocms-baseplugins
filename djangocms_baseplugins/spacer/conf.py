@@ -7,26 +7,26 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
-SPACERPLUGIN_TRANSLATED_FIELDS = getattr(
+TRANSLATED_FIELDS = getattr(
     settings, 'SPACERPLUGIN_TRANSLATED_FIELDS', [])
 
-SPACERPLUGIN_CONTENT_FIELDS = getattr(
+CONTENT_FIELDS = getattr(
     settings, 'SPACERPLUGIN_CONTENT_FIELDS', [])
 
-SPACERPLUGIN_DESIGN_FIELDS = getattr(
+DESIGN_FIELDS = getattr(
     settings, 'SPACERPLUGIN_DESIGN_FIELDS', ['layout'])
 
-SPACERPLUGIN_FIELDSETS = getattr(
+FIELDSETS = getattr(
     settings,
     'SPACERPLUGIN_FIELDSETS ',
     get_baseplugin_fieldset(**{
-        'content': SPACERPLUGIN_CONTENT_FIELDS,
-        'design': SPACERPLUGIN_DESIGN_FIELDS,
+        'content': CONTENT_FIELDS,
+        'design': DESIGN_FIELDS,
         'advanced': defaults.ADVANCED_FIELDS,
     })
 )
 
-SPACERPLUGIN_LAYOUT_CHOICES = getattr(
+LAYOUT_CHOICES = getattr(
     settings, 'SPACERPLUGIN_LAYOUT_CHOICES', (
         ('remove-one', _("Remove space")),
         ('remove-half', _("Remove half space")),
@@ -45,13 +45,13 @@ SPACERPLUGIN_LAYOUT_CHOICES = getattr(
     )
 )
 
-SPACERPLUGIN_BACKGROUND_CHOICES = getattr(
+BACKGROUND_CHOICES = getattr(
     settings, 'SPACERPLUGIN_BACKGROUND_CHOICES', (
         ('', ("-")),
     )
 )
 
-SPACERPLUGIN_COLOR_CHOICES = getattr(
+COLOR_CHOICES = getattr(
     settings, 'SPACERPLUGIN_COLOR_CHOICES', (
         ('', ("-")),
     )

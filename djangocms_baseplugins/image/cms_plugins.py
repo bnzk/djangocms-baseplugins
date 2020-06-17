@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 from . import conf
 from .models import Image
 
@@ -16,7 +16,7 @@ class ImagePluginForm(forms.ModelForm):
     class Meta:
         model = Image
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'IMAGEPLUGIN')
+        widgets = get_baseplugin_widgets(conf)
 
 
 @plugin_pool.register_plugin
@@ -27,4 +27,4 @@ class ImagePlugin(BasePluginMixin, CMSPluginBase):
     module = defaults.CONTENT_LABEL
     name = _(u'Image')
     render_template = "djangocms_baseplugins/image.html"
-    fieldsets = conf.IMAGEPLUGIN_FIELDSETS
+    fieldsets = conf.FIELDSETS

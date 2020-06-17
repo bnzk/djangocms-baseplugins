@@ -7,7 +7,7 @@ from djangocms_baseplugins.image.models import Image
 from . import conf
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.IMAGEPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class ImageTranslationOptions(TranslationOptions):

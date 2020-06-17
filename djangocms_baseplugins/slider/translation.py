@@ -7,7 +7,7 @@ from . import conf
 from .models import Slider
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.SLIDERPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class SliderTranslationOptions(TranslationOptions):

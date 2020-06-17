@@ -9,6 +9,7 @@ from djangocms_baseplugins.htmlblock.cms_plugins import HtmlBlockPlugin
 class HtmlBlockPluginTests(BasePluginTestCase, TestCase):
     plugin_class = HtmlBlockPlugin
     plugin_settings_prefix = 'HTMLBLOCKPLUGIN'
+    plugin_path = 'djangocms_baseplugins.htmlblock'
 
     def get_plugin_default_data(self):
         return {

@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 from . import conf
 from .models import HtmlBlock
 
@@ -15,7 +15,7 @@ class HtmlBlockPluginForm(forms.ModelForm):
     class Meta:
         model = HtmlBlock
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'HTMLBLOCKPLUGIN')
+        widgets = get_baseplugin_widgets(conf)
 
 
 class HtmlBlockPlugin(BasePluginMixin, CMSPluginBase):
@@ -24,7 +24,7 @@ class HtmlBlockPlugin(BasePluginMixin, CMSPluginBase):
     module = defaults.ADVANCED_LABEL
     name = _(u'HTML Block')
     render_template = "djangocms_baseplugins/htmlblock.html"
-    fieldsets = conf.HTMLBLOCKPLUGIN_FIELDSETS
+    fieldsets = conf.FIELDSETS
 
 
 plugin_pool.register_plugin(HtmlBlockPlugin)
