@@ -7,7 +7,7 @@ from . import conf
 from .models import Spacer
 
 translation_fields = defaults.TRANSLATED_FIELDS + \
-                     conf.SPACERPLUGIN_TRANSLATED_FIELDS
+                     conf.TRANSLATED_FIELDS
 
 
 class SpacerTranslationOptions(TranslationOptions):

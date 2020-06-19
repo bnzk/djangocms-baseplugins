@@ -8,7 +8,7 @@ from .models import Section
 
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.SECTIONPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class SectionTranslationOptions(TranslationOptions):
