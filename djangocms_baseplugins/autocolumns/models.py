@@ -8,5 +8,6 @@ from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 class AutoColumns(AbstractBasePlugin):
 
     def to_string(self):
-        text = _('Auto Multiple Columns')
-        return text
+        if self.title:
+            return self.title
+        return str(_("Auto Multiple Columns"))
