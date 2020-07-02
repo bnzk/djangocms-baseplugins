@@ -7,7 +7,7 @@ from . import conf
 from .models import Video
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.VIDEOPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class VideoTranslationOptions(TranslationOptions):
