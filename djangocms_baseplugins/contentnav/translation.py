@@ -7,7 +7,7 @@ from djangocms_baseplugins.contentnav.models import ContentNav
 from . import conf
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.CONTENTNAVPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class ContentNavPluginTranslationOptions(TranslationOptions):
