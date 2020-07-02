@@ -7,7 +7,7 @@ from . import conf
 from .models import HtmlBlock
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.HTMLBLOCKPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class HtmlBlockTranslationOptions(TranslationOptions):
