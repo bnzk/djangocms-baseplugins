@@ -79,7 +79,7 @@ class VideoModelMixin(object):
             mute = ''
             if getattr(self, 'mute', None) or autoplay:
                 mute = '&mute=1'
-                color = '&color=%s' % conf.YOUTUBE_COLOR
+            color = '&color=%s' % conf.YOUTUBE_COLOR
             url = 'https://www.youtube-nocookie.com/embed/%s?a=b%s%s%s%s%s%s%s%s' % (
                 self.video_id,
                 rel,
