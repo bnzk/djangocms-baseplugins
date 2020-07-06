@@ -44,6 +44,8 @@ CHILD_CLASSES = getattr(
     )
 )
 
+ALLOW_CHILDREN = False
+
 LAYOUT_CHOICES = getattr(
     settings,
     'COLUMNPLUGIN_LAYOUT_CHOICES',

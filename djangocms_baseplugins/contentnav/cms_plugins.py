@@ -28,6 +28,7 @@ class ContentNavPlugin(BasePluginMixin, CMSPluginBase):
     name = _('ContentNav')
     render_template = "djangocms_baseplugins/contentnav.html"
     fieldsets = conf.FIELDSETS
-
+    allow_children = conf.ALLOW_CHILDREN
+    child_classes = conf.CHILD_CLASSES
 
 plugin_pool.register_plugin(ContentNavPlugin)

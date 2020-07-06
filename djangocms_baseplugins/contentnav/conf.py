@@ -30,6 +30,14 @@ FIELDSETS = getattr(
     })
 )
 
+CHILD_CLASSES = getattr(
+    settings, 'CONTENTNAVPLUGIN_CHILD_CLASSES', []
+)
+
+ALLOW_CHILDREN = getattr(
+    settings, 'CONTENTNAVPLUGIN_ALLOW_CHILDREN', False
+)
+
 LAYOUT_CHOICES = getattr(
     settings,
     'CONTENTNAVPLUGIN_LAYOUT_CHOICES',
