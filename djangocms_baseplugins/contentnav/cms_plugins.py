@@ -21,6 +21,7 @@ class ContentNavPluginForm(forms.ModelForm):
         widgets = get_baseplugin_widgets(conf)
 
 
+@plugin_pool.register_plugin
 class ContentNavPlugin(BasePluginMixin, CMSPluginBase):
     model = ContentNav
     form = ContentNavPluginForm
@@ -31,4 +32,3 @@ class ContentNavPlugin(BasePluginMixin, CMSPluginBase):
     allow_children = conf.ALLOW_CHILDREN
     child_classes = conf.CHILD_CLASSES
 
-plugin_pool.register_plugin(ContentNavPlugin)
