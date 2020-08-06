@@ -10,7 +10,7 @@ from . import conf
 # section
 
 section_translation_fields = defaults.TRANSLATED_FIELDS \
-                             + conf.DOWNLOASECTIONPLUGIN_TRANSLATED_FIELDS
+                             + conf.DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS
 
 
 class DownloadSectionTranslationOptions(TranslationOptions):
