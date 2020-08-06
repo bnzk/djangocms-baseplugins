@@ -7,6 +7,9 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
+
+# SECTION
+
 DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS',
     []
@@ -61,9 +64,12 @@ DOWNLOADSECTIONPLUGIN_CHILD_CLASSES = getattr(
     )
 )
 
+
+# ENTRY
+
 DOWNLOADPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'DOWNLOADPLUGIN_TRANSLATED_FIELDS',
-    []
+    ['file', ]
 )
 
 DOWNLOADPLUGIN_DESIGN_FIELDS = getattr(
