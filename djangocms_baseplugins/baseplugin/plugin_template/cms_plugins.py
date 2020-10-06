@@ -27,3 +27,5 @@ class PluginTemplatePlugin(BasePluginMixin, CMSPluginBase):
     name = _(u'PluginTemplate')
     render_template = "djangocms_baseplugins/plugintemplate.html"
     fieldsets = conf.FIELDSETS
+    allow_children = conf.ALLOW_CHILDREN
+    child_classes = conf.CHILD_CLASSES

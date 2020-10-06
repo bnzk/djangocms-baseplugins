@@ -7,6 +7,11 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
+
+
+ALLOW_CHILDREN = getattr(settings, 'PLUGINTEMPLATEPLUGIN_ALLOW_CHILDREN', False)
+CHILD_CLASSES = getattr(settings, 'PLUGINTEMPLATEPLUGIN_CHILD_CLASSES', [])
+
 TRANSLATED_FIELDS = getattr(
     settings, 'PLUGINTEMPLATEPLUGIN_TRANSLATED_FIELDS',
     ['caption', ]
