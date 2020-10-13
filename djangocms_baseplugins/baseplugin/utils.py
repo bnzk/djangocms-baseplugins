@@ -62,18 +62,6 @@ def get_fields_from_fieldsets(fieldsets):
 
 
 # DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
-# DEPRECATED
 def build_baseplugin_widgets(conf, prefix):
     widgets = {
         'layout': forms.Select(
