@@ -6,9 +6,9 @@ from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 
 
-def baseplugin_classfactory(model_class, conf, form=None, super_classes=[]):
+def baseplugin_classfactory(model_class, conf, form=None, more_mixin_classes=list()):
     class_name = model_class.__name__
-    super_classes += [BasePluginMixin, CMSPluginBase]
+    super_classes = more_mixin_classes + [BasePluginMixin, CMSPluginBase]
     super_classes = tuple(super_classes)
     if not form:
         form = baseplugin_formfactory(model_class, conf)
@@ -33,7 +33,7 @@ def baseplugin_formfactory(model_class, conf):
         'exclude': [],
         'widgets': get_baseplugin_widgets(conf),
     }
-    meta = type('Meta', tuple(), attrs)
+    meta = type('Meta', (object, ), attrs)
     # build form class itself
     form_attrs = {
         'Meta': meta,
