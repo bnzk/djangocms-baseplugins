@@ -3,7 +3,7 @@ from django import forms
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets, get_fields_from_fieldsets
 
 
 def baseplugin_classfactory(model_class, conf, form=None, super_classes=[]):
@@ -30,7 +30,7 @@ def baseplugin_formfactory(model_class, conf):
     # build meta inner class
     attrs = {
         'model': model_class,
-        'exclude': [],
+        'fields': get_fields_from_fieldsets(conf.FIELDSETS),
         'widgets': get_baseplugin_widgets(conf),
     }
     meta = type('Meta', tuple(), attrs)
