@@ -34,9 +34,9 @@ def check_settings(prefix, conf, settings):
             global_setting_name = '{}_{}'.format(prefix, setting)
             value = getattr(settings, global_setting_name, None)
             # new style
-            # dict_settings = getattr(settings, prefix, None)
-            # if dict_settings:
-            #     value = dict_settings.get(setting, None)
+            dict_settings = getattr(settings, prefix, None)
+            if dict_settings:
+                value = dict_settings.get(setting, None)
             if value:
                 print(setting)
                 print(value)
