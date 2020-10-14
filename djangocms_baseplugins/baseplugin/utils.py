@@ -24,6 +24,25 @@ except ImportError:
     lxml_clean = None
 
 
+def check_settings(prefix, conf, settings):
+    if getattr(settings, prefix, None):
+        pass
+    for setting in dir(conf):
+        # bad test if it is a setting!
+        if setting == setting.upper():
+            # old style
+            global_setting_name = '{}_{}'.format(prefix, setting)
+            value = getattr(settings, global_setting_name, None)
+            # new style
+            # dict_settings = getattr(settings, prefix, None)
+            # if dict_settings:
+            #     value = dict_settings.get(setting, None)
+            if value:
+                print(setting)
+                print(value)
+                setattr(conf, setting, value)
+
+
 # DEPRECATED
 def build_baseplugin_fieldset(**kwargs):
     return get_baseplugin_fieldset(**kwargs)

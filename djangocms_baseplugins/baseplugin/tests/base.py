@@ -112,6 +112,7 @@ class BasePluginTestCase(object):
             # print(response.status_code)
             self.assertContains(response, 'id_layout')
             self.assertContains(response, '0000-layout')
+            self.assertContains(response, 'id_color')
             self.assertContains(response, '0000-color')
             self.assertContains(response, '0000-background')
 
