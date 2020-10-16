@@ -38,8 +38,6 @@ def check_settings(prefix, conf, settings):
             if dict_settings:
                 value = dict_settings.get(setting, None)
             if value:
-                print(setting)
-                print(value)
                 setattr(conf, setting, value)
 
 
