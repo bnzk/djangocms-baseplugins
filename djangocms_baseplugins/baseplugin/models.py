@@ -132,9 +132,10 @@ class AbstractBasePlugin(CMSPlugin):
 
         # deprecated for 1.0!
         classes += ' plugin_{}'.format(self.__class__.__name__.lower())
-        classes += ' {}'.format(self.layout)
-        classes += ' {}'.format(self.background)
-        classes += ' {}'.format(self.color)
+        # was dangerous! removed without deprecation
+        # classes += ' {}'.format(self.layout)
+        # classes += ' {}'.format(self.background)
+        # classes += ' {}'.format(self.color)
         return classes
 
     def _css_modifier_for_field(self, field):
