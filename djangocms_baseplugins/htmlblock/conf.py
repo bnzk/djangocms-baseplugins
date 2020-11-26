@@ -1,56 +1,51 @@
-# coding: utf-8
-from __future__ import unicode_literals
+import sys
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
-TRANSLATED_FIELDS = getattr(
-    settings, 'HTMLBLOCKPLUGIN_TRANSLATED_FIELDS', ['htmlblock', ])
 
-DESIGN_FIELDS = getattr(
-    settings, 'HTMLBLOCKPLUGIN_DESIGN_FIELDS', [])
+# basics
+NAME = _('HTML Block')
+MODULE = defaults.CONTAINER_LABEL
 
-CONTENT_FIELDS = getattr(
-    settings, 'HTMLBLOCKPLUGIN_CONTENT_FIELDS', (
-        'htmlblock',
-    )
+# parent / children
+ALLOW_CHILDREN = True
+CHILD_CLASSES = [
+    'TextPlugin',
+    'TextImagePlugin',
+]
+REQUIRE_PARENT = False
+
+# fields
+TRANSLATED_FIELDS = ['htmlblock', ]
+CONTENT_FIELDS = ['htmlblock']
+DESIGN_FIELDS = ['layout', ]
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
+
+# choices
+LAYOUT_CHOICES = (
+    ('full', _("Full Size"),),
+    ('content', _("Content Sized"),),
+)
+BACKGROUND_CHOICES = (
+    ('white', _("Weiss"),),
+    ('beige', _("Beige"),),
+    ('grey', _("Grau"),),
+)
+COLOR_CHOICES = (
+    ('default', _("Default"),),
 )
 
-FIELDSETS = getattr(
-    settings,
-    'HTMLBLOCKPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'design': DESIGN_FIELDS,
-        'content': CONTENT_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
+# check for django settings that override!
+check_settings('HTMLBLOCKPLUGIN', sys.modules[__name__], settings)
 
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})
 
-LAYOUT_CHOICES = getattr(
-    settings,
-    'HTMLBLOCKPLUGIN_LAYOUT_CHOICES',
-    (
-        ('full', _("Full Size"),),
-        ('content', _("Content Sized"),),
-    )
-)
-
-BACKGROUND_CHOICES = getattr(
-    settings,
-    'HTMLBLOCKPLUGIN_BACKGROUND_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
-
-COLOR_CHOICES = getattr(
-    settings,
-    'HTMLBLOCKPLUGIN_COLOR_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
