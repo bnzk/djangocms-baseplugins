@@ -1,3 +1,16 @@
+=== important todo ===
+
+- somehow test "ImproperlyConfigured" exceptions when using translations
+- test translations in general
+
+
+=== ongoing ===
+
+- dynamic plugin form and plugin class generation, making sure having always all attributes.
+- experimental for now
+- more settings added for all plugins
+- templates with more fine grained blocks: plugin_content, plugin_content_inner, plugin_children
+- many more things I forgot
 
 ==== 0.0.3 (2019-08-28) ===
 
