@@ -28,7 +28,7 @@ def check_settings(prefix, conf, settings):
     if getattr(settings, prefix, None):
         pass
     for setting in dir(conf):
-        # bad test if it is a setting!
+        # bad way to test if it is a setting!
         if setting == setting.upper():
             # old style
             global_setting_name = '{}_{}'.format(prefix, setting)
