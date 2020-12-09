@@ -14,7 +14,7 @@ class BasePluginFormMixin(object):
         self.placeholder = None
         if kwargs.get('initial', None):
             if kwargs['initial'].get('plugin_parent', None):
-                parent = CMSPlugin.objects.get(pk=kwargs['initial']['plugin_parent'])
+                self.parent = CMSPlugin.objects.get(pk=kwargs['initial']['plugin_parent'])
             if kwargs['initial'].get('placeholder_id', None):
                 self.placeholder = Placeholder.objects.get(pk=kwargs['initial']['placeholder_id'])
         else:
