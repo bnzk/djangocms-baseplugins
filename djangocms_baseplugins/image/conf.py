@@ -1,57 +1,47 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+import sys
+
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
-TRANSLATED_FIELDS = getattr(
-    settings, 'IMAGEPLUGIN_TRANSLATED_FIELDS',
-    ['caption', 'alt_text', ]
+# basics
+NAME = _('Image')
+MODULE = defaults.CONTENT_LABEL
+
+# parent / children
+ALLOW_CHILDREN = False
+CHILD_CLASSES = []
+REQUIRE_PARENT = False
+
+TRANSLATED_FIELDS = ('caption', 'alt_text', )
+DESIGN_FIELDS = []
+CONTENT_FIELDS = ('image', 'caption', )
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
+
+LAYOUT_CHOICES = (
+    ('full', _("Full Size"),),
+    ('content', _("Content Sized"),),
 )
 
-DESIGN_FIELDS = getattr(
-    settings, 'IMAGEPLUGIN_DESIGN_FIELDS', [])
-
-CONTENT_FIELDS = getattr(
-    settings, 'IMAGEPLUGIN_CONTENT_FIELDS', (
-        'image', 'caption',
-    )
+BACKGROUND_CHOICES = (
+    ('default', _("Default"),),
 )
 
-FIELDSETS = getattr(
-    settings,
-    'IMAGEPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'design': DESIGN_FIELDS,
-        'content': CONTENT_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
+COLOR_CHOICES = (
+    ('default', _("Default"),),
 )
 
-LAYOUT_CHOICES = getattr(
-    settings,
-    'IMAGEPLUGIN_LAYOUT_CHOICES',
-    (
-        ('full', _("Full Size"),),
-        ('content', _("Content Sized"),),
-    )
-)
+# check for django settings that override!
+check_settings('IMAGEPLUGIN', sys.modules[__name__], settings)
 
-BACKGROUND_CHOICES = getattr(
-    settings,
-    'IMAGEPLUGIN_BACKGROUND_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
-
-COLOR_CHOICES = getattr(
-    settings,
-    'IMAGEPLUGIN_COLOR_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})
