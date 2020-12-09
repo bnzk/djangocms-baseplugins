@@ -48,4 +48,3 @@ FIELDSETS = get_baseplugin_fieldset(**{
     'content': CONTENT_FIELDS,
     'advanced': ADVANCED_FIELDS,
 })
-

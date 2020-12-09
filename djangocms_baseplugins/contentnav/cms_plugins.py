@@ -31,4 +31,3 @@ class ContentNavPlugin(BasePluginMixin, CMSPluginBase):
     fieldsets = conf.FIELDSETS
     allow_children = conf.ALLOW_CHILDREN
     child_classes = conf.CHILD_CLASSES
-
