@@ -3,7 +3,7 @@ from cms.plugin_pool import plugin_pool
 
 from . import conf
 from .models import PluginTemplate
-from ..factory import baseplugin_classfactory
+from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
 
 
 PluginTemplatePlugin = baseplugin_classfactory(PluginTemplate, conf)
