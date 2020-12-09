@@ -8,16 +8,6 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
 
-# coding: utf-8
-from __future__ import unicode_literals
-
-from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
-
-from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
-
-
 # basics
 NAME = getattr(
     settings, 'PLUGINTEMPLATEPLUGIN_NAME', _('PluginTemplate')
