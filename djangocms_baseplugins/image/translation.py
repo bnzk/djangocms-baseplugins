@@ -15,5 +15,4 @@ class ImageTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('image')
     translator.register(Image, ImageTranslationOptions)
