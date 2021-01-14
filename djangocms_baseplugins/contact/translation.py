@@ -15,5 +15,4 @@ class ContactTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('contact')
     translator.register(Contact, ContactTranslationOptions)

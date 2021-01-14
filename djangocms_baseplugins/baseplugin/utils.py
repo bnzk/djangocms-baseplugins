@@ -110,12 +110,24 @@ def get_baseplugin_widgets(conf):
 
 
 def check_in_migration_modules(app_name):
+    # TODO: legacy warning
+    check_migration_modules_needed(app_name)
+
+
+def check_migration_modules_needed(app_name):
     modules = getattr(settings, 'MIGRATION_MODULES', [])
-    if app_name not in modules:
-        raise ImproperlyConfigured(
-            'You need "{}" in settings.MIGRATION_MODULES, or you cannot translat plugins!'
-            .format(app_name)
-        )
+    needs_check = False
+    if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
+        needs_check = True
+    if getattr(settings, 'DJANGOCMS_BASEPLUGINS_BASEMODEL', None):
+        needs_check = True
+    if needs_check:
+        if app_name not in modules:
+            raise ImproperlyConfigured(
+                'You need "{}" in settings.MIGRATION_MODULES, '
+                'or you cannot translate plugins, or have a custom abstract baseplugin!'
+                .format(app_name)
+            )
 
 
 def truncate_richtext_content(richtext):

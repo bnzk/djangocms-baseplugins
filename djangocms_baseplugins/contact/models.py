@@ -12,6 +12,9 @@ from requests import ConnectionError
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 
+check_migration_modules_needed('contact')
+
+
 @python_2_unicode_compatible
 class ContactBase(AbstractBasePlugin):
     website = models.URLField(_("Website"), blank=True, default='')

@@ -156,6 +156,12 @@ class BasePluginTestCase(object):
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'background-value'), force_text(html))
         self.assertIn('plugin-{}_anchor-{}'.format(plugin_name, 'anchor-value'), force_text(html))
 
+    def translated_improperly_configured(self):
+        return
+
+    def custom_baseclass_improperly_configured(self):
+        return
+
     def test_form_choices_and_other_settings_respected(self):
         """
         :return:

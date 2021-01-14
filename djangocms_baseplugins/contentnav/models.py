@@ -9,6 +9,9 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 
+check_migration_modules_needed('contentnav')
+
+
 @python_2_unicode_compatible
 class ContentNavBase(AbstractBasePlugin):
     menu_depth = models.PositiveIntegerField(

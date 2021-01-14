@@ -7,6 +7,9 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 
 
+check_migration_modules_needed('column')
+
+
 class ColumnBase(AbstractBasePlugin):
     width = models.CharField(_('width'), max_length=32, default='', blank=True)
 

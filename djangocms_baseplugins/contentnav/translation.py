@@ -15,5 +15,4 @@ class ContentNavPluginTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('contentnav')
     translator.register(ContentNav, ContentNavPluginTranslationOptions)

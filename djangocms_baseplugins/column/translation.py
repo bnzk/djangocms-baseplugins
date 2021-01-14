@@ -15,6 +15,5 @@ class ColumnPluginTranslationOptions(TranslationOptions):
     fields = translation_fields
 
 
-if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('column')
+if getattr(defaults, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
     translator.register(Column, ColumnPluginTranslationOptions)
