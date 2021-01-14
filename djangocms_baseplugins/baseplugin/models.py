@@ -11,7 +11,7 @@ if getattr(settings, 'DJANGOCMS_BASEPLUGINS_BASEMODEL', None):
         module = importlib.import_module(module_name)
         my_class = getattr(module, class_name)
         AbstractBasePlugin = my_class
-    except (ImportError, ValueError):
+    except (ImportError, ValueError, AttributeError):
         # import error
         raise ImproperlyConfigured(
             'Could not import "{}" that is defined in settings.DJANGOCMS_BASEPLUGINS_BASEMODEL!'

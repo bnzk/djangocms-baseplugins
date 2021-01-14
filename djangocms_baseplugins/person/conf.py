@@ -55,6 +55,8 @@ PERSONSECTIONPLUGIN_COLOR_CHOICES = getattr(
     )
 )
 
+
+# PERSON
 PERSONPLUGIN_TRANSLATED_FIELDS = getattr(
     settings, 'PERSONPLUGIN_TRANSLATED_FIELDS',
     ['salutation', 'function', 'department', 'body', ]
@@ -88,7 +90,7 @@ PERSONPLUGIN_FIELDSETS = getattr(
 
 PERSONPLUGIN_LAYOUT_CHOICES = getattr(
     settings,
-    'PERSONPLUGIN__LAYOUT_CHOICES',
+    'PERSONPLUGIN_LAYOUT_CHOICES',
     (
         ('full', _("Full Size"),),
         ('content', _("Content Sized"),),
@@ -103,7 +105,7 @@ PERSONPLUGIN_BACKGROUND_CHOICES = getattr(
     )
 )
 
-PERSONPLUGIN__COLOR_CHOICES = getattr(
+PERSONPLUGIN_COLOR_CHOICES = getattr(
     settings,
     'PERSONPLUGIN_COLOR_CHOICES',
     (

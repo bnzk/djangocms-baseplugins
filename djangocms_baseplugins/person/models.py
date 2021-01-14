@@ -5,11 +5,15 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin import defaults
+from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
 
 if defaults.USE_FILER_ADDONS:
     from filer_addons.filer_gui.fields import FilerImageField
 else:
     from filer.fields.image import FilerImageField
+
+
+check_migration_modules_needed('person')
 
 
 @python_2_unicode_compatible

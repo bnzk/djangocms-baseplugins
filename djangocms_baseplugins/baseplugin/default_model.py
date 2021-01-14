@@ -76,7 +76,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
         if getattr(self, 'to_string'):
             return self.add_hidden_flag(self.to_string())
         else:
-            return super(self.AbstractBasePlugin).__str__()
+            return super().__str__()
 
     # TODO: rename to is_published?
     def is_visible(self):
@@ -172,7 +172,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     @property
     def html_wrapper_attributes_dict(self):
         attrs = getattr(
-            super(AbstractBasePlugin, self),
+            super(),
             'wrapper_attributes_dict',
             {}
         )

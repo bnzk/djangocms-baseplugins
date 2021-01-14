@@ -15,5 +15,4 @@ class IframeTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('iframe')
     translator.register(Iframe, IframeTranslationOptions)

@@ -1,27 +1,36 @@
 # coding: utf-8
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
+from django import forms
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults as plugin_defaults, defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, get_baseplugin_widgets
 from .models import LoginForm
+from . import conf
+
+
+class LoginFormPluginForm(forms.ModelForm):
+    class Meta:
+        model = LoginForm
+        exclude = []
+        widgets = get_baseplugin_widgets(conf)
 
 
 class LoginFormPlugin(BasePluginMixin, CMSPluginBase):
+    form = LoginFormPluginForm
     model = LoginForm
-    module = defaults.ADVANCED_LABEL
-    name = _(u'Login Formular')
+    module = conf.MODULE
+    name = conf.NAME
     render_template = "djangocms_baseplugins/loginform.html"
-    fieldsets = get_baseplugin_fieldset(**{
-        'design': [],
-        'content': [],
-        'advanced': plugin_defaults.ADVANCED_FIELDS,
-    })
+    fieldsets = conf.FIELDSETS
     cache = False
+    allow_children = conf.ALLOW_CHILDREN
+    child_classes = conf.CHILD_CLASSES
+    require_parent = conf.REQUIRE_PARENT
 
     def render(self, context, instance, placeholder):
         context = super(LoginFormPlugin, self).render(context, instance, placeholder)

@@ -7,7 +7,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content, sanitize_richtext
 from djangocms_baseplugins.image.models import ImagePluginBase
+from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
 from . import conf
+
+
+check_migration_modules_needed('textimage')
 
 
 @python_2_unicode_compatible

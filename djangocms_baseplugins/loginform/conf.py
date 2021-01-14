@@ -1,30 +1,44 @@
-# coding: utf-8
-from __future__ import unicode_literals
+import sys
 
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
-LOGINFORMPLUGIN_TRANSLATED_FIELDS = getattr(
-    settings, 'LOGINFORMPLUGIN_TRANSLATED_FIELDS',
-    []
+# basics
+NAME = _('Login Form')
+MODULE = defaults.ADVANCED_LABEL
+
+# parent / children
+ALLOW_CHILDREN = False
+CHILD_CLASSES = []
+REQUIRE_PARENT = False
+
+TRANSLATED_FIELDS = []
+DESIGN_FIELDS = []
+CONTENT_FIELDS = []
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
+
+LAYOUT_CHOICES = (
+    ('full', _("Full Size"),),
+    ('content', _("Content Sized"),),
 )
 
-LOGINFORMPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'LOGINFORMPLUGIN_DESIGN_FIELDS', []
+BACKGROUND_CHOICES = (
+    ('default', _("Default"),),
 )
 
-LOGINFORMPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'LOGINFORMPLUGIN_CONTENT_FIELDS', []
+COLOR_CHOICES = (
+    ('default', _("Default"),),
 )
 
-LOGINFORMPLUGIN_FIELDSETS = getattr(
-    settings,
-    'LOGINFORMPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'design': LOGINFORMPLUGIN_DESIGN_FIELDS,
-        'content': LOGINFORMPLUGIN_CONTENT_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
-)
+# check for django settings that override!
+check_settings('LOGINFORMPLUGIN', sys.modules[__name__], settings)
+
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

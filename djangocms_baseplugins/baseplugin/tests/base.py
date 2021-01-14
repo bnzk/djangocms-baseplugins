@@ -6,6 +6,7 @@ from cms.api import add_plugin, create_page
 from cms.models import Placeholder
 from cms.plugin_rendering import ContentRenderer
 from django.contrib.auth.models import User
+from django.core.exceptions import ImproperlyConfigured
 from django.test import RequestFactory, Client
 from django.utils.encoding import force_text
 
@@ -22,6 +23,10 @@ class BasePluginTestCase(object):
         return super().__init__(*args, **kwargs)
 
     def setUp(self):
+        # reload models (custom base plugin model!)
+        abstract_models = importlib.import_module('djangocms_baseplugins.baseplugin.models')
+        importlib.reload(abstract_models)
+        # reload plugin conf/settings
         self._reload_plugins_settings()
         # prepare
         self.username = "test_admin"
@@ -156,11 +161,37 @@ class BasePluginTestCase(object):
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'background-value'), force_text(html))
         self.assertIn('plugin-{}_anchor-{}'.format(plugin_name, 'anchor-value'), force_text(html))
 
-    def translated_improperly_configured(self):
+    def test_translated_improperly_configured(self):
         return
+        # settings_kwargs = {
+        #     'DJANGOCMS_BASEPLUGINS_BASEMODEL': 'test_app.models.CustomAbstractBasePlugin',
+        # }
+        # with self.settings(**settings_kwargs):
+        #     baseplugin_models = importlib.import_module('djangocms_baseplugins.image.models')
+        #     importlib.reload(baseplugin_models)
 
-    def custom_baseclass_improperly_configured(self):
-        return
+    def test_custom_baseclass_improperly_configured(self):
+        if getattr(self, 'plugin_path', None):
+            settings_kwargs = {
+                'DJANGOCMS_BASEPLUGINS_BASEMODEL': 'test_app.models.CustomAbstractBasePlugin',
+            }
+            with self.settings(**settings_kwargs):
+                # check if our models raises, as we are not in MIGRATION_MODULES
+                models_path = '{}.models'.format(self.plugin_path)
+                baseplugin_models = importlib.import_module(models_path)
+                # throws = False
+                # try:
+                #     importlib.reload(baseplugin_models)
+                # except ImproperlyConfigured:
+                #     throws = True
+                # self.assertEqual(throws, True)
+                # check message!
+                with self.assertRaises(ImproperlyConfigured) as exception:
+                    importlib.reload(baseplugin_models)
+                exception_message = str(exception.exception)
+                module_path, plugin_module_name = self.plugin_path.rsplit('.', 1)
+                module_name_contain_search_string = '"{}" in settings.MIGRATION_MODULES'.format(plugin_module_name)
+                self.assertEquals(True, module_name_contain_search_string in exception_message)
 
     def test_form_choices_and_other_settings_respected(self):
         """

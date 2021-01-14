@@ -18,7 +18,6 @@ class DownloadSectionTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('download')
     translator.register(DownloadSection, DownloadSectionTranslationOptions)
 
 
@@ -33,5 +32,4 @@ class DownloadTranslationOptions(TranslationOptions):
 
 
 if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
-    check_in_migration_modules('download')
     translator.register(Download, DownloadTranslationOptions)
