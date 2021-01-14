@@ -107,11 +107,10 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     def get_plugin_css_block_class(self):
         return 'plugin-{}'.format(self.__class__.__name__.lower())
 
-    # deprecate in 1.0!
+    # deprecated
     def get_css_classes(self):
-        return self.css_classes
+        return self.css_classes()
 
-    @property
     def css_classes(self):
         plugin_block_class = self.get_plugin_css_block_class()
         classes = 'plugin plugin_{} '.format(self.pk)
@@ -149,7 +148,6 @@ class DefaultAbstractBasePlugin(CMSPlugin):
             return "content-{}".format(slugify(self.title))
         return "content-{}".format(self.id)
 
-    @property
     def html_id(self):
         if self.anchor:
             return "{}".format(self.anchor)
@@ -157,15 +155,13 @@ class DefaultAbstractBasePlugin(CMSPlugin):
             return "{}-{}".format(slugify(self.title), self.id)
         return "content-{}".format(self.id)
 
-    @property
     def html_wrapper_attributes(self):
-        attrs = self.html_wrapper_attributes_dict
+        attrs = self.html_wrapper_attributes_dict()
         attrs_out = ''
         for attr_key, attr_value in attrs.items():
             attrs_out += ' {}="{}"'.format(attr_key, attr_value)
         return mark_safe(attrs_out)
 
-    @property
     def html_wrapper_attributes_dict(self):
         attrs = getattr(
             super(),
@@ -173,8 +169,8 @@ class DefaultAbstractBasePlugin(CMSPlugin):
             {}
         )
         my_attrs = {
-            'class': self.css_classes,
-            'id': self.html_id,
+            'class': self.css_classes(),
+            'id': self.html_id(),
         }
         attrs.update(my_attrs)
         return attrs
