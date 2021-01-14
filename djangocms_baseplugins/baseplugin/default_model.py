@@ -69,7 +69,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     #     return u'%s %s' % (self.__class__, self.get_hidden_flag())
 
     def __str__(self):
-        if getattr(self, 'to_string'):
+        if getattr(self, 'to_string', None):
             return self.add_hidden_flag(self.to_string())
         else:
             return super().__str__()
