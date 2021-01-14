@@ -1,22 +1,16 @@
-# coding: utf-8
-from __future__ import unicode_literals
-
 import time
 
 from ckeditor.fields import RichTextField
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 from requests import ConnectionError
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
 
-
 check_migration_modules_needed('contact')
 
 
-@python_2_unicode_compatible
 class ContactBase(AbstractBasePlugin):
     website = models.URLField(_("Website"), blank=True, default='')
     email = models.EmailField(_("Email"), blank=True, default='')

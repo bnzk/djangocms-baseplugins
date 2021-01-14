@@ -4,13 +4,11 @@ from cms.plugin_pool import plugin_pool
 from django import forms
 from django.contrib.auth import login
 from django.contrib.auth.forms import AuthenticationForm
-from django.utils.translation import ugettext_lazy as _
 
-from djangocms_baseplugins.baseplugin import defaults as plugin_defaults, defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, get_baseplugin_widgets
-from .models import LoginForm
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 from . import conf
+from .models import LoginForm
 
 
 class LoginFormPluginForm(forms.ModelForm):

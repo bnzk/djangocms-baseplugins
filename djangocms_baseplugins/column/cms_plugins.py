@@ -10,7 +10,6 @@ from djangocms_baseplugins.baseplugin.utils import get_fields_from_fieldsets, ge
 from . import conf
 from .models import Column
 
-
 # some pre processing
 column_widgets = get_baseplugin_widgets(conf)
 column_widgets.update({

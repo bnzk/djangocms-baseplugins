@@ -2,7 +2,6 @@ from django.conf import settings
 from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from djangocms_baseplugins.gallery.models import Gallery
 from . import conf
 

@@ -1,8 +1,4 @@
-# coding: utf-8
-from __future__ import unicode_literals
-
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
@@ -24,7 +20,6 @@ class VideoModelMixin(object):
     """
     needs "video_url" property, not yet dynamic!
     """
-
     def _set_base_infos(self):
         self._valid_url = False
         if self.video_url:
@@ -129,7 +124,6 @@ class VideoModelMixin(object):
             return url
 
 
-@python_2_unicode_compatible
 class VideoBase(VideoModelMixin, AbstractBasePlugin):
     video_url = models.URLField(
         null=True,

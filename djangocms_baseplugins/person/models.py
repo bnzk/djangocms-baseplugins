@@ -1,6 +1,5 @@
 from ckeditor.fields import RichTextField
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
@@ -16,7 +15,6 @@ else:
 check_migration_modules_needed('person')
 
 
-@python_2_unicode_compatible
 class PersonSectionBase(AbstractBasePlugin):
     class Meta:
         abstract = True
@@ -29,7 +27,6 @@ class PersonSection(PersonSectionBase):
     pass
 
 
-@python_2_unicode_compatible
 class PersonBase(AbstractBasePlugin):
     image = FilerImageField(verbose_name=_("Image"), blank=True, null=True, default=None,
                             on_delete=models.SET_NULL, related_name="%(app_label)s_%(class)s_image")

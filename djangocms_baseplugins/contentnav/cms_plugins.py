@@ -1,6 +1,3 @@
-# coding: utf-8
-from __future__ import unicode_literals
-
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django import forms

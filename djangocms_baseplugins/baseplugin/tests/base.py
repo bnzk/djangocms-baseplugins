@@ -190,8 +190,8 @@ class BasePluginTestCase(object):
                     importlib.reload(baseplugin_models)
                 exception_message = str(exception.exception)
                 module_path, plugin_module_name = self.plugin_path.rsplit('.', 1)
-                module_name_contain_search_string = '"{}" in settings.MIGRATION_MODULES'.format(plugin_module_name)
-                self.assertEquals(True, module_name_contain_search_string in exception_message)
+                exception_part = '"{}" in settings.MIGRATION_MODULES'.format(plugin_module_name)
+                self.assertEquals(True, exception_part in exception_message)
 
     def test_form_choices_and_other_settings_respected(self):
         """

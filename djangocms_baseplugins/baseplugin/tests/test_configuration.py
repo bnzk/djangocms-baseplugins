@@ -1,14 +1,9 @@
 # import importlib
 import importlib
 
-from cms.plugin_pool import plugin_pool
-from cms.api import add_plugin, create_page
-from cms.models import Placeholder
-from cms.plugin_rendering import ContentRenderer
 from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
-from django.test import RequestFactory, Client, TestCase
-from django.utils.encoding import force_text
+from django.test import Client, TestCase
 
 
 class ConfigurationTestCase(TestCase):
@@ -75,4 +70,3 @@ class ConfigurationTestCase(TestCase):
             except ImproperlyConfigured:
                 throws = True
             self.assertEqual(throws, True)
-

@@ -9,11 +9,10 @@
 # from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
 # from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 from cms.plugin_pool import plugin_pool
-from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
 
+from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
 from . import conf
 from .models import Image
-
 
 ImagePlugin = baseplugin_classfactory(Image, conf)
 plugin_pool.register_plugin(ImagePlugin)

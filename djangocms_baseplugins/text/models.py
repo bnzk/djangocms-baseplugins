@@ -1,8 +1,4 @@
-# coding: utf-8
-from __future__ import unicode_literals
-
 from ckeditor.fields import RichTextField
-from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
@@ -14,7 +10,6 @@ from . import conf
 check_migration_modules_needed('text')
 
 
-@python_2_unicode_compatible
 class TextBase(AbstractBasePlugin):
     body = RichTextField(_('Text'), blank=True)
 
