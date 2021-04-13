@@ -56,7 +56,7 @@
                     {% endfor %}
                     <div class="field_wrapper form-submit">
                         <button type="submit"
-                                class="button">{% textblock 'Abschicken' %}</button>
+                                class="button">{% if object.button_label %}{{ object.button_label }}{% else %}{% textblock 'Abschicken' show_key=1 %}{% endif %}</button>
                     </div>
                 </form>
             </div>

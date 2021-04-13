@@ -5,7 +5,6 @@ from django.db import models
 from django.utils.html import format_html, mark_safe, strip_tags
 from django.template.defaultfilters import linebreaksbr
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
-from filer_addons.filer_gui.fields import FilerImageField
 from django.core.mail import EmailMultiAlternatives
 from django.core.serializers.json import DjangoJSONEncoder
 from django.forms.renderers import TemplatesSetting
@@ -13,16 +12,19 @@ from form_designer.models import Form, FormSubmission
 from django import forms
 from textblocks.templatetags.textblock_tags import textblock
 from django.template.loader import render_to_string
-
-# from project import settings
 from django.conf import settings
+
+from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
+
+
+check_migration_modules_needed('cms_form_designer')
 
 
 class FormDefaultValue(models.Model):
     plugin = models.ForeignKey(
         'cms_form_designer.FormDesigner',
         on_delete=models.CASCADE,
-        related_name='default_values'
+        related_name='default_values',
     )
     field_name = models.CharField(
         max_length=64,
@@ -36,9 +38,7 @@ class FormDesigner(AbstractBasePlugin):
 
     form = models.ForeignKey(
         'form_designer.Form',
-        null=True,
         on_delete=models.PROTECT,
-        default=None,
     )
     text_intro = RichTextField(
         default='',
@@ -58,12 +58,14 @@ class FormDesigner(AbstractBasePlugin):
     )
 
     def to_string(self):
-        text = self.form.title
+        if self.form and self.form.title:
+            text = self.form.title
+        else:
+            text = self.title
         return text
 
     def copy_relations(self, old_instance):
         super().copy_relations(old_instance)
-        # self.images.add(*old_instance.images.all())
         for entry in old_instance.default_values.all():
             entry.id = None
             entry.save()
@@ -181,5 +183,9 @@ def form_class(self):
     cls.default_renderer = TemplatesSetting()
     return cls
 
-Form.orig_form_class = Form.form_class
-Form.form_class = form_class
+
+# prevent endless loop when reloading things during tests, or elsewhere
+if not getattr(Form, 'form_class_patched', None):
+    Form.form_class_patched = True
+    Form.orig_form_class = Form.form_class
+    Form.form_class = form_class

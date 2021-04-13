@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
 
+
 TRANSLATED_FIELDS = getattr(
     settings, 'CONTACTPLUGIN_TRANSLATED_FIELDS', []
 )

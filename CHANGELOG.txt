@@ -12,6 +12,13 @@
 - templates with more fine grained blocks: plugin_content, plugin_content_inner, plugin_children
 - many more things I forgot
 
+==== 0.1.0 (2021-04-13) ===
+
+- support django>=2.2 (untested with django 3+)
+- form_designer plugin (cms_form_designer) that integrates the great form_designer package
+- many plugins updated to use new style (factory, conf, etc)
+
+
 ==== 0.0.3 (2019-08-28) ===
 
 - no pypi yet

@@ -107,7 +107,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     def get_plugin_css_block_class(self):
         return 'plugin-{}'.format(self.__class__.__name__.lower())
 
-    # deprecated
+    # deprecated, but why?
     def get_css_classes(self):
         return self.css_classes()
 

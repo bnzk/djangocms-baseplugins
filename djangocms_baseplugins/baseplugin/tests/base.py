@@ -123,10 +123,12 @@ class BasePluginTestCase(object):
 
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')
+        data = self.get_plugin_default_data()
         model_instance = add_plugin(
             placeholder,
             self.plugin_class,
             'en',
+            **data,
         )
         plugin_instance = model_instance.get_plugin_class_instance()
         context = plugin_instance.render({}, model_instance, placeholder)

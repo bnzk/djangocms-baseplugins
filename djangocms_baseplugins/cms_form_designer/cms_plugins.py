@@ -36,8 +36,8 @@ class FormDesignerPluginForm(forms.ModelForm):
 @plugin_pool.register_plugin
 class FormDesignerPlugin(BasePluginMixin, CMSPluginBase):
     model = FormDesigner
-    module = defaults.ADVANCED_LABEL
-    name = _(u'Form')
+    module = conf.MODULE
+    name = conf.NAME
     cache = False
     form = FormDesignerPluginForm
     inlines = (FormDefaultValueInline, )

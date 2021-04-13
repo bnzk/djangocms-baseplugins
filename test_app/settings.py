@@ -66,6 +66,10 @@ STATICFILES_DIRS = (
 #     os.path.join(APP_ROOT, 'tests/test_app/templates'),
 # )
 
+MIGRATION_MODULES = {
+    'textblocks': 'test_app.migrations.textblocks'
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -106,6 +110,7 @@ EXTERNAL_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'django.forms',
 
     'ckeditor',
     'mailprotector',
