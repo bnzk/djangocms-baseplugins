@@ -6,7 +6,7 @@ from . import conf
 from .models import Contact
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.CONTACTPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class ContactTranslationOptions(TranslationOptions):
