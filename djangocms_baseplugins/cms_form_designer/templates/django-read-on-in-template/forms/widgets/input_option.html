@@ -1,0 +1,5 @@
+{# would provide a solutino to control where exactly label and input are placed, for enabling custom styling of checkboxes/radios, with css only #}
+{# it's way too vague, so, let's disable! #}
+
+{% include "django/forms/widgets/input.html" %}
+{% if widget.wrap_label %}<label{% if widget.attrs.id %} for="{{ widget.attrs.id }}"{% endif %}>{% endif %}{% if widget.wrap_label %} {{ widget.label }}</label>{% endif %}

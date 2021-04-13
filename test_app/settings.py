@@ -109,8 +109,10 @@ EXTERNAL_APPS = (
 
     'ckeditor',
     'mailprotector',
+    'form_designer',
     'filer_addons.filer_gui',
     'admin_sort',
+    'textblocks',
 
     'filer',
     'easy_thumbnails',
@@ -150,6 +152,8 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.autocolumns',
     'djangocms_baseplugins.loginform',
     'djangocms_baseplugins.iframe',
+    'djangocms_baseplugins.cms_form_designer',
+    'djangocms_baseplugins.cms_form_designer.admin_overrides',
 )
 
 MIDDLEWARE = (

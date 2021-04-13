@@ -1,0 +1,65 @@
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+{% load cms_tags textblock_tags %}
+{% load form_designer_tags %}
+{% load l10n %}
+
+
+{% block plugin_content %}
+    <section class="{{ object.get_css_classes }}" id="{{ object.html_id }}">
+        {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
+
+{#        {% if not request.current_page.application_urls == 'SendFormDesignerFormAppHook' %}#}
+{#            {% if request.toolbar.edit_mode_active  %}#}
+{#                <h1>#}
+{#                    ACHTUNG / ATTENTION: Die Seite ist noch nicht richtig für das verschicken eines Formulars konfiguriert (F5 Problem)!#}
+{#                    <br><br>#}
+{#                    Kurzhilfe: (Editiermodus einschalten > Seite > Erweiterte Einstellungen > Applikation (auf "Send Form" stellen).#}
+{#                    Speichern. Publizieren. bnzk sagen der Server muss neu gestartet werden.#}
+{#                    <br><br>#}
+{#                    Danke für eure Aufmerksamkeit :-)#}
+{#                </h1>#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+
+        {% if sent %}
+            <div class="plugin-formdesigner__sent">
+                {% textblock 'Formular abgeschickt!' help_text="Formulare" type="text/html" %}
+                <p><a href="./">{% textblock 'Formular erneut anzeigen.' help_text="Formulare" %}</a></p>
+            </div>
+        {% elif already_sent %}
+            <div class="plugin-formdesigner__sent">
+                {% textblock 'Formular bereits abgeschickt!' help_text="Formulare" type="text/html" %}
+                <p><a href="./">{% textblock 'Formular erneut anzeigen.' help_text="Formulare" %}</a></p>
+            </div>
+        {% else %}
+            <div class="plugin-formdesigner__form">
+                <form action="./#{{ object.html_id }}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_content_id" value="{{ object.pk|unlocalize }}">
+                    {% for field in form.hidden_fields %}
+                        {{ field }}
+                    {% endfor %}
+                    {% for field in form.visible_fields %}
+                        <div class="field_wrapper {% if field.errors|length %}field_wrapper_has-errors{% endif %}">
+                            {% if field|form_designer_pre_label_field %}
+                                {{ field }}
+                            {% endif %}
+                            <label for="id_{{ field.name }}">{{ field.label }} {% if field.field.required %}*{% endif %}</label>
+                            {% if not field|form_designer_pre_label_field %}
+                                {{ field }}
+                            {% endif %}
+                            {% if field.help_text %}<span class="field__help-text">{{ field.help_text }}</span>{% endif %}
+                            {% for error in field.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <div class="field_wrapper form-submit">
+                        <button type="submit"
+                                class="button">{% textblock 'Abschicken' %}</button>
+                    </div>
+                </form>
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}
