@@ -15,6 +15,7 @@ class BasePluginTestCase(object):
     plugin_class = None  # TextPlugin
     plugin_settings_prefix = ''  # optional, 'TEXTPLUGIN'
     plugin_path = ''  # 'djangocms_baseplugins.text'
+    plugin_conf = 'conf'  # 'djangocms_baseplugins.text'
     additional_plugins = []
 
     def __init__(self, *args, **kwargs):
@@ -56,7 +57,7 @@ class BasePluginTestCase(object):
                 .format(self.plugin_class.__name__)
             )
         else:
-            conf = importlib.import_module('{}.conf'.format(self.plugin_path))
+            conf = importlib.import_module('{}.{}'.format(self.plugin_path, self.plugin_conf))
             cms_plugins = importlib.import_module('{}.cms_plugins'.format(self.plugin_path))
             importlib.reload(conf)
             plugin_pool.unregister_plugin(self.plugin_class)
@@ -103,7 +104,9 @@ class BasePluginTestCase(object):
             '{}_LAYOUT_CHOICES'.format(self.plugin_settings_prefix): (('0000-layout', 'Nope'),),
             '{}_COLOR_CHOICES'.format(self.plugin_settings_prefix): (('0000-color', 'Nope'),),
             '{}_BACKGROUND_CHOICES'.format(self.plugin_settings_prefix): (('0000-background', 'Nope'),),  # noqa
-            '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', ),  # noqa
+            '{}_SIZE_CHOICES'.format(self.plugin_settings_prefix): (('77-size77', 'Nope'),),  # noqa
+            '{}_CUSTOM_CHOICES'.format(self.plugin_settings_prefix): (('99-custom99', 'Nope'),),  # noqa
+            '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', 'size', 'custom'),  # noqa
             '{}_CONTENT_FIELDS'.format(self.plugin_settings_prefix): ('title', ),
         }
         with self.settings(**settings_kwargs):
@@ -119,7 +122,12 @@ class BasePluginTestCase(object):
             self.assertContains(response, '0000-layout')
             self.assertContains(response, 'id_color')
             self.assertContains(response, '0000-color')
+            self.assertContains(response, 'id_background')
             self.assertContains(response, '0000-background')
+            self.assertContains(response, 'id_size')
+            self.assertContains(response, '77-size77')
+            self.assertContains(response, 'id_custom')
+            self.assertContains(response, '99-custom99')
 
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')
@@ -143,8 +151,10 @@ class BasePluginTestCase(object):
         data = {
             'anchor': 'anchor-value',
             'layout': 'layout-value',
+            'size': 'size-value',
             'color': 'color-value',
             'background': 'background-value',
+            'custom': 'custom-value',
         }
         data.update(self.get_plugin_default_data())
         model_instance = add_plugin(
@@ -159,8 +169,12 @@ class BasePluginTestCase(object):
         self.assertIn('plugin_{}'.format(model_instance.pk), force_text(html))
         self.assertIn('plugin-{}'.format(plugin_name), force_text(html))
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'layout-value'), force_text(html))
+        self.assertIn('plugin-{}_layout-{}'.format(plugin_name, 'layout-value'), force_text(html))
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'color-value'), force_text(html))
         self.assertIn('plugin-{}_{}'.format(plugin_name, 'background-value'), force_text(html))
+        self.assertIn('plugin-{}_{}'.format(plugin_name, 'size-value'), force_text(html))
+        self.assertIn('plugin-{}_size-{}'.format(plugin_name, 'size-value'), force_text(html))
+        self.assertIn('plugin-{}_{}'.format(plugin_name, 'custom-value'), force_text(html))
         self.assertIn('plugin-{}_anchor-{}'.format(plugin_name, 'anchor-value'), force_text(html))
 
     def test_translated_improperly_configured(self):

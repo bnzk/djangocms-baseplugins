@@ -6,7 +6,7 @@ from django.utils.html import strip_tags
 from django.utils.text import Truncator
 from django.utils.translation import ugettext_lazy as _
 
-from . import defaults
+from djangocms_baseplugins.baseplugin import defaults
 
 try:
     import bleach
@@ -24,21 +24,52 @@ except ImportError:
     lxml_clean = None
 
 
+DEFAULT_MINIMAL_SETTINGS = (
+    'NAME',
+    'MODULE',
+    'ALLOW_CHILDREN',
+    'CHILD_CLASSES',
+    'REQUIRE_PARENT',
+    'TRANSLATED_FIELDS',
+    'CONTENT_FIELDS',
+    'DESIGN_FIELDS',
+    'ADVANCED_FIELDS',
+    'LAYOUT_CHOICES',
+    'SIZE_CHOICES',
+    'BACKGROUND_CHOICES',
+    'COLOR_CHOICES',
+    'CUSTOM_CHOICES',
+)
+
+
 def check_settings(prefix, conf, settings):
-    if getattr(settings, prefix, None):
-        pass
+    # Default settings that all plugins have
+    for setting in DEFAULT_MINIMAL_SETTINGS:
+        _check_one_setting(prefix, conf, settings, setting)
+    # Custom settings for a plugin
     for setting in dir(conf):
         # bad way to test if it is a setting!
-        if setting == setting.upper():
-            # old style
-            global_setting_name = '{}_{}'.format(prefix, setting)
-            value = getattr(settings, global_setting_name, None)
-            # new style
-            dict_settings = getattr(settings, prefix, None)
-            if dict_settings:
-                value = dict_settings.get(setting, None)
-            if value:
-                setattr(conf, setting, value)
+        if setting == setting.upper() and not setting in DEFAULT_MINIMAL_SETTINGS:
+            _check_one_setting(prefix, conf, settings, setting)
+    # Labels and help texts
+    for field_setting in ['CONTENT_FIELDS', 'DESIGN_FIELDS', 'ADVANCED_FIELDS']:
+        for field in getattr(conf, field_setting):
+            _check_one_setting(prefix, conf, settings, 'LABEL_{}'.format(field))
+            _check_one_setting(prefix, conf, settings, 'HELP_TEXT_{}'.format(field))
+
+
+def _check_one_setting(prefix, conf, settings, setting):
+    # old style
+    global_setting_name = '{}_{}'.format(prefix, setting)
+    value = getattr(settings, global_setting_name, None)
+    # new style
+    dict_settings = getattr(settings, prefix, None)
+    if dict_settings:
+        value = dict_settings.get(setting, None)
+    if value:
+        setattr(conf, setting, value)
+    elif not getattr(conf, setting, None):
+        setattr(conf, setting, getattr(defaults, setting, None))
 
 
 # DEPRECATED
@@ -84,11 +115,17 @@ def build_baseplugin_widgets(conf, prefix):
         'layout': forms.Select(
             choices=getattr(conf, '{}_LAYOUT_CHOICES'.format(prefix), []),
         ),
+        'size': forms.Select(
+            choices=getattr(conf, '{}_SIZE_CHOICES'.format(prefix), []),
+        ),
         'background': forms.Select(
             choices=getattr(conf, '{}_BACKGROUND_CHOICES'.format(prefix), []),
         ),
         'color': forms.Select(
             choices=getattr(conf, '{}_COLOR_CHOICES'.format(prefix), []),
+        ),
+        'custom': forms.Select(
+            choices=getattr(conf, '{}_CUSTOM_CHOICES'.format(prefix), []),
         ),
     }
     return widgets
@@ -99,11 +136,17 @@ def get_baseplugin_widgets(conf):
         'layout': forms.Select(
             choices=getattr(conf, 'LAYOUT_CHOICES', []),
         ),
+        'size': forms.Select(
+            choices=getattr(conf, 'SIZE_CHOICES', []),
+        ),
         'background': forms.Select(
             choices=getattr(conf, 'BACKGROUND_CHOICES', []),
         ),
         'color': forms.Select(
             choices=getattr(conf, 'COLOR_CHOICES', []),
+        ),
+        'custom': forms.Select(
+            choices=getattr(conf, 'CUSTOM_CHOICES', []),
         ),
     }
     return widgets

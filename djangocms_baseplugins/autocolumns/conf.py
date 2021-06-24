@@ -38,6 +38,13 @@ BACKGROUND_CHOICES = (
 COLOR_CHOICES = (
     ('default', _("Default"),),
 )
+SIZE_CHOICES = (
+    ('default', _("Default"),),
+)
+CUSTOM_CHOICES = (
+    ('default', _("Default"),),
+)
+
 
 # check for django settings that override!
 check_settings('AUTOCOLUMNSPLUGIN', sys.modules[__name__], settings)

@@ -43,6 +43,12 @@ class DefaultAbstractBasePlugin(CMSPlugin):
         blank=True,
         verbose_name=_("Layout"),
     )
+    size = models.CharField(
+        max_length=64,
+        blank=True,
+        default='',
+        verbose_name=_("Size"),
+    )
     background = models.CharField(
         max_length=64,
         blank=True,
@@ -54,6 +60,12 @@ class DefaultAbstractBasePlugin(CMSPlugin):
         blank=True,
         default='',
         verbose_name=_("Color"),
+    )
+    custom = models.CharField(
+        max_length=128,
+        blank=True,
+        default='',
+        verbose_name=_("Custom"),
     )
     # navigation
     anchor = models.SlugField(
@@ -118,8 +130,10 @@ class DefaultAbstractBasePlugin(CMSPlugin):
         if self.anchor:
             classes += ' plugin_{} '.format(self.anchor)
         classes += self._css_modifier_for_field('layout')
-        classes += self._css_modifier_for_field('color')
+        classes += self._css_modifier_for_field('size')
         classes += self._css_modifier_for_field('background')
+        classes += self._css_modifier_for_field('color')
+        classes += self._css_modifier_for_field('custom')
         classes += ' {}_position-{} '.format(plugin_block_class, self.position)
         if self.anchor:
             classes += ' {}_anchor-{} '.format(plugin_block_class, self.anchor)
@@ -135,7 +149,13 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     def _css_modifier_for_field(self, field):
         plugin_block_class = self.get_plugin_css_block_class()
         if getattr(self, field, None):
-            return ' {}_{} '.format(plugin_block_class, getattr(self, field))
+            return ' {}_{} {}_{}-{}'.format(
+                plugin_block_class,
+                getattr(self, field),
+                plugin_block_class,
+                field,
+                getattr(self, field),
+            )
         return ''
 
     def get_anchor(self):

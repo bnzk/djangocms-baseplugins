@@ -39,6 +39,13 @@ BACKGROUND_CHOICES = (
 )
 COLOR_CHOICES = (
 )
+SIZE_CHOICES = (
+    ('default', _("Default"),),
+)
+CUSTOM_CHOICES = (
+    ('default', _("Default"),),
+)
+
 
 # check for django settings that override!
 check_settings('FORMDESIGNERPLUGIN', sys.modules[__name__], settings)

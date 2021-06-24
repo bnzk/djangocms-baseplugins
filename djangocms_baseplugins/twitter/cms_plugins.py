@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_widgets
 from . import conf
 from .models import TweetEmbed
 
@@ -16,16 +16,16 @@ class TweetEmbedPluginForm(forms.ModelForm):
     class Meta:
         model = TweetEmbed
         exclude = []
-        widgets = build_baseplugin_widgets(conf, 'TWEETEMBEDPLUGIN')
+        widgets = get_baseplugin_widgets(conf)
 
 
 class TweetEmbedPlugin(BasePluginMixin, CMSPluginBase):
     model = TweetEmbed
     form = TweetEmbedPluginForm
-    module = defaults.ADVANCED_LABEL
+    module = defaults.SPECIAL_LABEL
     name = _(u'Twitter')
     render_template = "djangocms_baseplugins/tweet_embed.html"
-    fieldsets = conf.TWEETEMBEDPLUGIN_FIELDSETS
+    fieldsets = conf.FIELDSETS
 
     def render(self, context, instance, placeholder):
         context = super(TweetEmbedPlugin, self).render(context, instance, placeholder)

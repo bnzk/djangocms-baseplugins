@@ -1,62 +1,22 @@
+import sys
+
 from django.conf import settings
 
-from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
 # clean when saving? default is to clean on render AND save.
-CLEAN_ON_SAVE = getattr(
-    settings,
-    'TEXTPLUGIN_CLEAN_ON_SAVE',
-    True,
-)
+CLEAN_ON_SAVE = True
 
-TRANSLATED_FIELDS = getattr(
-    settings, 'TEXTPLUGIN_TRANSLATED_FIELDS', [
-        'body',
-    ]
-)
+TRANSLATED_FIELDS = ['body', ]
 
-LAYOUT_CHOICES = getattr(
-    settings, 'TEXTPLUGIN_LAYOUT_CHOICES', (
-        [],
-    )
-)
 
-BACKGROUND_CHOICES = getattr(
-    settings, 'TEXTPLUGIN_BACKGROUND_CHOICES', (
-        [],
-    )
-)
+# check for django settings that override!
+check_settings('TEXTPLUGIN', sys.modules[__name__], settings)
 
-COLOR_CHOICES = getattr(
-    settings, 'TEXTPLUGIN_COLOR_CHOICES', (
-        [],
-    )
-)
-
-CONTENT_FIELDS = getattr(
-    settings, 'TEXTPLUGIN_CONTENT_FIELDS', (
-        'body',
-    )
-)
-
-DESIGN_FIELDS = getattr(
-    settings, 'TEXTPLUGIN_DESIGN_FIELDS', []
-)
-
-FIELDSETS = getattr(
-    settings,
-    'TEXTPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'design': DESIGN_FIELDS,
-        'content': CONTENT_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
-)
-
-REQUIRE_PARENT = getattr(
-    settings,
-    'TEXTPLUGIN_REQUIRE_PARENT',
-    False,
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

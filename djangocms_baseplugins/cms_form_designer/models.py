@@ -39,6 +39,7 @@ class FormDesigner(AbstractBasePlugin):
     form = models.ForeignKey(
         'form_designer.Form',
         on_delete=models.PROTECT,
+        null=True,
     )
     text_intro = RichTextField(
         default='',

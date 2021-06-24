@@ -1,51 +1,51 @@
-# coding: utf-8
-
-# coding: utf-8
-from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from django import forms
-from django.utils.translation import ugettext_lazy as _
 
-from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_widgets
-from . import conf
-from .models import Download
+from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+from . import conf_section
+from . import conf_entry
 from .models import DownloadSection
+from .models import Download
 
 
-class DownloadSectionPluginForm(forms.ModelForm):
-    class Meta:
-        model = DownloadSection
-        exclude = []
-        widgets = build_baseplugin_widgets(conf, 'DOWNLOADSECTIONPLUGIN')
+DownloadSectionPlugin = baseplugin_classfactory(DownloadSection, conf_section)
+plugin_pool.register_plugin(DownloadSectionPlugin)
+
+DownloadPlugin = baseplugin_classfactory(Download, conf_entry)
+plugin_pool.register_plugin(DownloadPlugin)
 
 
-@plugin_pool.register_plugin
-class DownloadSectionPlugin(BasePluginMixin, CMSPluginBase):
-    model = DownloadSection
-    form = DownloadSectionPluginForm
-    module = defaults.CONTAINER_LABEL
-    name = _(u'Downloads')
-    render_template = "djangocms_baseplugins/download_section.html"
-    fieldsets = conf.DOWNLOADSECTIONPLUGIN_FIELDSETS
-    allow_children = True
-    child_classes = conf.DOWNLOADSECTIONPLUGIN_CHILD_CLASSES
-
-
-class DownloadPluginForm(forms.ModelForm):
-    class Meta:
-        model = Download
-        exclude = []
-        widgets = build_baseplugin_widgets(conf, 'DOWNLOADPLUGIN')
-
-
-@plugin_pool.register_plugin
-class DownloadPlugin(BasePluginMixin, CMSPluginBase):
-    model = Download
-    form = DownloadPluginForm
-    # Translators: forget c, this is for alphabetical ordering in cms
-    module = defaults.CONTENT_LABEL
-    name = _(u'Download')
-    render_template = "djangocms_baseplugins/download.html"
-    fieldsets = conf.DOWNLOADPLUGIN_FIELDSETS
+# class DownloadSectionPluginForm(forms.ModelForm):
+#     class Meta:
+#         model = DownloadSection
+#         exclude = []
+#         widgets = get_baseplugin_widgets(conf_section)
+#
+#
+# @plugin_pool.register_plugin
+# class DownloadSectionPlugin(BasePluginMixin, CMSPluginBase):
+#     model = DownloadSection
+#     form = DownloadSectionPluginForm
+#     module = defaults.CONTAINER_LABEL
+#     name = _(u'Downloads')
+#     render_template = "djangocms_baseplugins/download_section.html"
+#     fieldsets = conf.FIELDSETS
+#     allow_children = True
+#     child_classes = conf.CHILD_CLASSES
+#
+#
+# class DownloadPluginForm(forms.ModelForm):
+#     class Meta:
+#         model = Download
+#         exclude = []
+#         widgets = build_baseplugin_widgets(conf_entry, 'DOWNLOADPLUGIN')
+#
+#
+# @plugin_pool.register_plugin
+# class DownloadPlugin(BasePluginMixin, CMSPluginBase):
+#     model = Download
+#     form = DownloadPluginForm
+#     # Translators: forget c, this is for alphabetical ordering in cms
+#     module = defaults.CONTENT_LABEL
+#     name = _(u'Download')
+#     render_template = "djangocms_baseplugins/download.html"
+#     fieldsets = conf_entry.FIELDSETS

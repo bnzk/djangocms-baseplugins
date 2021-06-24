@@ -24,12 +24,16 @@ LAYOUT_CHOICES = (
     ('full', _("Full Size"),),
     ('content', _("Content Sized"),),
 )
-
+SIZE_CHOICES = (
+    ('default', _("Default"),),
+)
 BACKGROUND_CHOICES = (
     ('default', _("Default"),),
 )
-
 COLOR_CHOICES = (
+    ('default', _("Default"),),
+)
+CUSTOM_CHOICES = (
     ('default', _("Default"),),
 )
 

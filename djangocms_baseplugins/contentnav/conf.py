@@ -1,59 +1,21 @@
+import sys
+
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 
-from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
-TRANSLATED_FIELDS = getattr(
-    settings, 'CONTENTNAVPLUGIN_TRANSLATED_FIELDS', [])
 
-CONTENT_FIELDS = getattr(
-    settings,
-    'CONTENTNAVPLUGIN_CONTENT_FIELDS',
-    ['menu_depth', 'cms_page', 'sitemap', ],
-)
+TRANSLATED_FIELDS = []
+CONTENT_FIELDS = ['menu_depth', 'cms_page', 'sitemap', ],
+DESIGN_FIELDS = []
 
-DESIGN_FIELDS = getattr(
-    settings, 'CONTENTNAVPLUGIN_DESIGN_FIELDS', [])
 
-FIELDSETS = getattr(
-    settings,
-    'CONTENTNAVPLUGIN_FIELDSETS ',
-    get_baseplugin_fieldset(**{
-        'content': CONTENT_FIELDS,
-        'design': DESIGN_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
-)
+# check for django settings that override!
+check_settings('CONTENTNAVPLUGIN', sys.modules[__name__], settings)
 
-CHILD_CLASSES = getattr(
-    settings, 'CONTENTNAVPLUGIN_CHILD_CLASSES', []
-)
-
-ALLOW_CHILDREN = getattr(
-    settings, 'CONTENTNAVPLUGIN_ALLOW_CHILDREN', False
-)
-
-LAYOUT_CHOICES = getattr(
-    settings,
-    'CONTENTNAVPLUGIN_LAYOUT_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
-
-BACKGROUND_CHOICES = getattr(
-    settings,
-    'CONTENTNAVPLUGIN_BACKGROUND_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
-
-COLOR_CHOICES = getattr(
-    settings,
-    'CONTENTNAVPLUGIN_COLOR_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

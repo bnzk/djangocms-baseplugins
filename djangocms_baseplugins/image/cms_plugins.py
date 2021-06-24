@@ -14,6 +14,7 @@ from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
 from . import conf
 from .models import Image
 
+
 ImagePlugin = baseplugin_classfactory(Image, conf)
 plugin_pool.register_plugin(ImagePlugin)
 

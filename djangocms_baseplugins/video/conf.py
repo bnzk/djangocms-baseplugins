@@ -1,9 +1,11 @@
 import re
+import sys
 
 from django.conf import settings
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.defaults import ADVANCED_FIELDS
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
 TRANSLATED_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_TRANSLATED_FIELDS', [
@@ -24,12 +26,6 @@ YOUTUBE_MODESTBRANDING = True
 YOUTUBE_COLOR = 'red'  # or white
 VIMEO_COLOR = False  # default blue
 
-LAYOUT_CHOICES = getattr(
-    settings, 'VIDEOPLUGIN_LAYOUT_CHOICES', (
-        [],
-    )
-)
-
 CONTENT_FIELDS = getattr(
     settings, 'VIDEOPLUGIN_CONTENT_FIELDS', (
         'video_url', ('show_related', 'autoplay', 'mute', 'controls', 'infos', 'fullscreen'),
@@ -49,21 +45,19 @@ FIELDSETS = getattr(
         'advanced': defaults.ADVANCED_FIELDS,
     })
 )
+LAYOUT_CHOICES = defaults.LAYOUT_CHOICES
+BACKGROUND_CHOICES = defaults.BACKGROUND_CHOICES
+COLOR_CHOICES = defaults.COLOR_CHOICES
+SIZE_CHOICES = defaults.SIZE_CHOICES
+CUSTOM_CHOICES = defaults.CUSTOM_CHOICES
 
-LAYOUT_CHOICES = getattr(
-    settings, 'VIDEOPLUGIN_LAYOUT_CHOICES', (
-        [],
-    )
-)
 
-BACKGROUND_CHOICES = getattr(
-    settings, 'VIDEOPLUGIN_BACKGROUND_CHOICES', (
-        [],
-    )
-)
+# check for django settings that override!
+check_settings('VIDEOPLUGIN', sys.modules[__name__], settings)
 
-COLOR_CHOICES = getattr(
-    settings, 'VIDEOPLUGIN_COLOR_CHOICES', (
-        [],
-    )
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

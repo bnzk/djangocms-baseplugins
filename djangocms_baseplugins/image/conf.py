@@ -16,22 +16,13 @@ CHILD_CLASSES = []
 REQUIRE_PARENT = False
 
 TRANSLATED_FIELDS = ['caption', 'alt_text', ]
-DESIGN_FIELDS = []
 CONTENT_FIELDS = ['image', 'caption', ]
-ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 LAYOUT_CHOICES = (
     ('full', _("Full Size"),),
     ('content', _("Content Sized"),),
 )
 
-BACKGROUND_CHOICES = (
-    ('default', _("Default"),),
-)
-
-COLOR_CHOICES = (
-    ('default', _("Default"),),
-)
 
 # check for django settings that override!
 check_settings('IMAGEPLUGIN', sys.modules[__name__], settings)
