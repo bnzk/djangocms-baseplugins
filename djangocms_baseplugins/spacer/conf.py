@@ -1,27 +1,16 @@
+import sys
+
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
-TRANSLATED_FIELDS = getattr(
-    settings, 'SPACERPLUGIN_TRANSLATED_FIELDS', [])
 
-CONTENT_FIELDS = getattr(
-    settings, 'SPACERPLUGIN_CONTENT_FIELDS', [])
+NAME = _("Spacer")
 
-DESIGN_FIELDS = getattr(
-    settings, 'SPACERPLUGIN_DESIGN_FIELDS', ['layout'])
+TRANSLATED_FIELDS = []
 
-FIELDSETS = getattr(
-    settings,
-    'SPACERPLUGIN_FIELDSETS ',
-    get_baseplugin_fieldset(**{
-        'content': CONTENT_FIELDS,
-        'design': DESIGN_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
-)
+DESIGN_FIELDS = ['layout']
 
 LAYOUT_CHOICES = getattr(
     settings, 'SPACERPLUGIN_LAYOUT_CHOICES', (
@@ -42,14 +31,13 @@ LAYOUT_CHOICES = getattr(
     )
 )
 
-BACKGROUND_CHOICES = getattr(
-    settings, 'SPACERPLUGIN_BACKGROUND_CHOICES', (
-        ('', ("-")),
-    )
-)
 
-COLOR_CHOICES = getattr(
-    settings, 'SPACERPLUGIN_COLOR_CHOICES', (
-        ('', ("-")),
-    )
-)
+# check for django settings that override!
+check_settings('SPACERPLUGIN', sys.modules[__name__], settings)
+
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

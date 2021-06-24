@@ -9,7 +9,7 @@ from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, chec
 
 # basics
 NAME = _('HTML Block')
-MODULE = defaults.CONTAINER_LABEL
+MODULE = defaults.ADVANCED_LABEL
 
 # parent / children
 ALLOW_CHILDREN = True
@@ -23,21 +23,13 @@ REQUIRE_PARENT = False
 TRANSLATED_FIELDS = ['htmlblock', ]
 CONTENT_FIELDS = ['htmlblock']
 DESIGN_FIELDS = ['layout', ]
-ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 # choices
 LAYOUT_CHOICES = (
     ('full', _("Full Size"),),
     ('content', _("Content Sized"),),
 )
-BACKGROUND_CHOICES = (
-    ('white', _("Weiss"),),
-    ('beige', _("Beige"),),
-    ('grey', _("Grau"),),
-)
-COLOR_CHOICES = (
-    ('default', _("Default"),),
-)
+
 
 # check for django settings that override!
 check_settings('HTMLBLOCKPLUGIN', sys.modules[__name__], settings)
