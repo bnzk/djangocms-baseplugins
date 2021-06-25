@@ -11,6 +11,8 @@ NAME = _("Gallery")
 MODULE = defaults.CONTAINER_LABEL
 
 GALLERYPLUGIN_TRANSLATED_FIELDS = ['description', ]
+
+ALLOW_CHILDREN = True
 CHILD_CLASSES = (
     'ImagePlugin',
     'TextImagePlugin',
