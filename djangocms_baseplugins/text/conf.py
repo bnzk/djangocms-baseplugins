@@ -1,12 +1,15 @@
 import sys
 
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
 # clean when saving? default is to clean on render AND save.
 CLEAN_ON_SAVE = True
+
+NAME = _('Text')
 
 TRANSLATED_FIELDS = ['body', ]
 CONTENT_FIELDS = ['body', ]

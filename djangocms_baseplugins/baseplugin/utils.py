@@ -54,8 +54,8 @@ def check_settings(prefix, conf, settings):
     # Labels and help texts
     for field_setting in ['CONTENT_FIELDS', 'DESIGN_FIELDS', 'ADVANCED_FIELDS']:
         for field in getattr(conf, field_setting):
-            _check_one_setting(prefix, conf, settings, 'LABEL_{}'.format(field))
-            _check_one_setting(prefix, conf, settings, 'HELP_TEXT_{}'.format(field))
+            _check_one_setting(prefix, conf, settings, 'LABEL_{}'.format(field.upper()))
+            _check_one_setting(prefix, conf, settings, 'HELP_TEXT_{}'.format(field.upper()))
 
 
 def _check_one_setting(prefix, conf, settings, setting):
