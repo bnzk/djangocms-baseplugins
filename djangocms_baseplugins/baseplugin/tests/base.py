@@ -88,7 +88,7 @@ class BasePluginTestCase(object):
         self.assertEqual(response.status_code, 200)
 
     # not yet. reloading conf is not enough!?
-    def test_basic_admin_form_choices_overrides(self):
+    def test_basic_admin_form_overrides(self):
         """
         just calling add plugin admin view, check if layout/background/color
         custom choices work
@@ -108,6 +108,7 @@ class BasePluginTestCase(object):
             '{}_CUSTOM_CHOICES'.format(self.plugin_settings_prefix): (('99-custom99', 'Nope'),),  # noqa
             '{}_DESIGN_FIELDS'.format(self.plugin_settings_prefix): ('layout', 'color', 'background', 'size', 'custom'),  # noqa
             '{}_CONTENT_FIELDS'.format(self.plugin_settings_prefix): ('title', ),
+            '{}_LABEL_LAYOUT'.format(self.plugin_settings_prefix): "LabelLayouteYea",
         }
         with self.settings(**settings_kwargs):
             self._reload_plugins_settings()
@@ -128,6 +129,7 @@ class BasePluginTestCase(object):
             self.assertContains(response, '77-size77')
             self.assertContains(response, 'id_custom')
             self.assertContains(response, '99-custom99')
+            self.assertContains(response, 'LabelLayouteYea')
 
     def test_plugin_context(self):
         placeholder = Placeholder.objects.create(slot='test')

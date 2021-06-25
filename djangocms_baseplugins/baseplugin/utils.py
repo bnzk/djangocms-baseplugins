@@ -1,4 +1,6 @@
 # coding: utf-8
+from collections import Iterable
+
 from django import forms
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
@@ -53,7 +55,7 @@ def check_settings(prefix, conf, settings):
             _check_one_setting(prefix, conf, settings, setting)
     # Labels and help texts
     for field_setting in ['CONTENT_FIELDS', 'DESIGN_FIELDS', 'ADVANCED_FIELDS']:
-        for field in getattr(conf, field_setting):
+        for field in flatten(getattr(conf, field_setting)):
             _check_one_setting(prefix, conf, settings, 'LABEL_{}'.format(field.upper()))
             _check_one_setting(prefix, conf, settings, 'HELP_TEXT_{}'.format(field.upper()))
 
@@ -68,8 +70,17 @@ def _check_one_setting(prefix, conf, settings, setting):
         value = dict_settings.get(setting, None)
     if value:
         setattr(conf, setting, value)
-    elif not getattr(conf, setting, None):
+    elif getattr(conf, setting, None) is None:
         setattr(conf, setting, getattr(defaults, setting, None))
+
+
+def flatten(lis):
+    for item in lis:
+        if isinstance(item, Iterable) and not isinstance(item, str):
+            for x in flatten(item):
+                yield x
+        else:
+            yield item
 
 
 # DEPRECATED
