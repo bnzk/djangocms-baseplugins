@@ -1,17 +1,13 @@
 import sys
-from functools import partial
 
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
-# from django import forms
-# from form_designer.default_field_types import FIELD_TYPES as BASE_FIELD_TYPES, disallow_choices
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
 
 # custom stuff, for form designer
-
 TEMPLATESSETTING = True
 CUSTOM_EMAIL_SEND = True
 
@@ -27,23 +23,11 @@ REQUIRE_PARENT = False
 # fields
 TRANSLATED_FIELDS = []
 CONTENT_FIELDS = ['form', 'text_intro', 'button_label', 'text_confirmation', ]
-DESIGN_FIELDS = []
-ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 # choices
 LAYOUT_CHOICES = (
     ('smalller', _("Kompakter"),),
     ('bigger', _("Umfangreicher"),),
-)
-BACKGROUND_CHOICES = (
-)
-COLOR_CHOICES = (
-)
-SIZE_CHOICES = (
-    ('default', _("Default"),),
-)
-CUSTOM_CHOICES = (
-    ('default', _("Default"),),
 )
 
 

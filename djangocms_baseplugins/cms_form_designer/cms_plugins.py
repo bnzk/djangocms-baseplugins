@@ -6,18 +6,12 @@ from cms.plugin_pool import plugin_pool
 from django import forms
 from django.contrib import admin
 from django.utils.text import slugify
-from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from djangocms_baseplugins.baseplugin.utils import build_baseplugin_fieldset, \
-    get_fields_from_fieldsets, build_baseplugin_widgets, get_baseplugin_widgets
-from djangocms_baseplugins.baseplugin import defaults
-# from django.core.mail import send_mail
-# from django.shortcuts import render
 from .utils import check_form_send
 
 from .models import FormDesigner, FormDefaultValue
 from . import conf
-# from django.conf import settings
+from ..baseplugin.factory import baseplugin_formfactory
 
 
 class FormDefaultValueInline(admin.TabularInline):
@@ -25,12 +19,7 @@ class FormDefaultValueInline(admin.TabularInline):
     extra = 1
 
 
-class FormDesignerPluginForm(forms.ModelForm):
-    class Meta:
-        model = FormDesigner
-        fields = get_fields_from_fieldsets(conf.FIELDSETS)
-        # exclude = []
-        widgets = get_baseplugin_widgets(conf)
+FormDesignerPluginForm = baseplugin_formfactory(FormDesigner, conf)
 
 
 @plugin_pool.register_plugin
