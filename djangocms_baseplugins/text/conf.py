@@ -9,7 +9,7 @@ from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugi
 CLEAN_ON_SAVE = True
 
 TRANSLATED_FIELDS = ['body', ]
-
+CONTENT_FIELDS = ['body', ]
 
 # check for django settings that override!
 check_settings('TEXTPLUGIN', sys.modules[__name__], settings)

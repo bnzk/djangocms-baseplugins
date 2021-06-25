@@ -32,12 +32,24 @@ def baseplugin_classfactory(model_class, conf, form=None, more_mixin_classes=lis
 
 def baseplugin_formfactory(model_class, conf):
     # build meta inner class
-    attrs = {
+    fields = get_fields_from_fieldsets(conf.FIELDSETS)
+    meta_attrs = {
         'model': model_class,
-        'fields': get_fields_from_fieldsets(conf.FIELDSETS),
+        'fields': fields,
         'widgets': get_baseplugin_widgets(conf),
+        'labels': {},
+        'help_texts': {},
     }
-    meta = type('Meta', (BasePluginFormMixin, forms.ModelForm, ), attrs)
+    for field in fields:
+        key = 'LABEL_{}'.format(field.upper())
+        value = getattr(conf, key, None)
+        if value:
+            meta_attrs['labels'][key] = value
+        key = 'HELP_TEXT_{}'.format(field.upper())
+        value = getattr(conf, key, None)
+        if value:
+            meta_attrs['help_texts'][key] = value
+    meta = type('Meta', (BasePluginFormMixin, forms.ModelForm, ), meta_attrs)
     # build form class itself
     form_attrs = {
         'Meta': meta,
