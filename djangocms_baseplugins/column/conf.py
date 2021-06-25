@@ -6,6 +6,10 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
+
+NAME = _('Column')
+MODULE = defaults.CONTAINER_LABEL
+
 TRANSLATED_FIELDS = []
 CONTENT_FIELDS = []
 DESIGN_FIELDS = []
