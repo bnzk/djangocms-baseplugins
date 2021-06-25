@@ -6,7 +6,9 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
+NAME = _("Gallery")
 MODULE = defaults.CONTAINER_LABEL
+
 GALLERYPLUGIN_TRANSLATED_FIELDS = ['description', ]
 CHILD_CLASSES = (
     'ImagePlugin',
