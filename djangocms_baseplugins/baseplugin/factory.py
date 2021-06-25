@@ -30,13 +30,15 @@ def baseplugin_classfactory(model_class, conf, form=None, more_mixin_classes=lis
     return cls
 
 
-def baseplugin_formfactory(model_class, conf):
+def baseplugin_formfactory(model_class, conf, additional_widgets={}):
     # build meta inner class
     fields = get_fields_from_fieldsets(conf.FIELDSETS)
+    widgets = get_baseplugin_widgets(conf)
+    widgets.update(additional_widgets)
     meta_attrs = {
         'model': model_class,
         'fields': fields,
-        'widgets': get_baseplugin_widgets(conf),
+        'widgets': widgets,
         'labels': {},
         'help_texts': {},
     }
