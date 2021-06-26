@@ -3,14 +3,14 @@
 
 
 {% block plugin_content %}
-<div class="plugin {{ object.get_css_classes }}">
+<div class="plugin {{ object.css_classes }}">
     <div class="plugin-inlinedownload__inner">
         {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
         <div class="plugin-inlinedownload__children children">
             {% for download_object in object.downloads.all %}
                 {% with object=download_object %}
                     {% block single_download_content %}
-                        <div class="plugin {{ object.get_css_classes }}">
+                        <div class="plugin {{ object.css_classes }}">
                             {% if object.file %}
                                 <a href="{{ object.file.url }}" target="_blank">{{ object.get_link_text }}</a>
                             {% endif %}

@@ -3,7 +3,7 @@
 
 
 {% block plugin_content %}
-<contact class="{{ object.get_css_classes }} plugin-contact_children-{{ object.child_plugin_instances|length }}">
+<contact class="{{ object.css_classes }} plugin-contact_children-{{ object.child_plugin_instances|length }}">
     <div class="plugin-contact__text">
         <h2>{{ object.title }}</h2>
         <p>

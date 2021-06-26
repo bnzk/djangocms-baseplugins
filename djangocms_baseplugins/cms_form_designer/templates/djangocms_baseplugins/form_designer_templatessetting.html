@@ -5,7 +5,7 @@
 
 
 {% block plugin_content %}
-    <section class="{{ object.get_css_classes }}" id="{{ object.html_id }}">
+    <section class="{{ object.css_classes }}" id="{{ object.html_id }}">
         {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
 
 {#        {% if not request.current_page.application_urls == 'SendFormDesignerFormAppHook' %}#}

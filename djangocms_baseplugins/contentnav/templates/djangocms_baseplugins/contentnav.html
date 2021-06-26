@@ -3,7 +3,7 @@
 
 
 {% block plugin_content %}
-    <section class="plugin {{ object.get_css_classes }}">
+    <section class="plugin {{ object.css_classes }}">
         <ul class="contentnav">
             {% with depth=object.menu_depth menu_template="djangocms_baseplugins/contentnav_menu.html" %}
                 {% if object.cms_page %}

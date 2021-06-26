@@ -19,7 +19,7 @@
     {# plugin_title only change title rendering. sub block of inner_content #}
     {# plugin_children automatic children rendering  #}
 
-{#    <section id="{{ object.get_html_id }}" class="{{ object.get_css_classes }} {% block plugin_add_classes %}{% endblock %}">#}
+{#    <section id="{{ object.get_html_id }}" class="{{ object.css_classes }} {% block plugin_add_classes %}{% endblock %}">#}
     <section {{ object.html_wrapper_attributes }}>
 
         {% block plugin_inner_content %}

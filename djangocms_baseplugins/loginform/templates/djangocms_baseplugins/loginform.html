@@ -1,7 +1,7 @@
 {% load cms_tags i18n %}
 
 
-<div class="plugin {{ object.get_css_classes }}">
+<div class="plugin {{ object.css_classes }}">
     {% if instance.title %}<h2>{{ instance.title }}</h2>{% endif %}
     {% if login_form %}
         <form name="login-form-{{ object.id }}" method="post" action="./?next={{ request.GET.next }}#login-form-{{ object.id }}">

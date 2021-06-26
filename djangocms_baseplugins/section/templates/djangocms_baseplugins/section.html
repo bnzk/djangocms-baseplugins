@@ -4,7 +4,7 @@
 
 {% block plugin_content %}
     <section
-            class="{{ object.get_css_classes }} plugin-section_children-{{ object.child_plugin_instances|length }}
+            class="{{ object.css_classes }} plugin-section_children-{{ object.child_plugin_instances|length }}
     plugin-section_deprecated-from-here plugin plugin_section section_columns_{{ object.child_plugin_instances|length }} {{ object.layout }} {{ object.background }} {{ object.color }}">
         <div class="children">
             {% for plugin in object.child_plugin_instances %}

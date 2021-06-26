@@ -3,7 +3,7 @@
 
 
 {% block plugin_content %}
-<section class="plugin {{ object.get_css_classes }} plugin_personsection {{ object.layout }} {{ object.background }} {{ object.color }}">
+<section class="plugin {{ object.css_classes }} plugin_personsection {{ object.layout }} {{ object.background }} {{ object.color }}">
     {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
     <div class="children">
         {% for plugin in object.child_plugin_instances %}

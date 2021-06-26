@@ -2,7 +2,7 @@
 
 
 {% block plugin_content %}
-<div class="plugin {{ object.get_css_classes }} plugin_video {{ object.layout }} {{ object.background }} {{ object.color }}">
+<div class="plugin {{ object.css_classes }} plugin_video {{ object.layout }} {{ object.background }} {{ object.color }}">
     <div class="plugin-video__video-container">
         <iframe src="{{ object.embed_url }}" {% if object.fullscreen %}allowfullscreen{% endif %} frameborder="0"></iframe>
     </div>

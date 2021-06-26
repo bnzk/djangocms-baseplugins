@@ -19,7 +19,7 @@ class ColumnBase(AbstractBasePlugin):
         text = str(_("Column"))
         return text
 
-    def get_css_classes(self):
+    def css_classes(self):
         classes = super(ColumnBase, self).css_classes()
         classes += self._css_modifier_for_field('width')
         return classes

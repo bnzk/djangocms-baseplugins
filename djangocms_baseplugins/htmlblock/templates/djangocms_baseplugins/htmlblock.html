@@ -6,7 +6,7 @@
 {% if object.htmlblock %}
     <div
         id="{{ object.get_anchor }}"
-        class="plugin {{ object.get_css_classes }} plugin_htmlblock"
+        class="plugin {{ object.css_classes }} plugin_htmlblock"
     >
         <div class="htmlblock_wrap">
             {{ object.htmlblock|safe }}
