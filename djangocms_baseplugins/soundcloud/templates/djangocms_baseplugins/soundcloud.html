@@ -1,0 +1,15 @@
+{% extends "djangocms_baseplugins/baseplugin.html" %}
+{% load cms_tags %}
+
+
+{% block plugin_content %}
+    <section class="{{ object.css_classes }} plugin-autocolumns_children-{{ object.child_plugin_instances|length }}">
+    asdvasdva
+        {% if object.title %}<h2>{{ object.title }}</h2>{% endif %}
+        <div class="children">
+            {% for plugin in object.child_plugin_instances %}
+                {% render_plugin plugin %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

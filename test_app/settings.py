@@ -156,6 +156,7 @@ INTERNAL_APPS = (
     'djangocms_baseplugins.contentnav',
     'djangocms_baseplugins.autocolumns',
     'djangocms_baseplugins.loginform',
+    'djangocms_baseplugins.soundcloud',
     'djangocms_baseplugins.iframe',
     'djangocms_baseplugins.cms_form_designer',
     'djangocms_baseplugins.cms_form_designer.admin_overrides',
