@@ -1,3 +1,4 @@
+import requests
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -24,3 +25,17 @@ class Soundcloud(AbstractBasePlugin):
 
     def to_string(self):
         return "Soundcloud ({})".format(self.soundcloud_url)
+
+    def get_oembed(self):
+        """
+        docs: https://developers.soundcloud.com/docs/oembed#introduction
+        """
+        url = 'https://soundcloud.com/oembed'
+        params = {
+            'format': 'json',
+            'url': self.soundcloud_url,
+            'maxheight': '166',
+        }
+        response = requests.get(url, params=params)
+        print(response.json())
+        return response.json()
