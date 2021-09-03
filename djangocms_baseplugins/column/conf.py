@@ -18,19 +18,19 @@ ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 WIDTH_CHOICES = defaults.WIDTH_CHOICES
 
 CHILD_CLASSES = (
-        'TextPlugin',
-        'TextImagePlugin',
-        'ImagePlugin',
-        'VideoPlugin',
-        'TweetEmbedPlugin',
-        'HtmlBlockPlugin',
-    )
+    'TextPlugin',
+    'TextImagePlugin',
+    'ImagePlugin',
+    'VideoPlugin',
+    'TweetEmbedPlugin',
+    'HtmlBlockPlugin',
+)
 
 ALLOW_CHILDREN = True
 REQUIRE_PARENT = True
 
 LAYOUT_CHOICES = (
-    ('2whatwhat', _("2 Spalten"),),
+    ('2', _("2 Spalten"),),
     ('3', _("3 Spalten"),),
     ('4', _("4 Spalten"),),
 )
