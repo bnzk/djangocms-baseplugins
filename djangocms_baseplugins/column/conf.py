@@ -27,6 +27,7 @@ CHILD_CLASSES = (
     )
 
 ALLOW_CHILDREN = True
+REQUIRE_PARENT = True
 
 LAYOUT_CHOICES = (
     ('2whatwhat', _("2 Spalten"),),
