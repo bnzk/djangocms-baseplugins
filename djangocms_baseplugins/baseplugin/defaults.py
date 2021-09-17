@@ -38,7 +38,14 @@ else:
 
 ADVANCED_FIELDS = advanced_fields
 
-ATTR_FIELDS = ('layout', 'size', 'background', 'color', 'custom', )
+ATTR_FIELDS = (
+    'layout',
+    'size',
+    'background',
+    'color',
+    'custom',
+    'width',  # column only
+)
 
 # Some choices defaults
 WIDTH_CHOICES = (
