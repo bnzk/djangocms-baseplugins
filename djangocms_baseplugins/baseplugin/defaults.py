@@ -38,6 +38,8 @@ else:
 
 ADVANCED_FIELDS = advanced_fields
 
+ATTR_FIELDS = ('layout', 'size', 'background', 'color', 'custom', )
+
 # Some choices defaults
 WIDTH_CHOICES = (
     ('', _('Automatic')),

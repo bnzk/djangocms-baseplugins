@@ -4,6 +4,9 @@ from django.utils.translation import ugettext_lazy as _
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
 
+from . import conf
+
+
 check_migration_modules_needed('column')
 
 
@@ -14,10 +17,10 @@ class ColumnBase(AbstractBasePlugin):
         abstract = True
 
     def to_string(self):
+        text = ''
         if self.title:
-            return self.title
-        text = str(_("Column"))
-        return text
+            text = self.title
+        return self.attrs_to_string(text, conf)
 
     def css_classes(self):
         classes = super(ColumnBase, self).css_classes()

@@ -6,6 +6,8 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
 
+from . import defaults
+
 
 class DefaultAbstractBasePlugin(CMSPlugin):
     # text
@@ -95,6 +97,16 @@ class DefaultAbstractBasePlugin(CMSPlugin):
                         self.published_until_date >= datetime.datetime.now():
                     return True
         return False
+
+    def attrs_to_string(self, text, conf):
+        for field in defaults.ATTR_FIELDS:
+            if getattr(self, field, None):
+                choices = getattr(conf, '{}_CHOICES'.format(field.upper()), [])
+                for choice in choices:
+                    if choice[0] == getattr(self, field, None):
+                        text += ', ' if text else ''
+                        text += str(choice[1])
+        return text
 
     def add_hidden_flag(self, text):
         return '{} {}'.format(text, self.get_hidden_flag())
