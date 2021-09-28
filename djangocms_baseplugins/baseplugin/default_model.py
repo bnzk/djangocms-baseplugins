@@ -99,7 +99,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
         return False
 
     def attrs_to_string(self, text, conf):
-        if not conf.TO_STRING_ADD_ATTRS:
+        if not getattr(conf, 'TO_STRING_ADD_ATTRS', None):
             return text
         for field in defaults.ATTR_FIELDS:
             if getattr(self, field, None):
