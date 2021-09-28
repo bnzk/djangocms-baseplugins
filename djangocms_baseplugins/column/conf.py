@@ -9,6 +9,7 @@ from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, chec
 
 NAME = _('Column')
 MODULE = defaults.CONTAINER_LABEL
+TO_STRING_ADD_ATTRS = True
 
 TRANSLATED_FIELDS = []
 CONTENT_FIELDS = []
