@@ -72,6 +72,7 @@ def _check_one_setting(prefix, conf, settings, setting):
     if value:
         setattr(conf, setting, value)
     elif getattr(conf, setting, None) is None:
+        # fallback, when a plugin is not up to date with settings
         setattr(conf, setting, getattr(defaults, setting, None))
 
 

@@ -18,6 +18,7 @@ ADVANCED_LABEL = _('Z - Advanced')
 # basic defaults for plugins
 NAME = 'override, please'
 MODULE = CONTENT_LABEL
+TO_STRING_ADD_ATTRS = False  # show attrs in to_string?
 
 # Fields
 CONTENT_FIELDS = []
