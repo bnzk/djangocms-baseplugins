@@ -1,3 +1,4 @@
+from django.conf import settings
 from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
@@ -12,5 +13,5 @@ class ColumnPluginTranslationOptions(TranslationOptions):
     fields = translation_fields
 
 
-if getattr(defaults, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
+if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
     translator.register(Column, ColumnPluginTranslationOptions)

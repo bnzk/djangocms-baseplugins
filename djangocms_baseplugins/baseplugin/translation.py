@@ -1,14 +1,15 @@
 from cms.models import CMSPlugin
+from django.conf import settings
 from modeltranslation.translator import TranslationOptions, translator
 
-from . import defaults
+# from . import defaults
 
 
 class CMSPluginTranslationOptions(TranslationOptions):
     fields = []
 
 
-if getattr(defaults, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
+if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
     if not True:
         raise ("You need to define {} in your settings.MIGRATION_MODULES,"
                " as you are using modeltranslation.")
