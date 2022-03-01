@@ -17,4 +17,7 @@ if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
     # TODO: try to disable this, with modeltranslation 0.13.
     # works without in 0.12.1, but not in 0.12.2
     # > "model CMSPlugin is not registered for translation"
-    translator.register(CMSPlugin)
+
+    # make it explicit, as probably soon no more needed (>0.15 for example)
+    if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE_REGISTER_CMSPLUGIN', None):
+        translator.register(CMSPlugin)
