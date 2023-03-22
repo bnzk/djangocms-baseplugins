@@ -8,5 +8,4 @@ from djangocms_baseplugins.video.cms_plugins import VideoPlugin
 
 class VideoPluginTests(BasePluginTestCase, TestCase):
     plugin_class = VideoPlugin
-    plugin_settings_prefix = 'VIDEOPLUGIN'
     plugin_path = 'djangocms_baseplugins.video'

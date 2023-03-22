@@ -37,5 +37,7 @@ class Soundcloud(AbstractBasePlugin):
             'maxheight': '166',
         }
         response = requests.get(url, params=params)
+        print(self.soundcloud_url)
+        print(response.content)
         print(response.json())
         return response.json()

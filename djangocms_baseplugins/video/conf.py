@@ -7,11 +7,9 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.defaults import ADVANCED_FIELDS
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
-TRANSLATED_FIELDS = getattr(
-    settings, 'VIDEOPLUGIN_TRANSLATED_FIELDS', [
-        'video_url',
-    ]
-)
+TRANSLATED_FIELDS = [
+    'video_url',
+]
 
 # thx to rouxcode!
 REGEXES = (
@@ -26,25 +24,12 @@ YOUTUBE_MODESTBRANDING = True
 YOUTUBE_COLOR = 'red'  # or white
 VIMEO_COLOR = False  # default blue
 
-CONTENT_FIELDS = getattr(
-    settings, 'VIDEOPLUGIN_CONTENT_FIELDS', (
-        'video_url', ('show_related', 'autoplay', 'mute', 'controls', 'infos', 'fullscreen'),
-    )
+CONTENT_FIELDS = (
+    'video_url', ('show_related', 'autoplay', 'mute', 'controls', 'infos', 'fullscreen'),
 )
 
-DESIGN_FIELDS = getattr(
-    settings, 'VIDEOPLUGIN_DESIGN_FIELDS', []
-)
+DESIGN_FIELDS = []
 
-FIELDSETS = getattr(
-    settings,
-    'VIDEOPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'design': DESIGN_FIELDS,
-        'content': CONTENT_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
-)
 LAYOUT_CHOICES = defaults.LAYOUT_CHOICES
 BACKGROUND_CHOICES = defaults.BACKGROUND_CHOICES
 COLOR_CHOICES = defaults.COLOR_CHOICES

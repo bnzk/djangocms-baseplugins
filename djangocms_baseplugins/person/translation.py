@@ -4,7 +4,7 @@ from modeltranslation.translator import TranslationOptions, translator
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from djangocms_baseplugins.person.models import Person, PersonSection
-from . import conf
+from . import conf_section
 
 translation_fields = defaults.TRANSLATED_FIELDS \
                      + conf.PERSONPLUGIN_TRANSLATED_FIELDS

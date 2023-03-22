@@ -14,7 +14,7 @@ NAME = _('Text')
 TRANSLATED_FIELDS = ['body', ]
 CONTENT_FIELDS = ['body', ]
 
-# check for django settings that override!
+# check for django settings that override, also, not existing settings will be added
 check_settings('TEXTPLUGIN', sys.modules[__name__], settings)
 
 # define fieldsets! important: AFTER check_settings!
