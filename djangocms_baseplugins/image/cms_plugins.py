@@ -3,7 +3,7 @@
 # from cms.plugin_base import CMSPluginBase
 # from cms.plugin_pool import plugin_pool
 # from django import forms
-# from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import gettext_lazy as _
 #
 # from djangocms_baseplugins.baseplugin import defaults
 # from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin

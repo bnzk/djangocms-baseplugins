@@ -4,7 +4,7 @@ from django import forms
 from django.urls import path
 from django.utils import timezone
 from django.utils.text import slugify
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from form_designer.admin import FormAdmin as FormAdminBase
 from form_designer.admin import FormFieldAdmin as FormFieldAdminBase
 from form_designer.admin import FormSubmissionAdmin as FormSubmissionAdminBase

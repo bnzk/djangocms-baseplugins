@@ -1,5 +1,5 @@
 from ckeditor.fields import RichTextField
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content, sanitize_richtext
 from djangocms_baseplugins.image.models import ImagePluginBase
