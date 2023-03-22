@@ -2,10 +2,15 @@ import sys
 
 from django.conf import settings
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
 DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS = []
+
+DESIGN_FIELDS = []
+CONTENT_FIELDS = []
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 ALLOW_CHILDREN = True
 CHILD_CLASSES = ('DownloadPlugin', )

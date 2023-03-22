@@ -1,5 +1,4 @@
-# coding: utf-8
-from collections import Iterable
+from collections.abc import Iterable
 
 from django import forms
 from django.conf import settings
@@ -9,6 +8,7 @@ from django.utils.text import Truncator
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
+
 
 try:
     import bleach
@@ -52,7 +52,7 @@ def check_settings(prefix, conf, settings):
     # Custom settings for a plugin
     for setting in dir(conf):
         # bad way to test if it is a setting!
-        if setting == setting.upper() and not setting in DEFAULT_MINIMAL_SETTINGS:
+        if setting == setting.upper() and setting not in DEFAULT_MINIMAL_SETTINGS:
             _check_one_setting(prefix, conf, settings, setting)
     # Labels and help texts
     for field_setting in ['CONTENT_FIELDS', 'DESIGN_FIELDS', 'ADVANCED_FIELDS']:

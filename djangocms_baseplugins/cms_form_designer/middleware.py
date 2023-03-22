@@ -1,8 +1,4 @@
-from django.conf import settings
-from django import http
 from django.shortcuts import redirect
-from django.utils.encoding import force_text
-from django.contrib.sites.models import Site
 
 
 class FormSentRedirectMiddleware(object):

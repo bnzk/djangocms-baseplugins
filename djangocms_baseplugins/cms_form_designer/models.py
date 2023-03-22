@@ -97,7 +97,10 @@ def send_emails(model_instance, form_instance, request, config, **kwargs):
         from_email=settings.DEFAULT_FROM_EMAIL,
         headers=headers,
     )
-    html = render_to_string('cms_form_designer/emails/recipient.html', {'body': custom_formatted_data(submission, html=True)})
+    html = render_to_string(
+        'cms_form_designer/emails/recipient.html',
+        {'body': custom_formatted_data(submission, html=True)}
+    )
     msg.attach_alternative(html, "text/html")
     msg.send(fail_silently=False)
     # copy
@@ -106,8 +109,14 @@ def send_emails(model_instance, form_instance, request, config, **kwargs):
             textblock("Bestätigung - ", help_text="Formular Email Subject Prefix für sender Kopie"),
             model_instance.title,
         )
-        copy_body = textblock("Vielen Dank! ... ", type="text/html", help_text="Formular Email Body für sender Kopie")
-        copy_html = render_to_string('cms_form_designer/emails/confirmation.html', {'body': copy_body})
+        copy_body = textblock(
+            "Vielen Dank! ... ",
+            type="text/html",
+            help_text="Formular Email Body für sender Kopie"
+        )
+        copy_html = render_to_string(
+            'cms_form_designer/emails/confirmation.html', {'body': copy_body}
+        )
         msg = EmailMultiAlternatives(
             copy_subject,
             strip_tags(copy_body),
@@ -150,12 +159,13 @@ def custom_data_row(title, value, html=False):
 #     return data
 
 
-Form.CONFIG_OPTIONS[1] = ("send_emails",
+Form.CONFIG_OPTIONS[1] = (
+    "send_emails",
     {
         "title": ("Email schicken"),
         "form_fields": [
             ("recipients", forms.CharField(
-            label=("Empfänger Email"),
+                label=("Empfänger Email"),
                 required=True,
                 # validators...
                 help_text="Feld, welches die Email Adresse enthält"

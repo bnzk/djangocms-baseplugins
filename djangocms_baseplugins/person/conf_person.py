@@ -20,6 +20,7 @@ CONTENT_FIELDS = [
 ]
 ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
+
 # check for django settings that override!
 check_settings('PERSONPLUGIN', sys.modules[__name__], settings)
 

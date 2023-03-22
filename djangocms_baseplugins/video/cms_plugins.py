@@ -15,8 +15,8 @@ plugin_pool.register_plugin(VideoPlugin)
 #         model = Video
 #         exclude = []
 #         widgets = get_baseplugin_widgets(conf)
-# 
-# 
+#
+#
 # @plugin_pool.register_plugin
 # class VideoPlugin(BasePluginMixin, CMSPluginBase):
 #     model = Video

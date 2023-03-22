@@ -3,6 +3,7 @@ import sys
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
@@ -12,7 +13,9 @@ CLEAN_ON_SAVE = True
 NAME = _('Text')
 
 TRANSLATED_FIELDS = ['body', ]
+DESIGN_FIELDS = []
 CONTENT_FIELDS = ['body', ]
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 # check for django settings that override, also, not existing settings will be added
 check_settings('TEXTPLUGIN', sys.modules[__name__], settings)

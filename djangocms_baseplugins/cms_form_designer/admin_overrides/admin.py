@@ -47,9 +47,11 @@ class FormSubmissionAdmin(FormSubmissionAdminBase):
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [
-            path('export/',
+            path(
+                'export/',
                 self.admin_site.admin_view(self.export_admin_button),
-                name='form_designer_formsubmission_export_change_list'),
+                name='form_designer_formsubmission_export_change_list'
+            ),
         ]
         return my_urls + urls
 

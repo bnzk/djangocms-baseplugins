@@ -2,12 +2,14 @@ import sys
 
 from django.conf import settings
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
 TRANSLATED_FIELDS = []
 CONTENT_FIELDS = ['menu_depth', 'cms_page', 'sitemap', ],
 DESIGN_FIELDS = []
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 
 # check for django settings that override!

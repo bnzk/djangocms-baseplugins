@@ -5,8 +5,7 @@ from . import conf_section, conf_person
 from .models import Person, PersonSection
 
 
-PersonSectionPluginForm = baseplugin_formfactory(PersonSection, conf_section)
-PersonSectionPlugin = baseplugin_classfactory(PersonSection, conf_section, form=PersonSectionPluginForm)
+PersonSectionPlugin = baseplugin_classfactory(PersonSection, conf_section)
 PersonSectionPlugin.render_template = 'djangocms_baseplugins/person_section.html'
 plugin_pool.register_plugin(PersonSectionPlugin)
 
@@ -14,8 +13,6 @@ plugin_pool.register_plugin(PersonSectionPlugin)
 PersonPluginForm = baseplugin_formfactory(Person, conf_person)
 PersonPlugin = baseplugin_classfactory(Person, conf_person, form=PersonPluginForm)
 plugin_pool.register_plugin(PersonPlugin)
-
-
 
 
 # class PersonSectionPluginForm(forms.ModelForm):

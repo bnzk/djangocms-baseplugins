@@ -9,7 +9,6 @@ SectionPlugin = baseplugin_classfactory(Section, conf)
 plugin_pool.register_plugin(SectionPlugin)
 
 
-
 # # coding: utf-8
 # from cms.plugin_base import CMSPluginBase
 # from cms.plugin_pool import plugin_pool
@@ -18,7 +17,8 @@ plugin_pool.register_plugin(SectionPlugin)
 #
 # from djangocms_baseplugins.baseplugin import defaults
 # from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-# from djangocms_baseplugins.baseplugin.utils import get_fields_from_fieldsets, get_baseplugin_widgets
+# from djangocms_baseplugins.baseplugin.utils import get_fields_from_fieldsets,\
+#     get_baseplugin_widgets
 # from . import conf
 # from .models import Section
 

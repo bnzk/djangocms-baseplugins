@@ -23,6 +23,7 @@ REQUIRE_PARENT = False
 TRANSLATED_FIELDS = ['htmlblock', ]
 CONTENT_FIELDS = ['htmlblock']
 DESIGN_FIELDS = ['layout', ]
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 # choices
 LAYOUT_CHOICES = (

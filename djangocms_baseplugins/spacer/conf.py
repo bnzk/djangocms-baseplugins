@@ -3,15 +3,16 @@ import sys
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
 NAME = _("Spacer")
 
 TRANSLATED_FIELDS = []
-
 DESIGN_FIELDS = ['layout']
-
+CONTENT_FIELDS = []
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 LAYOUT_CHOICES = getattr(
     settings, 'SPACERPLUGIN_LAYOUT_CHOICES', (
         ('remove-one', _("Remove space")),

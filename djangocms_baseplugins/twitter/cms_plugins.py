@@ -1,7 +1,7 @@
 import requests
 from cms.plugin_pool import plugin_pool
 
-from djangocms_baseplugins.baseplugin.factory import baseplugin_formfactory, baseplugin_classfactory
+from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
 from . import conf
 from .models import TweetEmbed
 

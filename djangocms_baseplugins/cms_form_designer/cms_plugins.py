@@ -1,9 +1,7 @@
-# coding: utf-8
 import uuid
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from django import forms
 from django.contrib import admin
 from django.utils.text import slugify
 from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
@@ -58,7 +56,11 @@ class FormDesignerPlugin(BasePluginMixin, CMSPluginBase):
             # if middleware is enabled, this causes the reidrect!
             request.form_designer_sent = instance.pk
             # if not, we dont get a redirect, and can submit the form again, with F5!
-        elif request and request.GET.get('sent', None) and request.GET.get('id', None) == str(instance.pk):
+        elif (
+            request
+            and request.GET.get('sent', None)
+            and request.GET.get('id', None) == str(instance.pk)
+        ):
             # sent via app hook
             context["sent"] = True
         context['form'] = form

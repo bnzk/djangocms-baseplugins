@@ -22,7 +22,9 @@ REQUIRE_PARENT = False
 
 # fields
 TRANSLATED_FIELDS = []
+DESIGN_FIELDS = []
 CONTENT_FIELDS = ['form', 'text_intro', 'button_label', 'text_confirmation', ]
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 # choices
 LAYOUT_CHOICES = (

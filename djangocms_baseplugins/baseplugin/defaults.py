@@ -3,7 +3,6 @@ import sys
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-
 # Filter Addons, Translation
 USE_FILER_ADDONS = True
 TRANSLATE = False
@@ -136,7 +135,7 @@ BLEACH_CONFIG = None
 # set to None for no cleaning on save/render
 # this will be passed as kwargs to the lxml.html.clean.Cleaner constructor
 # explanations: https://lxml.de/api/lxml.html.clean.Cleaner-class.html
-LXML_CLEANER_CONFIG =  {
+LXML_CLEANER_CONFIG = {
     'scripts': True,
     'javascript': True,
     'comments': True,
@@ -169,7 +168,10 @@ def check_settings(prefix, conf, settings):
         if setting == setting.upper():
             _check_one_setting(prefix, conf, settings, setting)
     # Labels and help texts
-    for field in ('title', 'layout', 'size', 'background', 'color', 'custom', 'anchor', 'published', 'in_menu', ):
+    for field in (
+        'title', 'layout', 'size', 'background',
+        'color', 'custom', 'anchor', 'published', 'in_menu',
+    ):
         _check_one_setting(prefix, conf, settings, 'LABEL_{}'.format(field))
         _check_one_setting(prefix, conf, settings, 'HELP_TEXT_{}'.format(field))
 

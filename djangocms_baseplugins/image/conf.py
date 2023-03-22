@@ -16,7 +16,9 @@ CHILD_CLASSES = []
 REQUIRE_PARENT = False
 
 TRANSLATED_FIELDS = ['caption', 'alt_text', ]
+DESIGN_FIELDS = []
 CONTENT_FIELDS = ['image', 'caption', ]
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 LAYOUT_CHOICES = (
     ('full', _("Full Size"),),

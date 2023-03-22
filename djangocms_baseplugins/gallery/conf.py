@@ -10,7 +10,10 @@ from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugi
 NAME = _("Gallery")
 MODULE = defaults.CONTAINER_LABEL
 
-GALLERYPLUGIN_TRANSLATED_FIELDS = ['description', ]
+TRANSLATED_FIELDS = ['description', ]
+DESIGN_FIELDS = []
+CONTENT_FIELDS = []
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 ALLOW_CHILDREN = True
 CHILD_CLASSES = (
@@ -28,5 +31,3 @@ FIELDSETS = get_baseplugin_fieldset(**{
     'content': CONTENT_FIELDS,
     'advanced': ADVANCED_FIELDS,
 })
-
-

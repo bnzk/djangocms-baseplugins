@@ -6,7 +6,7 @@ from djangocms_baseplugins.gallery.models import Gallery
 from . import conf
 
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.GALLERYPLUGIN_TRANSLATED_FIELDS
+                     + conf.TRANSLATED_FIELDS
 
 
 class GalleryTranslationOptions(TranslationOptions):
