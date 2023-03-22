@@ -2,6 +2,7 @@ import sys
 
 from django.conf import settings
 
+from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
 
@@ -15,6 +16,7 @@ CONTENT_FIELDS = [
     'body',
 ]
 DESIGN_FIELDS = []
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 CHILD_CLASSES = ('PersonSection', )
 

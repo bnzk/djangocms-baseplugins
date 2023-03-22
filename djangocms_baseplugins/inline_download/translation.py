@@ -7,14 +7,14 @@ from djangocms_baseplugins.inline_download.models import InlineDownload, InlineD
 from . import conf
 
 translation_fields = defaults.TRANSLATED_FIELDS + \
-                     conf.INLINEDOWNLOADPLUGIN_TRANSLATED_FIELDS
+                     conf.TRANSLATED_FIELDS
 
 
 class InlineDownloadTranslationOptions(TranslationOptions):
     fields = translation_fields
 
 
-translation_fields = conf.INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS
+translation_fields = conf.ENTRY_TRANSLATED_FIELDS
 
 
 class InlineDownloadEntryTranslationOptions(TranslationOptions):

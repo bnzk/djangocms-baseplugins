@@ -1,58 +1,40 @@
-# coding: utf-8
-
-from __future__ import unicode_literals
+import sys
 
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
-INLINEDOWNLOADPLUGIN_TRANSLATED_FIELDS = getattr(
-    settings, 'INLINEDOWNLOADPLUGIN_TRANSLATED_FIELDS', [])
 
-INLINEDOWNLOADPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'INLINEDOWNLOADPLUGIN_CONTENT_FIELDS', [])
+# basics
+NAME = _('Downloads')
+MODULE = defaults.CONTENT_LABEL
 
-INLINEDOWNLOADPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'INLINEDOWNLOADPLUGIN_DESIGN_FIELDS', [])
+# parent / children
+ALLOW_CHILDREN = False
+CHILD_CLASSES = []
+REQUIRE_PARENT = False
 
-INLINEDOWNLOADPLUGIN_FIELDSETS = getattr(
-    settings,
-    'INLINEDOWNLOADPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'content': INLINEDOWNLOADPLUGIN_CONTENT_FIELDS,
-        'design': INLINEDOWNLOADPLUGIN_DESIGN_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
+TRANSLATED_FIELDS = []
+DESIGN_FIELDS = []
+CONTENT_FIELDS = []
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
+LAYOUT_CHOICES = (
+    ('full', _("Full Size"),),
+    ('content', _("Content Sized"),),
 )
 
-INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS = getattr(
-    settings, 'INLINEDOWNLOADPLUGIN_ENTRY_CONTENT_FIELDS', ['file', ('order', 'link_text',)])
+ENTRY_TRANSLATED_FIELDS = ['link_text', 'file']
+ENTRY_CONTENT_FIELDS = ['file', ('order', 'link_text',)]
 
-# allow fallbacks!
-INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS = getattr(
-    settings, 'INLINEDOWNLOADPLUGIN_ENTRY_TRANSLATED_FIELDS', ['link_text', 'file'])
 
-INLINEDOWNLOADPLUGIN_LAYOUT_CHOICES = getattr(
-    settings,
-    'INLINEDOWNLOADPLUGIN_LAYOUT_CHOICES',
-    (
-        ('default', ("Default"),),
-    )
-)
+# check for django settings that override!
+check_settings('INLINEDOWNLOADPLUGIN', sys.modules[__name__], settings)
 
-INLINEDOWNLOADPLUGIN_BACKGROUND_CHOICES = getattr(
-    settings,
-    'INLINEDOWNLOADPLUGIN_BACKGROUND_CHOICES',
-    (
-        ('default', ("Default"),),
-    )
-)
-
-INLINEDOWNLOADPLUGIN_COLOR_CHOICES = getattr(
-    settings,
-    'INLINEDOWNLOADPLUGIN_COLOR_CHOICES',
-    (
-        ('default', ("Default"),),
-    )
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

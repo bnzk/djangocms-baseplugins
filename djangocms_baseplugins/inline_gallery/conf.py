@@ -1,54 +1,38 @@
+import sys
+
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
-INLINEGALLERYPLUGIN_TRANSLATED_FIELDS = getattr(
-    settings, 'INLINEGALLERYPLUGIN_TRANSLATED_FIELDS', ['description', ])
+# basics
+NAME = _('Image')
+MODULE = defaults.CONTENT_LABEL
 
-INLINEGALLERYPLUGIN_CONTENT_FIELDS = getattr(
-    settings, 'INLINEGALLERYPLUGIN_CONTENT_FIELDS', [])
+# parent / children
+ALLOW_CHILDREN = False
+CHILD_CLASSES = []
+REQUIRE_PARENT = False
 
-INLINEGALLERYPLUGIN_DESIGN_FIELDS = getattr(
-    settings, 'INLINEGALLERYPLUGIN_DESIGN_FIELDS', [])
+TRANSLATED_FIELDS = ['description', ]
+DESIGN_FIELDS = ['layout', ]
+CONTENT_FIELDS = []
+IMAGE_CONTENT_FIELDS = ['image', ('order', 'caption',)]
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
-INLINEGALLERYPLUGIN_FIELDSETS = getattr(
-    settings,
-    'INLINEGALLERYPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'content': INLINEGALLERYPLUGIN_CONTENT_FIELDS,
-        'design': INLINEGALLERYPLUGIN_DESIGN_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
-)
-
-INLINEGALLERYPLUGIN_IMAGE_CONTENT_FIELDS = getattr(
-    settings,
-    'INLINEGALLERYPLUGIN_IMAGE_CONTENT_FIELDS',
-    ['image', ('order', 'caption',)]
+LAYOUT_CHOICES = (
+    ('full', _("Full Size"),),
+    ('content', _("Content Sized"),),
 )
 
 
-INLINEGALLERYPLUGIN_LAYOUT_CHOICES = getattr(
-    settings,
-    'INLINEGALLERYPLUGIN_LAYOUT_CHOICES',
-    (
-        ('default', ("Default"),),
-    )
-)
+# check for django settings that override!
+check_settings('INLINEGALLERYPLUGIN', sys.modules[__name__], settings)
 
-INLINEGALLERYPLUGIN_BACKGROUND_CHOICES = getattr(
-    settings,
-    'INLINEGALLERYPLUGIN_BACKGROUND_CHOICES',
-    (
-        ('default', ("Default"),),
-    )
-)
-
-INLINEGALLERYPLUGIN_COLOR_CHOICES = getattr(
-    settings,
-    'INLINEGALLERYPLUGIN_COLOR_CHOICES',
-    (
-        ('default', ("Default"),),
-    )
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

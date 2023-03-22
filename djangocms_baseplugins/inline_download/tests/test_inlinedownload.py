@@ -9,4 +9,3 @@ from djangocms_baseplugins.inline_download.cms_plugins import InlineDownloadPlug
 class InlineDownloadPluginTests(BasePluginTestCase, TestCase):
     plugin_class = InlineDownloadPlugin
     plugin_path = 'djangocms_baseplugins.inline_download'
-    plugin_settings_prefix = 'INLINEDOWNLOADPLUGIN'

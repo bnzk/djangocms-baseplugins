@@ -1,56 +1,37 @@
+import sys
+
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
-TRANSLATED_FIELDS = getattr(
-    settings, 'IFRAMEPLUGIN_TRANSLATED_FIELDS',
-    []
+# basics
+NAME = _('Iframe')
+MODULE = defaults.CONTENT_LABEL
+
+# parent / children
+ALLOW_CHILDREN = False
+CHILD_CLASSES = []
+REQUIRE_PARENT = False
+
+TRANSLATED_FIELDS = []
+CONTENT_FIELDS = ['iframe_url', ]
+DESIGN_FIELDS = ['layout', ]
+ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
+
+LAYOUT_CHOICES = (
+    ('full', _("Full Size"),),
+    ('content', _("Content Sized"),),
 )
 
-DESIGN_FIELDS = getattr(
-    settings, 'IFRAMEPLUGIN_DESIGN_FIELDS', [
-        'layout',
-    ])
 
-CONTENT_FIELDS = getattr(
-    settings, 'IFRAMEPLUGIN_CONTENT_FIELDS', (
-        'iframe_url',
-    )
-)
+# check for django settings that override!
+check_settings('IFRAMEPLUGIN', sys.modules[__name__], settings)
 
-FIELDSETS = getattr(
-    settings,
-    'IFRAMEPLUGIN_FIELDSETS',
-    get_baseplugin_fieldset(**{
-        'design': DESIGN_FIELDS,
-        'content': CONTENT_FIELDS,
-        'advanced': defaults.ADVANCED_FIELDS,
-    })
-)
-
-LAYOUT_CHOICES = getattr(
-    settings,
-    'IFRAMEPLUGIN_LAYOUT_CHOICES',
-    (
-        ('full', _("Full Size"),),
-        ('content', _("Content Sized"),),
-    )
-)
-
-BACKGROUND_CHOICES = getattr(
-    settings,
-    'IFRAMEPLUGIN_BACKGROUND_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
-
-COLOR_CHOICES = getattr(
-    settings,
-    'IFRAMEPLUGIN_COLOR_CHOICES',
-    (
-        ('default', _("Default"),),
-    )
-)
+# define fieldsets! important: AFTER check_settings!
+FIELDSETS = get_baseplugin_fieldset(**{
+    'design': DESIGN_FIELDS,
+    'content': CONTENT_FIELDS,
+    'advanced': ADVANCED_FIELDS,
+})

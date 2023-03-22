@@ -9,4 +9,3 @@ from ..cms_plugins import IframePlugin
 class IframePluginTests(BasePluginTestCase, TestCase):
     plugin_class = IframePlugin
     plugin_path = 'djangocms_baseplugins.iframe'
-    plugin_settings_prefix = 'IFRAMEPLUGIN'
