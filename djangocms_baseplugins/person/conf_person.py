@@ -20,6 +20,8 @@ CONTENT_FIELDS = [
 ]
 ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
+ALLOW_CHILDREN = False
+REQUIRE_PARENT = True
 
 # check for django settings that override!
 check_settings('PERSONPLUGIN', sys.modules[__name__], settings)
