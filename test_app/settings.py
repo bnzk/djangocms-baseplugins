@@ -113,6 +113,7 @@ EXTERNAL_APPS = (
     'django.forms',
 
     'ckeditor',
+    'admin_ordering',
     'mailprotector',
     'form_designer',
     'admin_ordering',

@@ -1,14 +1,9 @@
-from __future__ import unicode_literals
-
-# from django import forms
-# from cms.models import CMSPlugin, Placeholder
-from modeltranslation.admin import TranslationAdmin, TranslationInlineModelAdmin
-
 from djangocms_baseplugins.baseplugin.utils import is_edit_mode
 from . import defaults
 
 
 if defaults.TRANSLATE:
+    from modeltranslation.admin import TranslationAdmin, TranslationInlineModelAdmin
     from djangocms_misc.basic.admin import LanguageTabsMixin
 
     class BasePluginMixinBase(LanguageTabsMixin, TranslationAdmin):
