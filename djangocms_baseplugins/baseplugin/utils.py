@@ -59,12 +59,16 @@ def check_settings(prefix, conf, settings):
         for field in flatten(getattr(conf, field_setting)):
             _check_one_setting(prefix, conf, settings, 'LABEL_{}'.format(field.upper()))
             _check_one_setting(prefix, conf, settings, 'HELP_TEXT_{}'.format(field.upper()))
+            _check_one_setting(prefix, conf, settings, 'WIDGET_{}'.format(field.upper()))
 
 
 def _check_one_setting(prefix, conf, settings, setting):
     # old style
     global_setting_name = '{}_{}'.format(prefix, setting)
     value = getattr(settings, global_setting_name, None)
+    if 'TEXTPLUGIN' in global_setting_name:
+        print(global_setting_name)
+        print(value)
     # new style
     dict_settings = getattr(settings, prefix, None)
     if dict_settings:

@@ -42,15 +42,23 @@ def baseplugin_formfactory(model_class, conf, additional_widgets={}):
         'labels': {},
         'help_texts': {},
     }
+    # customize via settings
     for field in fields:
+        # label
         settings_attr = 'LABEL_{}'.format(field.upper())
         value = getattr(conf, settings_attr, None)
         if value:
             meta_attrs['labels'][field] = value
+        # help_text
         settings_attr = 'HELP_TEXT_{}'.format(field.upper())
         value = getattr(conf, settings_attr, None)
         if value:
             meta_attrs['help_texts'][field] = value
+        # widget
+        settings_attr = 'WIDGET_{}'.format(field.upper())
+        value = getattr(conf, settings_attr, None)
+        if value:
+            widgets[field] = value
     meta = type('Meta', (BasePluginFormMixin, forms.ModelForm, ), meta_attrs)
     # build form class itself
     form_attrs = {

@@ -174,6 +174,7 @@ def check_settings(prefix, conf, settings):
     ):
         _check_one_setting(prefix, conf, settings, 'LABEL_{}'.format(field))
         _check_one_setting(prefix, conf, settings, 'HELP_TEXT_{}'.format(field))
+        _check_one_setting(prefix, conf, settings, 'WIDGET_{}'.format(field))
 
 
 def _check_one_setting(prefix, conf, settings, setting):
