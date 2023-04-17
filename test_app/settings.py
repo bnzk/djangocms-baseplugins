@@ -116,7 +116,6 @@ EXTERNAL_APPS = (
     'admin_ordering',
     'mailprotector',
     'form_designer',
-    'admin_ordering',
     'filer_addons.filer_gui',
     'admin_sort',
     'textblocks',
