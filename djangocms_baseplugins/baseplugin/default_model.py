@@ -135,7 +135,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
 
     # deprecated, but why?
     def get_css_classes(self):
-        print("DEPRECATED: BasePlugin.get css classes()")
+        print("DEPRECATED: BasePlugin.get_css_classes()")  # noqa
         return self.css_classes()
 
     def css_classes(self):
