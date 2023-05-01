@@ -52,7 +52,7 @@ class BasePluginTestCase(object):
         """
         # is it ready for the reload?
         if not self.plugin_path:
-            print(
+            print(  # noqa
                 'not yet reloadable, add plugin_path to testcase for: {}'
                 .format(self.plugin_class.__name__)
             )

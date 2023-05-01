@@ -66,9 +66,9 @@ def _check_one_setting(prefix, conf, settings, setting):
     # old style
     global_setting_name = '{}_{}'.format(prefix, setting)
     value = getattr(settings, global_setting_name, None)
-    if 'TEXTPLUGIN' in global_setting_name:
-        print(global_setting_name)
-        print(value)
+    # if 'TEXTPLUGIN' in global_setting_name:
+    #     print(global_setting_name)
+    #     print(value)
     # new style
     dict_settings = getattr(settings, prefix, None)
     if dict_settings:
@@ -196,6 +196,7 @@ def truncate_richtext_content(richtext):
 
 def sanitize_richtext(text):
     if defaults.LXML_CLEANER_CONFIG:
+        # preferred: lxml_clean
         if lxml_clean:
             lxml_cleaner = lxml_clean.Cleaner(**defaults.LXML_CLEANER_CONFIG)
             fragment = fragment_fromstring("<div>" + text + "</div>")
@@ -205,12 +206,15 @@ def sanitize_richtext(text):
                 # still dont like lxml!
                 text = text[len('<div>'):-len('</div>')]
         elif settings.DEBUG:
-            print("lxml is not installed, but should be, for sanitizing richtext content!")
-    if defaults.BLEACH_CONFIG:
+            msg = "lxml is not installed, but should be, for sanitizing richtext content!"
+            raise ImproperlyConfigured(msg)
+    elif defaults.BLEACH_CONFIG:
+        # bleach only being second priority, it preserves <script> as content.
         if bleach:
             text = bleach.clean(text, **defaults.BLEACH_CONFIG)
         elif settings.DEBUG:
-            print("bleach is not installed, but should be, for sanitizing richtext content!")
+            msg = "bleach is not installed, but should be, for sanitizing richtext content!"
+            raise ImproperlyConfigured(msg)
     return text
 
 
