@@ -25,6 +25,7 @@ DEBUG = True
 
 logging.getLogger("factory").setLevel(logging.WARN)
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 SITE_ID = 1
 TIME_ZONE = 'Europe/Zurich'
 
