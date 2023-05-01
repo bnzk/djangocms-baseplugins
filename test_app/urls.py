@@ -1,7 +1,7 @@
 """URLs to run the tests."""
 from django.conf import settings
 from django.views import static
-from django.conf.urls import include, path, re_path
+from django.urls import include, path, re_path
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 
