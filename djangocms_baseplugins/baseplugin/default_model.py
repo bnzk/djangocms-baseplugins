@@ -47,8 +47,9 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     )
     size = models.CharField(
         max_length=64,
-        blank=True,
+        null=True,
         default='',
+        blank=True,
         verbose_name=_("Size"),
     )
     background = models.CharField(
@@ -65,8 +66,9 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     )
     custom = models.CharField(
         max_length=128,
-        blank=True,
+        null=True,
         default='',
+        blank=True,
         verbose_name=_("Custom"),
     )
     # navigation
