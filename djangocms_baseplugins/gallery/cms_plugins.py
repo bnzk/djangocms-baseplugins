@@ -19,6 +19,8 @@ from .models import Gallery
 
 
 GalleryPlugin = baseplugin_classfactory(Gallery, conf)
+GalleryPluginForm = GalleryPlugin.form
+
 plugin_pool.register_plugin(GalleryPlugin)
 
 
