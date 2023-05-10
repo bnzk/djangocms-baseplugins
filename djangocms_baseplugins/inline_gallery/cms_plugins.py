@@ -1,4 +1,3 @@
-# coding: utf-8
 from admin_sort.admin.inlines import DragAndDropSortableInlineMixin
 from cms.plugin_pool import plugin_pool
 from django.contrib import admin
@@ -28,6 +27,7 @@ class InlineGalleryImageInline(
 
 
 InlineGalleryPluginBase = baseplugin_classfactory(InlineGallery, conf)
+InlineGalleryPluginForm = InlineGalleryPluginBase.form
 
 
 class InlineGalleryPlugin(InlineGalleryPluginBase):
