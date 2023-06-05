@@ -6,6 +6,7 @@ from djangocms_baseplugins.baseplugin.utils import check_in_migration_modules
 from djangocms_baseplugins.person.models import Person, PersonSection
 from . import conf_section, conf_person
 
+
 translation_fields = defaults.TRANSLATED_FIELDS \
                      + conf_person.TRANSLATED_FIELDS
 

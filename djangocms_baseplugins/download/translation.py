@@ -3,12 +3,11 @@ from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.download.models import Download, DownloadSection
-from . import conf
+from . import conf_section, conf_entry
 
 # section
-
 section_translation_fields = defaults.TRANSLATED_FIELDS \
-                             + conf.DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS
+                             + conf_section.DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS
 
 
 class DownloadSectionTranslationOptions(TranslationOptions):
@@ -20,9 +19,8 @@ if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
 
 
 # entry
-
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.DOWNLOADPLUGIN_TRANSLATED_FIELDS
+                     + conf_entry.DOWNLOADPLUGIN_TRANSLATED_FIELDS
 
 
 class DownloadTranslationOptions(TranslationOptions):
