@@ -7,7 +7,7 @@ from . import conf_section, conf_entry
 
 # section
 section_translation_fields = defaults.TRANSLATED_FIELDS \
-                             + conf_section.DOWNLOADSECTIONPLUGIN_TRANSLATED_FIELDS
+                             + conf_section.TRANSLATED_FIELDS
 
 
 class DownloadSectionTranslationOptions(TranslationOptions):
@@ -20,7 +20,7 @@ if getattr(settings, 'DJANGOCMS_BASEPLUGINS_TRANSLATE', None):
 
 # entry
 translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf_entry.DOWNLOADPLUGIN_TRANSLATED_FIELDS
+                     + conf_entry.TRANSLATED_FIELDS
 
 
 class DownloadTranslationOptions(TranslationOptions):
