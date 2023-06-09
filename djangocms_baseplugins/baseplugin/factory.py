@@ -64,4 +64,4 @@ def baseplugin_formfactory(model_class, conf, additional_widgets={}):
     form_attrs = {
         'Meta': meta,
     }
-    return type('{}PluginForm', (forms.ModelForm, ), form_attrs)
+    return type('{}PluginForm', (BasePluginFormMixin, forms.ModelForm, ), form_attrs)

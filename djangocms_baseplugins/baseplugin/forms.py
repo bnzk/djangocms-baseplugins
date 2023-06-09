@@ -9,7 +9,7 @@ class BasePluginFormMixin(object):
     - same for placeholder slots
     """
     def __init__(self, *args, **kwargs):
-        super_result = super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.parent = None
         self.placeholder = None
         if kwargs.get('initial', None):
@@ -23,4 +23,3 @@ class BasePluginFormMixin(object):
                 self.parent, plugin = parent_plugin.get_plugin_instance()
             if self.instance.placeholder:
                 self.placeholder = self.instance.placeholder
-        return super_result

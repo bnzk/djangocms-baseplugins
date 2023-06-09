@@ -5,15 +5,18 @@ from . import conf
 from .models import TextImage
 
 
-def textimage_init(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
-    if not conf.IMAGE_REQUIRED:
-        self.fields['image'].required = False
+TextImagePluginFormBase = baseplugin_formfactory(TextImage, conf)
 
 
-TextImagePluginForm = baseplugin_formfactory(TextImage, conf)
-TextImagePluginForm.__init__ = textimage_init
-TextImagePlugin = baseplugin_classfactory(TextImage, conf)
+class TextImagePluginForm(TextImagePluginFormBase):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if not conf.IMAGE_REQUIRED:
+            self.fields['image'].required = False
+
+
+TextImagePlugin = baseplugin_classfactory(TextImage, conf, form=TextImagePluginForm)
 plugin_pool.register_plugin(TextImagePlugin)
 
 
