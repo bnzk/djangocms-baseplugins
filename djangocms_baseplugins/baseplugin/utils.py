@@ -70,7 +70,7 @@ def _check_one_setting(prefix, conf, settings, setting):
     dict_settings = getattr(settings, prefix, None)
     if dict_settings:
         value = dict_settings.get(setting, None)
-    if not value is None:  # check for None, as [] and False are "falsy"
+    if value is not None:  # check for None, as [] and False are "falsy"
         setattr(conf, setting, value)
     elif getattr(conf, setting, None) is None:
         # fallback, when a plugin is not up to date with settings
