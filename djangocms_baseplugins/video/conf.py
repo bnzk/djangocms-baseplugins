@@ -2,6 +2,7 @@ import re
 import sys
 
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.defaults import ADVANCED_FIELDS

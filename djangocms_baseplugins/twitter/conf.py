@@ -1,10 +1,14 @@
 import sys
 
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
 
+
+NAME = _('Twitter Embed')
+MODULE = defaults.ADVANCED_LABEL
 
 TRANSLATED_FIELDS = ['tweet_url', ]
 
