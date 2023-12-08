@@ -132,10 +132,11 @@ class VideoModelMixin(object):
             # return 'https://i.ytimg.com/vi/%s/0.jpg' % yt_id
             # return 'https://img.youtube.com/vi/%s/maxresdefault.jpg' % yt_id
             return 'https://img.youtube.com/vi/%s/0.jpg' % id
-        if self.video_type == 'youtube':
+        if self.video_type == 'vimeo':
             id = self.video_id
             return 'https://vumbnail.com/%s.jpg' % id
         return ''
+
 
 class VideoBase(VideoModelMixin, AbstractBasePlugin):
     video_url = models.URLField(
