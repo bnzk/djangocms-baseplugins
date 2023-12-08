@@ -7,6 +7,9 @@ from djangocms_baseplugins.baseplugin import defaults
 from djangocms_baseplugins.baseplugin.defaults import ADVANCED_FIELDS
 from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
 
+NAME = _('Video')
+MODULE = defaults.CONTENT_LABEL
+
 TRANSLATED_FIELDS = [
     'video_url',
 ]
