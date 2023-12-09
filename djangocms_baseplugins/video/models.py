@@ -59,19 +59,19 @@ class VideoModelMixin(object):
         if self.video_type == 'youtube':
             # https://developers.google.com/youtube/player_parameters
             rel = ''
-            if not getattr(self, 'show_related', None):
+            if not getattr(self, 'show_related', False):
                 rel = '&rel=0'
             allowfullscreen = ''
-            if not getattr(self, 'fullscreen', None):
+            if not getattr(self, 'fullscreen', True):
                 allowfullscreen = '&fs=0'
             controls = ''
-            if not getattr(self, 'controls', None):
+            if not getattr(self, 'controls', True):
                 controls = '&controls=0'
             autoplay = ''
-            if getattr(self, 'autoplay', None):
+            if getattr(self, 'autoplay', False):
                 autoplay = '&autoplay=1'
             infos = ''
-            if not getattr(self, 'infos', None):
+            if not getattr(self, 'infos', True):
                 infos = '&showinfo=0'
             modestbranding = ''
             if conf.YOUTUBE_MODESTBRANDING:
@@ -95,29 +95,28 @@ class VideoModelMixin(object):
         if self.video_type == 'vimeo':
             # "https://player.vimeo.com/video/193349624?autoplay=1&loop=1&color=ff0b03&portrait=0"
             controls = ''
-            if not getattr(self, 'controls', None):
+            if not getattr(self, 'controls', True):
                 controls = '&controls=0'
             autoplay = ''
-            if getattr(self, 'autoplay', None):
+            if getattr(self, 'autoplay', False):
                 autoplay = '&autoplay=1'
             infos = ''
-            if not getattr(self, 'infos', None):
+            if not getattr(self, 'infos', True):
                 infos = '&title=0&byline=0'
-            modestbranding = ''
-            if conf.YOUTUBE_MODESTBRANDING:
-                modestbranding = '&modestbranding=1'
+            # modestbranding = ''
+            # if conf.YOUTUBE_MODESTBRANDING:
+            #     modestbranding = '&modestbranding=1'
             mute = ''
-            if getattr(self, 'mute', None):
+            if getattr(self, 'mute', False) or autoplay:
                 mute = '&mute=1'
             color = ''
             if conf.VIMEO_COLOR:
                 color = '&color=%s' % conf.VIDEOPLUGIN_VIMEO_COLOR
-            url = 'https://player.vimeo.com/video/%s?a=b&mute=1%s%s%s%s%s%s' % (
+            url = 'https://player.vimeo.com/video/%s?a=b&mute=1%s%s%s%s%s' % (
                 self.video_id,
                 controls,
                 autoplay,
                 infos,
-                modestbranding,
                 color,
                 mute,
             )
