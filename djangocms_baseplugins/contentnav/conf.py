@@ -7,7 +7,7 @@ from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugi
 
 
 TRANSLATED_FIELDS = []
-CONTENT_FIELDS = ['menu_depth', 'cms_page', 'sitemap', ],
+CONTENT_FIELDS = ['menu_depth', 'cms_page', 'sitemap', ]
 DESIGN_FIELDS = []
 ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
