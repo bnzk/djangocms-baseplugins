@@ -108,7 +108,7 @@ class VideoModelMixin(object):
             #     modestbranding = '&modestbranding=1'
             mute = ''
             if getattr(self, 'mute', False) or autoplay:
-                mute = '&mute=1'
+                mute = '&muted=1'
             color = ''
             if conf.VIMEO_COLOR:
                 color = '&color=%s' % conf.VIDEOPLUGIN_VIMEO_COLOR
