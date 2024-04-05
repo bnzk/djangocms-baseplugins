@@ -14,6 +14,11 @@ DESIGN_FIELDS = []
 CONTENT_FIELDS = []
 ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
+ALLOW_CHILDREN = True
+REQUIRE_PARENT = False
+CHILD_CLASSES = (
+    'PersonPlugin',
+)
 
 # check for django settings that override!
 check_settings('PERSONSECTIONPLUGIN', sys.modules[__name__], settings)
