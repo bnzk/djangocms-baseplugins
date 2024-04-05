@@ -12,6 +12,7 @@ MODULE = defaults.SPECIAL_LABEL
 
 TRANSLATED_FIELDS = ['body', ]
 CONTENT_FIELDS = [
+    'title',
     'website',
     'email',
     'phone',
