@@ -1,5 +1,5 @@
 # base
-django<3
+django<4
 django-cms<3.8
 
 # using translation
