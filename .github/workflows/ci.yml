@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         python: [3.8, 3.9, "3.10", "3.11", "3.12"]
@@ -22,7 +22,7 @@ jobs:
         run: tox --version && tox
 
   coverage:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         python: [3.9]
@@ -40,7 +40,7 @@ jobs:
         run: tox -e py39-django32-cms-38-coverage
 
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         python: [3.9]
