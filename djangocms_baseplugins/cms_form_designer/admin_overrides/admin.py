@@ -62,7 +62,7 @@ class FormSubmissionAdmin(FormSubmissionAdminBase):
         """
         return self.export_from_queryset(queryset)
 
-    actions = admin.ModelAdmin.actions + (export_admin_action,)
+    actions = list(admin.ModelAdmin.actions) + [export_admin_action]
 
     def export_admin_button(self, request, *args, **kwargs):
         """
