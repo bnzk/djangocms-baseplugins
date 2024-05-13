@@ -33,7 +33,8 @@ class ConfigurationTestCase(TestCase):
         pass
         # is it ready for the reload?
         # conf = importlib.import_module('{}.conf'.format(self.plugin_path))
-        importlib.import_module("{}.cms_plugins".format(self.plugin_path))
+        # cms_plugins
+        #   = importlib.import_module("{}.cms_plugins".format(self.plugin_path))
         # importlib.reload(conf)
         # plugin_pool.unregister_plugin(self.plugin_class)
         # for additional in self.additional_plugins:
