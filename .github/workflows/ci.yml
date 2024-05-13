@@ -55,4 +55,4 @@ jobs:
       - name: Run pre-commit (with tox)
         # Run tox using the version of Python in `PATH`
         # run: tox -e py${{ matrix.python }}-${{ matrix.django }}
-        run: tox -e py312-django42-cms311-lint
+        run: tox -e py311-django42-cms311-lint
