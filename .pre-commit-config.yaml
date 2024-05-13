@@ -29,6 +29,7 @@ repos:
       - id: debug-statements
       - id: name-tests-test
         args: [--pytest-test-first]
+        exclude: "(baseplugin\/plugin_template\/tests\/plugin.py|baseplugin\/tests\/base.py)$"
   # django-upgrade suggestions
   - repo: https://github.com/adamchainz/django-upgrade
     rev: "1.14.0"
