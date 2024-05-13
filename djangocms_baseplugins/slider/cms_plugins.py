@@ -1,9 +1,9 @@
 from cms.plugin_pool import plugin_pool
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
 from . import conf
 from .models import Slider
-
 
 SliderPlugin = baseplugin_classfactory(Slider, conf)
 plugin_pool.register_plugin(SliderPlugin)

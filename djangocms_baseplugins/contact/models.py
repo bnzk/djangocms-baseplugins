@@ -8,21 +8,20 @@ from requests import ConnectionError
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
 
-
-check_migration_modules_needed('contact')
+check_migration_modules_needed("contact")
 
 
 class ContactBase(AbstractBasePlugin):
-    website = models.URLField(_("Website"), blank=True, default='')
-    email = models.EmailField(_("Email"), blank=True, default='')
-    phone = models.CharField(_("Phone"), max_length=64, blank=True, default='')
-    fax = models.CharField(_("Fax"), max_length=64, blank=True, default='')
-    body = RichTextField(_("Text"), blank=True, default='')
-    address = models.TextField(_('Address'), default='', blank=True)
+    website = models.URLField(_("Website"), blank=True, default="")
+    email = models.EmailField(_("Email"), blank=True, default="")
+    phone = models.CharField(_("Phone"), max_length=64, blank=True, default="")
+    fax = models.CharField(_("Fax"), max_length=64, blank=True, default="")
+    body = RichTextField(_("Text"), blank=True, default="")
+    address = models.TextField(_("Address"), default="", blank=True)
     geocoding_address = models.CharField(
-        _('Address for the map'),
+        _("Address for the map"),
         max_length=64,
-        default='',
+        default="",
         blank=True,
     )
     lat = models.FloatField(blank=True, default=0, null=True)
@@ -40,7 +39,6 @@ class ContactBase(AbstractBasePlugin):
 
 
 class Contact(ContactBase):
-
     def save(self, *args, **kwargs):
         """
         here for now. may end in a metaclass, if we haz time to do this

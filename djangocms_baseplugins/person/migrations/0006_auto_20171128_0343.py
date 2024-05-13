@@ -7,28 +7,36 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('person', '0005_auto_20170704_0746'),
+        ("person", "0005_auto_20170704_0746"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='person',
-            name='published_from_date',
-            field=models.DateTimeField(default=None, null=True, verbose_name='Published from'),
+            model_name="person",
+            name="published_from_date",
+            field=models.DateTimeField(
+                default=None, null=True, verbose_name="Published from"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='published_until_date',
-            field=models.DateTimeField(default=None, null=True, verbose_name='Published until'),
+            model_name="person",
+            name="published_until_date",
+            field=models.DateTimeField(
+                default=None, null=True, verbose_name="Published until"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='published_from_date',
-            field=models.DateTimeField(default=None, null=True, verbose_name='Published from'),
+            model_name="personsection",
+            name="published_from_date",
+            field=models.DateTimeField(
+                default=None, null=True, verbose_name="Published from"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='published_until_date',
-            field=models.DateTimeField(default=None, null=True, verbose_name='Published until'),
+            model_name="personsection",
+            name="published_until_date",
+            field=models.DateTimeField(
+                default=None, null=True, verbose_name="Published until"
+            ),
         ),
     ]

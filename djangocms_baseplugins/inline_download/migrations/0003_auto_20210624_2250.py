@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('inline_download', '0002_auto_20190814_1655'),
+        ("inline_download", "0002_auto_20190814_1655"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='inlinedownload',
-            name='custom',
-            field=models.CharField(blank=True, default='', max_length=128, verbose_name='Custom'),
+            model_name="inlinedownload",
+            name="custom",
+            field=models.CharField(
+                blank=True, default="", max_length=128, verbose_name="Custom"
+            ),
         ),
         migrations.AddField(
-            model_name='inlinedownload',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Size'),
+            model_name="inlinedownload",
+            name="size",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Size"
+            ),
         ),
     ]

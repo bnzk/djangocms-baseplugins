@@ -18,9 +18,9 @@
 from cms.plugin_pool import plugin_pool
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
 from . import conf
 from .models import Soundcloud
-
 
 SoundcloudPlugin = baseplugin_classfactory(Soundcloud, conf)
 plugin_pool.register_plugin(SoundcloudPlugin)

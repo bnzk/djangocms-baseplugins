@@ -19,12 +19,12 @@ class ImageBase(models.Model):
     )
     caption = models.CharField(
         max_length=255,
-        default='',
+        default="",
         blank=True,
     )
     alt_text = models.CharField(
         max_length=255,
-        default='',
+        default="",
         blank=True,
     )
 
@@ -34,11 +34,11 @@ class ImageBase(models.Model):
     def to_string(self):
         text = None
         if self.caption:
-            text = '%s, %s' % (self.caption, self.image)
+            text = "%s, %s" % (self.caption, self.image)
         if self.alt_text:
-            text = '%s, %s' % (self.alt_text, self.image)
+            text = "%s, %s" % (self.alt_text, self.image)
         if not text:
-            text = '%s' % (self.image)
+            text = "%s" % (self.image)
         return text
 
 

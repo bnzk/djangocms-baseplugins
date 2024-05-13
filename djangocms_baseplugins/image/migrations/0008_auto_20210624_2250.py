@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('image', '0007_auto_20180822_1237'),
+        ("image", "0007_auto_20180822_1237"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='image',
-            name='custom',
-            field=models.CharField(blank=True, default='', max_length=128, verbose_name='Custom'),
+            model_name="image",
+            name="custom",
+            field=models.CharField(
+                blank=True, default="", max_length=128, verbose_name="Custom"
+            ),
         ),
         migrations.AddField(
-            model_name='image',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Size'),
+            model_name="image",
+            name="size",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Size"
+            ),
         ),
     ]

@@ -1,18 +1,23 @@
-from django import forms
 from cms.plugin_pool import plugin_pool
+from django import forms
 
-from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory, baseplugin_formfactory
+from djangocms_baseplugins.baseplugin.factory import (
+    baseplugin_classfactory,
+    baseplugin_formfactory,
+)
+
 from . import conf
 from .models import Column
 
-
 additional_widgets = {
-    'width': forms.Select(
-        choices=getattr(conf, 'WIDTH_CHOICES', []),
+    "width": forms.Select(
+        choices=getattr(conf, "WIDTH_CHOICES", []),
     ),
 }
 
-ColumnPluginForm = baseplugin_formfactory(Column, conf, additional_widgets=additional_widgets)
+ColumnPluginForm = baseplugin_formfactory(
+    Column, conf, additional_widgets=additional_widgets
+)
 ColumnPlugin = baseplugin_classfactory(Column, conf, form=ColumnPluginForm)
 plugin_pool.register_plugin(ColumnPlugin)
 

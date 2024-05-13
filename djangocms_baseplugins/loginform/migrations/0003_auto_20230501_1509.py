@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('loginform', '0002_auto_20210624_2250'),
+        ("loginform", "0002_auto_20210624_2250"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='loginform',
-            name='custom',
-            field=models.CharField(blank=True, default='', max_length=128, null=True, verbose_name='Custom'),
+            model_name="loginform",
+            name="custom",
+            field=models.CharField(
+                blank=True, default="", max_length=128, null=True, verbose_name="Custom"
+            ),
         ),
         migrations.AlterField(
-            model_name='loginform',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=64, null=True, verbose_name='Size'),
+            model_name="loginform",
+            name="size",
+            field=models.CharField(
+                blank=True, default="", max_length=64, null=True, verbose_name="Size"
+            ),
         ),
     ]

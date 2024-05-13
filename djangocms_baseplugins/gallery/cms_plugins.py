@@ -14,9 +14,9 @@
 from cms.plugin_pool import plugin_pool
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
 from . import conf
 from .models import Gallery
-
 
 GalleryPlugin = baseplugin_classfactory(Gallery, conf)
 GalleryPluginForm = GalleryPlugin.form

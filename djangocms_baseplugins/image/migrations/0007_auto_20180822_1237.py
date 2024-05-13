@@ -10,17 +10,19 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('image', '0006_auto_20171128_0357'),
+        ("image", "0006_auto_20171128_0357"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='image',
-            name='image',
-            field=filer_addons.filer_gui.fields.FilerImageField(null=True,
-                                                                on_delete=django.db.models.deletion.SET_NULL,
-                                                                related_name='image_image_image',
-                                                                to=settings.FILER_IMAGE_MODEL,
-                                                                verbose_name='Image'),
+            model_name="image",
+            name="image",
+            field=filer_addons.filer_gui.fields.FilerImageField(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="image_image_image",
+                to=settings.FILER_IMAGE_MODEL,
+                verbose_name="Image",
+            ),
         ),
     ]

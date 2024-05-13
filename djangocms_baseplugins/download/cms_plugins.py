@@ -1,11 +1,9 @@
 from cms.plugin_pool import plugin_pool
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
-from . import conf_section
-from . import conf_entry
-from .models import DownloadSection
-from .models import Download
 
+from . import conf_entry, conf_section
+from .models import Download, DownloadSection
 
 DownloadSectionPlugin = baseplugin_classfactory(DownloadSection, conf_section)
 plugin_pool.register_plugin(DownloadSectionPlugin)

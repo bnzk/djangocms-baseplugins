@@ -4,25 +4,33 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import check_settings, get_baseplugin_fieldset
+from djangocms_baseplugins.baseplugin.utils import (
+    check_settings,
+    get_baseplugin_fieldset,
+)
 
-
-NAME = _('Twitter Embed')
+NAME = _("Twitter Embed")
 MODULE = defaults.ADVANCED_LABEL
 
-TRANSLATED_FIELDS = ['tweet_url', ]
+TRANSLATED_FIELDS = [
+    "tweet_url",
+]
 
 DESIGN_FIELDS = []
-CONTENT_FIELDS = ['tweet_url', ]
+CONTENT_FIELDS = [
+    "tweet_url",
+]
 ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 
 # check for django settings that override!
-check_settings('TWEETEMBEDPLUGIN', sys.modules[__name__], settings)
+check_settings("TWEETEMBEDPLUGIN", sys.modules[__name__], settings)
 
 # define fieldsets! important: AFTER check_settings!
-FIELDSETS = get_baseplugin_fieldset(**{
-    'design': DESIGN_FIELDS,
-    'content': CONTENT_FIELDS,
-    'advanced': ADVANCED_FIELDS,
-})
+FIELDSETS = get_baseplugin_fieldset(
+    **{
+        "design": DESIGN_FIELDS,
+        "content": CONTENT_FIELDS,
+        "advanced": ADVANCED_FIELDS,
+    }
+)

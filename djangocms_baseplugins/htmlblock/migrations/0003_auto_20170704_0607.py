@@ -7,28 +7,30 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('htmlblock', '0002_auto_20161220_2124'),
+        ("htmlblock", "0002_auto_20161220_2124"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='htmlblock',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="htmlblock",
+            name="background",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='htmlblock',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="htmlblock",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='htmlblock',
-            name='htmlblock',
-            field=models.TextField(help_text='Use with caution.', verbose_name='HTML Block'),
+            model_name="htmlblock",
+            name="htmlblock",
+            field=models.TextField(
+                help_text="Use with caution.", verbose_name="HTML Block"
+            ),
         ),
         migrations.AlterField(
-            model_name='htmlblock',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="htmlblock",
+            name="layout",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
     ]

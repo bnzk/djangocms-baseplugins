@@ -19,7 +19,7 @@ class DownloadBase(models.Model):
     )
     link_text = models.CharField(
         max_length=255,
-        default='',
+        default="",
         blank=True,
     )
 
@@ -29,9 +29,9 @@ class DownloadBase(models.Model):
     def to_string(self):
         text = None
         if self.link_text:
-            text = '%s, %s' % (self.link_text, self.file)
+            text = "%s, %s" % (self.link_text, self.file)
         if not text:
-            text = '%s' % (self.file)
+            text = "%s" % (self.file)
         return text
 
     def get_link_text(self):

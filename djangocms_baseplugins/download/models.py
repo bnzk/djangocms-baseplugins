@@ -2,9 +2,10 @@ from django.utils.translation import gettext_lazy as _
 
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
+
 from .base import DownloadPluginBase
 
-check_migration_modules_needed('download')
+check_migration_modules_needed("download")
 
 
 class DownloadSectionBase(AbstractBasePlugin):

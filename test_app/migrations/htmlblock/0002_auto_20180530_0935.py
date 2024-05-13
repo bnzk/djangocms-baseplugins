@@ -6,55 +6,72 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('htmlblock', '0001_initial'),
+        ("htmlblock", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='htmlblock',
-            name='anchor_de',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="htmlblock",
+            name="anchor_de",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='anchor_en',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="htmlblock",
+            name="anchor_en",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='anchor_fr',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="htmlblock",
+            name="anchor_fr",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='htmlblock_de',
-            field=models.TextField(help_text='Use with caution.', null=True, verbose_name='HTML Block'),
+            model_name="htmlblock",
+            name="htmlblock_de",
+            field=models.TextField(
+                help_text="Use with caution.", null=True, verbose_name="HTML Block"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='htmlblock_en',
-            field=models.TextField(help_text='Use with caution.', null=True, verbose_name='HTML Block'),
+            model_name="htmlblock",
+            name="htmlblock_en",
+            field=models.TextField(
+                help_text="Use with caution.", null=True, verbose_name="HTML Block"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='htmlblock_fr',
-            field=models.TextField(help_text='Use with caution.', null=True, verbose_name='HTML Block'),
+            model_name="htmlblock",
+            name="htmlblock_fr",
+            field=models.TextField(
+                help_text="Use with caution.", null=True, verbose_name="HTML Block"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='title_de',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="htmlblock",
+            name="title_de",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='title_en',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="htmlblock",
+            name="title_en",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='htmlblock',
-            name='title_fr',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="htmlblock",
+            name="title_fr",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
     ]

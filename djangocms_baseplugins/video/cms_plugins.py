@@ -1,9 +1,12 @@
 from cms.plugin_pool import plugin_pool
 
-from djangocms_baseplugins.baseplugin.factory import baseplugin_formfactory, baseplugin_classfactory
+from djangocms_baseplugins.baseplugin.factory import (
+    baseplugin_classfactory,
+    baseplugin_formfactory,
+)
+
 from . import conf
 from .models import Video
-
 
 VideoPluginForm = baseplugin_formfactory(Video, conf)
 VideoPlugin = baseplugin_classfactory(Video, conf, form=VideoPluginForm)

@@ -6,55 +6,78 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('twitter', '0001_initial'),
+        ("twitter", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='tweetembed',
-            name='anchor_de',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="tweetembed",
+            name="anchor_de",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='anchor_en',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="tweetembed",
+            name="anchor_en",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='anchor_fr',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="tweetembed",
+            name="anchor_fr",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='title_de',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="tweetembed",
+            name="title_de",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='title_en',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="tweetembed",
+            name="title_en",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='title_fr',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="tweetembed",
+            name="title_fr",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='tweet_url_de',
-            field=models.URLField(help_text='Example: https://twitter.com/MdDoomFest/status/795834590481018880', null=True, verbose_name='Tweet URL'),
+            model_name="tweetembed",
+            name="tweet_url_de",
+            field=models.URLField(
+                help_text="Example: https://twitter.com/MdDoomFest/status/795834590481018880",
+                null=True,
+                verbose_name="Tweet URL",
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='tweet_url_en',
-            field=models.URLField(help_text='Example: https://twitter.com/MdDoomFest/status/795834590481018880', null=True, verbose_name='Tweet URL'),
+            model_name="tweetembed",
+            name="tweet_url_en",
+            field=models.URLField(
+                help_text="Example: https://twitter.com/MdDoomFest/status/795834590481018880",
+                null=True,
+                verbose_name="Tweet URL",
+            ),
         ),
         migrations.AddField(
-            model_name='tweetembed',
-            name='tweet_url_fr',
-            field=models.URLField(help_text='Example: https://twitter.com/MdDoomFest/status/795834590481018880', null=True, verbose_name='Tweet URL'),
+            model_name="tweetembed",
+            name="tweet_url_fr",
+            field=models.URLField(
+                help_text="Example: https://twitter.com/MdDoomFest/status/795834590481018880",
+                null=True,
+                verbose_name="Tweet URL",
+            ),
         ),
     ]

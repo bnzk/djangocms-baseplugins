@@ -7,9 +7,9 @@ from djangocms_baseplugins.download.base import DownloadBase
 
 class InlineDownloadBase(AbstractBasePlugin):
     height = models.CharField(
-        _('Height'),
+        _("Height"),
         max_length=32,
-        default='',
+        default="",
         blank=True,
     )
 
@@ -31,8 +31,8 @@ class InlineDownloadBase(AbstractBasePlugin):
 
 class InlineDownloadEntryBase(DownloadBase):
     inline_download = models.ForeignKey(
-        'inline_download.InlineDownload',
-        related_name='downloads',
+        "inline_download.InlineDownload",
+        related_name="downloads",
         on_delete=models.CASCADE,
     )
     order = models.PositiveIntegerField(
@@ -43,5 +43,5 @@ class InlineDownloadEntryBase(DownloadBase):
         return self.to_string()
 
     class Meta:
-        ordering = ('order',)
+        ordering = ("order",)
         abstract = True

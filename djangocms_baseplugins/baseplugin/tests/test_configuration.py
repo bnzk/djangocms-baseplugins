@@ -7,7 +7,6 @@ from django.test import Client, TestCase
 
 
 class ConfigurationTestCase(TestCase):
-
     def setUp(self):
         self._reload_plugins_settings()
         # prepare
@@ -34,7 +33,7 @@ class ConfigurationTestCase(TestCase):
         pass
         # is it ready for the reload?
         # conf = importlib.import_module('{}.conf'.format(self.plugin_path))
-        # cms_plugins = importlib.import_module('{}.cms_plugins'.format(self.plugin_path))
+        importlib.import_module("{}.cms_plugins".format(self.plugin_path))
         # importlib.reload(conf)
         # plugin_pool.unregister_plugin(self.plugin_class)
         # for additional in self.additional_plugins:
@@ -47,10 +46,14 @@ class ConfigurationTestCase(TestCase):
 
     def test_invalid_custom_baseclass_improperly_configured(self):
         settings_kwargs = {
-            'DJANGOCMS_BASEPLUGINS_BASEMODEL': 'test_app.models.InvalidAbstractBasePlugin',
+            "DJANGOCMS_BASEPLUGINS_BASEMODEL": (
+                "test_app.models.InvalidAbstractBasePlugin"
+            ),
         }
         with self.settings(**settings_kwargs):
-            baseplugin_models = importlib.import_module('djangocms_baseplugins.baseplugin.models')
+            baseplugin_models = importlib.import_module(
+                "djangocms_baseplugins.baseplugin.models"
+            )
             throws = False
             try:
                 importlib.reload(baseplugin_models)
@@ -60,10 +63,14 @@ class ConfigurationTestCase(TestCase):
 
     def test_not_existing_custom_baseclass_improperly_configured(self):
         settings_kwargs = {
-            'DJANGOCMS_BASEPLUGINS_BASEMODEL': 'test_app.models.ObjectNotThereAbstractBasePlugin',
+            "DJANGOCMS_BASEPLUGINS_BASEMODEL": (
+                "test_app.models.ObjectNotThereAbstractBasePlugin"
+            ),
         }
         with self.settings(**settings_kwargs):
-            baseplugin_models = importlib.import_module('djangocms_baseplugins.baseplugin.models')
+            baseplugin_models = importlib.import_module(
+                "djangocms_baseplugins.baseplugin.models"
+            )
             throws = False
             try:
                 importlib.reload(baseplugin_models)

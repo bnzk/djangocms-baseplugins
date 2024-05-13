@@ -7,44 +7,51 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('image', '0003_auto_20170704_0607'),
+        ("image", "0003_auto_20170704_0607"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='image',
-            name='anchor',
-            field=models.SlugField(blank=True, default='', verbose_name='Anchor'),
+            model_name="image",
+            name="anchor",
+            field=models.SlugField(blank=True, default="", verbose_name="Anchor"),
         ),
         migrations.AlterField(
-            model_name='image',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64,
-                                   verbose_name='Background'),
+            model_name="image",
+            name="background",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Background"
+            ),
         ),
         migrations.AlterField(
-            model_name='image',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Color'),
+            model_name="image",
+            name="color",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Color"
+            ),
         ),
         migrations.AlterField(
-            model_name='image',
-            name='in_menu',
-            field=models.BooleanField(default=False, verbose_name='In Menu?'),
+            model_name="image",
+            name="in_menu",
+            field=models.BooleanField(default=False, verbose_name="In Menu?"),
         ),
         migrations.AlterField(
-            model_name='image',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Layout'),
+            model_name="image",
+            name="layout",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Layout"
+            ),
         ),
         migrations.AlterField(
-            model_name='image',
-            name='published',
-            field=models.BooleanField(default=True, verbose_name='Published?'),
+            model_name="image",
+            name="published",
+            field=models.BooleanField(default=True, verbose_name="Published?"),
         ),
         migrations.AlterField(
-            model_name='image',
-            name='title',
-            field=models.CharField(blank=True, default='', max_length=256, verbose_name='Title'),
+            model_name="image",
+            name="title",
+            field=models.CharField(
+                blank=True, default="", max_length=256, verbose_name="Title"
+            ),
         ),
     ]

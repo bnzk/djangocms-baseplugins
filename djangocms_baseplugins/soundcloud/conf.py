@@ -4,10 +4,13 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
+from djangocms_baseplugins.baseplugin.utils import (
+    check_settings,
+    get_baseplugin_fieldset,
+)
 
 # basics
-NAME = _('Soundcloud Embed')
+NAME = _("Soundcloud Embed")
 MODULE = defaults.SPECIAL_LABEL
 
 # parent / children
@@ -17,38 +20,69 @@ REQUIRE_PARENT = False
 
 # fields
 TRANSLATED_FIELDS = []
-CONTENT_FIELDS = ['soundcloud_url', ]
+CONTENT_FIELDS = [
+    "soundcloud_url",
+]
 DESIGN_FIELDS = []
 ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 # choices
 LAYOUT_CHOICES = (
-    ('2', _("2 Spalten"),),
-    ('3', _("3 Spalten"),),
-    ('4', _("4 Spalten"),),
+    (
+        "2",
+        _("2 Spalten"),
+    ),
+    (
+        "3",
+        _("3 Spalten"),
+    ),
+    (
+        "4",
+        _("4 Spalten"),
+    ),
 )
 BACKGROUND_CHOICES = (
-    ('white', _("Weiss"),),
-    ('beige', _("Beige"),),
-    ('grey', _("Grau"),),
+    (
+        "white",
+        _("Weiss"),
+    ),
+    (
+        "beige",
+        _("Beige"),
+    ),
+    (
+        "grey",
+        _("Grau"),
+    ),
 )
 COLOR_CHOICES = (
-    ('default', _("Default"),),
+    (
+        "default",
+        _("Default"),
+    ),
 )
 SIZE_CHOICES = (
-    ('default', _("Default"),),
+    (
+        "default",
+        _("Default"),
+    ),
 )
 CUSTOM_CHOICES = (
-    ('default', _("Default"),),
+    (
+        "default",
+        _("Default"),
+    ),
 )
 
 
 # check for django settings that override!
-check_settings('SOUNDCLOUDPLUGIN', sys.modules[__name__], settings)
+check_settings("SOUNDCLOUDPLUGIN", sys.modules[__name__], settings)
 
 # define fieldsets! important: AFTER check_settings!
-FIELDSETS = get_baseplugin_fieldset(**{
-    'design': DESIGN_FIELDS,
-    'content': CONTENT_FIELDS,
-    'advanced': ADVANCED_FIELDS,
-})
+FIELDSETS = get_baseplugin_fieldset(
+    **{
+        "design": DESIGN_FIELDS,
+        "content": CONTENT_FIELDS,
+        "advanced": ADVANCED_FIELDS,
+    }
+)

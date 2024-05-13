@@ -7,23 +7,23 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('twitter', '0002_auto_20161108_1934'),
+        ("twitter", "0002_auto_20161108_1934"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='tweetembed',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="tweetembed",
+            name="background",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="tweetembed",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="tweetembed",
+            name="layout",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
     ]

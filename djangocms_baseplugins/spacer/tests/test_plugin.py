@@ -8,5 +8,5 @@ from djangocms_baseplugins.spacer.cms_plugins import SpacerPlugin
 
 class SpacerPluginTests(BasePluginTestCase, TestCase):
     plugin_class = SpacerPlugin
-    plugin_settings_prefix = 'SPACERPLUGIN'
-    plugin_path = 'djangocms_baseplugins.spacer'
+    plugin_settings_prefix = "SPACERPLUGIN"
+    plugin_path = "djangocms_baseplugins.spacer"

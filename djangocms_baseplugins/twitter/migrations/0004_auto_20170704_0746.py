@@ -7,44 +7,51 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('twitter', '0003_auto_20170704_0607'),
+        ("twitter", "0003_auto_20170704_0607"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='tweetembed',
-            name='anchor',
-            field=models.SlugField(blank=True, default='', verbose_name='Anchor'),
+            model_name="tweetembed",
+            name="anchor",
+            field=models.SlugField(blank=True, default="", verbose_name="Anchor"),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64,
-                                   verbose_name='Background'),
+            model_name="tweetembed",
+            name="background",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Background"
+            ),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Color'),
+            model_name="tweetembed",
+            name="color",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Color"
+            ),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='in_menu',
-            field=models.BooleanField(default=False, verbose_name='In Menu?'),
+            model_name="tweetembed",
+            name="in_menu",
+            field=models.BooleanField(default=False, verbose_name="In Menu?"),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Layout'),
+            model_name="tweetembed",
+            name="layout",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Layout"
+            ),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='published',
-            field=models.BooleanField(default=True, verbose_name='Published?'),
+            model_name="tweetembed",
+            name="published",
+            field=models.BooleanField(default=True, verbose_name="Published?"),
         ),
         migrations.AlterField(
-            model_name='tweetembed',
-            name='title',
-            field=models.CharField(blank=True, default='', max_length=256, verbose_name='Title'),
+            model_name="tweetembed",
+            name="title",
+            field=models.CharField(
+                blank=True, default="", max_length=256, verbose_name="Title"
+            ),
         ),
     ]

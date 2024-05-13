@@ -7,28 +7,30 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('gallery', '0001_initial'),
+        ("gallery", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='gallery',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="gallery",
+            name="background",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='gallery',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="gallery",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='gallery',
-            name='height',
-            field=models.CharField(blank=True, default='', max_length=32, verbose_name='Height'),
+            model_name="gallery",
+            name="height",
+            field=models.CharField(
+                blank=True, default="", max_length=32, verbose_name="Height"
+            ),
         ),
         migrations.AlterField(
-            model_name='gallery',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="gallery",
+            name="layout",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
     ]

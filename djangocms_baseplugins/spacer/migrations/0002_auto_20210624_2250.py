@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('spacer', '0001_initial'),
+        ("spacer", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='spacer',
-            name='custom',
-            field=models.CharField(blank=True, default='', max_length=128, verbose_name='Custom'),
+            model_name="spacer",
+            name="custom",
+            field=models.CharField(
+                blank=True, default="", max_length=128, verbose_name="Custom"
+            ),
         ),
         migrations.AddField(
-            model_name='spacer',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Size'),
+            model_name="spacer",
+            name="size",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Size"
+            ),
         ),
     ]

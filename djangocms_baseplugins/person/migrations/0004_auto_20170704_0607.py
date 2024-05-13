@@ -10,83 +10,98 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('person', '0003_auto_20170403_0432'),
+        ("person", "0003_auto_20170403_0432"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='person',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="person",
+            name="background",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='body',
-            field=ckeditor.fields.RichTextField(blank=True, default='', verbose_name='Text'),
+            model_name="person",
+            name="body",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default="", verbose_name="Text"
+            ),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="person",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='email',
-            field=models.EmailField(blank=True, default='', max_length=254, verbose_name='Email'),
+            model_name="person",
+            name="email",
+            field=models.EmailField(
+                blank=True, default="", max_length=254, verbose_name="Email"
+            ),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='first_name',
-            field=models.CharField(blank=True, default='', max_length=255,
-                                   verbose_name='First Name'),
+            model_name="person",
+            name="first_name",
+            field=models.CharField(
+                blank=True, default="", max_length=255, verbose_name="First Name"
+            ),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='image',
-            field=filer.fields.image.FilerImageField(blank=True, default=None, null=True,
-                                                     on_delete=django.db.models.deletion.SET_NULL,
-                                                     related_name='person_person_image',
-                                                     to='filer.Image', verbose_name='Image'),
+            model_name="person",
+            name="image",
+            field=filer.fields.image.FilerImageField(
+                blank=True,
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="person_person_image",
+                to="filer.Image",
+                verbose_name="Image",
+            ),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='last_name',
-            field=models.CharField(default='', max_length=255, verbose_name='Last Name'),
+            model_name="person",
+            name="last_name",
+            field=models.CharField(
+                default="", max_length=255, verbose_name="Last Name"
+            ),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="person",
+            name="layout",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='phone',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Phone'),
+            model_name="person",
+            name="phone",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Phone"
+            ),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='salutation',
-            field=models.CharField(blank=True, default='', max_length=255,
-                                   verbose_name='Salutation'),
+            model_name="person",
+            name="salutation",
+            field=models.CharField(
+                blank=True, default="", max_length=255, verbose_name="Salutation"
+            ),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='website',
-            field=models.URLField(blank=True, default='', verbose_name='Website'),
+            model_name="person",
+            name="website",
+            field=models.URLField(blank=True, default="", verbose_name="Website"),
         ),
         migrations.AlterField(
-            model_name='personsection',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="personsection",
+            name="background",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='personsection',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="personsection",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='personsection',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="personsection",
+            name="layout",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
     ]

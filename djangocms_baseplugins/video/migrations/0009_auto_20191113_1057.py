@@ -6,15 +6,18 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('video', '0008_auto_20190923_1628'),
+        ("video", "0008_auto_20190923_1628"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='video',
-            name='autoplay',
-            field=models.BooleanField(default=False, help_text='Enforces muting the video!', verbose_name='Autoplay'),
+            model_name="video",
+            name="autoplay",
+            field=models.BooleanField(
+                default=False,
+                help_text="Enforces muting the video!",
+                verbose_name="Autoplay",
+            ),
         ),
     ]

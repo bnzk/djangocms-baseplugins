@@ -1,12 +1,11 @@
 from modeltranslation.translator import TranslationOptions, translator
 
 from djangocms_baseplugins.baseplugin import defaults
-from .models import FormDesigner
+
 from . import conf
+from .models import FormDesigner
 
-
-translation_fields = defaults.TRANSLATED_FIELDS \
-                     + conf.TRANSLATED_FIELDS
+translation_fields = defaults.TRANSLATED_FIELDS + conf.TRANSLATED_FIELDS
 
 
 class FormDesignerTranslationOptions(TranslationOptions):

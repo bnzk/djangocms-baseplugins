@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('inline_gallery', '0004_inlinegallery_description'),
+        ("inline_gallery", "0004_inlinegallery_description"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='inlinegallery',
-            name='custom',
-            field=models.CharField(blank=True, default='', max_length=128, verbose_name='Custom'),
+            model_name="inlinegallery",
+            name="custom",
+            field=models.CharField(
+                blank=True, default="", max_length=128, verbose_name="Custom"
+            ),
         ),
         migrations.AddField(
-            model_name='inlinegallery',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Size'),
+            model_name="inlinegallery",
+            name="size",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Size"
+            ),
         ),
     ]

@@ -7,100 +7,147 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('person', '0001_initial'),
+        ("person", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='person',
-            name='anchor_de',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="person",
+            name="anchor_de",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='anchor_en',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="person",
+            name="anchor_en",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='anchor_fr',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="person",
+            name="anchor_fr",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='body_de',
-            field=ckeditor.fields.RichTextField(blank=True, default='', null=True, verbose_name='Text'),
+            model_name="person",
+            name="body_de",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default="", null=True, verbose_name="Text"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='body_en',
-            field=ckeditor.fields.RichTextField(blank=True, default='', null=True, verbose_name='Text'),
+            model_name="person",
+            name="body_en",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default="", null=True, verbose_name="Text"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='body_fr',
-            field=ckeditor.fields.RichTextField(blank=True, default='', null=True, verbose_name='Text'),
+            model_name="person",
+            name="body_fr",
+            field=ckeditor.fields.RichTextField(
+                blank=True, default="", null=True, verbose_name="Text"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='salutation_de',
-            field=models.CharField(blank=True, default='', max_length=255, null=True, verbose_name='Salutation'),
+            model_name="person",
+            name="salutation_de",
+            field=models.CharField(
+                blank=True,
+                default="",
+                max_length=255,
+                null=True,
+                verbose_name="Salutation",
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='salutation_en',
-            field=models.CharField(blank=True, default='', max_length=255, null=True, verbose_name='Salutation'),
+            model_name="person",
+            name="salutation_en",
+            field=models.CharField(
+                blank=True,
+                default="",
+                max_length=255,
+                null=True,
+                verbose_name="Salutation",
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='salutation_fr',
-            field=models.CharField(blank=True, default='', max_length=255, null=True, verbose_name='Salutation'),
+            model_name="person",
+            name="salutation_fr",
+            field=models.CharField(
+                blank=True,
+                default="",
+                max_length=255,
+                null=True,
+                verbose_name="Salutation",
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='title_de',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="person",
+            name="title_de",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='title_en',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="person",
+            name="title_en",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='person',
-            name='title_fr',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="person",
+            name="title_fr",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='anchor_de',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="personsection",
+            name="anchor_de",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='anchor_en',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="personsection",
+            name="anchor_en",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='anchor_fr',
-            field=models.SlugField(blank=True, default='', null=True, verbose_name='Anchor'),
+            model_name="personsection",
+            name="anchor_fr",
+            field=models.SlugField(
+                blank=True, default="", null=True, verbose_name="Anchor"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='title_de',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="personsection",
+            name="title_de",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='title_en',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="personsection",
+            name="title_en",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
         migrations.AddField(
-            model_name='personsection',
-            name='title_fr',
-            field=models.CharField(blank=True, default='', max_length=256, null=True, verbose_name='Title'),
+            model_name="personsection",
+            name="title_fr",
+            field=models.CharField(
+                blank=True, default="", max_length=256, null=True, verbose_name="Title"
+            ),
         ),
     ]

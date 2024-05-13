@@ -7,23 +7,23 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('column', '0001_initial'),
+        ("column", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='column',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="column",
+            name="background",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='column',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="column",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='column',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="column",
+            name="layout",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
     ]

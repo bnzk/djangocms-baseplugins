@@ -16,6 +16,7 @@ class PluginTemplateBase(models.Model):
     """
     abstract base model, no cmsplugin mixed in
     """
+
     image = FilerImageField(
         null=True,
         on_delete=models.SET_NULL,
@@ -24,7 +25,7 @@ class PluginTemplateBase(models.Model):
     )
     caption = models.CharField(
         max_length=255,
-        default='',
+        default="",
         blank=True,
     )
 
@@ -32,7 +33,7 @@ class PluginTemplateBase(models.Model):
         abstract = True
 
     def to_string(self):
-        text = ''
+        text = ""
         if self.title:
             text = self.title
         return text

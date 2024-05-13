@@ -3,14 +3,12 @@ from djangocms_baseplugins.baseplugin.utils import check_migration_modules_neede
 
 from . import conf
 
-
-check_migration_modules_needed('autocolumns')
+check_migration_modules_needed("autocolumns")
 
 
 class AutoColumns(AbstractBasePlugin):
-
     def to_string(self):
-        text = ''  # str(_("Auto Columns"))
+        text = ""  # str(_("Auto Columns"))
         if self.title:
             text = self.title
         return self.attrs_to_string(text, conf)

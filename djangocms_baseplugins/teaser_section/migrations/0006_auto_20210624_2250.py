@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('teaser_section', '0005_auto_20171128_0357'),
+        ("teaser_section", "0005_auto_20171128_0357"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='teasersection',
-            name='custom',
-            field=models.CharField(blank=True, default='', max_length=128, verbose_name='Custom'),
+            model_name="teasersection",
+            name="custom",
+            field=models.CharField(
+                blank=True, default="", max_length=128, verbose_name="Custom"
+            ),
         ),
         migrations.AddField(
-            model_name='teasersection',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Size'),
+            model_name="teasersection",
+            name="size",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Size"
+            ),
         ),
     ]

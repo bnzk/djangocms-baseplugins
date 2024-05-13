@@ -2,7 +2,6 @@ from django.shortcuts import redirect
 
 
 class FormSentRedirectMiddleware(object):
-
     def __init__(self, get_response=None):
         if get_response:
             self.get_response = get_response
@@ -21,6 +20,6 @@ class FormSentRedirectMiddleware(object):
 
     def process_response(self, request, response):
         # was it sent in the plugin code?!
-        if getattr(request, 'form_designer_sent', False):
-            return redirect('./?sent=true&id={}'.format(request.form_designer_sent))
+        if getattr(request, "form_designer_sent", False):
+            return redirect("./?sent=true&id={}".format(request.form_designer_sent))
         return response

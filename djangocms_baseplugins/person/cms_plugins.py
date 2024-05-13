@@ -1,12 +1,15 @@
 from cms.plugin_pool import plugin_pool
 
-from djangocms_baseplugins.baseplugin.factory import baseplugin_formfactory, baseplugin_classfactory
-from . import conf_section, conf_person
+from djangocms_baseplugins.baseplugin.factory import (
+    baseplugin_classfactory,
+    baseplugin_formfactory,
+)
+
+from . import conf_person, conf_section
 from .models import Person, PersonSection
 
-
 PersonSectionPlugin = baseplugin_classfactory(PersonSection, conf_section)
-PersonSectionPlugin.render_template = 'djangocms_baseplugins/person_section.html'
+PersonSectionPlugin.render_template = "djangocms_baseplugins/person_section.html"
 plugin_pool.register_plugin(PersonSectionPlugin)
 
 

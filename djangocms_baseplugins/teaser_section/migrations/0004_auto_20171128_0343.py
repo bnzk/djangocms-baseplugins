@@ -7,18 +7,22 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('teaser_section', '0003_auto_20170704_0746'),
+        ("teaser_section", "0003_auto_20170704_0746"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='teasersection',
-            name='published_from_date',
-            field=models.DateTimeField(default=None, null=True, verbose_name='Published from'),
+            model_name="teasersection",
+            name="published_from_date",
+            field=models.DateTimeField(
+                default=None, null=True, verbose_name="Published from"
+            ),
         ),
         migrations.AddField(
-            model_name='teasersection',
-            name='published_until_date',
-            field=models.DateTimeField(default=None, null=True, verbose_name='Published until'),
+            model_name="teasersection",
+            name="published_until_date",
+            field=models.DateTimeField(
+                default=None, null=True, verbose_name="Published until"
+            ),
         ),
     ]

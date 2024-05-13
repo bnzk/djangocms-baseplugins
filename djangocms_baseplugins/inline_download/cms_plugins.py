@@ -4,9 +4,10 @@ from django.contrib import admin
 from filer_addons.filer_gui.admin.upload_inline import UploadInlineMixin
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
+from ..baseplugin.cms_plugins import BasePluginInlineMixin
 from . import conf
 from .models import InlineDownload, InlineDownloadEntry
-from ..baseplugin.cms_plugins import BasePluginInlineMixin
 
 
 # class InlineDownloadImageInline(admin.StackedInline):
@@ -17,14 +18,17 @@ class InlineDownloadEntryInline(
     admin.StackedInline,
 ):
     model = InlineDownloadEntry
-    file_field = 'file'
+    file_field = "file"
     fieldsets = (
-        (None, {
-            'fields': conf.ENTRY_CONTENT_FIELDS,
-        }),
+        (
+            None,
+            {
+                "fields": conf.ENTRY_CONTENT_FIELDS,
+            },
+        ),
     )
     extra = 0
-    position_field = 'order'
+    position_field = "order"
 
 
 InlineDownloadPluginBase = baseplugin_classfactory(InlineDownload, conf)
@@ -32,7 +36,9 @@ InlineDownloadPluginBase = baseplugin_classfactory(InlineDownload, conf)
 
 class InlineDownloadPlugin(InlineDownloadPluginBase):
     render_template = "djangocms_baseplugins/inline_download.html"
-    inlines = [InlineDownloadEntryInline, ]
+    inlines = [
+        InlineDownloadEntryInline,
+    ]
 
 
 plugin_pool.register_plugin(InlineDownloadPlugin)

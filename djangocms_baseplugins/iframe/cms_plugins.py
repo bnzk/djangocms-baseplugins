@@ -1,11 +1,14 @@
 from cms.plugin_pool import plugin_pool
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
 from . import conf
 from .models import Iframe
 
-
-IframePlugin = baseplugin_classfactory(Iframe, conf,)
+IframePlugin = baseplugin_classfactory(
+    Iframe,
+    conf,
+)
 plugin_pool.register_plugin(IframePlugin)
 
 

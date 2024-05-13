@@ -14,7 +14,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     title = models.CharField(
         max_length=256,
         blank=True,
-        default='',
+        default="",
         verbose_name=_("Title"),
     )
     # visibility
@@ -41,39 +41,39 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     # base opticss
     layout = models.CharField(
         max_length=64,
-        default='',
+        default="",
         blank=True,
         verbose_name=_("Layout"),
     )
-    size = models.CharField(
+    size = models.CharField(  # noqa
         max_length=64,
         null=True,
-        default='',
+        default="",
         blank=True,
         verbose_name=_("Size"),
     )
     background = models.CharField(
         max_length=64,
         blank=True,
-        default='',
+        default="",
         verbose_name=_("Background"),
     )
     color = models.CharField(
         max_length=64,
         blank=True,
-        default='',
+        default="",
         verbose_name=_("Color"),
     )
-    custom = models.CharField(
+    custom = models.CharField(  # noqa
         max_length=128,
         null=True,
-        default='',
+        default="",
         blank=True,
         verbose_name=_("Custom"),
     )
     # navigation
     anchor = models.SlugField(
-        default='',
+        default="",
         blank=True,
         verbose_name=_("Anchor"),
     )
@@ -85,7 +85,7 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     #     return u'%s %s' % (self.__class__, self.get_hidden_flag())
 
     def __str__(self):
-        if getattr(self, 'to_string', None):
+        if getattr(self, "to_string", None):
             return self.add_hidden_flag(self.to_string())
         else:
             return super().__str__()
@@ -93,10 +93,14 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     # TODO: rename to is_published?
     def is_visible(self):
         if self.published:
-            if self.published_from_date is None or \
-                    self.published_from_date <= datetime.datetime.now():
-                if self.published_until_date is None or \
-                        self.published_until_date >= datetime.datetime.now():
+            if (
+                self.published_from_date is None
+                or self.published_from_date <= datetime.datetime.now()
+            ):
+                if (
+                    self.published_until_date is None
+                    or self.published_until_date >= datetime.datetime.now()
+                ):
                     return True
         return False
 
@@ -105,35 +109,35 @@ class DefaultAbstractBasePlugin(CMSPlugin):
             return text
         for field in defaults.ATTR_FIELDS:
             if getattr(self, field, None):
-                choices = getattr(conf, '{}_CHOICES'.format(field.upper()), [])
+                choices = getattr(conf, "{}_CHOICES".format(field.upper()), [])
                 for choice in choices:
                     if choice[0] == getattr(self, field, None):
-                        text += ', ' if text else ''
+                        text += ", " if text else ""
                         text += str(choice[1])
         return text
 
     def add_hidden_flag(self, text):
-        return '{} {}'.format(text, self.get_hidden_flag())
+        return "{} {}".format(text, self.get_hidden_flag())
 
     def get_hidden_flag(self):
-        time_flag = ''
+        time_flag = ""
         if self.published_from_date:
-            time_flag = '{}'.format(self.published_from_date)
+            time_flag = "{}".format(self.published_from_date)
             if not self.published_until_date:
-                time_flag += ' - '
+                time_flag += " - "
         if self.published_until_date:
-            time_flag = '{} - {}'.format(time_flag, self.published_until_date)
-        hidden_flag = ''
+            time_flag = "{} - {}".format(time_flag, self.published_until_date)
+        hidden_flag = ""
         if not self.published:
-            hidden_flag = _('hidden')
+            hidden_flag = _("hidden")
         if hidden_flag and time_flag:
-            return '({} / {})'.format(hidden_flag, time_flag)
+            return "({} / {})".format(hidden_flag, time_flag)
         if hidden_flag or time_flag:
-            return '({}{})'.format(hidden_flag, time_flag)
-        return ''
+            return "({}{})".format(hidden_flag, time_flag)
+        return ""
 
     def get_plugin_css_block_class(self):
-        return 'plugin-{}'.format(self.__class__.__name__.lower())
+        return "plugin-{}".format(self.__class__.__name__.lower())
 
     # deprecated, but why?
     def get_css_classes(self):
@@ -142,21 +146,21 @@ class DefaultAbstractBasePlugin(CMSPlugin):
 
     def css_classes(self):
         plugin_block_class = self.get_plugin_css_block_class()
-        classes = 'plugin plugin_{} '.format(self.pk)
-        classes += ' {} '.format(plugin_block_class)
+        classes = "plugin plugin_{} ".format(self.pk)
+        classes += " {} ".format(plugin_block_class)
         if self.anchor:
-            classes += ' plugin_{} '.format(self.anchor)
-        classes += self._css_modifier_for_field('layout')
-        classes += self._css_modifier_for_field('size')
-        classes += self._css_modifier_for_field('background')
-        classes += self._css_modifier_for_field('color')
-        classes += self._css_modifier_for_field('custom')
-        classes += ' {}_position-{} '.format(plugin_block_class, self.position)
+            classes += " plugin_{} ".format(self.anchor)
+        classes += self._css_modifier_for_field("layout")
+        classes += self._css_modifier_for_field("size")
+        classes += self._css_modifier_for_field("background")
+        classes += self._css_modifier_for_field("color")
+        classes += self._css_modifier_for_field("custom")
+        classes += " {}_position-{} ".format(plugin_block_class, self.position)
         if self.anchor:
-            classes += ' {}_anchor-{} '.format(plugin_block_class, self.anchor)
+            classes += " {}_anchor-{} ".format(plugin_block_class, self.anchor)
 
         # deprecated for 1.0!
-        classes += ' plugin_{}'.format(self.__class__.__name__.lower())
+        classes += " plugin_{}".format(self.__class__.__name__.lower())
         # was dangerous! removed without deprecation
         # classes += ' {}'.format(self.layout)
         # classes += ' {}'.format(self.background)
@@ -166,14 +170,14 @@ class DefaultAbstractBasePlugin(CMSPlugin):
     def _css_modifier_for_field(self, field):
         plugin_block_class = self.get_plugin_css_block_class()
         if getattr(self, field, None):
-            return ' {}_{} {}_{}-{}'.format(
+            return " {}_{} {}_{}-{}".format(
                 plugin_block_class,
                 getattr(self, field),
                 plugin_block_class,
                 field,
                 getattr(self, field),
             )
-        return ''
+        return ""
 
     def get_anchor(self):
         """
@@ -194,20 +198,16 @@ class DefaultAbstractBasePlugin(CMSPlugin):
 
     def html_wrapper_attributes(self):
         attrs = self.html_wrapper_attributes_dict()
-        attrs_out = ''
+        attrs_out = ""
         for attr_key, attr_value in attrs.items():
             attrs_out += ' {}="{}"'.format(attr_key, attr_value)
         return mark_safe(attrs_out)
 
     def html_wrapper_attributes_dict(self):
-        attrs = getattr(
-            super(),
-            'wrapper_attributes_dict',
-            {}
-        )
+        attrs = getattr(super(), "wrapper_attributes_dict", {})
         my_attrs = {
-            'class': self.css_classes(),
-            'id': self.html_id(),
+            "class": self.css_classes(),
+            "id": self.html_id(),
         }
         attrs.update(my_attrs)
         return attrs

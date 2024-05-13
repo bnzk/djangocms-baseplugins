@@ -8,4 +8,4 @@ from djangocms_baseplugins.inline_gallery.cms_plugins import InlineGalleryPlugin
 
 class InlineGalleryPluginTests(BasePluginTestCase, TestCase):
     plugin_class = InlineGalleryPlugin
-    plugin_path = 'djangocms_baseplugins.inline_gallery'
+    plugin_path = "djangocms_baseplugins.inline_gallery"

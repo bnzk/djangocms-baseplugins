@@ -7,5 +7,7 @@ from django.utils.translation import gettext_lazy as _
 @apphook_pool.register
 class LoginFormAppHook(CMSApp):
     name = _("LoginForm App")
-    urls = ["djangocms_loginform.urls", ]
+    urls = [
+        "djangocms_loginform.urls",
+    ]
     # menus = [CategoryMenu, ]

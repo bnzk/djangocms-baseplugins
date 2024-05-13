@@ -8,5 +8,5 @@ from djangocms_baseplugins.textimage.cms_plugins import TextImagePlugin
 
 class TextImagePluginTests(BasePluginTestCase, TestCase):
     plugin_class = TextImagePlugin
-    plugin_settings_prefix = 'TEXTIMAGEPLUGIN'
-    plugin_path = 'djangocms_baseplugins.textimage'
+    plugin_settings_prefix = "TEXTIMAGEPLUGIN"
+    plugin_path = "djangocms_baseplugins.textimage"

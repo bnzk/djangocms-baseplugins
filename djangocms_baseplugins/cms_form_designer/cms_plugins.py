@@ -4,12 +4,13 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from django.contrib import admin
 from django.utils.text import slugify
-from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
-from .utils import check_form_send
 
-from .models import FormDesigner, FormDefaultValue
-from . import conf
+from djangocms_baseplugins.baseplugin.cms_plugins import BasePluginMixin
+
 from ..baseplugin.factory import baseplugin_formfactory
+from . import conf
+from .models import FormDefaultValue, FormDesigner
+from .utils import check_form_send
 
 
 class FormDefaultValueInline(admin.TabularInline):
@@ -27,7 +28,7 @@ class FormDesignerPlugin(BasePluginMixin, CMSPluginBase):
     name = conf.NAME
     cache = False
     form = FormDesignerPluginForm
-    inlines = (FormDefaultValueInline, )
+    inlines = (FormDefaultValueInline,)
     render_template = "djangocms_baseplugins/form_designer.html"
     allow_children = conf.ALLOW_CHILDREN
     child_classes = conf.CHILD_CLASSES
@@ -36,7 +37,7 @@ class FormDesignerPlugin(BasePluginMixin, CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super().render(context, instance, placeholder)
-        request = context.get('request', None)
+        request = context.get("request", None)
         # defaults
         initial = {}
         for default in instance.default_values.all():
@@ -44,8 +45,8 @@ class FormDesignerPlugin(BasePluginMixin, CMSPluginBase):
         # build form
         form_class = instance.form.form()
         form = None
-        if request and request.method.lower() == 'post':
-            if request.POST.get('form_content_id', None) == str(instance.id):
+        if request and request.method.lower() == "post":
+            if request.POST.get("form_content_id", None) == str(instance.id):
                 form = form_class(request.POST, initial=initial)
         if not form:
             form = form_class(initial=initial)
@@ -58,11 +59,11 @@ class FormDesignerPlugin(BasePluginMixin, CMSPluginBase):
             # if not, we dont get a redirect, and can submit the form again, with F5!
         elif (
             request
-            and request.GET.get('sent', None)
-            and request.GET.get('id', None) == str(instance.pk)
+            and request.GET.get("sent", None)
+            and request.GET.get("id", None) == str(instance.pk)
         ):
             # sent via app hook
             context["sent"] = True
-        context['form'] = form
-        context['submit_uuid'] = str(uuid.uuid1())
+        context["form"] = form
+        context["submit_uuid"] = str(uuid.uuid1())
         return context

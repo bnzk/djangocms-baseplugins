@@ -8,28 +8,28 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('text', '0001_initial'),
+        ("text", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='text',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="text",
+            name="background",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='text',
-            name='body',
-            field=ckeditor.fields.RichTextField(blank=True, verbose_name='Text'),
+            model_name="text",
+            name="body",
+            field=ckeditor.fields.RichTextField(blank=True, verbose_name="Text"),
         ),
         migrations.AlterField(
-            model_name='text',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="text",
+            name="color",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
         migrations.AlterField(
-            model_name='text',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64),
+            model_name="text",
+            name="layout",
+            field=models.CharField(blank=True, default="", max_length=64),
         ),
     ]

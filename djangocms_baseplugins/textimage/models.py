@@ -1,18 +1,20 @@
 from ckeditor.fields import RichTextField
 from django.utils.translation import gettext_lazy as _
 
-from djangocms_baseplugins.baseplugin.utils import truncate_richtext_content, sanitize_richtext
+from djangocms_baseplugins.baseplugin.utils import (
+    check_migration_modules_needed,
+    sanitize_richtext,
+    truncate_richtext_content,
+)
 from djangocms_baseplugins.image.models import ImagePluginBase
-from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
+
 from . import conf
 
-
-check_migration_modules_needed('textimage')
+check_migration_modules_needed("textimage")
 
 
 class TextImageBase(ImagePluginBase):
-
-    body = RichTextField(_('Text'), blank=True)
+    body = RichTextField(_("Text"), blank=True)
 
     class Meta:
         abstract = True

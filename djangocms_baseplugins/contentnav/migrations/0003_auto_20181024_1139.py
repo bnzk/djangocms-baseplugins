@@ -9,16 +9,20 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('contentnav', '0002_auto_20181011_1006'),
+        ("contentnav", "0002_auto_20181011_1006"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='contentnav',
-            name='cms_page',
-            field=cms.models.fields.PageField(blank=True, default=None,
-                                              help_text='Show submenu of this page', null=True,
-                                              on_delete=django.db.models.deletion.CASCADE,
-                                              to='cms.Page'),
+            model_name="contentnav",
+            name="cms_page",
+            field=cms.models.fields.PageField(
+                blank=True,
+                default=None,
+                help_text="Show submenu of this page",
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="cms.Page",
+            ),
         ),
     ]

@@ -1,9 +1,9 @@
 from cms.plugin_pool import plugin_pool
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
 from . import conf
 from .models import TeaserSection
-
 
 TeaserSectionPlugin = baseplugin_classfactory(TeaserSection, conf)
 plugin_pool.register_plugin(TeaserSectionPlugin)

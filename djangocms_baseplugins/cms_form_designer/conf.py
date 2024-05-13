@@ -4,15 +4,17 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 from djangocms_baseplugins.baseplugin import defaults
-from djangocms_baseplugins.baseplugin.utils import get_baseplugin_fieldset, check_settings
-
+from djangocms_baseplugins.baseplugin.utils import (
+    check_settings,
+    get_baseplugin_fieldset,
+)
 
 # custom stuff, for form designer
 TEMPLATESSETTING = True
 CUSTOM_EMAIL_SEND = True
 
 # basics
-NAME = _('Form')
+NAME = _("Form")
 MODULE = defaults.SPECIAL_LABEL
 
 # parent / children
@@ -23,25 +25,38 @@ REQUIRE_PARENT = False
 # fields
 TRANSLATED_FIELDS = []
 DESIGN_FIELDS = []
-CONTENT_FIELDS = ['form', 'text_intro', 'button_label', 'text_confirmation', ]
+CONTENT_FIELDS = [
+    "form",
+    "text_intro",
+    "button_label",
+    "text_confirmation",
+]
 ADVANCED_FIELDS = defaults.ADVANCED_FIELDS
 
 # choices
 LAYOUT_CHOICES = (
-    ('smalller', _("Kompakter"),),
-    ('bigger', _("Umfangreicher"),),
+    (
+        "smalller",
+        _("Kompakter"),
+    ),
+    (
+        "bigger",
+        _("Umfangreicher"),
+    ),
 )
 
 
 # check for django settings that override!
-check_settings('FORMDESIGNERPLUGIN', sys.modules[__name__], settings)
+check_settings("FORMDESIGNERPLUGIN", sys.modules[__name__], settings)
 
 # define fieldsets! important: AFTER check_settings!
-FIELDSETS = get_baseplugin_fieldset(**{
-    'design': DESIGN_FIELDS,
-    'content': CONTENT_FIELDS,
-    'advanced': ADVANCED_FIELDS,
-})
+FIELDSETS = get_baseplugin_fieldset(
+    **{
+        "design": DESIGN_FIELDS,
+        "content": CONTENT_FIELDS,
+        "advanced": ADVANCED_FIELDS,
+    }
+)
 
 
 # OPPINIATED STUFF; MIGHT BE ADDED WITH A SETTINGS SWITCH ONE DAY

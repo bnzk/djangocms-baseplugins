@@ -1,19 +1,21 @@
 from cms.plugin_pool import plugin_pool
 
-from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory, baseplugin_formfactory
+from djangocms_baseplugins.baseplugin.factory import (
+    baseplugin_classfactory,
+    baseplugin_formfactory,
+)
+
 from . import conf
 from .models import TextImage
-
 
 TextImagePluginFormBase = baseplugin_formfactory(TextImage, conf)
 
 
 class TextImagePluginForm(TextImagePluginFormBase):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if not conf.IMAGE_REQUIRED:
-            self.fields['image'].required = False
+            self.fields["image"].required = False
 
 
 TextImagePlugin = baseplugin_classfactory(TextImage, conf, form=TextImagePluginForm)

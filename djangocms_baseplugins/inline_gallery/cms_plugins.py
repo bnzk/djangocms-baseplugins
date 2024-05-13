@@ -4,25 +4,26 @@ from django.contrib import admin
 from filer_addons.filer_gui.admin.upload_inline import UploadInlineMixin
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
 from . import conf
-from .models import InlineGallery
-from .models import InlineGalleryImage
+from .models import InlineGallery, InlineGalleryImage
 
 
 # class InlineGalleryImageInline(admin.StackedInline):
 class InlineGalleryImageInline(
-    UploadInlineMixin,
-    DragAndDropSortableInlineMixin,
-    admin.TabularInline
+    UploadInlineMixin, DragAndDropSortableInlineMixin, admin.TabularInline
 ):
     model = InlineGalleryImage
-    file_field = 'image'
+    file_field = "image"
     fieldsets = (
-        (None, {
-            'fields': conf.IMAGE_CONTENT_FIELDS,
-        }),
+        (
+            None,
+            {
+                "fields": conf.IMAGE_CONTENT_FIELDS,
+            },
+        ),
     )
-    position_field = 'order'
+    position_field = "order"
     extra = 0
 
 
@@ -32,7 +33,9 @@ InlineGalleryPluginForm = InlineGalleryPluginBase.form
 
 class InlineGalleryPlugin(InlineGalleryPluginBase):
     render_template = "djangocms_baseplugins/inline_gallery.html"
-    inlines = [InlineGalleryImageInline, ]
+    inlines = [
+        InlineGalleryImageInline,
+    ]
 
 
 plugin_pool.register_plugin(InlineGalleryPlugin)

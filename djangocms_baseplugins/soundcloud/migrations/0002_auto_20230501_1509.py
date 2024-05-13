@@ -4,20 +4,23 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('soundcloud', '0001_initial'),
+        ("soundcloud", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='soundcloud',
-            name='custom',
-            field=models.CharField(blank=True, default='', max_length=128, null=True, verbose_name='Custom'),
+            model_name="soundcloud",
+            name="custom",
+            field=models.CharField(
+                blank=True, default="", max_length=128, null=True, verbose_name="Custom"
+            ),
         ),
         migrations.AlterField(
-            model_name='soundcloud',
-            name='size',
-            field=models.CharField(blank=True, default='', max_length=64, null=True, verbose_name='Size'),
+            model_name="soundcloud",
+            name="size",
+            field=models.CharField(
+                blank=True, default="", max_length=64, null=True, verbose_name="Size"
+            ),
         ),
     ]

@@ -7,44 +7,51 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('slider', '0002_auto_20170704_0607'),
+        ("slider", "0002_auto_20170704_0607"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='slider',
-            name='anchor',
-            field=models.SlugField(blank=True, default='', verbose_name='Anchor'),
+            model_name="slider",
+            name="anchor",
+            field=models.SlugField(blank=True, default="", verbose_name="Anchor"),
         ),
         migrations.AlterField(
-            model_name='slider',
-            name='background',
-            field=models.CharField(blank=True, default='', max_length=64,
-                                   verbose_name='Background'),
+            model_name="slider",
+            name="background",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Background"
+            ),
         ),
         migrations.AlterField(
-            model_name='slider',
-            name='color',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Color'),
+            model_name="slider",
+            name="color",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Color"
+            ),
         ),
         migrations.AlterField(
-            model_name='slider',
-            name='in_menu',
-            field=models.BooleanField(default=False, verbose_name='In Menu?'),
+            model_name="slider",
+            name="in_menu",
+            field=models.BooleanField(default=False, verbose_name="In Menu?"),
         ),
         migrations.AlterField(
-            model_name='slider',
-            name='layout',
-            field=models.CharField(blank=True, default='', max_length=64, verbose_name='Layout'),
+            model_name="slider",
+            name="layout",
+            field=models.CharField(
+                blank=True, default="", max_length=64, verbose_name="Layout"
+            ),
         ),
         migrations.AlterField(
-            model_name='slider',
-            name='published',
-            field=models.BooleanField(default=True, verbose_name='Published?'),
+            model_name="slider",
+            name="published",
+            field=models.BooleanField(default=True, verbose_name="Published?"),
         ),
         migrations.AlterField(
-            model_name='slider',
-            name='title',
-            field=models.CharField(blank=True, default='', max_length=256, verbose_name='Title'),
+            model_name="slider",
+            name="title",
+            field=models.CharField(
+                blank=True, default="", max_length=256, verbose_name="Title"
+            ),
         ),
     ]

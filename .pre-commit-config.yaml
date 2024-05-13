@@ -53,8 +53,3 @@ repos:
       - id: prettier
         args: [--list-different]
         exclude: "(.*\\.html|.*\\.md)$"
-  # eslinth, shall we? urrfff
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.47.0
-    hooks:
-      - id: eslint

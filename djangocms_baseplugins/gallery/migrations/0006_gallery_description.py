@@ -7,13 +7,13 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
     dependencies = [
-        ('gallery', '0005_auto_20171128_0357'),
+        ("gallery", "0005_auto_20171128_0357"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='gallery',
-            name='description',
-            field=models.TextField(blank=True, default=''),
+            model_name="gallery",
+            name="description",
+            field=models.TextField(blank=True, default=""),
         ),
     ]

@@ -1,30 +1,29 @@
 import json
 
 from ckeditor.fields import RichTextField
-from django.db import models
-from django.utils.html import format_html, mark_safe, strip_tags
-from django.template.defaultfilters import linebreaksbr
-from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
+from django import forms
+from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.core.serializers.json import DjangoJSONEncoder
+from django.db import models
 from django.forms.renderers import TemplatesSetting
-from form_designer.models import Form, FormSubmission
-from django import forms
-from textblocks.templatetags.textblock_tags import textblock
+from django.template.defaultfilters import linebreaksbr
 from django.template.loader import render_to_string
-from django.conf import settings
+from django.utils.html import format_html, mark_safe, strip_tags
+from form_designer.models import Form, FormSubmission
+from textblocks.templatetags.textblock_tags import textblock
 
+from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
 
-
-check_migration_modules_needed('cms_form_designer')
+check_migration_modules_needed("cms_form_designer")
 
 
 class FormDefaultValue(models.Model):
     plugin = models.ForeignKey(
-        'cms_form_designer.FormDesigner',
+        "cms_form_designer.FormDesigner",
         on_delete=models.CASCADE,
-        related_name='default_values',
+        related_name="default_values",
     )
     field_name = models.CharField(
         max_length=64,
@@ -33,29 +32,28 @@ class FormDefaultValue(models.Model):
         max_length=64,
     )
 
+    def __str__(self):
+        return f"{self.field_name}: {self.default}"
+
 
 class FormDesigner(AbstractBasePlugin):
-
     form = models.ForeignKey(
-        'form_designer.Form',
+        "form_designer.Form",
         on_delete=models.PROTECT,
         null=True,
     )
     text_intro = RichTextField(
-        default='',
+        default="",
         blank=True,
-        help_text='Shown initially, above the form. If empty, nothing is shown'
+        help_text="Shown initially, above the form. If empty, nothing is shown",
     )
     text_confirmation = RichTextField(
-        default='',
+        default="",
         blank=True,
-        help_text='Shown after form was sent. If empty, a fallback is shown'
+        help_text="Shown after form was sent. If empty, a fallback is shown",
     )
     button_label = models.CharField(
-        max_length=64,
-        default='',
-        blank=True,
-        help_text='Text for the form send button'
+        max_length=64, default="", blank=True, help_text="Text for the form send button"
     )
 
     def to_string(self):
@@ -82,12 +80,10 @@ def send_emails(model_instance, form_instance, request, config, **kwargs):
     cleaned = form_instance.cleaned_data
     headers = {}
     sender = None
-    if config.get('sender_field', None):
-        sender = cleaned.get(config.get('sender_field'), '')
+    if config.get("sender_field", None):
+        sender = cleaned.get(config.get("sender_field"), "")
         if sender:
-            headers = {
-                'Reply-To': sender
-            }
+            headers = {"Reply-To": sender}
     # to recipient, in any case
     send_to = [email.strip() for email in config["recipients"].split(",")]
     msg = EmailMultiAlternatives(
@@ -98,29 +94,34 @@ def send_emails(model_instance, form_instance, request, config, **kwargs):
         headers=headers,
     )
     html = render_to_string(
-        'cms_form_designer/emails/recipient.html',
-        {'body': custom_formatted_data(submission, html=True)}
+        "cms_form_designer/emails/recipient.html",
+        {"body": custom_formatted_data(submission, html=True)},
     )
     msg.attach_alternative(html, "text/html")
     msg.send(fail_silently=False)
     # copy
     if sender:
-        copy_subject = '{}{}'.format(
-            textblock("Bestätigung - ", help_text="Formular Email Subject Prefix für sender Kopie"),
+        copy_subject = "{}{}".format(
+            textblock(
+                "Bestätigung - ",
+                help_text="Formular Email Subject Prefix für sender Kopie",
+            ),
             model_instance.title,
         )
         copy_body = textblock(
             "Vielen Dank! ... ",
             type="text/html",
-            help_text="Formular Email Body für sender Kopie"
+            help_text="Formular Email Body für sender Kopie",
         )
         copy_html = render_to_string(
-            'cms_form_designer/emails/confirmation.html', {'body': copy_body}
+            "cms_form_designer/emails/confirmation.html", {"body": copy_body}
         )
         msg = EmailMultiAlternatives(
             copy_subject,
             strip_tags(copy_body),
-            to=[sender, ],
+            to=[
+                sender,
+            ],
             from_email=settings.DEFAULT_FROM_EMAIL,
         )
         msg.attach_alternative(copy_html, "text/html")
@@ -134,17 +135,17 @@ def custom_formatted_data(submission, html=False):
     for field in submission.form.fields.all():
         value = data_dict.get(field.name)
         title = field.title
-        if field.type == 'longtext':
+        if field.type == "longtext":
             value = linebreaksbr(value)
         out += custom_data_row(title, value, html)
     # out += custom_data_row('Submitted', submission.submitted, html)
-    out += custom_data_row('Path', submission.path, html)
+    out += custom_data_row("Path", submission.path, html)
     return mark_safe(out)
 
 
 def custom_data_row(title, value, html=False):
     if html:
-        return format_html('<b>{}</b><br>{}<br><br>', title, value)
+        return format_html("<b>{}</b><br>{}<br><br>", title, value)
     else:
         return "{}: {}\n".format(title, value)
 
@@ -164,28 +165,37 @@ Form.CONFIG_OPTIONS[1] = (
     {
         "title": ("Email schicken"),
         "form_fields": [
-            ("recipients", forms.CharField(
-                label=("Empfänger Email"),
-                required=True,
-                # validators...
-                help_text="Feld, welches die Email Adresse enthält"
-            )),
-            ("copy_to_sender", forms.BooleanField(
-                label=("Send copy to sender"),
-                required=False,
-                # validators...
-                help_text="Kopie an den Absender schicken?"
-            )),
-            ("sender_field", forms.CharField(
-                label=("Sender E-Mail field"),
-                required=False,
-                # validators...
-                help_text="Feld, welches die Email Adresse enthält"
-            )),
+            (
+                "recipients",
+                forms.CharField(
+                    label=("Empfänger Email"),
+                    required=True,
+                    # validators...
+                    help_text="Feld, welches die Email Adresse enthält",
+                ),
+            ),
+            (
+                "copy_to_sender",
+                forms.BooleanField(
+                    label=("Send copy to sender"),
+                    required=False,
+                    # validators...
+                    help_text="Kopie an den Absender schicken?",
+                ),
+            ),
+            (
+                "sender_field",
+                forms.CharField(
+                    label=("Sender E-Mail field"),
+                    required=False,
+                    # validators...
+                    help_text="Feld, welches die Email Adresse enthält",
+                ),
+            ),
         ],
         "process": send_emails,
         # "validate": validate_send_emails,
-    }
+    },
 )
 
 
@@ -196,7 +206,7 @@ def form_class(self):
 
 
 # prevent endless loop when reloading things during tests, or elsewhere
-if not getattr(Form, 'form_class_patched', None):
+if not getattr(Form, "form_class_patched", None):
     Form.form_class_patched = True
     Form.orig_form_class = Form.form_class
     Form.form_class = form_class

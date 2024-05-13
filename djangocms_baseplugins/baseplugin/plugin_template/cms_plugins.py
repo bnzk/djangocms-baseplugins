@@ -1,10 +1,10 @@
 # coding: utf-8
 from cms.plugin_pool import plugin_pool
 
-from . import conf
-from .models import PluginTemplate
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
 
+from . import conf
+from .models import PluginTemplate
 
 PluginTemplatePlugin = baseplugin_classfactory(PluginTemplate, conf)
 plugin_pool.register_plugin(PluginTemplatePlugin)

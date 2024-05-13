@@ -8,13 +8,17 @@ from djangocms_baseplugins.person.cms_plugins import PersonPlugin, PersonSection
 
 class PersonSectionPluginTests(BasePluginTestCase, TestCase):
     plugin_class = PersonSectionPlugin
-    plugin_path = 'djangocms_baseplugins.person'
-    plugin_conf = 'conf_section'
-    additional_plugins = [PersonPlugin, ]
+    plugin_path = "djangocms_baseplugins.person"
+    plugin_conf = "conf_section"
+    additional_plugins = [
+        PersonPlugin,
+    ]
 
 
 class PersonPluginTests(BasePluginTestCase, TestCase):
     plugin_class = PersonPlugin
-    plugin_path = 'djangocms_baseplugins.person'
-    plugin_conf = 'conf_person'
-    additional_plugins = [PersonSectionPlugin, ]
+    plugin_path = "djangocms_baseplugins.person"
+    plugin_conf = "conf_person"
+    additional_plugins = [
+        PersonSectionPlugin,
+    ]

@@ -6,15 +6,16 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('video', '0007_auto_20190921_1807'),
+        ("video", "0007_auto_20190921_1807"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='video',
-            name='show_related',
-            field=models.BooleanField(default=False, help_text='youtube only', verbose_name='show related'),
+            model_name="video",
+            name="show_related",
+            field=models.BooleanField(
+                default=False, help_text="youtube only", verbose_name="show related"
+            ),
         ),
     ]

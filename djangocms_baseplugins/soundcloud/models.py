@@ -4,16 +4,14 @@ from django.db import models
 from djangocms_baseplugins.baseplugin.models import AbstractBasePlugin
 from djangocms_baseplugins.baseplugin.utils import check_migration_modules_needed
 
-
-check_migration_modules_needed('soundcloud')
+check_migration_modules_needed("soundcloud")
 
 
 class Soundcloud(AbstractBasePlugin):
-
     soundcloud_url = models.URLField()
     color = models.CharField(
         max_length=32,
-        default='',
+        default="",
         blank=True,
     )
     autoplay = models.BooleanField(
@@ -30,11 +28,11 @@ class Soundcloud(AbstractBasePlugin):
         """
         docs: https://developers.soundcloud.com/docs/oembed#introduction
         """
-        url = 'https://soundcloud.com/oembed'
+        url = "https://soundcloud.com/oembed"
         params = {
-            'format': 'json',
-            'url': self.soundcloud_url,
-            'maxheight': '166',
+            "format": "json",
+            "url": self.soundcloud_url,
+            "maxheight": "166",
         }
         response = requests.get(url, params=params)
         return response.json()

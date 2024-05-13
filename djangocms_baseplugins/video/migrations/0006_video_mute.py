@@ -6,15 +6,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('video', '0005_video_show_related'),
+        ("video", "0005_video_show_related"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='video',
-            name='mute',
-            field=models.BooleanField(default=False, verbose_name='mute'),
+            model_name="video",
+            name="mute",
+            field=models.BooleanField(default=False, verbose_name="mute"),
         ),
     ]

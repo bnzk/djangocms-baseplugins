@@ -1,9 +1,12 @@
 from cms.plugin_pool import plugin_pool
 
-from djangocms_baseplugins.baseplugin.factory import baseplugin_formfactory, baseplugin_classfactory
+from djangocms_baseplugins.baseplugin.factory import (
+    baseplugin_classfactory,
+    baseplugin_formfactory,
+)
+
 from . import conf
 from .models import Text
-
 
 TextPluginForm = baseplugin_formfactory(Text, conf)
 TextPlugin = baseplugin_classfactory(Text, conf, form=TextPluginForm)

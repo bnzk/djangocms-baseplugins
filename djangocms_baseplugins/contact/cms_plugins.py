@@ -1,15 +1,19 @@
 from cms.plugin_pool import plugin_pool
 
 from djangocms_baseplugins.baseplugin.factory import baseplugin_classfactory
+
 from . import conf
 from .models import Contact
-
 
 ContactPluginBase = baseplugin_classfactory(Contact, conf)
 
 
 class ContactPlugin(ContactPluginBase):
-    readonly_fields = ('lat', 'lng', 'geo_error',)
+    readonly_fields = (
+        "lat",
+        "lng",
+        "geo_error",
+    )
 
 
 plugin_pool.register_plugin(ContactPlugin)

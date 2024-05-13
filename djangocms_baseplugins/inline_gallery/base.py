@@ -8,12 +8,12 @@ from djangocms_baseplugins.image.base import ImageBase
 class InlineGalleryBase(AbstractBasePlugin):
     description = models.TextField(
         blank=True,
-        default='',
+        default="",
     )
     height = models.CharField(
-        _('Height'),
+        _("Height"),
         max_length=32,
-        default='',
+        default="",
         blank=True,
     )
 
@@ -35,8 +35,8 @@ class InlineGalleryBase(AbstractBasePlugin):
 
 class InlineGalleryImageBase(ImageBase):
     gallery = models.ForeignKey(
-        'inline_gallery.InlineGallery',
-        related_name='images',
+        "inline_gallery.InlineGallery",
+        related_name="images",
         on_delete=models.CASCADE,
     )
     order = models.PositiveIntegerField(
@@ -44,5 +44,5 @@ class InlineGalleryImageBase(ImageBase):
     )
 
     class Meta:
-        ordering = ('order',)
+        ordering = ("order",)
         abstract = True
