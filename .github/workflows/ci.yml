@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python: [3.7, 3.8, 3.9, "3.10", "3.11"]
+        python: [3.8, 3.9, "3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v2
       - name: Setup Python ${{ matrix.python }}
@@ -32,12 +32,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
-      - name: Install flake8
+      - name: Install tox
         run: pip install tox
       - name: Run tox with coverage
         # Run tox using the version of Python in `PATH`
         # run: tox -e py${{ matrix.python }}-${{ matrix.django }}
-        run: tox -e py39-django32-coverage
+        run: tox -e py39-django32-cms-38-coverage
 
   lint:
     runs-on: ubuntu-latest
@@ -50,9 +50,9 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python }}
-      - name: Install flake8
-        run: pip install flake8 flake8-print
-      - name: Run flake8
+      - name: Install tox
+        run: pip install tox
+      - name: Run pre-commit (with tox)
         # Run tox using the version of Python in `PATH`
         # run: tox -e py${{ matrix.python }}-${{ matrix.django }}
-        run: flake8
+        run: tox -e py312-django42-cms-311-lint
