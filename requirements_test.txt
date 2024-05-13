@@ -27,6 +27,9 @@ requests
 # person (only if using default templates)
 django-mailprotector
 
+# dev
+pre-commit
+
 # testing tools
 tox
 coverage
