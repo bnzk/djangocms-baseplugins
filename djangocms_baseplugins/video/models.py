@@ -144,6 +144,7 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
         verbose_name=_("Video Adresse"),
         help_text=_("youtube & vimeo"),
     )
+    # oembed_info = models.JSONField(default=dict, blank=True,)
     poster_image = FilerImageField(
         null=True,
         on_delete=models.SET_NULL,
