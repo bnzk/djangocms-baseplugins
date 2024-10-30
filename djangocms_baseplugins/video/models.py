@@ -1,3 +1,4 @@
+import requests
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -17,8 +18,34 @@ check_migration_modules_needed("video")
 
 class VideoModelMixin(object):
     """
-    needs "video_url" property, not yet dynamic!
+    needs "video_url"
     """
+
+    def save(self):
+        needs = False
+        obj = None
+        if self.id:
+            obj = self.__class__.objects.filter(id=self.id).first()
+            if obj and not obj.video_url == self.video_url:
+                needs = True
+        elif self.video_url:
+            needs = True
+        if needs:
+            self.populate_oembed_infos()
+        super().save()
+
+    def populate_oembed_infos(self):
+        if self.video_type == "youtube":
+            url = "httsp://youtube.com/oembed/"
+        if self.video_type == "vimeo":
+            url = "httsp://vimeo.com/oembed/"
+        params = {
+            "format": "json",
+            "url": self.video_url,
+        }
+        response = requests.get(url, params)
+        if response.status_code == 200:
+            self.oembed_info = response.json()
 
     def _set_base_infos(self):
         self._valid_url = False
@@ -144,7 +171,10 @@ class VideoBase(VideoModelMixin, AbstractBasePlugin):
         verbose_name=_("Video Adresse"),
         help_text=_("youtube & vimeo"),
     )
-    # oembed_info = models.JSONField(default=dict, blank=True,)
+    oembed_info = models.JSONField(
+        default=dict,
+        blank=True,
+    )
     poster_image = FilerImageField(
         null=True,
         on_delete=models.SET_NULL,
