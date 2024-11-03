@@ -68,6 +68,12 @@ class VideoModelMixin(object):
         return result
 
     @property
+    def aspect_ratio(self):
+        if self.oembed_info.get("width", None) and self.oembed_info.get("height", None):
+            return self.oembed_info["width"] / self.oembed_info["height"]
+        return 0
+
+    @property
     def video_type(self):
         if not getattr(self, "_video_type", None):
             self._set_base_infos()
