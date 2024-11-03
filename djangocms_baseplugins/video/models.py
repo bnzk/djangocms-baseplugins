@@ -37,12 +37,15 @@ class VideoModelMixin(object):
     def populate_oembed_infos(self):
         if self.video_type == "youtube":
             url = "https://youtube.com/oembed/"
+            params = {
+                "format": "json",
+                "url": self.video_url,
+            }
         if self.video_type == "vimeo":
-            url = "https://vimeo.com/oembed/"
-        params = {
-            "format": "json",
-            "url": self.video_url,
-        }
+            url = "https://vimeo.com/api/oembed.json"
+            params = {
+                "url": self.video_url,
+            }
         response = requests.get(url, params)
         if response.status_code == 200:
             self.oembed_info = response.json()
