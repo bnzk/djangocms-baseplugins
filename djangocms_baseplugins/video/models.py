@@ -18,21 +18,21 @@ check_migration_modules_needed("video")
 
 class VideoModelMixin(object):
     """
-    needs "video_url"
+    needs "video_url" and "oembed_info" fields on model
     """
 
-    # def save(self):
-    #     needs = False
-    #     obj = None
-    #     if self.id:
-    #         obj = self.__class__.objects.filter(id=self.id).first()
-    #         if obj and not obj.video_url == self.video_url:
-    #             needs = True
-    #     elif self.video_url:
-    #         needs = True
-    #     if needs:
-    #         self.populate_oembed_infos()
-    #     super().save()
+    def save(self):
+        needs = False
+        obj = None
+        if self.id:
+            obj = self.__class__.objects.filter(id=self.id).first()
+            if obj and not obj.video_url == self.video_url:
+                needs = True
+        elif self.video_url:
+            needs = True
+        if needs:
+            self.populate_oembed_infos()
+        super().save()
 
     def populate_oembed_infos(self):
         if self.video_type == "youtube":
