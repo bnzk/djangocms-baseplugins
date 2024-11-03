@@ -1,3 +1,26 @@
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "djangocms-baseplugins"
+dynamic = ["version"]
+dependencies = [
+    "django",
+    "django-cms",
+    "django-filer",
+]
+
+#[project.optional-dependencies]
+#filer = ["django-filer"]
+#requests = ["requests"]
+
+[tool.setuptools.packages]
+find = {}  # Scan the project directory with the default parameters
+
+[tool.setuptools_scm]
+# can be empty if no extra settings are needed, presence enables setuptools-scm
+
 [tool.ruff]
 # Enable the pycodestyle (`E`) and Pyflakes (`F`) rules by default.
 # Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or

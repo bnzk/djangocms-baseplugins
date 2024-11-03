@@ -2,7 +2,6 @@
 # -r requirements_text.txt
 
 # when creating new migrations, the oldest supported version shall be used!
-django-cms==3.4.6
-django==2.2.28
-django-cms==3.4.6
-django-polymorphic==1.2.0
+django-cms<4>
+django<5
+django-filer<4
