@@ -1,40 +1,4 @@
-# base
-django<3
-django-cms<3.8
-
-# using translation
-django-modeltranslation
-djangocms-misc
-form_designer
-
-# using image fields (image, textimage, person)
-django-filer
-django-polymorphic==2.1.2
-easy-thumbnails
-django-admin-sort
-django-textblocks
--e git+https://github.com/benzkji/django-filer-addons@master#egg=django-filer-addons
-
-# richtext fields (text, textimage)
-django-ckeditor
-
-# inline_download, inline_gallery, for inline sorting)
-django-admin-sort
-
-# twitter
-requests
-
-# person (only if using default templates)
-django-mailprotector
-
-# dev
-pre-commit
+# deps needed for running tests with tox
 
 # testing tools
 tox
-coverage
-django-coverage
-flake8
-factory_boy
-mock
-selenium

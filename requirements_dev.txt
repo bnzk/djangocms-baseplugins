@@ -1,7 +1,32 @@
-# base
-# -r requirements_text.txt
+# needed for development
+
+# dev
+pre-commit
+
 
 # when creating new migrations, the oldest supported version shall be used!
-django-cms<4>
+django-cms<4
 django<5
 django-filer<4
+
+# further deps
+
+# richtext fields (text, textimage)
+django-ckeditor
+
+# inline_download, inline_gallery, for inline sorting)
+django-admin-sort
+
+# form designer
+django-admin-ordering
+form_designer
+django-textblocks
+
+# twitter
+requests
+
+# person (only if using default templates)
+django-mailprotector
+
+# filer addons used
+-e 'git+https://github.com/benzkji/django-filer-addons.git@master#egg=django-filer-addons'

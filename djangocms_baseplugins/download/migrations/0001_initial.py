@@ -12,7 +12,8 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ("cms", "0016_auto_20160608_1535"),
-        ("filer", "0010_auto_20180414_2058"),
+        # removed because of filer squashed migrations
+        # ("filer", "0010_auto_20180414_2058"),
     ]
 
     operations = [
