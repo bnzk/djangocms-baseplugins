@@ -1,8 +1,12 @@
 # djangocms-baseplugins
 
-[![Build Status](https://travis-ci.org/bnzk/djangocms-baseplugins.svg "Build Status")](https://travis-ci.org/bnzk/djangocms-baseplugins/)
-[![PyPi Version](https://img.shields.io/pypi/v/djangocms-baseplugins.svg "PyPi Version")](https://pypi.python.org/pypi/djangocms-baseplugins/)
-[![Licence](https://img.shields.io/pypi/l/djangocms-baseplugins.svg "Licence")](https://pypi.python.org/pypi/djangocms-baseplugins/)
+[![CI](https://img.shields.io/github/actions/workflow/status/bnzk/djangocms-baseplugins/ci.yml?style=flat-square&logo=github "CI")](https://github.com/bnzk/djangocms-baseplugins/actions/workflows/ci.yml)
+[![Licence](https://img.shields.io/github/license/bnzk/djangocms-baseplugins.svg?style=flat-square "Licence")](https://pypi.python.org/pypi/djangocms-baseplugins/)
+
+[//]: # ([![Version]&#40;https://img.shields.io/pypi/v/djangocms-baseplugins.svg?style=flat-square "Version"&#41;]&#40;https://pypi.python.org/pypi/djangocms-baseplugins/&#41;)
+
+[//]: # ([![PyPI Downloads]&#40;https://img.shields.io/pypi/dm/djangocms-baseplugins?style=flat-square "PyPi Downloads"&#41;]&#40;https://pypistats.org/packages/djangocms-baseplugins&#41;)
+
 
 A common base for consistent djangocms plugin development. includes default plugins.
 
